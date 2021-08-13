@@ -6,10 +6,11 @@
 本人博文 👉 **[简书 - 越前君](https://www.jianshu.com/u/f4dac74bd955)**
 
 
-## JavaScript 基础
+## JavaScript
 
 * [万物皆空之 JavaScript 原型](https://juejin.cn/post/6844903567325659144)
 * [深入 JavaScript 继承原理](https://juejin.cn/post/6844903569317953543)
+* [JavaScript 深入系列 15 篇](https://github.com/mqyqingfeng/Blog/issues/17)
 
 ## Webpack
 
