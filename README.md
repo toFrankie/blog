@@ -1,16 +1,19 @@
 
 <h5 style="border-bottom: none">Hello ~  I'm Frankie 👋</h5>
 
-这里，旨在记录一些个人认为较为优质的博文...
 
-本人博文 👉 **[简书 - 越前君](https://www.jianshu.com/u/f4dac74bd955)**
+平常多在 👉 **[简书](https://www.jianshu.com/u/f4dac74bd955)** 更新文章...
+
+
+以下记录一些好文...
 
 
 ## JavaScript
 
 * [万物皆空之 JavaScript 原型](https://juejin.cn/post/6844903567325659144)
 * [深入 JavaScript 继承原理](https://juejin.cn/post/6844903569317953543)
-* [JavaScript 深入系列 15 篇](https://github.com/mqyqingfeng/Blog/issues/17)
+* [JavaScript 深入系列 15 篇（冴羽）](https://github.com/mqyqingfeng/Blog/issues/17)
+* [JavaScript 专题（Veda）](http://www.nowamagic.net/librarys/veda/detail/1579)
 
 ## Webpack
 
