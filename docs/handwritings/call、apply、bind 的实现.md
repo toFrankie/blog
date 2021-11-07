@@ -68,4 +68,112 @@ Function.prototype.myCall = function (ctx, ...args) {
 }
 ```
 
-未完待续...
+## 二、apply 实现
+
+我们知道，`Function.prototype.apply()` 和 `Function.prototype.call()` 的区别仅在接收参数的形式不同，前者接收一个数组。
+
+基于上面的实现，简单修改下函数执行的参数即可。
+
+```js
+Function.prototype.myApply = function (ctx, ...args) {
+  const key = Symbol()
+  const context = ctx == undefined ? window : Object(ctx)
+
+  context[key] = this
+  const res = context[key](args) // 与 call 方法的区别点
+  delete context[key]
+
+  return res
+}
+```
+
+## 三、bind 实现
+
+我们知道，`Function.prototype.bind()` 参数形式与 `Function.prototype.call()` 相同，区别在于 `bind()` 返回一个绑定了 `this` 的新函数。
+
+其实，我们可以很快就写出以下方法：
+
+```js
+Function.prototype.myBind = function (ctx, ...args) {
+  const fn = this
+  return function (...newArgs) {
+    return fn.apply(ctx, [...args, ...newArgs])
+  }
+}
+```
+
+但是，这是不完全正确的...
+
+> 需要注意的是，`bind()` 方法返回的新函数，若通过 `new` 关键字进行调用，那么 `this` 绑定则不生效。
+
+举个例子：
+
+```js
+const person = {
+  name: 'Frankie'
+}
+
+function Foo(name) {
+  this.name = name
+}
+
+const Bar = Foo.bind(person)
+const bar = new Bar('Mandy')
+
+console.log(person.name) // "Frankie"
+console.log(bar.name) // "Mandy"
+```
+
+假设 `Foo.bind(person)` 生效的话，那么 `new Bar('Mandy')` 中 `this.name` 应该是 `person.name = 'Mandy'`，修改的应该是 `person` 对象的 `name` 属性，但事实并非如此。
+
+> 顺道总结一下 `this` 绑定的优先级：
+>
+> 1. 只要使用 `new` 关键字调用，无论是否含有 `bind` 绑定，`this` 总指向实例化对象。
+> 2. 通过 `call`、`apply` 或者 `bind` 显式绑定，`this` 指向该绑定对象。若第一个参数缺省时，则根据是否为严格模式，来确定 `this` 指向全局对象或者 `undefined`。
+> 3. 函数通过上下文对象调用，`this` 指向（最后）调用它的对象。
+> 4. 如以上均没有，则会默认绑定。严格模式下，`this` 指向 `undefined`，否则指向全局对象。
+
+因此，我们来完善一下 `myBind()` 方法：
+
+```js
+Function.prototype.myBind = function (ctx, ...args) {
+  const fn = this
+  return function newFn(...newArgs) {
+    // 若通过 new 关键字调用，有几种方式可以判断：
+    // 1. this instanceof newFn
+    // 2. this.__proto__.constructor === newFn
+    // 3. new.target 不为 undefined
+    if (new.target) {
+      return new newFn(...args, ...newArgs)
+    }
+
+    return fn.apply(ctx, [...args, ...newArgs])
+  }
+}
+```
+
+去掉注释，就长这样：
+
+```js
+Function.prototype.myBind = function (ctx, ...args) {
+  const fn = this
+  return function newFn(...newArgs) {
+    if (new.target) {
+      return new newFn(...args, ...newArgs)
+    }
+
+    return fn.apply(ctx, [...args, ...newArgs])
+  }
+}
+```
+
+总的来说，其实并不能，真正了解 this 原理，要手写这几个常考的面试题，其实很简单哈。
+
+> 插个话，我认为对于初学者来说，千万不要把作用域（链）和 `this` 混为一谈，其实它们完全就是两回事。作用域（链）与闭包相关，它在函数被定义时就已“确定”，不会再变了。而 `this` 则与函数调用相关。
+
+## References
+
+这里将此前写过关于 `this` 的文章列举出来：
+
+- [细读 JS 之 this 详解](https://www.jianshu.com/p/7d13893530de)
+- [在事件处理函数中的 this](https://www.jianshu.com/p/93e545ea4eb3)
