@@ -21,6 +21,7 @@
 
 最重要的是，知其内部执行原理，而不是为了面向面试学习...
 
-- [new 关键字的实现](https://github.com/toFrankie/Blog/issues/1)
+- [手写 new 关键字](https://github.com/toFrankie/Blog/issues/1)
 - [超详细的 JavaScript 深拷贝实现](https://github.com/toFrankie/Blog/issues/2)
+- [手写 call、apply、bind](https://github.com/toFrankie/Blog/issues/3)
 - ...
