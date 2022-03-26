@@ -2,8 +2,6 @@
 
 平常多在 👉 **[简书](https://www.jianshu.com/u/f4dac74bd955)** 更新文章...
 
-以下记录一些好文...
-
 ## JavaScript
 
 - [万物皆空之 JavaScript 原型](https://juejin.cn/post/6844903567325659144)
@@ -19,9 +17,10 @@
 
 ## 手写系列
 
-最重要的是，知其内部执行原理，而不是为了面向面试学习...
+了解其内部执行原理，最直接、深刻的方法不就是手写嘛！
 
-- [手写 new 关键字](https://github.com/toFrankie/Blog/issues/1)
+- [手写 `new` 关键字](https://github.com/toFrankie/Blog/issues/1)
 - [超详细的 JavaScript 深拷贝实现](https://github.com/toFrankie/Blog/issues/2)
-- [手写 call、apply、bind](https://github.com/toFrankie/Blog/issues/3)
+- [手写 `call`、`apply`、`bind`](https://github.com/toFrankie/Blog/issues/3)
+- [手写 `Object.create()`](https://github.com/toFrankie/Blog/issues/4)
 - ...
