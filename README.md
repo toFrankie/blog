@@ -23,4 +23,5 @@
 - [超详细的 JavaScript 深拷贝实现](https://github.com/toFrankie/Blog/issues/2)
 - [手写 `call`、`apply`、`bind`](https://github.com/toFrankie/Blog/issues/3)
 - [手写 `Object.create()`](https://github.com/toFrankie/Blog/issues/4)
+- [手写 `instanceof`](https://github.com/toFrankie/Blog/issues/5)
 - ...
