@@ -4,6 +4,8 @@
 
 后续将会在该 Repo 内进行更新...
 
+目前已累计写了将近 300 篇，更多请移步 [issues](https://github.com/toFrankie/blog/issues)。
+
 ## JavaScript
 
 - [万物皆空之 JavaScript 原型](https://juejin.cn/post/6844903567325659144)
@@ -27,7 +29,3 @@
 - [手写 `Object.create()`](https://github.com/toFrankie/Blog/issues/4)
 - [手写 `instanceof`](https://github.com/toFrankie/Blog/issues/5)
 - ...
-
-## 更多文章
-
-- 目前已累计写了将近 300 篇，更多请移步 [issues](https://github.com/toFrankie/blog/issues)。
