@@ -5,9 +5,10 @@ on:
       - main
 jobs:
   repo-sync:
+    name: Sync GitHub to Gitee
     runs-on: ubuntu-latest
     steps:
-      - name: Gitee repo mirror
+      - name: Mirror the GitHub repos to Gitee
         uses: Yikun/hub-mirror-action@master
         with:
           src: github/toFrankie
@@ -16,4 +17,5 @@ jobs:
           dst_token: ${{ secrets.GITEE_TOKEN }}
           static_list: 'blog'
           account_type: user
+          force_update: true
           debug: true
