@@ -1,0 +1,19 @@
+name: Sync to Gitee
+on:
+  push:
+    branches:
+      - main
+jobs:
+  repo-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Gitee repo mirror
+        uses: Yikun/hub-mirror-action@master
+        with:
+          src: github/toFrankie
+          dst: gitee/frankie_li
+          dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
+          dst_token: ${{ secrets.GITEE_TOKEN }}
+          static_list: 'blog'
+          account_type: user
+          debug: true
