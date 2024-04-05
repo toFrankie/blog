@@ -4,7 +4,7 @@
 
 ### 我的文章
 
-更多可[移步](https://github.com/toFrankie/blog/issues)。
+更多请[移步](https://github.com/toFrankie/blog/issues)。
 
 - [2024 年（ing）](https://github.com/toFrankie/blog/labels/2024)
 - [2023 年，共 33 篇](https://github.com/toFrankie/blog/labels/2023)
