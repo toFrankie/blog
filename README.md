@@ -4,8 +4,6 @@
 
 ### 我的文章
 
-更多请[移步](https://github.com/toFrankie/blog/issues)。
-
 - [2024 年（ing）](https://github.com/toFrankie/blog/labels/2024)
 - [2023 年，共 33 篇](https://github.com/toFrankie/blog/labels/2023)
 - [2022 年，共 65 篇](https://github.com/toFrankie/blog/labels/2022)
@@ -15,7 +13,9 @@
 - [2018 年，共 11 篇](https://github.com/toFrankie/blog/labels/2018)
 - [2017 年，共 5 篇](https://github.com/toFrankie/blog/labels/2017)
 
-📢 也可以使用 [Github Blogger](https://github.com/toFrankie/github-blogger) 构建你的博客。
+更多文章，请点击[此处](https://github.com/toFrankie/blog/issues)。
+
+📢 你也可以使用 [Github Blogger](https://github.com/toFrankie/github-blogger) 构建你的博客。
 
 ### 其他
 
@@ -39,3 +39,9 @@
 - [手写 call、apply、bind](https://github.com/toFrankie/Blog/issues/3)
 - [手写 Object.create](https://github.com/toFrankie/Blog/issues/4)
 - [手写 instanceof](https://github.com/toFrankie/Blog/issues/5)
+
+#### 工具系列
+
+- [macos-use](https://github.com/toFrankie/macos-use)
+- [github-blogger](https://github.com/toFrankie/github-blogger)
+- [terminal-theme](https://github.com/toFrankie/terminal-theme)
