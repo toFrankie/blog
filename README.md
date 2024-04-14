@@ -2,6 +2,8 @@
 
 <h2 style="border-bottom: none">Hey, I'm Frankie 👋</h2>
 
+种一棵树，最好的时间是十年前。其次，是现在。
+
 ### 我的文章
 
 - [2024 年（ing）](https://github.com/toFrankie/blog/labels/2024)
