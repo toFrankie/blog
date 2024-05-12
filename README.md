@@ -46,4 +46,4 @@
 
 - [macos-use](https://github.com/toFrankie/macos-use)
 - [github-blogger](https://github.com/toFrankie/github-blogger)
-- [terminal-theme](https://github.com/toFrankie/terminal-theme)
+- [terminal-dark-theme](https://github.com/toFrankie/terminal-dark-theme)
