@@ -26,7 +26,7 @@
 - [万物皆空之 JavaScript 原型](https://juejin.cn/post/6844903567325659144)
 - [深入 JavaScript 继承原理](https://juejin.cn/post/6844903569317953543)
 - [JavaScript 深入系列 15 篇（冴羽）](https://github.com/mqyqingfeng/Blog/issues/17)
-- [JavaScript 专题（Veda）](http://www.nowamagic.net/librarys/veda/detail/1579)
+- [JavaScript 系列专题（goddyZhao）](./docs/js/00-导读.md)
 
 #### Webpack 系列
 
