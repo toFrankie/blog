@@ -27,6 +27,7 @@
 - [深入 JavaScript 继承原理](https://juejin.cn/post/6844903569317953543)
 - [JavaScript 深入系列 15 篇（冴羽）](https://github.com/mqyqingfeng/Blog/issues/17)
 - [JavaScript 系列专题（goddyZhao）](./docs/js/00-导读.md)
+- [深入理解 JavaScript 系列（汤姆大叔）](https://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html)
 
 #### Webpack 系列
 
