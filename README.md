@@ -4,9 +4,13 @@
 
 种一棵树，最好的时间是十年前。其次，是现在。
 
+> [!TIP]
+>
+> 技术日新月异，文章内容或已过时，阅读时请细心斟酌。
+
 ### 我的文章
 
-- [2024 年（ing）](https://github.com/toFrankie/blog/labels/2024)
+- [2024 年，ing...](https://github.com/toFrankie/blog/labels/2024)
 - [2023 年，共 33 篇](https://github.com/toFrankie/blog/labels/2023)
 - [2022 年，共 65 篇](https://github.com/toFrankie/blog/labels/2022)
 - [2021 年，共 96 篇](https://github.com/toFrankie/blog/labels/2021)
