@@ -1,0 +1,40 @@
+name: Update Recent Articles
+
+on:
+  issues:
+    types: [opened, edited]
+
+jobs:
+  update-recent-articles:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Pull latest changes
+        run: git pull origin main
+
+      - name: Run update script
+        env:
+          GITHUB_TOKEN: ${{ secrets.WORKFLOW_GITHUB_TOKEN }}
+        run: node scripts/update-recent-articles.js
+
+      - name: Configure git
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
+      - name: Commit changes
+        run: |
+          git add docs/recent-articles.md
+          git commit -m "docs: update recent articles"
+          git push origin main

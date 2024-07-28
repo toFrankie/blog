@@ -1,0 +1,18 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "种一棵树，最好的时间是十年前。其次，是现在。",
+  "keywords": [
+    "blog",
+    "github-blogger",
+    "frankie",
+    "javascript",
+    "typescript"
+  ],
+  "author": "Frankie <1426203851@qq.com>",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "@octokit/rest": "^21.0.1"
+  }
+}
