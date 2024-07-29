@@ -2,6 +2,9 @@
   "name": "blog",
   "version": "1.0.0",
   "description": "种一棵树，最好的时间是十年前。其次，是现在。",
+  "type": "module",
+  "author": "Frankie <1426203851@qq.com>",
+  "license": "MIT",
   "keywords": [
     "blog",
     "github-blogger",
@@ -9,10 +12,10 @@
     "javascript",
     "typescript"
   ],
-  "author": "Frankie <1426203851@qq.com>",
-  "license": "MIT",
-  "type": "module",
   "dependencies": {
-    "@octokit/rest": "^21.0.1"
+    "@octokit/rest": "^21.0.1",
+    "dayjs": "^1.11.12",
+    "dotenv": "^16.4.5",
+    "gray-matter": "^4.0.3"
   }
 }
