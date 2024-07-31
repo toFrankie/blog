@@ -1,5 +1,6 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
+
 import { Octokit } from '@octokit/rest'
 
 const octokit = new Octokit({
@@ -28,8 +29,6 @@ async function updateRecentArticles() {
   const lines = ['# 近期更新', '']
 
   for (const issue of issues) {
-    const year = new Date(issue.updated_at).getFullYear()
-    const filePath = `archives/${year}/${issue.number}.md`
     lines.push(`- [${issue.title}](${issue.html_url || `#${issue.number}`})`)
   }
 

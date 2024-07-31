@@ -1,43 +1,37 @@
-import fs from 'fs'
+import fs from 'fs/promises'
 import path from 'path'
+
 import dotenv from 'dotenv'
-import { Octokit } from '@octokit/rest'
+
+// eslint-disable-next-line import/extensions
+import { fetchIssues, GITHUB_REPO, GITHUB_USER } from './common.js'
 
 dotenv.config()
-
-const GITHUB_TOKEN = process.env.GITHUB_TOKEN
-const GITHUB_USER = process.env.GITHUB_USER
-const GITHUB_REPO = process.env.GITHUB_REPO
 
 const TEMPLATE_FILE = path.resolve('docs', 'templates', 'readme.md')
 const OUTPUT_FILE = path.resolve('README.md')
 
-const octokit = new Octokit({ auth: GITHUB_TOKEN })
+;(async function main() {
+  let templateContent = await fs.readFile(TEMPLATE_FILE, 'utf-8')
 
-async function getAllIssues() {
-  const issues = []
-  let page = 1
-  let hasNextPage = true
+  const issues = await fetchIssues()
 
-  while (hasNextPage) {
-    const { data } = await octokit.issues.listForRepo({
-      owner: GITHUB_USER,
-      repo: GITHUB_REPO,
-      state: 'all',
-      per_page: 100,
-      page,
-    })
+  const yearLinks = await genYearLinks(issues)
 
-    issues.push(...data)
-    hasNextPage = data.length === 100
-    page += 1
-  }
+  templateContent = templateContent.replace('{{yearLinks}}', yearLinks)
 
-  return issues
-}
+  templateContent = replaceRelativePaths(
+    templateContent,
+    path.dirname(TEMPLATE_FILE),
+    path.dirname(OUTPUT_FILE)
+  )
+
+  await fs.writeFile(OUTPUT_FILE, templateContent, 'utf-8')
+  console.log('README.md has been updated.')
+})()
 
 // 生成年标签的链接
-async function generateYearLinks(issues) {
+async function genYearLinks(issues) {
   const yearLabels = {}
   const yearLabelPattern = /^(20[0-9]{2}|2100)$/
 
@@ -61,41 +55,24 @@ async function generateYearLinks(issues) {
 
 function replaceRelativePaths(content, inputDir, outputDir) {
   // image
-  content = content.replace(/!\[(.*?)\]\((?!http)(\.\.?\/[^\/].*?)\)/g, (_, alt, filePath) => {
-    const outputPath = path.resolve(inputDir, filePath)
-    const relativeOutputPath = path.relative(outputDir, outputPath)
-    return `![${alt}](${relativeOutputPath})`
-  })
-
-  // link
-  content = content.replace(/\[([^\]]+)\]\((?!http)(\.\.?\/[^\/].*?)\)/g, (_, text, filePath) => {
-    const outputPath = path.resolve(inputDir, filePath)
-    const relativeOutputPath = path.relative(outputDir, outputPath)
-    return `[${text}](${relativeOutputPath})`
-  })
-
-  return content
-}
-
-async function updateReadme() {
-  let templateContent = fs.readFileSync(TEMPLATE_FILE, 'utf-8')
-
-  const issues = await getAllIssues()
-
-  const yearLinks = await generateYearLinks(issues)
-
-  templateContent = templateContent.replace('{{yearLinks}}', yearLinks)
-
-  templateContent = replaceRelativePaths(
-    templateContent,
-    path.dirname(TEMPLATE_FILE),
-    path.dirname(OUTPUT_FILE)
+  let newContent = content.replace(
+    /!\[(.*?)\]\((?!http)(\.\.?\/[^/].*?)\)/g,
+    (_, alt, filePath) => {
+      const outputPath = path.resolve(inputDir, filePath)
+      const relativeOutputPath = path.relative(outputDir, outputPath)
+      return `![${alt}](${relativeOutputPath})`
+    }
   )
 
-  fs.writeFileSync(OUTPUT_FILE, templateContent, 'utf-8')
-  console.log('README.md has been updated.')
-}
+  // link
+  newContent = newContent.replace(
+    /\[([^\]]+)\]\((?!http)(\.\.?\/[^/].*?)\)/g,
+    (_, text, filePath) => {
+      const outputPath = path.resolve(inputDir, filePath)
+      const relativeOutputPath = path.relative(outputDir, outputPath)
+      return `[${text}](${relativeOutputPath})`
+    }
+  )
 
-updateReadme().catch(err => {
-  console.error('Error updating README.md:', err)
-})
+  return newContent
+}
