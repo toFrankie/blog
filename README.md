@@ -1,4 +1,4 @@
-![](./cover.png)
+![](cover.png)
 
 <h2 style="border-bottom: none">Hey, I'm Frankie 👋</h2>
 
@@ -8,11 +8,11 @@
 
 ### 我的文章
 
-- [2024 年，ing...](https://github.com/toFrankie/blog/labels/2024)
+- [2024 年，共 17 篇](https://github.com/toFrankie/blog/labels/2024)
 - [2023 年，共 33 篇](https://github.com/toFrankie/blog/labels/2023)
 - [2022 年，共 65 篇](https://github.com/toFrankie/blog/labels/2022)
 - [2021 年，共 96 篇](https://github.com/toFrankie/blog/labels/2021)
-- [2020 年，共 99 篇](https://github.com/toFrankie/blog/labels/2020)
+- [2020 年，共 98 篇](https://github.com/toFrankie/blog/labels/2020)
 - [2019 年，共 12 篇](https://github.com/toFrankie/blog/labels/2019)
 - [2018 年，共 11 篇](https://github.com/toFrankie/blog/labels/2018)
 - [2017 年，共 5 篇](https://github.com/toFrankie/blog/labels/2017)
@@ -28,7 +28,7 @@
 - [万物皆空之 JavaScript 原型](https://juejin.cn/post/6844903567325659144)
 - [深入 JavaScript 继承原理](https://juejin.cn/post/6844903569317953543)
 - [JavaScript 深入系列 15 篇（冴羽）](https://github.com/mqyqingfeng/Blog/issues/17)
-- [JavaScript 系列专题（goddyZhao）](./docs/js/00-导读.md)
+- [JavaScript 系列专题（goddyZhao）](docs/js/00-导读.md)
 - [深入理解 JavaScript 系列（汤姆大叔）](https://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html)
 
 #### Webpack 系列
