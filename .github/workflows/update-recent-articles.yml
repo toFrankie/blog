@@ -28,13 +28,20 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.WORKFLOW_GITHUB_TOKEN }}
         run: node scripts/update-recent-articles.js
 
-      - name: Configure git
+      - name: Check if recent-articles.md has changed
+        id: check_changes
+        run: |
+          if git diff --exit-code docs/recent-articles.md; then
+            echo "file_changed=false" >> $GITHUB_ENV
+          else
+            echo "file_changed=true" >> $GITHUB_ENV
+          fi
+
+      - name: Commit changes
+        if: env.file_changed == 'true'
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
-
-      - name: Commit changes
-        run: |
           git add docs/recent-articles.md
           git commit -m "docs: update recent articles"
           git push origin main
