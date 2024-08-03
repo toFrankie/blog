@@ -1,5 +1,6 @@
 # 近期更新
 
+- [iCloud 云盘同步卡住的解决方法](https://github.com/toFrankie/blog/issues/345)
 - [试图丢掉鼠标](https://github.com/toFrankie/blog/issues/341)
 - [Shell 之变量（三）](https://github.com/toFrankie/blog/issues/41)
 - [Shell 之变量（二）](https://github.com/toFrankie/blog/issues/40)
@@ -9,4 +10,3 @@
 - [如何实现一个准确的倒计时功能](https://github.com/toFrankie/blog/issues/339)
 - [使用 VS Code + Github 搭建个人博客](https://github.com/toFrankie/blog/issues/327)
 - [开发一个简单的 Chrome Extension](https://github.com/toFrankie/blog/issues/340)
-- [解决 macOS 照片不同步问题](https://github.com/toFrankie/blog/issues/343)
