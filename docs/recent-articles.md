@@ -1,5 +1,6 @@
 # 近期更新
 
+- [Node.js 环境变量](https://github.com/toFrankie/blog/issues/338)
 - [iCloud 云盘同步卡住的解决方法](https://github.com/toFrankie/blog/issues/345)
 - [试图丢掉鼠标](https://github.com/toFrankie/blog/issues/341)
 - [Shell 之变量（三）](https://github.com/toFrankie/blog/issues/41)
@@ -9,4 +10,3 @@
 - [为什么不推荐使用 cnpm？](https://github.com/toFrankie/blog/issues/82)
 - [如何实现一个准确的倒计时功能](https://github.com/toFrankie/blog/issues/339)
 - [使用 VS Code + Github 搭建个人博客](https://github.com/toFrankie/blog/issues/327)
-- [开发一个简单的 Chrome Extension](https://github.com/toFrankie/blog/issues/340)
