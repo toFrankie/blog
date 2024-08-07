@@ -3,6 +3,9 @@ name: Update README
 on:
   issues:
     types: [opened, deleted]
+  push:
+    paths:
+      - 'docs/templates/readme.md'
 
 jobs:
   update-readme:
@@ -10,7 +13,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v2
