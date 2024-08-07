@@ -50,3 +50,15 @@
 - [macos-use](https://github.com/toFrankie/macos-use)
 - [github-blogger](https://github.com/toFrankie/github-blogger)
 - [terminal-dark-theme](https://github.com/toFrankie/terminal-dark-theme)
+
+
+#### 有趣的链接
+
+- [Developer Roadmap](https://github.com/kamranahmedse/developer-roadmap)
+- [JavaScript 二十年](https://github.com/doodlewind/jshistory-cn)
+- [中文技术文档的写作规范](https://github.com/ruanyf/document-style-guide)
+- [提問的智慧](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way)
+- [How To Ask Good Questions: David Stork at TEDxStanleyPark](https://www.youtube.com/watch?v=PkcHstP6Ht0)
+- [中国程序员容易发音错误的单词](https://github.com/shimohq/chinese-programmer-wrong-pronunciation)
+- [Naming cheatsheet](https://github.com/kettanaito/naming-cheatsheet)
+- [Standard Method Name Verb Semantics](https://chrisoldwood.blogspot.com/2009/11/standard-method-name-verb-semantics.html)
