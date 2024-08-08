@@ -56,9 +56,17 @@
 
 - [Developer Roadmap](https://github.com/kamranahmedse/developer-roadmap)
 - [JavaScript 二十年](https://github.com/doodlewind/jshistory-cn)
-- [中文技术文档的写作规范](https://github.com/ruanyf/document-style-guide)
+- [中国程序员容易发音错误的单词](https://github.com/shimohq/chinese-programmer-wrong-pronunciation)
 - [提問的智慧](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way)
 - [How To Ask Good Questions: David Stork at TEDxStanleyPark](https://www.youtube.com/watch?v=PkcHstP6Ht0)
-- [中国程序员容易发音错误的单词](https://github.com/shimohq/chinese-programmer-wrong-pronunciation)
-- [Naming cheatsheet](https://github.com/kettanaito/naming-cheatsheet)
-- [Standard Method Name Verb Semantics](https://chrisoldwood.blogspot.com/2009/11/standard-method-name-verb-semantics.html)
+- Writing Guidelines
+  - [為什麼你們就是不能加個空格呢？](https://github.com/vinta/pangu.js)
+  - [中文技术文档的写作规范](https://github.com/ruanyf/document-style-guide)
+  - [夹用英文的中文文本的标点符号用法（草案）](http://www.moe.gov.cn/ewebeditor/uploadfile/2015/01/13/20150113092346124.pdf)
+  - [Quickstart for writing on GitHub](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)
+- Naming Guidelines
+  - [Naming cheatsheet](https://github.com/kettanaito/naming-cheatsheet)
+  - [Standard Method Name Verb Semantics](https://chrisoldwood.blogspot.com/2009/11/standard-method-name-verb-semantics.html)
+  - [Naming guidelines for boolean variables](https://www.serendipidata.com/posts/naming-guidelines-for-boolean-variables)
+  - [Tips on naming boolean variables - Cleaner Code](https://dev.to/michi/tips-on-naming-boolean-variables-cleaner-code-35ig)
+  - [How to Name Booleans Values](https://prasannakumar8332.medium.com/auxiliary-name-the-booleans-ed954fa9f3c6)
