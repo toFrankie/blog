@@ -4,7 +4,7 @@ import path from 'path'
 import dotenv from 'dotenv'
 
 // eslint-disable-next-line import/extensions
-import { fetchIssues, GITHUB_REPO, GITHUB_USER } from './common.js'
+import { fetchIssues, getGithubRepo, getGithubUser } from './common.js'
 
 dotenv.config()
 
@@ -45,9 +45,12 @@ async function genYearLinks(issues) {
   // 按年份递减排序
   const sortedYears = Object.keys(yearLabels).sort((a, b) => b - a)
 
+  const githubUser = getGithubUser()
+  const githubRepo = getGithubRepo()
+
   const labels = sortedYears.map(
     year =>
-      `[${year} 年，共 ${yearLabels[year]} 篇](https://github.com/${GITHUB_USER}/${GITHUB_REPO}/labels/${year})`
+      `[${year} 年，共 ${yearLabels[year]} 篇](https://github.com/${githubUser}/${githubRepo}/labels/${year})`
   )
 
   return `- ${labels.join('\n- ')}`
