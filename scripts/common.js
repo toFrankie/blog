@@ -6,7 +6,7 @@ export const getGithubUser = () => process.env.GITHUB_USER || 'toFrankie'
 
 export const getGithubToken = () => process.env.GITHUB_TOKEN || ''
 
-export async function fetchIssues(state = 'all') {
+export async function fetchAllIssue(state = 'all') {
   const issues = []
   let page = 1
   let hasNextPage = true
@@ -26,6 +26,21 @@ export async function fetchIssues(state = 'all') {
     hasNextPage = data.length === 100
     page += 1
   }
+
+  return issues
+}
+
+export async function fetchRecentIssues(state = 'all') {
+  const octokit = new Octokit({ auth: getGithubToken() })
+
+  const { data: issues } = await octokit.issues.listForRepo({
+    owner: getGithubUser(),
+    repo: getGithubRepo(),
+    state,
+    sort: 'updated',
+    direction: 'desc',
+    per_page: 10,
+  })
 
   return issues
 }

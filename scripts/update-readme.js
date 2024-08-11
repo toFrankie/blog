@@ -4,7 +4,7 @@ import path from 'path'
 import dotenv from 'dotenv'
 
 // eslint-disable-next-line import/extensions
-import { fetchIssues, getGithubRepo, getGithubUser } from './common.js'
+import { fetchAllIssue, getGithubRepo, getGithubUser } from './common.js'
 
 dotenv.config()
 
@@ -14,7 +14,7 @@ const OUTPUT_FILE = path.resolve('README.md')
 ;(async function main() {
   let templateContent = await fs.readFile(TEMPLATE_FILE, 'utf-8')
 
-  const issues = await fetchIssues()
+  const issues = await fetchAllIssue()
 
   const yearLinks = await genYearLinks(issues)
 

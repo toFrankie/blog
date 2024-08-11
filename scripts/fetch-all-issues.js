@@ -10,14 +10,14 @@ import dayjs from 'dayjs'
 import dotenv from 'dotenv'
 
 // eslint-disable-next-line import/extensions
-import { fetchIssues } from './common.js'
+import { fetchAllIssue } from './common.js'
 
 dotenv.config()
 
 //
 ;(async function main() {
   try {
-    const issues = await fetchIssues()
+    const issues = await fetchAllIssue()
     console.log(`Fetched ${issues.length} issues`)
 
     for (const issue of issues) {

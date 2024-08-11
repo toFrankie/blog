@@ -1,30 +1,15 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
 
-import { Octokit } from '@octokit/rest'
+import dotenv from 'dotenv'
 
-const octokit = new Octokit({
-  auth: process.env.GITHUB_TOKEN,
-})
+// eslint-disable-next-line import/extensions
+import { fetchRecentIssues } from './common.js'
 
-const owner = 'toFrankie'
-const repo = 'blog'
-
-async function getRecentIssues() {
-  const { data: issues } = await octokit.rest.issues.listForRepo({
-    owner,
-    repo,
-    state: 'all',
-    sort: 'updated',
-    direction: 'desc',
-    per_page: 10,
-  })
-
-  return issues
-}
+dotenv.config()
 
 async function updateRecentArticles() {
-  const issues = await getRecentIssues()
+  const issues = await fetchRecentIssues()
 
   const lines = ['# 近期更新', '']
 
