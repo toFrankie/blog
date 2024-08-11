@@ -53,12 +53,10 @@ export async function getTrafficViews() {
     const { data } = await octokit.rest.repos.getViews({
       owner: getGithubUser(),
       repo: getGithubRepo(),
-      per: 'week',
+      per: 'day',
     })
 
-    console.log(data)
-
-    return data.count
+    return data
   } catch (error) {
     throw new Error(`Failed to fetch traffic data: ${error.message}`)
   }

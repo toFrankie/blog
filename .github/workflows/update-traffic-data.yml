@@ -1,0 +1,39 @@
+name: Update Traffic Data
+
+on:
+  schedule:
+    - cron: '0 */12 * * *'
+
+jobs:
+  update-traffic:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Pull latest changes
+        run: git pull origin main
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Update Traffic Data
+        run: node scripts/update-traffic-data.js
+
+      - name: Commit changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/traffic
+          if git diff-index --quiet HEAD; then
+            echo "No changes detected."
+          else
+            git commit -m "docs: update traffic data"
+            git push
+          fi

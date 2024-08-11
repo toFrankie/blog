@@ -20,11 +20,11 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install dependencies
-        run: npm install
-
       - name: Pull latest changes
         run: git pull origin main
+
+      - name: Install dependencies
+        run: npm install
 
       - name: Run update-readme script
         env:

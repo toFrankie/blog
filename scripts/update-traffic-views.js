@@ -26,12 +26,12 @@ async function updateBadgeSvg(templatePath, outputPath, newCount) {
 
 //
 ;(async function main() {
-  const totalCount = await getTrafficViews()
+  const trafficData = await getTrafficViews()
 
   const templateBadgePath = path.resolve('docs/templates/traffic-views.svg')
   const outputBadgePath = path.resolve('docs/traffic-views.svg')
 
-  const isUpdated = await updateBadgeSvg(templateBadgePath, outputBadgePath, totalCount)
+  const isUpdated = await updateBadgeSvg(templateBadgePath, outputBadgePath, trafficData.count)
 
   if (!isUpdated) {
     console.log('No update needed.')
