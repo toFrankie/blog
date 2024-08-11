@@ -6,7 +6,7 @@
 
 > 技术日新月异，文章内容或已过时，阅读时请细心斟酌。
 
-> ![](docs/badge.svg)
+> ![](docs/traffic-views.svg)
 
 ### 我的文章
 
