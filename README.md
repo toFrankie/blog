@@ -6,6 +6,8 @@
 
 > 技术日新月异，文章内容或已过时，阅读时请细心斟酌。
 
+> ![](docs/badge.svg)
+
 ### 我的文章
 
 - [2024 年，共 20 篇](https://github.com/toFrankie/blog/labels/2024)
@@ -70,3 +72,4 @@
   - [Naming guidelines for boolean variables](https://www.serendipidata.com/posts/naming-guidelines-for-boolean-variables)
   - [Tips on naming boolean variables - Cleaner Code](https://dev.to/michi/tips-on-naming-boolean-variables-cleaner-code-35ig)
   - [How to Name Booleans Values](https://prasannakumar8332.medium.com/auxiliary-name-the-booleans-ed954fa9f3c6)
+  
