@@ -5,7 +5,7 @@ on:
     - cron: '0 */4 * * *'
 
 jobs:
-  update-badge:
+  update-traffic-views:
     runs-on: ubuntu-latest
 
     steps:

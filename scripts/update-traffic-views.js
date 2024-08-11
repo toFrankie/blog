@@ -8,7 +8,7 @@ import { getTrafficViews } from './common.js'
 
 dotenv.config()
 
-async function updateBadge(templatePath, outputPath, newCount) {
+async function updateBadgeSvg(templatePath, outputPath, newCount) {
   const originalBadgeContent = await fs.readFile(outputPath, 'utf8')
 
   const templateBadgeContent = await fs.readFile(templatePath, 'utf8')
@@ -16,11 +16,11 @@ async function updateBadge(templatePath, outputPath, newCount) {
 
   if (currentBadgeContent !== originalBadgeContent) {
     await fs.writeFile(outputPath, currentBadgeContent, 'utf8')
-    console.log('badge.svg has been updated.')
+    console.log('traffic-views.svg has been updated.')
     return true
   }
 
-  console.log('No changes detected in badge.svg.')
+  console.log('No changes detected in traffic-views.svg.')
   return false
 }
 
@@ -28,10 +28,10 @@ async function updateBadge(templatePath, outputPath, newCount) {
 ;(async function main() {
   const totalCount = await getTrafficViews()
 
-  const templateBadgePath = path.resolve('docs/templates/badge.svg')
-  const outputBadgePath = path.resolve('docs/badge.svg')
+  const templateBadgePath = path.resolve('docs/templates/traffic-views.svg')
+  const outputBadgePath = path.resolve('docs/traffic-views.svg')
 
-  const isUpdated = await updateBadge(templateBadgePath, outputBadgePath, totalCount)
+  const isUpdated = await updateBadgeSvg(templateBadgePath, outputBadgePath, totalCount)
 
   if (!isUpdated) {
     console.log('No update needed.')
