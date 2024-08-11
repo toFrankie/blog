@@ -6,7 +6,6 @@ on:
   push:
     paths:
       - 'docs/templates/readme.md'
-      - 'docs/traffic-views.svg'
 
 jobs:
   update-readme:
