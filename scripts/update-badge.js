@@ -12,7 +12,7 @@ async function updateBadge(templatePath, outputPath, newCount) {
   const originalBadgeContent = await fs.readFile(outputPath, 'utf8')
 
   const templateBadgeContent = await fs.readFile(templatePath, 'utf8')
-  const currentBadgeContent = templateBadgeContent.replace(/{{count}}/, newCount)
+  const currentBadgeContent = templateBadgeContent.replace(/{{views}}/, newCount)
 
   if (currentBadgeContent !== originalBadgeContent) {
     await fs.writeFile(outputPath, currentBadgeContent, 'utf8')
