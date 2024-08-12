@@ -10,7 +10,7 @@
 
 ### 我的文章
 
-- [2024 年，共 21 篇](https://github.com/toFrankie/blog/labels/2024)
+- [2024 年，共 22 篇](https://github.com/toFrankie/blog/labels/2024)
 - [2023 年，共 33 篇](https://github.com/toFrankie/blog/labels/2023)
 - [2022 年，共 65 篇](https://github.com/toFrankie/blog/labels/2022)
 - [2021 年，共 96 篇](https://github.com/toFrankie/blog/labels/2021)
