@@ -13,11 +13,11 @@ async function updateYearTrafficJson(trafficDir, data) {
   const { views } = data
 
   const currentYear = dayjs().year().toString()
-  let trafficData = { count: 0, uniques: 0, year: currentYear, list: [] }
+  let yearData = { count: 0, uniques: 0, year: currentYear, list: [] }
 
   try {
-    const existingData = await fs.readFile(trafficDir, 'utf8')
-    trafficData = JSON.parse(existingData)
+    const originalTrafficData = await fs.readFile(trafficDir, 'utf8')
+    yearData = JSON.parse(originalTrafficData)
   } catch (error) {
     // Initialize new traffic data if file doesn't exist
   }
@@ -25,19 +25,19 @@ async function updateYearTrafficJson(trafficDir, data) {
   views.forEach(view => {
     const year = dayjs(view.timestamp).format('YYYY')
     const month = dayjs(view.timestamp).format('YYYY-MM')
-    const date = dayjs(view.timestamp).format('YYYY-MM-DD')
+    const day = dayjs(view.timestamp).format('YYYY-MM-DD')
 
-    if (year !== trafficData.year) return
+    if (year !== yearData.year) return
 
-    let monthData = trafficData.list.find(m => m.month === month)
+    let monthData = yearData.list.find(m => m.month === month)
     if (!monthData) {
       monthData = { month, count: 0, uniques: 0, list: [] }
-      trafficData.list.push(monthData)
+      yearData.list.push(monthData)
     }
 
-    let dayData = monthData.list.find(d => d.day === date)
+    let dayData = monthData.list.find(d => d.day === day)
     if (!dayData) {
-      dayData = { day: date, count: 0, uniques: 0 }
+      dayData = { day, count: 0, uniques: 0 }
       monthData.list.push(dayData)
     }
 
@@ -48,10 +48,10 @@ async function updateYearTrafficJson(trafficDir, data) {
     monthData.uniques = monthData.list.reduce((sum, d) => sum + d.uniques, 0)
   })
 
-  trafficData.count = trafficData.list.reduce((sum, y) => sum + y.count, 0)
-  trafficData.uniques = trafficData.list.reduce((sum, y) => sum + y.uniques, 0)
+  yearData.count = yearData.list.reduce((sum, y) => sum + y.count, 0)
+  yearData.uniques = yearData.list.reduce((sum, y) => sum + y.uniques, 0)
 
-  await fs.writeFile(trafficDir, JSON.stringify(trafficData, null, 2))
+  await fs.writeFile(trafficDir, JSON.stringify(yearData, null, 2))
 }
 
 async function updateAllTrafficJson(trafficDir, allJsonPath) {
