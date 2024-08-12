@@ -24,6 +24,10 @@ jobs:
         run: npm install
 
       - name: Update Traffic Data
+        env:
+          GITHUB_TOKEN: ${{ secrets.WORKFLOW_GITHUB_TOKEN }}
+          GITHUB_USER: toFrankie
+          GITHUB_REPO: blog
         run: node scripts/update-traffic-data.js
 
       - name: Commit changes
