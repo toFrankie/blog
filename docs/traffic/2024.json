@@ -1,12 +1,12 @@
 {
-  "count": 1233,
-  "uniques": 407,
+  "count": 1242,
+  "uniques": 416,
   "year": "2024",
   "list": [
     {
       "month": "2024-07",
-      "count": 187,
-      "uniques": 44,
+      "count": 185,
+      "uniques": 42,
       "list": [
         {
           "day": "2024-07-28",
@@ -25,15 +25,15 @@
         },
         {
           "day": "2024-07-31",
-          "count": 97,
-          "uniques": 26
+          "count": 95,
+          "uniques": 24
         }
       ]
     },
     {
       "month": "2024-08",
-      "count": 1046,
-      "uniques": 363,
+      "count": 1057,
+      "uniques": 374,
       "list": [
         {
           "day": "2024-08-01",
@@ -97,8 +97,8 @@
         },
         {
           "day": "2024-08-13",
-          "count": 44,
-          "uniques": 17
+          "count": 55,
+          "uniques": 28
         }
       ]
     }
