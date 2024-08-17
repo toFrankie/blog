@@ -3,11 +3,14 @@ import fs from 'fs/promises'
 
 import dayjs from 'dayjs'
 import dotenv from 'dotenv'
+import utc from 'dayjs/plugin/utc.js'
 
 // eslint-disable-next-line import/extensions
 import { getTrafficViews } from './common.js'
 
 dotenv.config()
+
+dayjs.extend(utc)
 
 async function updateYearTrafficJson(trafficDir, data) {
   const { views } = data
@@ -23,9 +26,10 @@ async function updateYearTrafficJson(trafficDir, data) {
   }
 
   views.forEach(view => {
-    const year = dayjs(view.timestamp).format('YYYY')
-    const month = dayjs(view.timestamp).format('YYYY-MM')
-    const day = dayjs(view.timestamp).format('YYYY-MM-DD')
+    const utcTime = dayjs.utc(view.timestamp)
+    const year = utcTime.format('YYYY')
+    const month = utcTime.format('YYYY-MM')
+    const day = utcTime.format('YYYY-MM-DD')
 
     if (year !== yearData.year) return
 
