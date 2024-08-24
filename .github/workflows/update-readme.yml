@@ -1,8 +1,8 @@
 name: Update README
 
 on:
-  issues:
-    types: [opened, deleted]
+  # issues:
+  #   types: [opened, deleted]
   push:
     paths:
       - 'docs/templates/readme.md'
