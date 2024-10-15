@@ -1,5 +1,6 @@
 # 近期更新
 
+- [Taro 自定义 TabBar for H5 示例](https://github.com/toFrankie/blog/issues/331)
 - [通过两个例子再探 Event Loop](https://github.com/toFrankie/blog/issues/348)
 - [JavaScript 事件循环（含宏任务与微任务）](https://github.com/toFrankie/blog/issues/195)
 - [细读 JS | for 语句详解](https://github.com/toFrankie/blog/issues/253)
@@ -9,4 +10,3 @@
 - [老是记不住 isEmpty](https://github.com/toFrankie/blog/issues/346)
 - [Node.js 环境变量](https://github.com/toFrankie/blog/issues/338)
 - [iCloud 云盘同步卡住的解决方法](https://github.com/toFrankie/blog/issues/345)
-- [试图丢掉鼠标](https://github.com/toFrankie/blog/issues/341)
