@@ -1,8 +1,11 @@
 name: Update Traffic Views
 
 on:
-  schedule:
-    - cron: '0 */12 * * *'
+  # schedule:
+  #   - cron: '0 */12 * * *'
+  push:
+    paths:
+      - 'docs/traffic/all.json'
 
 jobs:
   update-traffic-views:

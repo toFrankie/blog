@@ -3,9 +3,6 @@ import fs from 'fs/promises'
 
 import dotenv from 'dotenv'
 
-// eslint-disable-next-line import/extensions
-import { getTrafficViews } from './common.js'
-
 dotenv.config()
 
 async function updateBadgeSvg(templatePath, outputPath, newCount) {
@@ -26,7 +23,8 @@ async function updateBadgeSvg(templatePath, outputPath, newCount) {
 
 //
 ;(async function main() {
-  const trafficData = await getTrafficViews()
+  const allJsonPath = path.resolve('docs/traffic/all.json')
+  const trafficData = JSON.parse(await fs.readFile(allJsonPath, 'utf-8'))
 
   const templateBadgePath = path.resolve('docs/templates/traffic-views.svg')
   const outputBadgePath = path.resolve('docs/traffic-views.svg')
