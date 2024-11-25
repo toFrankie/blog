@@ -1,5 +1,6 @@
 # 近期更新
 
+- [常用 CSS Media Queries 记录](https://github.com/toFrankie/blog/issues/352)
 - [小程序图标变色](https://github.com/toFrankie/blog/issues/351)
 - [小程序迷惑行为大赏](https://github.com/toFrankie/blog/issues/350)
 - [macOS 初始配置指南](https://github.com/toFrankie/blog/issues/31)
@@ -9,4 +10,3 @@
 - [微信小程序转支付宝小程序](https://github.com/toFrankie/blog/issues/151)
 - [JavaScript 之函数防抖、节流](https://github.com/toFrankie/blog/issues/248)
 - [通过两个例子再探 Event Loop](https://github.com/toFrankie/blog/issues/348)
-- [常用正则表达式](https://github.com/toFrankie/blog/issues/134)
