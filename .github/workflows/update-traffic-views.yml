@@ -2,7 +2,7 @@ name: Update Traffic Views
 
 on:
   schedule:
-    - cron: '0 */4 * * *'
+    - cron: '0 */12 * * *'
 
 jobs:
   update-traffic-views:
