@@ -2,8 +2,8 @@
  * 获取所有 Issue 并生成与 github-blogger 相同的 Markdown 文件，以批量存档文章。
  */
 
-import path from 'path'
-import fs from 'fs/promises'
+import path from 'node:path'
+import fs from 'node:fs/promises'
 
 import matter from 'gray-matter'
 import dayjs from 'dayjs'

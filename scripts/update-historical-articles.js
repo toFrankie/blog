@@ -1,5 +1,6 @@
-import fs from 'fs/promises'
-import path from 'path'
+import fs from 'node:fs/promises'
+import path from 'node:path'
+import { exec } from 'node:child_process'
 
 import matter from 'gray-matter'
 import dayjs from 'dayjs'
@@ -128,10 +129,9 @@ async function updateGitHubIssue(issueNumber, content) {
 // 提交变更到 GitHub
 async function commitChanges() {
   try {
-    const exec = cmd => require('child_process').execSync(cmd, { stdio: 'inherit' })
-    exec('git add .')
-    exec(`git commit -m "chore: migrate article images"`)
-    exec(`git push origin ${GITHUB_BRANCH}`)
+    await exec('git add .')
+    await exec(`git commit -m "chore: migrate article images"`)
+    await exec(`git push origin ${GITHUB_BRANCH}`)
     console.log('文件变更已推送到远程仓库')
   } catch (error) {
     if (error.message.includes('nothing to commit')) {
