@@ -1,4 +1,4 @@
-![](cover.png)
+![](images/cover.png)
 
 <h2 style="border-bottom: none">Hey, I'm Frankie 👋</h2>
 
@@ -8,7 +8,7 @@
 
 > ![](docs/traffic-views.svg)
 
-### 📚 我的文章  
+### 📚 我的文章
 
 [全部](https://github.com/toFrankie/blog/issues) • [2024](https://github.com/toFrankie/blog/labels/2024) • [2023](https://github.com/toFrankie/blog/labels/2023) • [2022](https://github.com/toFrankie/blog/labels/2022) • [2021](https://github.com/toFrankie/blog/labels/2021) • [2020](https://github.com/toFrankie/blog/labels/2020) • [2019](https://github.com/toFrankie/blog/labels/2019) • [2018](https://github.com/toFrankie/blog/labels/2018) • [2017](https://github.com/toFrankie/blog/labels/2017)
 
@@ -32,20 +32,21 @@
 - [How can I ... ?](https://tkdodo.eu/blog/how-can-i)
 
 #### Naming Guidelines
-  - [Naming cheatsheet](https://github.com/kettanaito/naming-cheatsheet)
-  - [Standard Method Name Verb Semantics](https://chrisoldwood.blogspot.com/2009/11/standard-method-name-verb-semantics.html)
-  - [Naming guidelines for boolean variables](https://www.serendipidata.com/posts/naming-guidelines-for-boolean-variables)
-  - [Tips on naming boolean variables - Cleaner Code](https://dev.to/michi/tips-on-naming-boolean-variables-cleaner-code-35ig)
-  - [How to Name Booleans Values](https://prasannakumar8332.medium.com/auxiliary-name-the-booleans-ed954fa9f3c6)
+
+- [Naming cheatsheet](https://github.com/kettanaito/naming-cheatsheet)
+- [Standard Method Name Verb Semantics](https://chrisoldwood.blogspot.com/2009/11/standard-method-name-verb-semantics.html)
+- [Naming guidelines for boolean variables](https://www.serendipidata.com/posts/naming-guidelines-for-boolean-variables)
+- [Tips on naming boolean variables - Cleaner Code](https://dev.to/michi/tips-on-naming-boolean-variables-cleaner-code-35ig)
+- [How to Name Booleans Values](https://prasannakumar8332.medium.com/auxiliary-name-the-booleans-ed954fa9f3c6)
 
 #### Writing Guidelines
-  - [為什麼你們就是不能加個空格呢？](https://github.com/vinta/pangu.js)
-  - [中文技术文档的写作规范](https://github.com/ruanyf/document-style-guide)
-  - [夹用英文的中文文本的标点符号用法（草案）](http://www.moe.gov.cn/ewebeditor/uploadfile/2015/01/13/20150113092346124.pdf)
-  - [Quickstart for writing on GitHub](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)
+
+- [為什麼你們就是不能加個空格呢？](https://github.com/vinta/pangu.js)
+- [中文技术文档的写作规范](https://github.com/ruanyf/document-style-guide)
+- [夹用英文的中文文本的标点符号用法（草案）](http://www.moe.gov.cn/ewebeditor/uploadfile/2015/01/13/20150113092346124.pdf)
+- [Quickstart for writing on GitHub](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)
 
 #### Others
 
 - [Developer Roadmap](https://github.com/kamranahmedse/developer-roadmap)
 - [中国程序员容易发音错误的单词](https://github.com/shimohq/chinese-programmer-wrong-pronunciation)
-  
