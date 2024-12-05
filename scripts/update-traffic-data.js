@@ -12,14 +12,12 @@ dotenv.config()
 
 dayjs.extend(utc)
 
-async function updateYearTrafficJson(trafficDir, data) {
-  const { views } = data
-
+async function updateYearTrafficJson(filePath, views) {
   const currentYear = dayjs().year().toString()
   let yearData = { count: 0, uniques: 0, year: currentYear, list: [] }
 
   try {
-    const originalTrafficData = await fs.readFile(trafficDir, 'utf8')
+    const originalTrafficData = await fs.readFile(filePath, 'utf8')
     yearData = JSON.parse(originalTrafficData)
   } catch (error) {
     // Initialize new traffic data if file doesn't exist
@@ -55,7 +53,8 @@ async function updateYearTrafficJson(trafficDir, data) {
   yearData.count = yearData.list.reduce((sum, y) => sum + y.count, 0)
   yearData.uniques = yearData.list.reduce((sum, y) => sum + y.uniques, 0)
 
-  await fs.writeFile(trafficDir, JSON.stringify(yearData, null, 2))
+  const formattedYearData = JSON.stringify(yearData, null, 2)
+  await fs.writeFile(filePath, formattedYearData)
 }
 
 async function updateAllTrafficJson(trafficDir, allJsonPath) {
@@ -77,7 +76,8 @@ async function updateAllTrafficJson(trafficDir, allJsonPath) {
     }
   }
 
-  await fs.writeFile(allJsonPath, JSON.stringify(allTrafficData, null, 2))
+  const formattedAllTrafficData = JSON.stringify(allTrafficData, null, 2)
+  await fs.writeFile(allJsonPath, formattedAllTrafficData)
 }
 
 ;(async function main() {
@@ -86,10 +86,13 @@ async function updateAllTrafficJson(trafficDir, allJsonPath) {
   const trafficDir = path.resolve('docs/traffic')
   await fs.mkdir(trafficDir, { recursive: true })
 
-  // TODO: 处理跨年数据
-  const year = dayjs().format('YYYY')
-  const yearFilePath = path.resolve(trafficDir, `${year}.json`)
-  await updateYearTrafficJson(yearFilePath, trafficData)
+  const trafficDataYearly = Object.groupBy(trafficData.views, item =>
+    dayjs(item.timestamp).format('YYYY')
+  )
+  for (const [year, views] of Object.entries(trafficDataYearly)) {
+    const yearFilePath = path.resolve(trafficDir, `${year}.json`)
+    await updateYearTrafficJson(yearFilePath, views)
+  }
 
   const allJsonPath = path.resolve(trafficDir, 'all.json')
   await updateAllTrafficJson(trafficDir, allJsonPath)

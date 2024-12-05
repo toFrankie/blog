@@ -6,6 +6,8 @@ export const getGithubUser = () => process.env.GITHUB_USER || 'toFrankie'
 
 export const getGithubToken = () => process.env.GITHUB_TOKEN || ''
 
+export const getGithubBranch = () => process.env.GITHUB_BRANCH || 'main'
+
 export async function fetchAllIssue(state = 'all') {
   const issues = []
   let page = 1
