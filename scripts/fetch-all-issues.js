@@ -22,8 +22,7 @@ dotenv.config()
     for (const issue of issues) {
       await saveIssue(issue)
     }
-  }
-  catch (error) {
+  } catch (error) {
     console.error('Error:', error)
   }
 })()
@@ -59,8 +58,7 @@ async function saveIssue(issue) {
     await fs.mkdir(dir, { recursive: true })
     await fs.writeFile(filePath, generateMarkdown(issue)) // 若不覆盖同名文件，传入 { flag: 'wx' }
     console.log(`Saved: ${filePath}`)
-  }
-  catch (error) {
+  } catch (error) {
     console.error(`Failed to save: ${filePath}`, error)
   }
 }

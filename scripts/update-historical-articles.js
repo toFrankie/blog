@@ -25,8 +25,7 @@ async function getMarkdownFiles(dir, ignoreDir) {
     const fullPath = path.join(dir, entry.name)
     if (entry.isDirectory() && entry.name !== ignoreDir) {
       files.push(...(await getMarkdownFiles(fullPath, ignoreDir)))
-    }
-    else if (entry.isFile() && entry.name.endsWith('.md')) {
+    } else if (entry.isFile() && entry.name.endsWith('.md')) {
       files.push(fullPath)
     }
   }
@@ -47,8 +46,7 @@ async function processMarkdownFile(filePath) {
   )
 
   const matchedImages = Array.from(fileContent.matchAll(imageRegex))
-  if (matchedImages.length === 0)
-    return // 无需处理
+  if (matchedImages.length === 0) return // 无需处理
 
   const imageFiles = matchedImages.map(match => match[2]) // 提取文件名
 
@@ -60,8 +58,7 @@ async function processMarkdownFile(filePath) {
 
     try {
       await fs.access(originalPath)
-    }
-    catch {
+    } catch {
       console.warn(`图片文件未找到：${originalPath}`)
       continue
     }
@@ -77,8 +74,7 @@ async function processMarkdownFile(filePath) {
 
     try {
       await fs.access(targetPath)
-    }
-    catch {
+    } catch {
       // 目标文件不存在，创建目录并移动文件
       await fs.mkdir(targetDir, { recursive: true })
       await fs.rename(originalPath, targetPath)
@@ -110,8 +106,7 @@ async function updateGitHubIssue(issueNumber, content) {
       body: content,
     })
     console.log(`Issue #${issueNumber} 更新成功`)
-  }
-  catch (error) {
+  } catch (error) {
     console.error(`更新 Issue #${issueNumber} 失败：`, error)
   }
 }
@@ -126,8 +121,7 @@ async function updateGitHubIssue(issueNumber, content) {
     }
 
     await commitChanges()
-  }
-  catch (error) {
+  } catch (error) {
     console.error('处理失败：', error)
   }
 })()
@@ -139,12 +133,10 @@ async function commitChanges() {
     await exec(`git commit -m "chore: migrate article images"`)
     await exec(`git push origin ${GITHUB_BRANCH}`)
     console.log('文件变更已推送到远程仓库')
-  }
-  catch (error) {
+  } catch (error) {
     if (error.message.includes('nothing to commit')) {
       console.log('无变更，无需提交')
-    }
-    else {
+    } else {
       console.error('提交变更失败：', error)
     }
   }

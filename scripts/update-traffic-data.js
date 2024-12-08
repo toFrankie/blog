@@ -18,19 +18,17 @@ async function updateYearTrafficJson(filePath, views) {
   try {
     const originalTrafficData = await fs.readFile(filePath, 'utf8')
     yearData = JSON.parse(originalTrafficData)
-  }
-  catch {
+  } catch {
     // Initialize new traffic data if file doesn't exist
   }
 
-  views.forEach((view) => {
+  views.forEach(view => {
     const utcTime = dayjs.utc(view.timestamp)
     const year = utcTime.format('YYYY')
     const month = utcTime.format('YYYY-MM')
     const day = utcTime.format('YYYY-MM-DD')
 
-    if (year !== yearData.year)
-      return
+    if (year !== yearData.year) return
 
     let monthData = yearData.list.find(m => m.month === month)
     if (!monthData) {
@@ -88,7 +86,8 @@ async function updateAllTrafficJson(trafficDir, allJsonPath) {
   await fs.mkdir(trafficDir, { recursive: true })
 
   const trafficDataYearly = Object.groupBy(trafficData.views, item =>
-    dayjs(item.timestamp).format('YYYY'))
+    dayjs(item.timestamp).format('YYYY'),
+  )
   for (const [year, views] of Object.entries(trafficDataYearly)) {
     const yearFilePath = path.resolve(trafficDir, `${year}.json`)
     await updateYearTrafficJson(yearFilePath, views)

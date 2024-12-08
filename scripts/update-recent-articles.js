@@ -25,7 +25,7 @@ async function updateRecentArticles() {
   await fs.writeFile(filePath, content, 'utf8')
 }
 
-updateRecentArticles().catch((err) => {
+updateRecentArticles().catch(err => {
   console.error(err)
   process.exit(1)
 })
