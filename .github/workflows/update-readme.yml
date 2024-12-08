@@ -18,10 +18,7 @@ jobs:
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
         with:
-          bun-version: 1.1.38
-
-      - name: Pull latest changes
-        run: git pull origin main
+          bun-version: latest
 
       - name: Install dependencies
         run: bun install --production
