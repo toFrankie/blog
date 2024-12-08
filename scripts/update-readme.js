@@ -3,7 +3,6 @@ import path from 'node:path'
 
 import dotenv from 'dotenv'
 
-// eslint-disable-next-line import/extensions
 import { fetchAllIssue, getGithubRepo, getGithubUser } from './common.js'
 
 dotenv.config()
@@ -23,7 +22,7 @@ const OUTPUT_FILE = path.resolve('README.md')
   templateContent = replaceRelativePaths(
     templateContent,
     path.dirname(TEMPLATE_FILE),
-    path.dirname(OUTPUT_FILE)
+    path.dirname(OUTPUT_FILE),
   )
 
   await fs.writeFile(OUTPUT_FILE, templateContent, 'utf-8')
@@ -33,7 +32,7 @@ const OUTPUT_FILE = path.resolve('README.md')
 // 生成年标签的链接
 async function genYearLinks(issues) {
   const yearLabels = {}
-  const yearLabelPattern = /^(20[0-9]{2}|2100)$/
+  const yearLabelPattern = /^20\d{2}|2100$/
 
   for (const issue of issues) {
     const yearLabel = issue.labels.find(label => yearLabelPattern.test(label.name))?.name
@@ -50,7 +49,7 @@ async function genYearLinks(issues) {
 
   const labels = sortedYears.map(
     year =>
-      `[${year} 年，共 ${yearLabels[year]} 篇](https://github.com/${githubUser}/${githubRepo}/labels/${year})`
+      `[${year} 年，共 ${yearLabels[year]} 篇](https://github.com/${githubUser}/${githubRepo}/labels/${year})`,
   )
 
   return `- ${labels.join('\n- ')}`
@@ -59,22 +58,24 @@ async function genYearLinks(issues) {
 function replaceRelativePaths(content, inputDir, outputDir) {
   // image
   let newContent = content.replace(
+    // eslint-disable-next-line regexp/no-useless-assertions
     /!\[(.*?)\]\((?!http)(\.\.?\/[^/].*?)\)/g,
     (_, alt, filePath) => {
       const outputPath = path.resolve(inputDir, filePath)
       const relativeOutputPath = path.relative(outputDir, outputPath)
       return `![${alt}](${relativeOutputPath})`
-    }
+    },
   )
 
   // link
   newContent = newContent.replace(
+    // eslint-disable-next-line regexp/no-useless-assertions
     /\[([^\]]+)\]\((?!http)(\.\.?\/[^/].*?)\)/g,
     (_, text, filePath) => {
       const outputPath = path.resolve(inputDir, filePath)
       const relativeOutputPath = path.relative(outputDir, outputPath)
       return `[${text}](${relativeOutputPath})`
-    }
+    },
   )
 
   return newContent

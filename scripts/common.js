@@ -59,7 +59,8 @@ export async function getTrafficViews() {
     })
 
     return data
-  } catch (error) {
+  }
+  catch (error) {
     throw new Error(`Failed to fetch traffic data: ${error.message}`)
   }
 }

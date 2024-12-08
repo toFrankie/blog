@@ -1,11 +1,11 @@
 name: Update Traffic Views
 
 on:
-  schedule:
-    - cron: '0 */12 * * *'
+  # schedule:
+  #   - cron: '0 */12 * * *'
   push:
     paths:
-      - 'docs/traffic/all.json'
+      - docs/traffic/all.json
 
 jobs:
   update-traffic-views:
@@ -15,23 +15,23 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
         with:
-          node-version: '22'
+          bun-version: 1.1.38
 
       - name: Pull latest changes
         run: git pull origin main
 
       - name: Install dependencies
-        run: npm install
+        run: bun install --production
 
       - name: Run update-traffic-views script
         env:
           GITHUB_TOKEN: ${{ secrets.WORKFLOW_GITHUB_TOKEN }}
           GITHUB_USER: toFrankie
           GITHUB_REPO: blog
-        run: node scripts/update-traffic-views.js
+        run: bun run scripts/update-traffic-views.js
 
       - name: Check if traffic-views.svg has changed
         id: check_changes

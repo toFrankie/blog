@@ -2,14 +2,13 @@
  * 获取所有 Issue 并生成与 github-blogger 相同的 Markdown 文件，以批量存档文章。
  */
 
-import path from 'node:path'
 import fs from 'node:fs/promises'
+import path from 'node:path'
 
-import matter from 'gray-matter'
 import dayjs from 'dayjs'
 import dotenv from 'dotenv'
+import matter from 'gray-matter'
 
-// eslint-disable-next-line import/extensions
 import { fetchAllIssue } from './common.js'
 
 dotenv.config()
@@ -23,7 +22,8 @@ dotenv.config()
     for (const issue of issues) {
       await saveIssue(issue)
     }
-  } catch (error) {
+  }
+  catch (error) {
     console.error('Error:', error)
   }
 })()
@@ -59,7 +59,8 @@ async function saveIssue(issue) {
     await fs.mkdir(dir, { recursive: true })
     await fs.writeFile(filePath, generateMarkdown(issue)) // 若不覆盖同名文件，传入 { flag: 'wx' }
     console.log(`Saved: ${filePath}`)
-  } catch (error) {
+  }
+  catch (error) {
     console.error(`Failed to save: ${filePath}`, error)
   }
 }

@@ -3,7 +3,6 @@ import path from 'node:path'
 
 import dotenv from 'dotenv'
 
-// eslint-disable-next-line import/extensions
 import { fetchRecentIssues } from './common.js'
 
 dotenv.config()
@@ -26,7 +25,7 @@ async function updateRecentArticles() {
   await fs.writeFile(filePath, content, 'utf8')
 }
 
-updateRecentArticles().catch(err => {
+updateRecentArticles().catch((err) => {
   console.error(err)
   process.exit(1)
 })

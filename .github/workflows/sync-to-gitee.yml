@@ -15,7 +15,7 @@ jobs:
           dst: gitee/frankie_li
           dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
           dst_token: ${{ secrets.GITEE_TOKEN }}
-          static_list: 'blog'
+          static_list: blog
           account_type: user
           force_update: true
           debug: true

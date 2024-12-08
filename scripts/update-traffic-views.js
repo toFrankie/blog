@@ -1,5 +1,5 @@
-import path from 'node:path'
 import fs from 'node:fs/promises'
+import path from 'node:path'
 
 import dotenv from 'dotenv'
 
@@ -9,7 +9,7 @@ async function updateBadgeSvg(templatePath, outputPath, newCount) {
   const originalBadgeContent = await fs.readFile(outputPath, 'utf8')
 
   const templateBadgeContent = await fs.readFile(templatePath, 'utf8')
-  const currentBadgeContent = templateBadgeContent.replace(/{{views}}/, newCount)
+  const currentBadgeContent = templateBadgeContent.replace(/\{\{views\}\}/, newCount)
 
   if (currentBadgeContent !== originalBadgeContent) {
     await fs.writeFile(outputPath, currentBadgeContent, 'utf8')

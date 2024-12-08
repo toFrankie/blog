@@ -9,26 +9,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install Node.js
-        uses: actions/setup-node@v4
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
         with:
-          node-version: '22'
+          bun-version: 1.1.38
 
       - name: Pull latest changes
         run: git pull origin main
 
       - name: Install dependencies
-        run: npm install
+        run: bun install --production
 
       - name: Update Traffic Data
         env:
           GITHUB_TOKEN: ${{ secrets.WORKFLOW_GITHUB_TOKEN }}
           GITHUB_USER: toFrankie
           GITHUB_REPO: blog
-        run: node scripts/update-traffic-data.js
+        run: bun run scripts/update-traffic-data.js
 
       - name: Commit changes
         run: |

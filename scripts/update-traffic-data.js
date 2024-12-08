@@ -1,11 +1,10 @@
-import path from 'node:path'
 import fs from 'node:fs/promises'
+import path from 'node:path'
 
 import dayjs from 'dayjs'
-import dotenv from 'dotenv'
 import utc from 'dayjs/plugin/utc.js'
+import dotenv from 'dotenv'
 
-// eslint-disable-next-line import/extensions
 import { getTrafficViews } from './common.js'
 
 dotenv.config()
@@ -19,17 +18,19 @@ async function updateYearTrafficJson(filePath, views) {
   try {
     const originalTrafficData = await fs.readFile(filePath, 'utf8')
     yearData = JSON.parse(originalTrafficData)
-  } catch (error) {
+  }
+  catch {
     // Initialize new traffic data if file doesn't exist
   }
 
-  views.forEach(view => {
+  views.forEach((view) => {
     const utcTime = dayjs.utc(view.timestamp)
     const year = utcTime.format('YYYY')
     const month = utcTime.format('YYYY-MM')
     const day = utcTime.format('YYYY-MM-DD')
 
-    if (year !== yearData.year) return
+    if (year !== yearData.year)
+      return
 
     let monthData = yearData.list.find(m => m.month === month)
     if (!monthData) {
@@ -60,7 +61,7 @@ async function updateYearTrafficJson(filePath, views) {
 async function updateAllTrafficJson(trafficDir, allJsonPath) {
   const allTrafficData = { count: 0, uniques: 0, list: [] }
 
-  const pattern = /^(20[0-9]{2}|2100).json$/
+  const pattern = /^20\d{2}|2100.json$/
   const files = await fs.readdir(trafficDir)
 
   for (const file of files) {
@@ -87,8 +88,7 @@ async function updateAllTrafficJson(trafficDir, allJsonPath) {
   await fs.mkdir(trafficDir, { recursive: true })
 
   const trafficDataYearly = Object.groupBy(trafficData.views, item =>
-    dayjs(item.timestamp).format('YYYY')
-  )
+    dayjs(item.timestamp).format('YYYY'))
   for (const [year, views] of Object.entries(trafficDataYearly)) {
     const yearFilePath = path.resolve(trafficDir, `${year}.json`)
     await updateYearTrafficJson(yearFilePath, views)
