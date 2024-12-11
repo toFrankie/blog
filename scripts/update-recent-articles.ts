@@ -1,11 +1,7 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
 
-import dotenv from 'dotenv'
-
 import { fetchRecentIssues } from './common.js'
-
-dotenv.config()
 
 async function updateRecentArticles() {
   const issues = await fetchRecentIssues()

@@ -3,24 +3,30 @@ import path from 'node:path'
 
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc.js'
-import dotenv from 'dotenv'
 
-import { getTrafficViews } from './common.js'
-
-dotenv.config()
+import {
+  type AllTraffic,
+  type AllTrafficItem,
+  getTrafficViews,
+  type TrafficYear,
+  type Views,
+} from './common.js'
 
 dayjs.extend(utc)
 
-async function updateYearTrafficJson(filePath, views) {
+async function updateYearTrafficJson(filePath: string, views: Views) {
   const currentYear = dayjs().year().toString()
-  let yearData = { count: 0, uniques: 0, year: currentYear, list: [] }
+  let yearData: TrafficYear = {
+    count: 0,
+    uniques: 0,
+    year: currentYear,
+    list: [],
+  }
 
   try {
     const originalTrafficData = await fs.readFile(filePath, 'utf8')
     yearData = JSON.parse(originalTrafficData)
-  } catch {
-    // Initialize new traffic data if file doesn't exist
-  }
+  } catch {} // Initialize new traffic data if file doesn't exist
 
   views.forEach(view => {
     const utcTime = dayjs.utc(view.timestamp)
@@ -56,8 +62,8 @@ async function updateYearTrafficJson(filePath, views) {
   await fs.writeFile(filePath, formattedYearData)
 }
 
-async function updateAllTrafficJson(trafficDir, allJsonPath) {
-  const allTrafficData = { count: 0, uniques: 0, list: [] }
+async function updateAllTrafficJson(trafficDir: string, allJsonPath: string) {
+  const allTrafficData: AllTraffic = { count: 0, uniques: 0, list: [] }
 
   const pattern = /^20\d{2}|2100.json$/
   const files = await fs.readdir(trafficDir)
@@ -67,7 +73,11 @@ async function updateAllTrafficJson(trafficDir, allJsonPath) {
       const filePath = path.resolve(trafficDir, file)
       const yearData = JSON.parse(await fs.readFile(filePath, 'utf-8'))
 
-      const item = { year: yearData.year, count: yearData.count, uniques: yearData.uniques }
+      const item: AllTrafficItem = {
+        year: yearData.year,
+        count: yearData.count,
+        uniques: yearData.uniques,
+      }
 
       allTrafficData.list.push(item)
       allTrafficData.count += yearData.count
@@ -90,7 +100,7 @@ async function updateAllTrafficJson(trafficDir, allJsonPath) {
   )
   for (const [year, views] of Object.entries(trafficDataYearly)) {
     const yearFilePath = path.resolve(trafficDir, `${year}.json`)
-    await updateYearTrafficJson(yearFilePath, views)
+    if (views) await updateYearTrafficJson(yearFilePath, views)
   }
 
   const allJsonPath = path.resolve(trafficDir, 'all.json')

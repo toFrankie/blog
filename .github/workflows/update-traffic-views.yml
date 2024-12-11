@@ -28,7 +28,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.WORKFLOW_GITHUB_TOKEN }}
           GITHUB_USER: toFrankie
           GITHUB_REPO: blog
-        run: bun run scripts/update-traffic-views.js
+        run: bun run scripts/update-traffic-views.ts
 
       - name: Check if traffic-views.svg has changed
         id: check_changes

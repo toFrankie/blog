@@ -1,4 +1,43 @@
+import type { RestEndpointMethodTypes } from '@octokit/rest'
 import { Octokit } from '@octokit/rest'
+
+export type IssueState = RestEndpointMethodTypes['issues']['listForRepo']['parameters']['state']
+export type Issues = RestEndpointMethodTypes['issues']['listForRepo']['response']['data']
+export type Issue = Issues[number]
+export type TrafficViews = RestEndpointMethodTypes['repos']['getViews']['response']['data']
+export type Views = TrafficViews['views']
+
+export interface TrafficDayItem {
+  day: string
+  count: number
+  uniques: number
+}
+
+export interface TrafficMonthItem {
+  month: string
+  count: number
+  uniques: number
+  list: TrafficDayItem[]
+}
+
+export interface TrafficYear {
+  year: string
+  count: number
+  uniques: number
+  list: TrafficMonthItem[]
+}
+
+export interface AllTrafficItem {
+  year: string
+  count: number
+  uniques: number
+}
+
+export interface AllTraffic {
+  count: number
+  uniques: number
+  list: AllTrafficItem[]
+}
 
 export const getGithubRepo = () => process.env.GITHUB_REPO || 'blog'
 
@@ -8,8 +47,8 @@ export const getGithubToken = () => process.env.GITHUB_TOKEN || ''
 
 export const getGithubBranch = () => process.env.GITHUB_BRANCH || 'main'
 
-export async function fetchAllIssue(state = 'all') {
-  const issues = []
+export async function fetchAllIssue(state: IssueState = 'all') {
+  const issues: Issues = []
   let page = 1
   let hasNextPage = true
 
@@ -32,7 +71,7 @@ export async function fetchAllIssue(state = 'all') {
   return issues
 }
 
-export async function fetchRecentIssues(state = 'all') {
+export async function fetchRecentIssues(state: IssueState = 'all') {
   const octokit = new Octokit({ auth: getGithubToken() })
 
   const { data: issues } = await octokit.issues.listForRepo({
@@ -60,6 +99,9 @@ export async function getTrafficViews() {
 
     return data
   } catch (error) {
-    throw new Error(`Failed to fetch traffic data: ${error.message}`)
+    if (error instanceof Error) {
+      throw new TypeError(`Failed to fetch traffic data: ${error.message}`)
+    }
+    throw error
   }
 }

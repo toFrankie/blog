@@ -1,11 +1,7 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
 
-import dotenv from 'dotenv'
-
-import { fetchAllIssue, getGithubRepo, getGithubUser } from './common.js'
-
-dotenv.config()
+import { fetchAllIssue, getGithubRepo, getGithubUser, type Issues } from './common.js'
 
 const TEMPLATE_FILE = path.resolve('docs', 'templates', 'readme.md')
 const OUTPUT_FILE = path.resolve('README.md')
@@ -29,20 +25,29 @@ const OUTPUT_FILE = path.resolve('README.md')
   console.log('README.md has been updated.')
 })()
 
+interface YearLabel {
+  [year: string]: number
+}
+
 // 生成年标签的链接
-async function genYearLinks(issues) {
-  const yearLabels = {}
+async function genYearLinks(issues: Issues) {
+  const yearLabels: YearLabel = {}
   const yearLabelPattern = /^20\d{2}|2100$/
 
   for (const issue of issues) {
-    const yearLabel = issue.labels.find(label => yearLabelPattern.test(label.name))?.name
+    const matchedLabel = issue.labels.find(label => {
+      if (typeof label === 'string') return yearLabelPattern.test(label)
+      return yearLabelPattern.test(label.name ?? '')
+    })
+
+    const yearLabel = typeof matchedLabel === 'string' ? matchedLabel : matchedLabel?.name
     if (yearLabel) {
       yearLabels[yearLabel] = (yearLabels[yearLabel] || 0) + 1
     }
   }
 
   // 按年份递减排序
-  const sortedYears = Object.keys(yearLabels).sort((a, b) => b - a)
+  const sortedYears = Object.keys(yearLabels).sort((a, b) => Number(b) - Number(a))
 
   const githubUser = getGithubUser()
   const githubRepo = getGithubRepo()
@@ -55,7 +60,7 @@ async function genYearLinks(issues) {
   return `- ${labels.join('\n- ')}`
 }
 
-function replaceRelativePaths(content, inputDir, outputDir) {
+function replaceRelativePaths(content: string, inputDir: string, outputDir: string) {
   // image
   let newContent = content.replace(
     // eslint-disable-next-line regexp/no-useless-assertions

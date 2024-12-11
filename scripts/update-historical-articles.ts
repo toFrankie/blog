@@ -4,10 +4,7 @@ import path from 'node:path'
 
 import { Octokit } from '@octokit/rest'
 import dayjs from 'dayjs'
-import dotenv from 'dotenv'
 import matter from 'gray-matter'
-
-dotenv.config()
 
 const { GITHUB_TOKEN, GITHUB_USER, GITHUB_REPO, GITHUB_BRANCH } = process.env
 const IMAGES_DIR = path.resolve('./images')
@@ -17,9 +14,9 @@ const IGNORE_DIR = '2024'
 const octokit = new Octokit({ auth: GITHUB_TOKEN })
 
 // 获取指定目录及子目录的 Markdown 文件路径（忽略特定子目录）
-async function getMarkdownFiles(dir, ignoreDir) {
+async function getMarkdownFiles(dir: string, ignoreDir: string) {
   const entries = await fs.readdir(dir, { withFileTypes: true })
-  const files = []
+  const files: string[] = []
 
   for (const entry of entries) {
     const fullPath = path.join(dir, entry.name)
@@ -33,7 +30,7 @@ async function getMarkdownFiles(dir, ignoreDir) {
 }
 
 // 解析 Markdown 文件，处理图片链接
-async function processMarkdownFile(filePath) {
+async function processMarkdownFile(filePath: string) {
   let fileContent = await fs.readFile(filePath, 'utf8')
   // 需匹配：background-image: url(https://cdn.jsdelivr.net/gh/toFrankie/blog/images/1682475354583.png);
 
@@ -50,7 +47,7 @@ async function processMarkdownFile(filePath) {
 
   const imageFiles = matchedImages.map(match => match[2]) // 提取文件名
 
-  const issueNumber = path.basename(filePath, '.md')
+  const issueNumber = Number(path.basename(filePath, '.md'))
 
   for (let i = 0; i < imageFiles.length; i++) {
     const filename = imageFiles[i]
@@ -97,12 +94,12 @@ async function processMarkdownFile(filePath) {
   await updateGitHubIssue(issueNumber, content)
 }
 
-async function updateGitHubIssue(issueNumber, content) {
+async function updateGitHubIssue(issueNumber: number, content: string) {
   try {
     await octokit.rest.issues.update({
-      owner: GITHUB_USER,
-      repo: GITHUB_REPO,
-      issue_number: Number(issueNumber),
+      owner: GITHUB_USER as string,
+      repo: GITHUB_REPO as string,
+      issue_number: issueNumber,
       body: content,
     })
     console.log(`Issue #${issueNumber} 更新成功`)
@@ -120,13 +117,14 @@ async function updateGitHubIssue(issueNumber, content) {
       await processMarkdownFile(filePath)
     }
 
-    await commitChanges()
+    // await commitChanges()
   } catch (error) {
     console.error('处理失败：', error)
   }
 })()
 
 // 提交变更到 GitHub
+// eslint-disable-next-line unused-imports/no-unused-vars
 async function commitChanges() {
   try {
     await exec('git add .')
@@ -134,7 +132,7 @@ async function commitChanges() {
     await exec(`git push origin ${GITHUB_BRANCH}`)
     console.log('文件变更已推送到远程仓库')
   } catch (error) {
-    if (error.message.includes('nothing to commit')) {
+    if (error instanceof Error && error.message.includes('nothing to commit')) {
       console.log('无变更，无需提交')
     } else {
       console.error('提交变更失败：', error)

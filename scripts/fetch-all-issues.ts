@@ -6,12 +6,9 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 
 import dayjs from 'dayjs'
-import dotenv from 'dotenv'
 import matter from 'gray-matter'
 
-import { fetchAllIssue } from './common.js'
-
-dotenv.config()
+import { fetchAllIssue, type Issue } from './common.js'
 
 //
 ;(async function main() {
@@ -27,7 +24,7 @@ dotenv.config()
   }
 })()
 
-function determineYear(issue) {
+function determineYear(issue: Issue) {
   const createdAt = dayjs(issue.created_at)
   // if (createdAt.isBefore(dayjs('2023-05-01'))) {
   //   const yearLabel = issue.labels.find(label => /^\d{4}$/.test(label.name))
@@ -38,18 +35,18 @@ function determineYear(issue) {
   return createdAt.format('YYYY')
 }
 
-function generateMarkdown(issue) {
-  return matter.stringify(issue.body, {
+function generateMarkdown(issue: Issue) {
+  return matter.stringify(issue.body || '', {
     title: issue.title,
     number: `#${issue.number}`,
     link: issue.html_url || issue.url,
     created_at: dayjs(issue.created_at).format('YYYY-MM-DD HH:mm:ss'),
     updated_at: dayjs(issue.updated_at).format('YYYY-MM-DD HH:mm:ss'),
-    labels: issue.labels.map(({ name }) => name),
+    labels: issue.labels.map(label => (typeof label === 'string' ? label : label.name)),
   })
 }
 
-async function saveIssue(issue) {
+async function saveIssue(issue: Issue) {
   const year = determineYear(issue)
   const dir = path.join(process.cwd(), 'archives', year)
   const filePath = path.join(dir, `${issue.number}.md`)

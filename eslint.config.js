@@ -9,6 +9,15 @@ export default antfu(
     files: ['**/*.js', '**/*.ts'],
     plugins: { format },
     rules: {
+      'eslint-comments/no-unlimited-disable': 'off',
+      'node/prefer-global/process': ['error', 'always'],
+
+      'antfu/if-newline': 'off',
+      'antfu/consistent-list-newline': 'off',
+
+      'style/arrow-parens': ['error', 'as-needed'],
+      'style/brace-style': ['error', '1tbs', { allowSingleLine: false }],
+
       'format/prettier': [
         'error',
         {
@@ -19,9 +28,6 @@ export default antfu(
           arrowParens: 'avoid',
         },
       ],
-      'eslint-comments/no-unlimited-disable': 'off',
-      'node/prefer-global/process': ['error', 'always'],
-      'antfu/if-newline': 'off',
     },
   },
   {
