@@ -1,5 +1,6 @@
 # 近期更新
 
+- [macOS 初始配置指南](https://github.com/toFrankie/blog/issues/31)
 - [一些 JS 代码片段](https://github.com/toFrankie/blog/issues/179)
 - [小程序图标变色](https://github.com/toFrankie/blog/issues/351)
 - [使用 VS Code + Github 搭建个人博客](https://github.com/toFrankie/blog/issues/327)
@@ -9,4 +10,3 @@
 - [常用 CSS Media Query 记录](https://github.com/toFrankie/blog/issues/352)
 - [Safari/WebKit 无法正确渲染 <foreignObject> 中的 HTML 元素](https://github.com/toFrankie/blog/issues/312)
 - [unable to verify the first certificate 原因及解决方法](https://github.com/toFrankie/blog/issues/97)
-- [从零到一搭建私有 NPM 服务器](https://github.com/toFrankie/blog/issues/90)
