@@ -1,6 +1,6 @@
 {
-  "count": 2852,
-  "uniques": 1495,
+  "count": 2893,
+  "uniques": 1497,
   "year": "2024",
   "list": [
     {
@@ -670,8 +670,8 @@
     },
     {
       "month": "2024-12",
-      "count": 731,
-      "uniques": 250,
+      "count": 772,
+      "uniques": 252,
       "list": [
         {
           "day": "2024-12-01",
@@ -735,8 +735,8 @@
         },
         {
           "day": "2024-12-13",
-          "count": 28,
-          "uniques": 11
+          "count": 69,
+          "uniques": 13
         }
       ]
     }
