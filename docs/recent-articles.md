@@ -1,5 +1,6 @@
 # 近期更新
 
+- [简单易用的图片压缩小工具](https://github.com/toFrankie/blog/issues/314)
 - [JavaScript 编程风格（书写习惯）](https://github.com/toFrankie/blog/issues/244)
 - [JavaScript 变量不能被 delete 的原因](https://github.com/toFrankie/blog/issues/265)
 - [Homebrew 使用详解](https://github.com/toFrankie/blog/issues/9)
@@ -9,4 +10,3 @@
 - [如何查看自己在 Github 中提及或回复过的 Issue 记录？](https://github.com/toFrankie/blog/issues/335)
 - [macOS 配置指南](https://github.com/toFrankie/blog/issues/31)
 - [一些 JS 代码片段](https://github.com/toFrankie/blog/issues/179)
-- [小程序图标变色](https://github.com/toFrankie/blog/issues/351)
