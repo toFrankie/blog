@@ -2,7 +2,7 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 
 import dayjs from 'dayjs'
-import utc from 'dayjs/plugin/utc.js'
+import utc from 'dayjs/plugin/utc'
 
 import {
   type AllTraffic,
@@ -10,7 +10,7 @@ import {
   getTrafficViews,
   type TrafficYear,
   type Views,
-} from './common.js'
+} from './common'
 
 dayjs.extend(utc)
 

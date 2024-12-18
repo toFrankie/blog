@@ -8,7 +8,7 @@ import path from 'node:path'
 import dayjs from 'dayjs'
 import matter from 'gray-matter'
 
-import { fetchAllIssue, type Issue } from './common.js'
+import { fetchAllIssue, type Issue } from './common'
 
 //
 ;(async function main() {

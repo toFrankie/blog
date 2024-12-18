@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
 
-import { fetchAllIssue, getGithubRepo, getGithubUser, type Issues } from './common.js'
+import { fetchAllIssue, getGithubRepo, getGithubUser, type Issues } from './common'
 
 const TEMPLATE_FILE = path.resolve('docs', 'templates', 'readme.md')
 const OUTPUT_FILE = path.resolve('README.md')

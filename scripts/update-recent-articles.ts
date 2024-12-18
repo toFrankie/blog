@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
 
-import { fetchRecentIssues } from './common.js'
+import { fetchRecentIssues } from './common'
 
 async function updateRecentArticles() {
   const issues = await fetchRecentIssues()
