@@ -50,3 +50,4 @@
 
 - [Developer Roadmap](https://github.com/kamranahmedse/developer-roadmap)
 - [中国程序员容易发音错误的单词](https://github.com/shimohq/chinese-programmer-wrong-pronunciation)
+- [程序员做饭指南](https://github.com/Anduin2017/HowToCook)
