@@ -1,11 +1,11 @@
 {
-  "count": 3000,
-  "uniques": 1745,
+  "count": 3005,
+  "uniques": 1750,
   "list": [
     {
       "year": "2024",
-      "count": 3000,
-      "uniques": 1745
+      "count": 3005,
+      "uniques": 1750
     }
   ]
 }
