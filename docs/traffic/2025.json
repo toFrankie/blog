@@ -1,0 +1,19 @@
+{
+  "count": 9,
+  "uniques": 6,
+  "year": "2025",
+  "list": [
+    {
+      "month": "2025-01",
+      "count": 9,
+      "uniques": 6,
+      "list": [
+        {
+          "day": "2025-01-01",
+          "count": 9,
+          "uniques": 6
+        }
+      ]
+    }
+  ]
+}
