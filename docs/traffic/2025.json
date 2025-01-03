@@ -1,12 +1,12 @@
 {
-  "count": 32,
-  "uniques": 21,
+  "count": 33,
+  "uniques": 22,
   "year": "2025",
   "list": [
     {
       "month": "2025-01",
-      "count": 32,
-      "uniques": 21,
+      "count": 33,
+      "uniques": 22,
       "list": [
         {
           "day": "2025-01-01",
@@ -15,8 +15,8 @@
         },
         {
           "day": "2025-01-02",
-          "count": 20,
-          "uniques": 12
+          "count": 21,
+          "uniques": 13
         }
       ]
     }
