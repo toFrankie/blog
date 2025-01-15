@@ -1,17 +1,17 @@
 {
-  "count": 419,
-  "uniques": 297,
+  "count": 471,
+  "uniques": 347,
   "year": "2025",
   "list": [
     {
       "month": "2025-01",
-      "count": 419,
-      "uniques": 297,
+      "count": 471,
+      "uniques": 347,
       "list": [
         {
           "day": "2025-01-01",
-          "count": 12,
-          "uniques": 9
+          "count": 1,
+          "uniques": 1
         },
         {
           "day": "2025-01-02",
@@ -75,8 +75,13 @@
         },
         {
           "day": "2025-01-14",
-          "count": 56,
+          "count": 57,
           "uniques": 51
+        },
+        {
+          "day": "2025-01-15",
+          "count": 62,
+          "uniques": 58
         }
       ]
     }
