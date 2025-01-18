@@ -15,8 +15,11 @@ async function updateRecentArticles() {
   const content = lines.join('\n')
   const filePath = path.join('docs', 'recent-articles.md')
 
-  const dirPath = path.dirname(filePath)
-  await fs.mkdir(dirPath, { recursive: true })
+  const recentArticlesDir = path.dirname(filePath)
+  const dirExists = await fs.stat(recentArticlesDir).catch(() => false)
+  if (!dirExists) {
+    await fs.mkdir(recentArticlesDir, { recursive: true })
+  }
 
   await fs.writeFile(filePath, content, 'utf8')
 }

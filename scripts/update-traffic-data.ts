@@ -93,7 +93,10 @@ async function updateAllTrafficJson(trafficDir: string, allJsonPath: string) {
   const trafficData = await getTrafficViews()
 
   const trafficDir = path.resolve('docs/traffic')
-  await fs.mkdir(trafficDir, { recursive: true })
+  const trafficDirExists = await fs.stat(trafficDir).catch(() => false)
+  if (!trafficDirExists) {
+    await fs.mkdir(trafficDir, { recursive: true })
+  }
 
   const trafficDataYearly = Object.groupBy(trafficData.views, item =>
     dayjs(item.timestamp).format('YYYY'),
