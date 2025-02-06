@@ -1,6 +1,6 @@
 {
-  "count": 319,
-  "uniques": 263,
+  "count": 347,
+  "uniques": 276,
   "year": "2025",
   "list": [
     {
@@ -167,8 +167,8 @@
     },
     {
       "month": "2025-02",
-      "count": 67,
-      "uniques": 38,
+      "count": 95,
+      "uniques": 51,
       "list": [
         {
           "day": "2025-02-01",
@@ -194,6 +194,11 @@
           "day": "2025-02-05",
           "count": 18,
           "uniques": 14
+        },
+        {
+          "day": "2025-02-06",
+          "count": 28,
+          "uniques": 13
         }
       ]
     }
