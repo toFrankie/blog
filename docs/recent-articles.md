@@ -1,5 +1,6 @@
 # 近期更新
 
+- [那些纠结过的英文词汇](https://github.com/toFrankie/blog/issues/355)
 - [关于进制](https://github.com/toFrankie/blog/issues/354)
 - [JS 代码片段](https://github.com/toFrankie/blog/issues/179)
 - [nrm 使用详解](https://github.com/toFrankie/blog/issues/89)
@@ -9,4 +10,3 @@
 - [JavaScript 变量不能被 delete 的原因](https://github.com/toFrankie/blog/issues/265)
 - [Homebrew 使用详解](https://github.com/toFrankie/blog/issues/9)
 - [正则表达式](https://github.com/toFrankie/blog/issues/231)
-- [针对 Chrome 80 和 Chrome 91 对 Cookie SameSite 限制的解决方案](https://github.com/toFrankie/blog/issues/247)
