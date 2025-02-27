@@ -1,5 +1,6 @@
 # 近期更新
 
+- [uni-app 记录](https://github.com/toFrankie/blog/issues/353)
 - [那些纠结过的英文词汇](https://github.com/toFrankie/blog/issues/355)
 - [关于进制](https://github.com/toFrankie/blog/issues/354)
 - [JS 代码片段](https://github.com/toFrankie/blog/issues/179)
@@ -9,4 +10,3 @@
 - [JavaScript 编程风格（书写习惯）](https://github.com/toFrankie/blog/issues/244)
 - [JavaScript 变量不能被 delete 的原因](https://github.com/toFrankie/blog/issues/265)
 - [Homebrew 使用详解](https://github.com/toFrankie/blog/issues/9)
-- [正则表达式](https://github.com/toFrankie/blog/issues/231)
