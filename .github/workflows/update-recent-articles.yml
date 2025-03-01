@@ -3,7 +3,6 @@ name: Update Recent Articles
 on:
   schedule:
     - cron: '0 16 * * *' # 北京时间 00:00
-    - cron: '0 4 * * *' # 北京时间 12:00
 
 jobs:
   update-recent-articles:
