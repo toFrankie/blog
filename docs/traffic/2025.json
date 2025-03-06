@@ -1,6 +1,6 @@
 {
-  "count": 697,
-  "uniques": 463,
+  "count": 705,
+  "uniques": 468,
   "year": "2025",
   "list": [
     {
@@ -167,8 +167,8 @@
     },
     {
       "month": "2025-02",
-      "count": 272,
-      "uniques": 188,
+      "count": 271,
+      "uniques": 187,
       "list": [
         {
           "day": "2025-02-01",
@@ -267,8 +267,8 @@
         },
         {
           "day": "2025-02-20",
-          "count": 15,
-          "uniques": 14
+          "count": 14,
+          "uniques": 13
         },
         {
           "day": "2025-02-21",
@@ -314,8 +314,8 @@
     },
     {
       "month": "2025-03",
-      "count": 202,
-      "uniques": 74,
+      "count": 211,
+      "uniques": 80,
       "list": [
         {
           "day": "2025-03-01",
@@ -339,8 +339,8 @@
         },
         {
           "day": "2025-03-05",
-          "count": 8,
-          "uniques": 7
+          "count": 17,
+          "uniques": 13
         }
       ]
     }
