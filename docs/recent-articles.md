@@ -1,5 +1,6 @@
 # 近期更新
 
+- [解决 Sourcetree 报错 Couldn't posix_spawn: error 2 问题](https://github.com/toFrankie/blog/issues/24)
 - [macOS 配置指南](https://github.com/toFrankie/blog/issues/31)
 - [nrm 使用详解](https://github.com/toFrankie/blog/issues/89)
 - [解决 XtraFinder、TotalFinder 无法安装的问题](https://github.com/toFrankie/blog/issues/13)
@@ -9,4 +10,3 @@
 - [JS 代码片段](https://github.com/toFrankie/blog/issues/179)
 - [使用 GitHub 作为博客之后，可以利用 GitHub Actions 做哪些事情？](https://github.com/toFrankie/blog/issues/349)
 - [简单易用的图片压缩小工具](https://github.com/toFrankie/blog/issues/314)
-- [JavaScript 编程风格（书写习惯）](https://github.com/toFrankie/blog/issues/244)
