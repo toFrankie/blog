@@ -2,7 +2,7 @@ name: Update Traffic Data
 
 on:
   schedule:
-    - cron: '0 */12 * * *'
+    - cron: '10 0 * * *'
 
 jobs:
   update-traffic:
