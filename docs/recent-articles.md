@@ -1,5 +1,6 @@
 # 近期更新
 
+- [细读 React | setState](https://github.com/toFrankie/blog/issues/115)
 - [与食物的有限交集](https://github.com/toFrankie/blog/issues/356)
 - [Git 常用命令介绍](https://github.com/toFrankie/blog/issues/103)
 - [解决 Sourcetree 报错 Couldn't posix_spawn: error 2 问题](https://github.com/toFrankie/blog/issues/24)
@@ -9,4 +10,3 @@
 - [uni-app 记录](https://github.com/toFrankie/blog/issues/353)
 - [那些纠结过的英文词汇](https://github.com/toFrankie/blog/issues/355)
 - [关于进制](https://github.com/toFrankie/blog/issues/354)
-- [JS 代码片段](https://github.com/toFrankie/blog/issues/179)
