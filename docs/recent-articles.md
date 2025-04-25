@@ -1,7 +1,7 @@
 # 近期更新
 
-- [细读 React | setState](https://github.com/toFrankie/blog/issues/115)
 - [与食物的有限交集](https://github.com/toFrankie/blog/issues/356)
+- [细读 React | setState](https://github.com/toFrankie/blog/issues/115)
 - [Git 常用命令介绍](https://github.com/toFrankie/blog/issues/103)
 - [解决 Sourcetree 报错 Couldn't posix_spawn: error 2 问题](https://github.com/toFrankie/blog/issues/24)
 - [macOS 配置指南](https://github.com/toFrankie/blog/issues/31)
