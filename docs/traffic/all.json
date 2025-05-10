@@ -1,11 +1,11 @@
 {
-  "count": 3872,
-  "uniques": 2263,
+  "count": 3893,
+  "uniques": 2267,
   "list": [
     {
       "year": "2025",
-      "count": 1401,
-      "uniques": 866
+      "count": 1422,
+      "uniques": 870
     },
     {
       "year": "2024",
