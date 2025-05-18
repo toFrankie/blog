@@ -6,8 +6,6 @@
 
 > 技术在飞，旧文难免跟不上，请小心考古～
 
-> ![](../traffic-views.svg)
-
 ### 📚 我的文章
 
 [全部](https://github.com/toFrankie/blog/issues) • [2025](https://github.com/toFrankie/blog/labels/2025) • [2024](https://github.com/toFrankie/blog/labels/2024) • [2023](https://github.com/toFrankie/blog/labels/2023) • [2022](https://github.com/toFrankie/blog/labels/2022) • [2021](https://github.com/toFrankie/blog/labels/2021) • [2020](https://github.com/toFrankie/blog/labels/2020) • [2019](https://github.com/toFrankie/blog/labels/2019) • [2018](https://github.com/toFrankie/blog/labels/2018) • [2017](https://github.com/toFrankie/blog/labels/2017)
@@ -31,7 +29,7 @@
 - [How To Ask Good Questions: David Stork at TEDxStanleyPark](https://www.youtube.com/watch?v=PkcHstP6Ht0)
 - [How can I ... ?](https://tkdodo.eu/blog/how-can-i)
 
-#### 📝 命名那些事儿
+#### 📝 命名那些事
 
 - [Naming cheatsheet](https://github.com/kettanaito/naming-cheatsheet)
 - [Standard Method Name Verb Semantics](https://chrisoldwood.blogspot.com/2009/11/standard-method-name-verb-semantics.html)
