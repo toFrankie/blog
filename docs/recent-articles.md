@@ -1,5 +1,6 @@
 # 近期更新
 
+- [老是记不住 isEmpty](https://github.com/toFrankie/blog/issues/346)
 - [记五月：汕头 - 潮州两日](https://github.com/toFrankie/blog/issues/358)
 - [语义化版本 SemVer](https://github.com/toFrankie/blog/issues/83)
 - [微信小程序开发记录](https://github.com/toFrankie/blog/issues/359)
@@ -9,4 +10,3 @@
 - [小程序 textarea 组件的坑](https://github.com/toFrankie/blog/issues/304)
 - [与食物的有限交集](https://github.com/toFrankie/blog/issues/356)
 - [细读 React | setState](https://github.com/toFrankie/blog/issues/115)
-- [Git 常用命令介绍](https://github.com/toFrankie/blog/issues/103)
