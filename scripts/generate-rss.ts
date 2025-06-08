@@ -1,7 +1,14 @@
 import fs from 'node:fs/promises'
 
 import { Feed } from 'feed'
-import { fetchAllIssue, getMarkdownContent, type Issue } from './common'
+import MarkdownIt from 'markdown-it'
+
+import { fetchAllIssue, type Issue } from './common'
+
+const md = MarkdownIt({
+  html: true,
+  linkify: true,
+})
 
 main()
 
@@ -30,7 +37,7 @@ async function generateRSS(issues: Issue[]) {
   })
 
   for (const issue of issues) {
-    const content = await getMarkdownContent(issue)
+    const content = issue.body ? md.render(issue.body) : ''
 
     feed.addItem({
       title: issue.title,
