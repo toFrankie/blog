@@ -28,7 +28,7 @@ async function generateRSS(issues: Issue[]) {
 
   const feed = new Feed({
     title: "Frankie's Blog",
-    description: "Frankie's Blog",
+    description: '种一棵树，最好的时间是十年前。其次，是现在。',
     id: 'https://github.com/toFrankie/blog',
     link: 'https://github.com/toFrankie/blog',
     language: 'zh-CN',
