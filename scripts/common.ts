@@ -105,3 +105,17 @@ export async function getTrafficViews() {
     throw error
   }
 }
+
+export async function getMarkdownContent(issue: Issue) {
+  if (!issue.body) return ''
+
+  const octokit = new Octokit({ auth: getGithubToken() })
+
+  const res = await octokit.request('POST /markdown', {
+    text: issue.body || '',
+    mode: 'gfm',
+    context: 'toFrankie/blog',
+  })
+
+  return res.data
+}

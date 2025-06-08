@@ -18,8 +18,10 @@
     "prettier": "prettier . --cache --write"
   },
   "dependencies": {
+    "@octokit/core": "^7.0.2",
     "@octokit/rest": "^21.0.2",
     "dayjs": "^1.11.13",
+    "feed": "^5.1.0",
     "gray-matter": "^4.0.3"
   },
   "devDependencies": {

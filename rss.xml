@@ -1,0 +1,753 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>Frankie's Blog</title>
+        <link>https://github.com/toFrankie/blog</link>
+        <description>Frankie's Blog</description>
+        <lastBuildDate>Sun, 08 Jun 2025 16:04:02 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>zh-CN</language>
+        <copyright>All rights reserved 2025</copyright>
+        <item>
+            <title><![CDATA[Folo Verification]]></title>
+            <link>https://github.com/toFrankie/blog/issues/360</link>
+            <guid isPermaLink="false">https://github.com/toFrankie/blog/issues/360</guid>
+            <pubDate>Fri, 06 Jun 2025 16:57:49 GMT</pubDate>
+            <description><![CDATA[<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/e7d2ed013e5a2f3f46137f477f00f9baa438789801010a930f5]]></description>
+            <content:encoded><![CDATA[<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/e7d2ed013e5a2f3f46137f477f00f9baa438789801010a930f5bc0f47d20570f/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f746f4672616e6b69652f626c6f67406d61696e2f696d616765732f323032352f362f313734393233323636363733302e6a7067"><img src="https://camo.githubusercontent.com/e7d2ed013e5a2f3f46137f477f00f9baa438789801010a930f5bc0f47d20570f/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f746f4672616e6b69652f626c6f67406d61696e2f696d616765732f323032352f362f313734393233323636363733302e6a7067" alt="配图源自 Freepik" data-canonical-src="https://cdn.jsdelivr.net/gh/toFrankie/blog@main/images/2025/6/1749232666730.jpg" style="max-width: 100%;"></a></p>
+<p dir="auto">使用 <a href="https://docs.rsshub.app/routes/programming#repo-issues" rel="nofollow">RSSHub</a> 可以为 GitHub Issues 快速创建订阅源。</p>
+<pre class="notranslate"><code class="notranslate">/github/issue/:user/:repo/:state?/:labels?
+</code></pre>
+<p dir="auto">你可以创建一个包含以下认证信息的 Issue（右键认证处可复制），用于证明你是此订阅源的所有者。</p>
+<blockquote>
+<p dir="auto">This message is used to verify that this feed (feedId:153852973480969216) belongs to me (userId:150343881723676672). Join me in enjoying the next generation information browser <a href="https://follow.is" rel="nofollow">https://follow.is</a>.</p>
+</blockquote>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[微信小程序开发记录]]></title>
+            <link>https://github.com/toFrankie/blog/issues/359</link>
+            <guid isPermaLink="false">https://github.com/toFrankie/blog/issues/359</guid>
+            <pubDate>Wed, 14 May 2025 03:45:14 GMT</pubDate>
+            <description><![CDATA[<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/af3e637c5f9124b1240aead65350539f6a4584f977a6943ad28]]></description>
+            <content:encoded><![CDATA[<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/af3e637c5f9124b1240aead65350539f6a4584f977a6943ad28361f32140cd49/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f746f4672616e6b69652f626c6f67406d61696e2f696d616765732f323032352f352f313734373139343234383138322e6a7067"><img src="https://camo.githubusercontent.com/af3e637c5f9124b1240aead65350539f6a4584f977a6943ad28361f32140cd49/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f746f4672616e6b69652f626c6f67406d61696e2f696d616765732f323032352f352f313734373139343234383138322e6a7067" alt="配图源自 Freepik" data-canonical-src="https://cdn.jsdelivr.net/gh/toFrankie/blog@main/images/2025/5/1747194248182.jpg" style="max-width: 100%;"></a></p>
+<div class="markdown-alert markdown-alert-note" dir="auto"><p class="markdown-alert-title" dir="auto"><svg class="octicon octicon-info mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p><p dir="auto">众所周知，微信的文档写得很烂...</p>
+</div>
+<h2 dir="auto">关于跳转路径</h2>
+<p dir="auto">老是忘记路径是否需要前导 <code class="notranslate">/</code>，作个记录吧。😑</p>
+<ul dir="auto">
+<li><code class="notranslate">page/index/index</code></li>
+<li><code class="notranslate">/page/index/index</code></li>
+</ul>
+<p dir="auto">场景：</p>
+<ul dir="auto">
+<li><strong>小程序内的页面跳转</strong>：wx.navigateTo 这类 API 的 <code class="notranslate">url</code> 参数「<strong>必须</strong>」要有前导 <code class="notranslate">/</code>。</li>
+<li><strong>小程序之间跳转</strong>：wx.navigateToMiniProgram 的 <code class="notranslate">path</code> 参数前导 <code class="notranslate">/</code> 是「<strong>可选</strong>」的。</li>
+<li><strong>分享/转发</strong>：onShareAppMessage 的 <code class="notranslate">path</code> 参数「<strong>必须</strong>」要有前导 <code class="notranslate">/</code>。</li>
+<li><strong>订阅消息</strong>：订阅消息的 <code class="notranslate">page</code> 参数前导 <code class="notranslate">/</code> 是「<strong>可选</strong>」的（亲测均可正常跳转）。</li>
+</ul>
+<p dir="auto">结论：<strong>建议</strong>都带上前导 <code class="notranslate">/</code>（可以少用点脑子）。</p>
+<p dir="auto">相关链接：</p>
+<ul dir="auto">
+<li><a href="https://developers.weixin.qq.com/miniprogram/dev/api/route/wx.navigateTo.html" rel="nofollow">路由</a></li>
+<li><a href="https://developers.weixin.qq.com/miniprogram/dev/reference/api/Page.html#onShareAppMessage-Object-object" rel="nofollow">onShareAppMessage</a></li>
+<li><a href="https://developers.weixin.qq.com/miniprogram/dev/OpenApiDoc/mp-message-management/subscribe-message/sendMessage.html" rel="nofollow">发送订阅消息</a></li>
+<li><a href="https://doc.minapp.com/cloud-function/node-sdk/subscribe-message/wechat/subscribe-message.html" rel="nofollow">知晓云发送微信订阅消息</a></li>
+</ul>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[记五月：汕头 - 潮州两日]]></title>
+            <link>https://github.com/toFrankie/blog/issues/358</link>
+            <guid isPermaLink="false">https://github.com/toFrankie/blog/issues/358</guid>
+            <pubDate>Wed, 07 May 2025 01:19:40 GMT</pubDate>
+            <description><![CDATA[<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/ad636c3105ceb61777be11ba51db50643b3cac64f1120a5d8ac]]></description>
+            <content:encoded><![CDATA[<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/ad636c3105ceb61777be11ba51db50643b3cac64f1120a5d8acccf3dfa59cca4/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f746f4672616e6b69652f626c6f67406d61696e2f696d616765732f323032352f352f313734363538303735333534392e6a7067"><img src="https://camo.githubusercontent.com/ad636c3105ceb61777be11ba51db50643b3cac64f1120a5d8acccf3dfa59cca4/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f746f4672616e6b69652f626c6f67406d61696e2f696d616765732f323032352f352f313734363538303735333534392e6a7067" alt="配图源自 Freepik" data-canonical-src="https://cdn.jsdelivr.net/gh/toFrankie/blog@main/images/2025/5/1746580753549.jpg" style="max-width: 100%;"></a></p>
+<h2 dir="auto">提前攻略</h2>
+<p dir="auto">假期不可避免的，一是人从众，二是车票难抢 😶</p>
+<p dir="auto">由于平时没有长假期，于是决定体验一番人挤人吧。</p>
+<p dir="auto">清明过后，就开始打算五一计划了，奈何时间过得太快太快了...</p>
+<p dir="auto">来到假期前两周，好像广东或周边都显示五一要下雨 🌧</p>
+<p dir="auto">粗略扫了一遍贵州、福建、两湖，由于高铁 🚄 买不着，飞机 <g-emoji class="g-emoji" alias="airplane">✈️</g-emoji> 偏贵，且要往返，加之天气也没特别好，就放弃它们了。</p>
+<p dir="auto">又看了一周，一番纠结下基本锁定了：</p>
+<ul dir="auto">
+<li><strong>珠海</strong>：伶仃岛、情人路、日月贝、海滩、长隆。</li>
+<li><strong>潮汕</strong>：一个字“吃”，还有南澳岛。</li>
+</ul>
+<p dir="auto">它们离广州不算太远，玩 2 ~ 3 天足矣。这样便可以在广州休息一天，同时避开假期第一天高峰。恰好 5 月 2 日高铁也还有很多选择，兜底还有大巴、打车等选择，回程也是。</p>
+<h2 dir="auto">出发之前</h2>
+<p dir="auto">假期第一天，去吃了顿乳鸽（百利鸽王聚龙店），这家店是小媛同学强烈推荐。吃完，我的评价是：</p>
+<blockquote>
+<p dir="auto">没有想象好吃，不如大鸽饭（体育西店）。盐焗乳鸽略咸~</p>
+</blockquote>
+<blockquote>
+<p dir="auto">吃完离开还落下了黄皮冰茶（好喝），可惜，浪费了 😭</p>
+</blockquote>
+<p dir="auto">一顿收拾，准备了一些东西：</p>
+<ul dir="auto">
+<li><strong>证件类</strong>：身份证、学生证</li>
+<li><strong>洗护类</strong>：毛巾、牙刷、防晒、洁面、护发、护肤等化妆物品 💅</li>
+<li><strong>衣物类</strong>：那些好看衣服，换洗袜子 🧦 等</li>
+<li><strong>药品类</strong>：感冒、发烧、肠胃、创可贴 🩹 等基础药品，以防万一</li>
+<li><strong>其他</strong>：伞、充电宝、少量现金 💵 等</li>
+</ul>
+<blockquote>
+<p dir="auto">对了，我不是学生了，如果你出行，可以带上哦~</p>
+</blockquote>
+<p dir="auto">行程安排：</p>
+<ul dir="auto">
+<li>Day1 汕头</li>
+<li>Day2 潮州</li>
+<li>Day3 回广</li>
+</ul>
+<p dir="auto">出发了...</p>
+<h2 dir="auto">Day1</h2>
+<p dir="auto">次日，早早起来赶高铁：新塘站 → 汕头站，时长 3h 17min，略长~</p>
+<blockquote>
+<p dir="auto">出发前的攻略路线是：汕头小公园 → 汕头旅社 → 西堤公园 → 广场轮渡。然而，我们到达汕头已经是下午 1 点了，我们并没有按这个路线去逛，来汕头主要任务是“吃”，也就没有太大关系了，也深知这些景点都是千篇一律。</p>
+</blockquote>
+<p dir="auto">我们提前订了靠近汕头站的一个公寓，环境很一般...</p>
+<p dir="auto">办理入住，放下行李，马上赶往汕头小公园，肚子也有点小饿了...</p>
+<p dir="auto">接下来，就是吃吃吃...</p>
+<blockquote>
+<p dir="auto">我是极其挑吃的，小媛同学则相反，除了茼蒿都可以爱吃。在这方面总是你迁就我，太委屈你了。</p>
+</blockquote>
+<p dir="auto">没有特别说非要吃哪家网红店、必打卡之类的，就沿途遇到爱吃、想试的就尝尝。</p>
+<ul dir="auto">
+<li>黄皮柠檬茶（名字忘了）：没有广州茶救星球的黄皮冰茶好喝，基本上都是柠檬味...</li>
+<li>碗翅：小媛爱吃，我嘛喝了一口汤就吃不下去了...</li>
+<li>绿豆饼：中规中矩</li>
+<li>冰糖草莓：🍓 颗粒大，划算~</li>
+<li>腐乳鸡翅：小媛同学强烈推荐，就是可能吃多了容易上火</li>
+<li>反沙芋头：我只能说“反沙 xxx”都不建议买...</li>
+<li>绿豆莲子：噢，这糖水好喝</li>
+<li>三姐妹肠粉：排长龙，份量足，价格便宜（相比广州来说，不清楚当地物价）。我的评价是：不太好吃。</li>
+<li>甘草水果：满街都是，水果刺客，不好吃</li>
+<li>發發牛牛肉火锅：价格实惠、好吃，推荐~（主要跟潮州阿彬牛肉火锅对比得出的结论）</li>
+</ul>
+<h2 dir="auto">Day2</h2>
+<p dir="auto">未完待续...</p>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Jira 使用记录]]></title>
+            <link>https://github.com/toFrankie/blog/issues/357</link>
+            <guid isPermaLink="false">https://github.com/toFrankie/blog/issues/357</guid>
+            <pubDate>Wed, 30 Apr 2025 08:58:47 GMT</pubDate>
+            <description><![CDATA[<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/99ab66a75e518c5fd5656eb3a048699a100a6b0d6a5e4c7664b]]></description>
+            <content:encoded><![CDATA[<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/99ab66a75e518c5fd5656eb3a048699a100a6b0d6a5e4c7664bab3805982de51/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f746f4672616e6b69652f626c6f67406d61696e2f696d616765732f323032352f342f313734363030333434333735322e6a7067"><img src="https://camo.githubusercontent.com/99ab66a75e518c5fd5656eb3a048699a100a6b0d6a5e4c7664bab3805982de51/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f746f4672616e6b69652f626c6f67406d61696e2f696d616765732f323032352f342f313734363030333434333735322e6a7067" alt="配图源自 Freepik" data-canonical-src="https://cdn.jsdelivr.net/gh/toFrankie/blog@main/images/2025/4/1746003443752.jpg" style="max-width: 100%;"></a></p>
+<p dir="auto">过滤器（筛选器）是 Jira 核心功能之一，利用它可以实现很多的需求。</p>
+<h2 dir="auto">开始之前</h2>
+<p dir="auto">作一些简单的了解。</p>
+<blockquote>
+<p dir="auto">JQL：Jira Query Language</p>
+</blockquote>
+<h3 dir="auto">JQL Functions</h3>
+<p dir="auto">一些基本函数，更多请看<a href="https://support.atlassian.com/jira-service-management-cloud/docs/jql-functions/" rel="nofollow">这里</a>。</p>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th align="left">函数</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">currentUser()</td>
+<td align="left">当前登录用户</td>
+</tr>
+<tr>
+<td align="left">startOfWeek()</td>
+<td align="left">本周开始</td>
+</tr>
+<tr>
+<td align="left">endOfWeek()</td>
+<td align="left">本周结束</td>
+</tr>
+<tr>
+<td align="left">startOfMonth()</td>
+<td align="left">本月开始</td>
+</tr>
+<tr>
+<td align="left">endOfMonth()</td>
+<td align="left">本月结束</td>
+</tr>
+<tr>
+<td align="left">...</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<h3 dir="auto">JQL Keywords</h3>
+<p dir="auto">利用 AND、OR、NOT 等将多个条件连接在一起，实现更多复杂的查询，更多请看<a href="https://support.atlassian.com/jira-service-management-cloud/docs/jql-keywords/" rel="nofollow">这里</a>。</p>
+<h2 dir="auto">查询</h2>
+<p dir="auto">利用函数可以快速做一些筛选。</p>
+<p dir="auto">本周工作：</p>
+<pre class="notranslate"><code class="notranslate">worklogAuthor = currentUser() AND worklogDate &gt;= startOfWeek() AND worklogDate &lt; endOfWeek()
+</code></pre>
+<p dir="auto">本月工作：</p>
+<pre class="notranslate"><code class="notranslate">worklogAuthor = currentUser() AND worklogDate &gt;= startOfMonth() AND worklogDate &lt; endOfMonth()
+</code></pre>
+<p dir="auto">指定时间范围：</p>
+<pre class="notranslate"><code class="notranslate">worklogAuthor = currentUser() AND worklogDate &gt;= "2025/04/21" AND worklogDate &lt;= "2025/04/25"
+</code></pre>
+<h2 dir="auto">周报/月报</h2>
+<p dir="auto"><strong>请注意，函数是动态的</strong>。</p>
+<p dir="auto">如果将上述查询条件直接应用在汇报里面是有问题的。</p>
+<ol dir="auto">
+<li><code class="notranslate">worklogAuthor = currentUser()</code> 谁登录了就是谁的。</li>
+<li><code class="notranslate">startOfWeek()</code> 是动态的，如果这周访问了上周的周报，会显示这周的内容。</li>
+</ol>
+<p dir="auto">你想一下，如果领导访问你的周报，但他看到了自己本周的任务，惊呆了！😲</p>
+<p dir="auto">我是这样做的（仅供参考）：</p>
+<ol dir="auto">
+<li>指定时间范围</li>
+<li>跟我有关的
+<ul dir="auto">
+<li>有记录工时的任务</li>
+<li>指派给我，但未记录工时。比如像 WON'T FIX 的任务</li>
+</ul>
+</li>
+</ol>
+<p dir="auto">组合查询如下：</p>
+<pre class="notranslate"><code class="notranslate">(worklogAuthor = "frankie" AND worklogDate &gt;= "2025/04/21" AND worklogDate &lt;= "2025/04/25")
+OR
+(assignee = "frankie" AND worklogAuthor is EMPTY AND created &gt;= "2025/04/21" AND created &lt;= "2025/04/25")
+</code></pre>
+<p dir="auto">也可以在 <code class="notranslate">.zshrc</code> 中放入这个小脚本自动生成。</p>
+<div class="highlight highlight-source-shell" dir="auto"><pre class="notranslate"><span class="pl-k">function</span> <span class="pl-en">genReportJQL()</span> {
+  <span class="pl-k">local</span> username=<span class="pl-s"><span class="pl-pds">"</span>your_jira_username<span class="pl-pds">"</span></span> <span class="pl-c"><span class="pl-c">#</span> TODO: 你的用户名</span>
+  <span class="pl-k">local</span> mode=<span class="pl-smi">${1<span class="pl-k">:-</span>weekly}</span> <span class="pl-c"><span class="pl-c">#</span> 默认 weekly</span>
+
+  <span class="pl-k">local</span> start end
+
+  <span class="pl-k">if</span> [[ <span class="pl-s"><span class="pl-pds">"</span><span class="pl-smi">$mode</span><span class="pl-pds">"</span></span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">"</span>monthly<span class="pl-pds">"</span></span> ]]<span class="pl-k">;</span> <span class="pl-k">then</span>
+    start=<span class="pl-s"><span class="pl-pds">$(</span>date <span class="pl-s"><span class="pl-pds">'</span>+%Y/%m/01<span class="pl-pds">'</span></span><span class="pl-pds">)</span></span>
+    end=<span class="pl-s"><span class="pl-pds">$(</span>date -v+1m -v1d -v-1d <span class="pl-s"><span class="pl-pds">'</span>+%Y/%m/%d<span class="pl-pds">'</span></span><span class="pl-pds">)</span></span>
+  <span class="pl-k">else</span>
+    <span class="pl-k">local</span> dow=<span class="pl-s"><span class="pl-pds">$(</span>date +%u<span class="pl-pds">)</span></span>
+    start=<span class="pl-s"><span class="pl-pds">$(</span>date -v -<span class="pl-s"><span class="pl-pds">"</span><span class="pl-s"><span class="pl-pds">$((</span><span class="pl-smi">$dow</span> <span class="pl-k">-</span> <span class="pl-c1">1</span><span class="pl-pds">))</span></span><span class="pl-pds">"</span></span>d <span class="pl-s"><span class="pl-pds">'</span>+%Y/%m/%d<span class="pl-pds">'</span></span><span class="pl-pds">)</span></span>
+    end=<span class="pl-s"><span class="pl-pds">$(</span>date -v +<span class="pl-s"><span class="pl-pds">"</span><span class="pl-s"><span class="pl-pds">$((</span><span class="pl-c1">5</span> <span class="pl-k">-</span> <span class="pl-smi">$dow</span><span class="pl-pds">))</span></span><span class="pl-pds">"</span></span>d <span class="pl-s"><span class="pl-pds">'</span>+%Y/%m/%d<span class="pl-pds">'</span></span><span class="pl-pds">)</span></span>
+  <span class="pl-k">fi</span>
+
+  <span class="pl-k">local</span> jql=<span class="pl-s"><span class="pl-pds">"</span>(worklogAuthor = <span class="pl-cce">\"</span><span class="pl-smi">$username</span><span class="pl-cce">\"</span> AND worklogDate &gt;= <span class="pl-cce">\"</span><span class="pl-smi">$start</span><span class="pl-cce">\"</span> AND worklogDate &lt;= <span class="pl-cce">\"</span><span class="pl-smi">$end</span><span class="pl-cce">\"</span>) OR (assignee = <span class="pl-cce">\"</span><span class="pl-smi">$username</span><span class="pl-cce">\"</span> AND worklogAuthor is EMPTY AND created &gt;= <span class="pl-cce">\"</span><span class="pl-smi">$start</span><span class="pl-cce">\"</span> AND created &lt;= <span class="pl-cce">\"</span><span class="pl-smi">$end</span><span class="pl-cce">\"</span>)<span class="pl-pds">"</span></span>
+
+  <span class="pl-c1">printf</span> <span class="pl-s"><span class="pl-pds">"</span>%s<span class="pl-pds">"</span></span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-smi">$jql</span><span class="pl-pds">"</span></span> <span class="pl-k">|</span> pbcopy
+  <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-smi">$jql</span><span class="pl-pds">"</span></span>
+  <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">"</span>✅ Copied to clipboard<span class="pl-pds">"</span></span>
+}</pre></div>
+<h2 dir="auto">References</h2>
+<ul dir="auto">
+<li><a href="https://support.atlassian.com/jira-service-management-cloud/docs/use-advanced-search-with-jira-query-language-jql/" rel="nofollow">Use advanced search with Jira Query Language (JQL)</a></li>
+<li><a href="https://support.atlassian.com/jira-service-management-cloud/docs/jql-operators/" rel="nofollow">JQL operators</a></li>
+</ul>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[与食物的有限交集]]></title>
+            <link>https://github.com/toFrankie/blog/issues/356</link>
+            <guid isPermaLink="false">https://github.com/toFrankie/blog/issues/356</guid>
+            <pubDate>Tue, 08 Apr 2025 15:47:08 GMT</pubDate>
+            <description><![CDATA[<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/ac4d85c705976bba8a0f6838c348277b1f55d7925ee3564400e]]></description>
+            <content:encoded><![CDATA[<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/ac4d85c705976bba8a0f6838c348277b1f55d7925ee3564400e5971e0ff04597/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f746f4672616e6b69652f626c6f67406d61696e2f696d616765732f323032352f342f313734343132373636393731332e6a7067"><img src="https://camo.githubusercontent.com/ac4d85c705976bba8a0f6838c348277b1f55d7925ee3564400e5971e0ff04597/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f746f4672616e6b69652f626c6f67406d61696e2f696d616765732f323032352f342f313734343132373636393731332e6a7067" alt="配图源自 Freepik" data-canonical-src="https://cdn.jsdelivr.net/gh/toFrankie/blog@main/images/2025/4/1744127669713.jpg" style="max-width: 100%;"></a></p>
+<p dir="auto">📍 <strong>坐标广州</strong></p>
+<p dir="auto">记录一些吃过的店～</p>
+<p dir="auto">对吃的没有特别感兴趣，属于「很挑也不挑」的那种类型 🤷‍♀️</p>
+<p dir="auto">纯粹以个人口味做个备忘 📝</p>
+<p dir="auto">踩过的坑、留恋的味道、新奇的组合，一起记下来 ✅</p>
+<p dir="auto">有时候同一个品牌，不同分店的口味也能天差地别，真的无语了 🙃</p>
+<h2 dir="auto">🌇 天河区</h2>
+<h3 dir="auto">🛍 美林天地</h3>
+<h4 dir="auto">💡 新奇榜</h4>
+<ul dir="auto">
+<li>
+<p dir="auto"><strong>豆浆汤圆</strong> 🫘🍡<br>
+没想到豆浆跟甜汤圆这么配！意外好喝，推荐尝试 🎉</p>
+</li>
+<li>
+<p dir="auto"><strong>黄皮冰茶</strong> 🍋🧊<br>
+茶救星球家的黄皮系列，味道很惊艳，记得选「咸」的版本！</p>
+</li>
+</ul>
+<h4 dir="auto">🥢 好吃榜</h4>
+<ul dir="auto">
+<li>
+<p dir="auto"><strong>鱼粉王</strong> 🐟🍜<br>
+已歇业了，真的太可惜 😢<br>
+当每天纠结吃什么的时候，它是个不错的选择。</p>
+</li>
+<li>
+<p dir="auto"><strong>探鱼</strong> 🔥🐠<br>
+偶尔想吃烤鱼的时候，探鱼是个稳定选项，味道在线！</p>
+</li>
+<li>
+<p dir="auto"><strong>九毛九</strong> 🥩🍚<br>
+西北菜里比较喜欢的一家，<strong>酱骨架</strong>做得不错，米饭也好吃。</p>
+</li>
+<li>
+<p dir="auto"><strong>龙井湖</strong> 🥢🏞<br>
+家常味道蛮对我口味，环境也挺舒服的，适合安静吃饭。</p>
+</li>
+</ul>
+<h4 dir="auto">🙅‍♀️ 不好吃榜</h4>
+<ul dir="auto">
+<li>
+<p dir="auto"><strong>兰州 xxx 馆</strong> 🍜🚫<br>
+忘了名字，总之吃完没有任何回头欲望。</p>
+</li>
+<li>
+<p dir="auto"><strong>克茗冰室</strong> 🧊🥪<br>
+吃的是一种「为啥会开在这儿」的困惑感 😬</p>
+</li>
+<li>
+<p dir="auto"><strong>师烤</strong> 🍢💸<br>
+味道普通、价格跟探鱼差不多。</p>
+</li>
+</ul>
+<h4 dir="auto">📦 外卖榜</h4>
+<ul dir="auto">
+<li>
+<p dir="auto"><strong>金牌筒骨粉</strong> 🦴🍲<br>
+肉给得实在，汤浓味正，冬天吃特别舒服 ❄️</p>
+</li>
+<li>
+<p dir="auto"><strong>金牌烧鹅（东圃雅怡店）</strong> 🍗🍚<br>
+包装讲究，鹅肉不柴，配饭一绝，回购过几次 ✅</p>
+</li>
+<li>
+<p dir="auto"><strong>益禾堂（珠村店）</strong> 🍹🧋<br>
+茶味够，甜度好调，属于茶饮里不会出错的牌子。</p>
+</li>
+</ul>
+<h2 dir="auto">🏙 越秀区</h2>
+<h3 dir="auto">🧭 北京路区域</h3>
+<ul dir="auto">
+<li>
+<p dir="auto"><strong>达扬原味炖品</strong> 🍲🐔<br>
+点了炖竹丝鸡（招牌），汤味浓郁，天冷来一碗很疗愈 🧣</p>
+</li>
+<li>
+<p dir="auto"><strong>百花甜品店</strong> 🍧🌸<br>
+名气挺大，但实话说感觉一般，可能是我口味不太对 🧐</p>
+</li>
+</ul>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[那些纠结过的英文词汇]]></title>
+            <link>https://github.com/toFrankie/blog/issues/355</link>
+            <guid isPermaLink="false">https://github.com/toFrankie/blog/issues/355</guid>
+            <pubDate>Tue, 18 Feb 2025 09:43:35 GMT</pubDate>
+            <description><![CDATA[<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/8b47151b7b5af485bdb79b99235ccdd06f01c62386be5c0489b]]></description>
+            <content:encoded><![CDATA[<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/8b47151b7b5af485bdb79b99235ccdd06f01c62386be5c0489b00fb440a63ef2/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f746f4672616e6b69652f626c6f67406d61696e2f696d616765732f323032352f322f313734303239313132323831352e6a7067"><img src="https://camo.githubusercontent.com/8b47151b7b5af485bdb79b99235ccdd06f01c62386be5c0489b00fb440a63ef2/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f746f4672616e6b69652f626c6f67406d61696e2f696d616765732f323032352f322f313734303239313132323831352e6a7067" alt="配图源自 Freepik" data-canonical-src="https://cdn.jsdelivr.net/gh/toFrankie/blog@main/images/2025/2/1740291122815.jpg" style="max-width: 100%;"></a></p>
+<h2 dir="auto">实时</h2>
+<p dir="auto">参赛选手有：</p>
+<ul dir="auto">
+<li>realtime</li>
+<li>real-time</li>
+<li>real time</li>
+</ul>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[关于进制]]></title>
+            <link>https://github.com/toFrankie/blog/issues/354</link>
+            <guid isPermaLink="false">https://github.com/toFrankie/blog/issues/354</guid>
+            <pubDate>Sun, 22 Dec 2024 13:54:48 GMT</pubDate>
+            <description><![CDATA[<h2 dir="auto">简介</h2>
+<p dir="auto"><strong>进制</strong>（进位制）是一种记数方式，可以用有限的“数字符号”表示所有的数值。</p>
+<p dir="auto"><strong>进位</strong>表示在一个位值的数字达到基数后，将其重置为零并使高一位的数字加一。]]></description>
+            <content:encoded><![CDATA[<h2 dir="auto">简介</h2>
+<p dir="auto"><strong>进制</strong>（进位制）是一种记数方式，可以用有限的“数字符号”表示所有的数值。</p>
+<p dir="auto"><strong>进位</strong>表示在一个位值的数字达到基数后，将其重置为零并使高一位的数字加一。</p>
+<p dir="auto">比如，十进制只有 0 ~ 9 这十个数字符号，表示第十一个数（从 0 起），就要进一位，变成 10。其他进制同理。</p>
+<h2 dir="auto">进制数转换</h2>
+<p dir="auto">以 35 为例：</p>
+<ul dir="auto">
+<li>二进制：<code class="notranslate">100011</code></li>
+<li>八进制：<code class="notranslate">43</code></li>
+<li>十进制：<code class="notranslate">35</code></li>
+<li>十六进制：<code class="notranslate">23</code></li>
+</ul>
+<h3 dir="auto">十进制 → 二进制、八进制、十六进制</h3>
+<p dir="auto">整数部分和小数部分的转换规则不太一样。</p>
+<p dir="auto">简单来说：整数部分取余逆序，小数部分乘法取整正序。</p>
+<p dir="auto">以 35.125 为例。</p>
+<p dir="auto"><strong>整数部分转二进制：</strong></p>
+<ul dir="auto">
+<li>35 / 2：商 17，余数 1</li>
+<li>17 / 2：商 8，余数 1</li>
+<li>8 / 2：商 4，余数 0</li>
+<li>4 / 2：商 2，余数 0</li>
+<li>2 / 2：商 1，余数 0</li>
+<li>1 / 2：商 0，余数 1</li>
+</ul>
+<p dir="auto">不断除以 2，直至商为 0。从最后一个余数读起（逆序），便是其二进制数 <code class="notranslate">100011</code>。其他进制同理，除以 8、16。</p>
+<p dir="auto"><strong>小数部分转二进制：</strong></p>
+<ul dir="auto">
+<li>0.125 * 2：积 0.25，取整数部分 0，剩 0.25</li>
+<li>0.25 * 2：积 0.5，取整数部分 0，剩 0.5</li>
+<li>0.5 * 2：积 1，取整数部分 1，剩 0</li>
+</ul>
+<p dir="auto">不断乘以 2，取出结果的整数部分，再余下的小数部分重复计算，直到积的小数部分为 0。从第一个积读起（正序）取其整数部分，便是其二进制数 <code class="notranslate">001</code>。其他进制同理，乘以 8、16。</p>
+<p dir="auto">最后，将整数和小数合起来，十进制数 <code class="notranslate">35.125</code> 对应的二进制数为 <code class="notranslate">100011.001</code>。</p>
+<p dir="auto"><strong>小数部分的误差：</strong></p>
+<p dir="auto">有时，不断乘以 2 得到的积的小数部分永远不为 0，但精度要求，因此也会有舍入的操作。</p>
+<p dir="auto">以 0.8 为例：</p>
+<ul dir="auto">
+<li>0.8 * 2：积 1.6，取整数部分 1，剩 0.6</li>
+<li>0.6 * 2：积 1.2，取整数部分 1，剩 0.2</li>
+<li>0.2 * 2：积 0.4，取整数部分 0，剩 0.4</li>
+<li>0.4 * 2：积 0.8，取整数部分 0，剩 0.8</li>
+<li>0.8 * 2：积 1.6，取整数部分 1，剩 0.6</li>
+<li>无限循环...</li>
+</ul>
+<p dir="auto">对应的二进制为 <code class="notranslate">1100 1100 1100 1100...</code></p>
+<h3 dir="auto">二进制、八进制、十六进制 → 十进制</h3>
+<p dir="auto">35 用十进制的表示法如下：</p>
+<math-renderer class="js-display-math" style="display: block" data-run-id="6c0a85b61ab557d0fe5d6a10cf306e0b">$$35 = 3 * 10^1 + 5 * 10^0$$</math-renderer>
+<blockquote>
+<p dir="auto">以从左到右的书写习惯为例，左侧为高位，右侧为低位。</p>
+</blockquote>
+<blockquote>
+<p dir="auto">其中 3、5 为位值，10^1、10^0 为权值。</p>
+</blockquote>
+<p dir="auto">从低位起（从右往左），其权值分别为 10^0、10^1、...、10^n-1（10 表示为对应进制，n 表示位数）。</p>
+<p dir="auto">将每位的位值乘以权值，再求和就是对应的十进制值。</p>
+<p dir="auto">二进制 <code class="notranslate">100011</code></p>
+<math-renderer class="js-display-math" style="display: block" data-run-id="6c0a85b61ab557d0fe5d6a10cf306e0b">$$35 = 1 * 2^5 + 0 * 2^4 + 0 * 2^3 + 0 * 2^2 + 1 * 2^1 + 1 * 2^0$$</math-renderer>
+<p dir="auto">八进制 <code class="notranslate">43</code></p>
+<math-renderer class="js-display-math" style="display: block" data-run-id="6c0a85b61ab557d0fe5d6a10cf306e0b">$$35 = 4 * 8^1 + 3 * 8^0$$</math-renderer>
+<p dir="auto">十六进制 <code class="notranslate">23</code></p>
+<math-renderer class="js-display-math" style="display: block" data-run-id="6c0a85b61ab557d0fe5d6a10cf306e0b">$$35 = 2 * 16^1 + 3 * 16^0$$</math-renderer>
+<h3 dir="auto">二进制、八进制、十六进制互转</h3>
+<p dir="auto">一位八进制用三位二进制表示，一位十六进制用四位二进制表示。位数不够，高位补零。</p>
+<ul dir="auto">
+<li>二进制 <code class="notranslate">100011</code></li>
+<li>八进制 <code class="notranslate">100 011</code> → <code class="notranslate">43</code></li>
+<li>十六进制 <code class="notranslate">0010 0011</code> → <code class="notranslate">23</code></li>
+</ul>
+<p dir="auto">十六进制转八进制，可以先转为二进制，再转为八进制。</p>
+<h2 dir="auto">位运算</h2>
+<p dir="auto">未完待续...</p>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[uni-app 开发记录]]></title>
+            <link>https://github.com/toFrankie/blog/issues/353</link>
+            <guid isPermaLink="false">https://github.com/toFrankie/blog/issues/353</guid>
+            <pubDate>Tue, 10 Dec 2024 01:52:31 GMT</pubDate>
+            <description><![CDATA[<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/820739aa18f481109e3ad1af1b42ccf3b9750969cf22c7d1069]]></description>
+            <content:encoded><![CDATA[<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/820739aa18f481109e3ad1af1b42ccf3b9750969cf22c7d10690d42182432125/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f746f4672616e6b69652f626c6f67406d61696e2f696d616765732f323032342f31322f313733333739353737393936312e6a7067"><img src="https://camo.githubusercontent.com/820739aa18f481109e3ad1af1b42ccf3b9750969cf22c7d10690d42182432125/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f746f4672616e6b69652f626c6f67406d61696e2f696d616765732f323032342f31322f313733333739353737393936312e6a7067" alt="配图源自 Freepik" data-canonical-src="https://cdn.jsdelivr.net/gh/toFrankie/blog@main/images/2024/12/1733795779961.jpg" style="max-width: 100%;"></a></p>
+<p dir="auto">有些东西隔一段时间不用就容易忘记，在此作下记录。</p>
+<h2 dir="auto">自定义组件选项配置</h2>
+<p dir="auto">诸如 styleIsolation、virtualHost 等自定义组件<a href="https://uniapp.dcloud.net.cn/tutorial/vue3-api.html#%E5%85%B6%E4%BB%96%E9%85%8D%E7%BD%AE" rel="nofollow">配置</a>，声明方式如下：</p>
+<p dir="auto">▼ Composition API</p>
+<p dir="auto">若是 Vue3.3+，可使用 <a href="https://vuejs.org/api/sfc-script-setup.html#defineoptions" rel="nofollow">defineOptions()</a>。</p>
+<div class="highlight highlight-text-html-basic" dir="auto"><pre class="notranslate"><span class="pl-kos">&lt;</span><span class="pl-ent">script</span> <span class="pl-c1">setup</span><span class="pl-kos">&gt;</span>
+  <span class="pl-en">defineOptions</span><span class="pl-kos">(</span><span class="pl-kos">{</span>
+    <span class="pl-c1">options</span>: <span class="pl-kos">{</span>
+      <span class="pl-c1">virtualHost</span>: <span class="pl-c1">false</span><span class="pl-kos">,</span>
+      <span class="pl-c1">styleIsolation</span>: <span class="pl-s">'shared'</span><span class="pl-kos">,</span>
+    <span class="pl-kos">}</span><span class="pl-kos">,</span>
+  <span class="pl-kos">}</span><span class="pl-kos">)</span>
+
+  <span class="pl-c">// your code...</span>
+<span class="pl-kos">&lt;/</span><span class="pl-ent">script</span><span class="pl-kos">&gt;</span></pre></div>
+<p dir="auto">若是 Vue3.3 以下，需要独立的 <code class="notranslate">&lt;script&gt;</code> 块。</p>
+<div class="highlight highlight-text-html-basic" dir="auto"><pre class="notranslate"><span class="pl-kos">&lt;</span><span class="pl-ent">script</span> <span class="pl-c1">setup</span><span class="pl-kos">&gt;</span>
+  <span class="pl-c">// your code...</span>
+<span class="pl-kos">&lt;/</span><span class="pl-ent">script</span><span class="pl-kos">&gt;</span>
+
+<span class="pl-kos">&lt;</span><span class="pl-ent">script</span><span class="pl-kos">&gt;</span>
+  <span class="pl-k">export</span> <span class="pl-k">default</span> <span class="pl-kos">{</span>
+    <span class="pl-c1">options</span>: <span class="pl-kos">{</span>
+      <span class="pl-c1">virtualHost</span>: <span class="pl-c1">false</span><span class="pl-kos">,</span>
+      <span class="pl-c1">styleIsolation</span>: <span class="pl-s">'shared'</span><span class="pl-kos">,</span>
+    <span class="pl-kos">}</span><span class="pl-kos">,</span>
+  <span class="pl-kos">}</span>
+<span class="pl-kos">&lt;/</span><span class="pl-ent">script</span><span class="pl-kos">&gt;</span></pre></div>
+<p dir="auto">▼ Options API</p>
+<div class="highlight highlight-text-html-basic" dir="auto"><pre class="notranslate"><span class="pl-kos">&lt;</span><span class="pl-ent">script</span><span class="pl-kos">&gt;</span>
+  <span class="pl-k">export</span> <span class="pl-k">default</span> <span class="pl-kos">{</span>
+    <span class="pl-c1">options</span>: <span class="pl-kos">{</span>
+      <span class="pl-c1">virtualHost</span>: <span class="pl-c1">false</span><span class="pl-kos">,</span>
+      <span class="pl-c1">styleIsolation</span>: <span class="pl-s">'shared'</span><span class="pl-kos">,</span>
+    <span class="pl-kos">}</span><span class="pl-kos">,</span>
+  <span class="pl-kos">}</span>
+<span class="pl-kos">&lt;/</span><span class="pl-ent">script</span><span class="pl-kos">&gt;</span></pre></div>
+<h2 dir="auto">判断是否安装微信</h2>
+<p dir="auto">利用 HTML5 Plus API：</p>
+<div class="highlight highlight-source-js" dir="auto"><pre class="notranslate"><span class="pl-k">function</span> <span class="pl-en">checkWechatInstalled</span><span class="pl-kos">(</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+  <span class="pl-k">return</span> <span class="pl-s1">plus</span><span class="pl-kos">.</span><span class="pl-c1">runtime</span><span class="pl-kos">.</span><span class="pl-en">isApplicationExist</span><span class="pl-kos">(</span><span class="pl-kos">{</span><span class="pl-c1">pname</span>: <span class="pl-s">'com.tencent.mm'</span><span class="pl-kos">,</span> <span class="pl-c1">action</span>: <span class="pl-s">'weixin://'</span><span class="pl-kos">}</span><span class="pl-kos">)</span>
+<span class="pl-kos">}</span></pre></div>
+<ul dir="auto">
+<li>Android 平台通过 pname 属性（包名）进行查询。</li>
+<li>iOS 平台通过 action 属性（Scheme）进行查询。iOS9 以后需要添加白名单才可查询，在 manifest.json 配置 <code class="notranslate">urlschemewhitelist: ["weixin"]</code>（<a href="https://uniapp.dcloud.net.cn/tutorial/app-ios-schemewhitelist.html" rel="nofollow">参考</a>）。其他 App 同理。</li>
+</ul>
+<p dir="auto">相关链接：</p>
+<ul dir="auto">
+<li><a href="https://www.html5plus.org/doc/zh_cn/runtime.html#plus.runtime.isApplicationExist" rel="nofollow">HTML5+ API Reference</a></li>
+<li><a href="https://uniapp.dcloud.net.cn/tutorial/app-ios-schemewhitelist.html" rel="nofollow">设置应用访问白名单列表</a></li>
+</ul>
+<h2 dir="auto">各端差异</h2>
+<blockquote>
+<p dir="auto">主要讨论微信小程序端与 App、H5 等非小程序端的差异。</p>
+</blockquote>
+<h3 dir="auto">后代选择器</h3>
+<p dir="auto">比如，在父组件查询子组件内的某个元素。</p>
+<p dir="auto">在微信小程序端有两种做法：</p>
+<ol dir="auto">
+<li>拿到子组件实例，然后再父组件内使用 <code class="notranslate">uni.createSelectorQuery.in(subComponentInstance).select('.descendant')</code> 获取元素。</li>
+<li>使用 <a href="https://developers.weixin.qq.com/miniprogram/dev/api/wxml/SelectorQuery.select.html#selector-%E8%AF%AD%E6%B3%95" rel="nofollow">&gt;&gt;&gt;</a>（跨自定义组件的后代选择器），在父元素内使用 <code class="notranslate">uni.createSelectorQuery().select('.ancestor &gt;&gt;&gt; .descendant')</code> 获取其子（子子...）组件内的元素。</li>
+</ol>
+<p dir="auto">而 App 端，编译后的 HTML 结构跟小程序不一样，小程序带有一个 ShadowRoot 节点隔离，而 App 端不会。因此使用 <code class="notranslate">uni.createSelectorQuery().select('.ancestor .descendant')</code> 直接查询到后代的元素。而且 <a href="https://uniapp.dcloud.net.cn/api/ui/nodes-info.html#selectorquery-select" rel="nofollow">App 端不支持 &gt;&gt;&gt; 语法</a>，它是小程序特有的。</p>
+<h3 dir="auto">布尔 dataset</h3>
+<p dir="auto">在 HTML 中有一种<a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute" rel="nofollow">布尔类型的属性</a>。</p>
+<div class="highlight highlight-text-html-basic" dir="auto"><pre class="notranslate"><span class="pl-c">&lt;!-- attr is true --&gt;</span>
+<span class="pl-kos">&lt;</span><span class="pl-ent">div</span> <span class="pl-c1">attr</span><span class="pl-kos">&gt;</span><span class="pl-kos">&lt;/</span><span class="pl-ent">div</span><span class="pl-kos">&gt;</span>
+<span class="pl-kos">&lt;</span><span class="pl-ent">div</span> <span class="pl-c1">attr</span>=""<span class="pl-kos">&gt;</span><span class="pl-kos">&lt;/</span><span class="pl-ent">div</span><span class="pl-kos">&gt;</span>
+<span class="pl-kos">&lt;</span><span class="pl-ent">div</span> <span class="pl-c1">attr</span>="<span class="pl-s">false</span>"<span class="pl-kos">&gt;</span><span class="pl-kos">&lt;/</span><span class="pl-ent">div</span><span class="pl-kos">&gt;</span>
+<span class="pl-kos">&lt;</span><span class="pl-ent">div</span> <span class="pl-c1">attr</span>="<span class="pl-s">any value</span>"<span class="pl-kos">&gt;</span><span class="pl-kos">&lt;/</span><span class="pl-ent">div</span><span class="pl-kos">&gt;</span>
+
+<span class="pl-c">&lt;!-- attr is false --&gt;</span>
+<span class="pl-kos">&lt;</span><span class="pl-ent">div</span><span class="pl-kos">&gt;</span><span class="pl-kos">&lt;/</span><span class="pl-ent">div</span><span class="pl-kos">&gt;</span></pre></div>
+<p dir="auto">如果要将某个属性变为 false，只能 <code class="notranslate">removeAttribute('attr')</code>。对于 <code class="notranslate">setAttribute('attr', undefined)</code> 等均是无效的，内部会有 toString() 的处理，因为 HTML 的属性值只能是字符串。<code class="notranslate">data-*</code> 同理。</p>
+<p dir="auto">但使用 uniapp 时，不同端表现不一样。</p>
+<div class="highlight highlight-text-html-basic" dir="auto"><pre class="notranslate"><span class="pl-kos">&lt;</span><span class="pl-ent">view</span> <span class="pl-c1">data-attr</span><span class="pl-kos">&gt;</span><span class="pl-kos">&lt;/</span><span class="pl-ent">div</span><span class="pl-kos">&gt;</span></pre></div>
+<p dir="auto">对于 <code class="notranslate">dataset.attr</code> 微信小程序是布尔值 <code class="notranslate">true</code>，而 App 端则是字符串 <code class="notranslate">''</code>，后者表现是符合 HTML 规范的。猜测是微信小程序内部做了 <code class="notranslate">dataset.attr !== undefined</code> 的处理。如果要用于条件判断，要注意各端值是不一样的。</p>
+<p dir="auto">未完待续...</p>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[常用 CSS Media Query 记录]]></title>
+            <link>https://github.com/toFrankie/blog/issues/352</link>
+            <guid isPermaLink="false">https://github.com/toFrankie/blog/issues/352</guid>
+            <pubDate>Sun, 24 Nov 2024 16:56:17 GMT</pubDate>
+            <description><![CDATA[<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/eb32d2476a114e06968e2330be03cb027d6d1cf0d551f685440]]></description>
+            <content:encoded><![CDATA[<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/eb32d2476a114e06968e2330be03cb027d6d1cf0d551f685440a154c2e86a159/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f746f4672616e6b69652f626c6f67406d61696e2f696d616765732f323032342f31312f313733323436373431313533372e6a7067"><img src="https://camo.githubusercontent.com/eb32d2476a114e06968e2330be03cb027d6d1cf0d551f685440a154c2e86a159/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f746f4672616e6b69652f626c6f67406d61696e2f696d616765732f323032342f31312f313733323436373431313533372e6a7067" alt="配图源自 Freepik" data-canonical-src="https://cdn.jsdelivr.net/gh/toFrankie/blog@main/images/2024/11/1732467411537.jpg" style="max-width: 100%;"></a></p>
+<ul dir="auto">
+<li><code class="notranslate">@media</code> 用于基于一个或多个媒体查询的结果来应用样式表中的一部分。</li>
+<li><code class="notranslate">@supports</code> 指定依赖于浏览器中的一个或多个特定的 CSS 功能的支持声明。</li>
+</ul>
+<h2 dir="auto">深色模式</h2>
+<div class="highlight highlight-source-css" dir="auto"><pre class="notranslate"><span class="pl-k">@media</span> (<span class="pl-c1">prefers-color-scheme</span><span class="pl-kos">:</span> dark) {
+  <span class="pl-c">/* some rules */</span>
+}</pre></div>
+<p dir="auto"><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/@media/prefers-color-scheme" rel="nofollow">prefers-color-scheme</a></p>
+<h2 dir="auto">Safari</h2>
+<p dir="auto">Safari for Mac 和 Safari for Mobile（包括 iOS 端的 Chrome 等使用 Webkit 内核的浏览器）。</p>
+<div class="highlight highlight-source-css" dir="auto"><pre class="notranslate"><span class="pl-k">@supports</span> (<span class="pl-c1">-webkit-hyphens</span><span class="pl-kos">:</span> none) {
+  <span class="pl-c">/* some rules */</span>
+}</pre></div>
+<p dir="auto"><a href="https://gist.github.com/jbutko/6718701?permalink_comment_id=4975072#gistcomment-4975072">-webkit-hyphens</a></p>
+<h2 dir="auto">Safari for Mobile</h2>
+<p dir="auto">移动端 Safari 浏览器（包括 iOS 端的 Chrome 等使用 Webkit 内核的浏览器），但不包括 Safari for Mac。</p>
+<div class="highlight highlight-source-css" dir="auto"><pre class="notranslate"><span class="pl-k">@supports</span> (<span class="pl-c1">-webkit-touch-callout</span><span class="pl-kos">:</span> none) {
+  <span class="pl-c">/* some rules */</span>
+}</pre></div>
+<p dir="auto"><a href="https://caniuse.com/?search=-webkit-touch-callout" rel="nofollow">-webkit-touch-callout</a></p>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[小程序图标变色]]></title>
+            <link>https://github.com/toFrankie/blog/issues/351</link>
+            <guid isPermaLink="false">https://github.com/toFrankie/blog/issues/351</guid>
+            <pubDate>Tue, 19 Nov 2024 09:11:27 GMT</pubDate>
+            <description><![CDATA[<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/f02bbcc2f02968674bec9834e606463c8867e0c521c5723c6ab]]></description>
+            <content:encoded><![CDATA[<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/f02bbcc2f02968674bec9834e606463c8867e0c521c5723c6aba2df8224d1eff/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f746f4672616e6b69652f626c6f67406d61696e2f696d616765732f323032342f31312f313733323434383032383131362e6a7067"><img src="https://camo.githubusercontent.com/f02bbcc2f02968674bec9834e606463c8867e0c521c5723c6aba2df8224d1eff/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f746f4672616e6b69652f626c6f67406d61696e2f696d616765732f323032342f31312f313733323434383032383131362e6a7067" alt="配图源自 Freepik" data-canonical-src="https://cdn.jsdelivr.net/gh/toFrankie/blog@main/images/2024/11/1732448028116.jpg" style="max-width: 100%;"></a></p>
+<p dir="auto">图标变色是一个常见需求，比如根据用户心情自动切换皮肤。🐶</p>
+<p dir="auto">本文以微信小程序为例。</p>
+<h2 dir="auto">使用 svg 标签</h2>
+<p dir="auto">第一反应是用 svg + currentColor。比如：</p>
+<div class="highlight highlight-text-html-basic" dir="auto"><pre class="notranslate"><span class="pl-kos">&lt;</span><span class="pl-ent">div</span> <span class="pl-c1">class</span>="<span class="pl-s">box</span>"<span class="pl-kos">&gt;</span>
+  <span class="pl-kos">&lt;</span><span class="pl-ent">svg</span> <span class="pl-c1">version</span>="<span class="pl-s">1.1</span>" <span class="pl-c1">xmlns</span>="<span class="pl-s">http://www.w3.org/2000/svg</span>" <span class="pl-c1">xmlns:xlink</span>="<span class="pl-s">http://www.w3.org/1999/xlink</span>" <span class="pl-c1">viewBox</span>="<span class="pl-s">0 0 15.7715 20.4004</span>" <span class="pl-c1">width</span>="<span class="pl-s">15.7715</span>" <span class="pl-c1">height</span>="<span class="pl-s">20.4004</span>" <span class="pl-kos">&gt;</span>
+    <span class="pl-kos">&lt;</span><span class="pl-ent">path</span>
+      <span class="pl-c1">d</span>="<span class="pl-s">M11.3965 4.66797C9.94141 4.66797 8.75 5.55664 7.98828 5.55664C7.17773 5.55664 6.12305 4.66797 4.85352 4.66797C2.44141 4.66797 0 6.71875 0 10.4688C0 12.8125 0.898438 15.2832 2.02148 16.875C2.97852 18.2227 3.81836 19.3066 5.0293 19.3066C6.2207 19.3066 6.74805 18.5352 8.23242 18.5352C9.73633 18.5352 10.0781 19.3066 11.3965 19.3066C12.7051 19.3066 13.5742 18.1055 14.4043 16.9238C15.3223 15.5664 15.7129 14.248 15.7227 14.1797C15.6445 14.1602 13.1445 13.1348 13.1445 10.2734C13.1445 7.79297 15.1074 6.67969 15.2246 6.5918C13.9258 4.72656 11.9434 4.66797 11.3965 4.66797ZM10.7129 3.08594C11.3086 2.36328 11.7285 1.37695 11.7285 0.380859C11.7285 0.244141 11.7188 0.107422 11.6992 0C10.7227 0.0390625 9.55078 0.644531 8.85742 1.46484C8.30078 2.08984 7.79297 3.08594 7.79297 4.08203C7.79297 4.23828 7.82227 4.38477 7.83203 4.43359C7.89062 4.44336 7.98828 4.46289 8.0957 4.46289C8.96484 4.46289 10.0586 3.87695 10.7129 3.08594Z</span>"
+    <span class="pl-kos">/&gt;</span>
+  <span class="pl-kos">&lt;/</span><span class="pl-ent">svg</span><span class="pl-kos">&gt;</span>
+<span class="pl-kos">&lt;/</span><span class="pl-ent">div</span><span class="pl-kos">&gt;</span></pre></div>
+<div class="highlight highlight-source-css" dir="auto"><pre class="notranslate">.<span class="pl-c1">box</span> {
+  <span class="pl-c1">color</span><span class="pl-kos">:</span> <span class="pl-pds"><span class="pl-kos">#</span>0066cc</span>;
+}
+
+.<span class="pl-c1">box</span> <span class="pl-ent">svg</span> {
+  <span class="pl-c1">fill</span><span class="pl-kos">:</span> currentColor;
+}</pre></div>
+<p dir="auto"><a href="https://codepen.io/tofrankie/pen/rNXgpvK" rel="nofollow">CodePen</a></p>
+<p dir="auto">动态修改父元素的颜色就能变色。</p>
+<p dir="auto"><strong>然，微信小程序不支持 <code class="notranslate">&lt;svg /&gt;</code> 标签。</strong></p>
+<h2 dir="auto">使用 image 标签 + base64</h2>
+<p dir="auto">小程序 image 标签是支持 svg 格式图片的（<a href="https://developers.weixin.qq.com/miniprogram/dev/component/image.html#%E5%8A%9F%E8%83%BD%E6%8F%8F%E8%BF%B0" rel="nofollow">一些限制</a>）。</p>
+<p dir="auto">注意，将 <code class="notranslate">fill="currentColor"</code> 的 svg 图片放到 image 标签，该图片是无法读取其本身或父级颜色的，因此呈现会默认的黑色。</p>
+<p dir="auto">要做一些转换处理：</p>
+<ol dir="auto">
+<li>下载 svg 图片</li>
+<li>读取 svg 图片文件源码</li>
+<li>替换 svg fill 属性为指定颜色</li>
+<li>将替换后的 svg 文件转化为 base64</li>
+</ol>
+<div class="highlight highlight-source-js" dir="auto"><pre class="notranslate"><span class="pl-k">function</span> <span class="pl-en">genColorfulSvg</span><span class="pl-kos">(</span><span class="pl-s1">url</span><span class="pl-kos">,</span> <span class="pl-s1">color</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+  <span class="pl-k">const</span> <span class="pl-s1">localFilePath</span> <span class="pl-c1">=</span> <span class="pl-k">await</span> <span class="pl-en">downloadSvgFile</span><span class="pl-kos">(</span><span class="pl-s1">url</span><span class="pl-kos">)</span>
+  <span class="pl-k">const</span> <span class="pl-s1">svgSourceStr</span> <span class="pl-c1">=</span> <span class="pl-k">await</span> <span class="pl-en">readSvgFile</span><span class="pl-kos">(</span><span class="pl-s1">localFilePath</span><span class="pl-kos">)</span>
+  <span class="pl-k">const</span> <span class="pl-s1">colorfulSvgSourceStr</span> <span class="pl-c1">=</span> <span class="pl-en">replaceSvgFillColor</span><span class="pl-kos">(</span><span class="pl-s1">svgSourceStr</span><span class="pl-kos">,</span> <span class="pl-s1">color</span><span class="pl-kos">)</span>
+  <span class="pl-k">const</span> <span class="pl-s1">colorfulSvgBase64</span> <span class="pl-c1">=</span> <span class="pl-en">genSvgBase64</span><span class="pl-kos">(</span><span class="pl-s1">colorfulSvgSourceStr</span><span class="pl-kos">)</span>
+  <span class="pl-k">return</span> <span class="pl-s1">colorfulSvgBase64</span>
+<span class="pl-kos">}</span></pre></div>
+<div class="highlight highlight-source-js" dir="auto"><pre class="notranslate"><span class="pl-c">// 下载图片</span>
+<span class="pl-k">async</span> <span class="pl-k">function</span> <span class="pl-en">downloadSvgFile</span><span class="pl-kos">(</span><span class="pl-s1">url</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+  <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-v">Promise</span><span class="pl-kos">(</span><span class="pl-kos">(</span><span class="pl-s1">resolve</span><span class="pl-kos">,</span> <span class="pl-s1">reject</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
+    <span class="pl-s1">wx</span><span class="pl-kos">.</span><span class="pl-en">downloadFile</span><span class="pl-kos">(</span><span class="pl-kos">{</span>
+      url<span class="pl-kos">,</span>
+      <span class="pl-en">success</span>: <span class="pl-s1">res</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
+        <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">res</span><span class="pl-kos">.</span><span class="pl-c1">statusCode</span> <span class="pl-c1">===</span> <span class="pl-c1">200</span><span class="pl-kos">)</span> <span class="pl-k">return</span> <span class="pl-s1">resolve</span><span class="pl-kos">(</span><span class="pl-s1">res</span><span class="pl-kos">.</span><span class="pl-c1">tempFilePath</span><span class="pl-kos">)</span>
+        <span class="pl-s1">reject</span><span class="pl-kos">(</span><span class="pl-k">new</span> <span class="pl-v">Error</span><span class="pl-kos">(</span><span class="pl-s">'download file fail'</span><span class="pl-kos">)</span><span class="pl-kos">)</span>
+      <span class="pl-kos">}</span><span class="pl-kos">,</span>
+      <span class="pl-en">fail</span>: <span class="pl-s1">err</span> <span class="pl-c1">=&gt;</span> <span class="pl-s1">reject</span><span class="pl-kos">(</span><span class="pl-s1">err</span><span class="pl-kos">)</span><span class="pl-kos">,</span>
+    <span class="pl-kos">}</span><span class="pl-kos">)</span>
+  <span class="pl-kos">}</span><span class="pl-kos">)</span>
+<span class="pl-kos">}</span></pre></div>
+<div class="highlight highlight-source-js" dir="auto"><pre class="notranslate"><span class="pl-c">// 读取 svg 文件</span>
+<span class="pl-k">async</span> <span class="pl-k">function</span> <span class="pl-en">readSvgFile</span><span class="pl-kos">(</span><span class="pl-s1">localFilePath</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+  <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-v">Promise</span><span class="pl-kos">(</span><span class="pl-kos">(</span><span class="pl-s1">resolve</span><span class="pl-kos">,</span> <span class="pl-s1">reject</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
+    <span class="pl-k">const</span> <span class="pl-s1">fs</span> <span class="pl-c1">=</span> <span class="pl-s1">wx</span><span class="pl-kos">.</span><span class="pl-en">getFileSystemManager</span><span class="pl-kos">(</span><span class="pl-kos">)</span>
+    <span class="pl-s1">fs</span><span class="pl-kos">.</span><span class="pl-en">readFile</span><span class="pl-kos">(</span><span class="pl-kos">{</span>
+      <span class="pl-c1">filePath</span>: <span class="pl-s1">localFilePath</span><span class="pl-kos">,</span>
+      <span class="pl-c1">encoding</span>: <span class="pl-s">'utf-8'</span><span class="pl-kos">,</span>
+      <span class="pl-c1">position</span>: <span class="pl-c1">0</span><span class="pl-kos">,</span>
+      <span class="pl-en">success</span>: <span class="pl-s1">res</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
+        <span class="pl-k">const</span> <span class="pl-s1">sourceFile</span> <span class="pl-c1">=</span> <span class="pl-s1">res</span><span class="pl-kos">.</span><span class="pl-c1">data</span>
+        <span class="pl-s1">resolve</span><span class="pl-kos">(</span><span class="pl-s1">sourceFile</span><span class="pl-kos">)</span>
+      <span class="pl-kos">}</span><span class="pl-kos">,</span>
+      <span class="pl-en">fail</span>: <span class="pl-s1">err</span> <span class="pl-c1">=&gt;</span> <span class="pl-s1">reject</span><span class="pl-kos">(</span><span class="pl-s1">err</span><span class="pl-kos">)</span><span class="pl-kos">,</span>
+    <span class="pl-kos">}</span><span class="pl-kos">)</span>
+  <span class="pl-kos">}</span><span class="pl-kos">)</span>
+<span class="pl-kos">}</span></pre></div>
+<div class="highlight highlight-source-js" dir="auto"><pre class="notranslate"><span class="pl-c">// 替换 fill 属性</span>
+<span class="pl-k">function</span> <span class="pl-en">replaceSvgFillColor</span><span class="pl-kos">(</span><span class="pl-s1">svgSourceStr</span><span class="pl-kos">,</span> <span class="pl-s1">newFillColor</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+  <span class="pl-c">// 匹配 fill="..." 中的非 none 值（按需调整）</span>
+  <span class="pl-k">return</span> <span class="pl-s1">svgSourceStr</span><span class="pl-kos">.</span><span class="pl-en">replace</span><span class="pl-kos">(</span><span class="pl-pds"><span class="pl-c1">/</span><span class="pl-s">f</span><span class="pl-s">i</span><span class="pl-s">l</span><span class="pl-s">l</span><span class="pl-s">=</span><span class="pl-s">"</span><span class="pl-kos">(?</span><span class="pl-c1">!</span><span class="pl-s">n</span><span class="pl-s">o</span><span class="pl-s">n</span><span class="pl-s">e</span><span class="pl-kos">)</span><span class="pl-kos">[</span><span class="pl-c1">^</span><span class="pl-c1">"</span><span class="pl-kos">]</span><span class="pl-c1">*</span><span class="pl-s">"</span><span class="pl-c1">/</span>g</span><span class="pl-kos">,</span> <span class="pl-s">`fill="<span class="pl-s1"><span class="pl-kos">${</span><span class="pl-s1">newFillColor</span><span class="pl-kos">}</span></span>"`</span><span class="pl-kos">)</span>
+<span class="pl-kos">}</span></pre></div>
+<div class="highlight highlight-source-js" dir="auto"><pre class="notranslate"><span class="pl-c">// 生成 base64</span>
+<span class="pl-k">function</span> <span class="pl-en">genSvgBase64</span><span class="pl-kos">(</span><span class="pl-s1">svgSourceStr</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+  <span class="pl-k">return</span> <span class="pl-s">`data:image/svg+xml;base64,<span class="pl-s1"><span class="pl-kos">${</span><span class="pl-en">base64Encode</span><span class="pl-kos">(</span><span class="pl-s1">svgSourceStr</span><span class="pl-kos">)</span><span class="pl-kos">}</span></span>`</span>
+<span class="pl-kos">}</span></pre></div>
+<blockquote>
+<p dir="auto">示例中 <code class="notranslate">base64Encode()</code> 来自掘金社区（<a href="https://juejin.cn/post/7229512717135527991" rel="nofollow">原文</a>），找其他也行。</p>
+</blockquote>
+<p dir="auto">将以上封装成一个自定义组件，比如：</p>
+<div class="highlight highlight-text-html-basic" dir="auto"><pre class="notranslate"><span class="pl-kos">&lt;</span><span class="pl-ent">colorful-image</span> <span class="pl-c1">color</span>="<span class="pl-s">xxx</span>" <span class="pl-c1">src</span>="<span class="pl-s">xxx</span>" <span class="pl-kos">/&gt;</span></pre></div>
+<p dir="auto">可以在 Component 的 <code class="notranslate">lifetimes.attached()</code> 时机执行，为了避免重复下载转换，可以用 Map 将 base64 存起来。</p>
+<p dir="auto">（具体实现就不写了）</p>
+<p dir="auto">这个方案的缺点是要额外的读取、替换、转换，性能不太好。</p>
+<h2 dir="auto">使用 image 标签 + CSS Filter</h2>
+<p dir="auto">这种方案使用 CSS Filter 函数 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/filter-function/drop-shadow" rel="nofollow">drop-shadow</a>，它通常用于生成阴影效果。</p>
+<p dir="auto">常规阴影是位于图片下方的，借助 transform 进行一些位移操作，思路如下：</p>
+<ol dir="auto">
+<li>隐藏原图：
+<ol dir="auto">
+<li>将图片水平方向位移足够大的距离</li>
+<li>将图片父级设置为 overflow: hidden</li>
+</ol>
+</li>
+<li>让阴影显示在原图本来的位置
+<ol dir="auto">
+<li>将 filter: drop-shadow 水平相反方向位移同样的距离</li>
+</ol>
+</li>
+</ol>
+<p dir="auto">过程中遇到了一些坑，先以 Web 为例：</p>
+<div class="highlight highlight-text-html-basic" dir="auto"><pre class="notranslate"><span class="pl-kos">&lt;</span><span class="pl-ent">img</span> <span class="pl-c1">class</span>="<span class="pl-s">icon</span>" <span class="pl-c1">src</span>="<span class="pl-s">../../images/star.svg</span>" <span class="pl-kos">/&gt;</span></pre></div>
+<div class="highlight highlight-source-css" dir="auto"><pre class="notranslate">.<span class="pl-c1">icon</span> {
+  <span class="pl-c1">width</span><span class="pl-kos">:</span> <span class="pl-c1">100<span class="pl-smi">rpx</span></span>;
+  <span class="pl-c1">height</span><span class="pl-kos">:</span> <span class="pl-c1">100<span class="pl-smi">rpx</span></span>;
+  <span class="pl-c1">filter</span><span class="pl-kos">:</span> <span class="pl-en">drop-shadow</span>(<span class="pl-c1">200<span class="pl-smi">rpx</span></span> <span class="pl-c1">0</span> <span class="pl-c1">0</span> <span class="pl-pds"><span class="pl-kos">#</span>1f883d</span>);
+  <span class="pl-c1">transform</span><span class="pl-kos">:</span> <span class="pl-en">translateX</span>(<span class="pl-c1">-200<span class="pl-smi">rpx</span></span>);
+}</pre></div>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/42fd4afcbd2c2b1f295925e9ad49861d92fd94fc21d516601d635eb1cdda2722/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f746f4672616e6b69652f626c6f67406d61696e2f696d616765732f323032342f31312f313733323032383630303039382e706e67"><img src="https://camo.githubusercontent.com/42fd4afcbd2c2b1f295925e9ad49861d92fd94fc21d516601d635eb1cdda2722/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f746f4672616e6b69652f626c6f67406d61696e2f696d616765732f323032342f31312f313733323032383630303039382e706e67" alt="" data-canonical-src="https://cdn.jsdelivr.net/gh/toFrankie/blog@main/images/2024/11/1732028600098.png" style="max-width: 100%;"></a></p>
+<p dir="auto">▲ 黄色为原图，绿色为投影</p>
+<p dir="auto">接着，添加一个父级元素，并设为 <code class="notranslate">overflow: hidden</code>。</p>
+<p dir="auto">但是 drop-shadow 有一个表现特性：</p>
+<blockquote>
+<p dir="auto">在 Chrome 浏览器下，如果一个元素的主体部分，无论以何种方式，只要在页面中不可见，其 drop-shadow 是不可见的；实体部分哪怕有 1px 可见，则 drop-shadow 完全可见。(源自<a href="https://www.zhangxinxu.com/wordpress/2016/06/png-icon-change-color-by-css/" rel="nofollow">张鑫旭大佬的博客</a>)</p>
+</blockquote>
+<p dir="auto">亲测 Safari 18.1 也有相同表现，不显示阴影，而 Firefox 132 是符合预期的。</p>
+<p dir="auto">文章里提到一个解决方案是用透明边框，使元素总在屏幕可视区域内。</p>
+<p dir="auto">调整下代码：</p>
+<div class="highlight highlight-source-diff" dir="auto"><pre class="notranslate"><span class="pl-mi1"><span class="pl-mi1">+</span> &lt;view class="icon-box"&gt;</span>
+    &lt;img class="icon" src="../../images/star.svg" /&gt;
+<span class="pl-mi1"><span class="pl-mi1">+</span>  &lt;/view&gt;</span></pre></div>
+<div class="highlight highlight-source-diff" dir="auto"><pre class="notranslate"><span class="pl-mi1"><span class="pl-mi1">+</span> .icon-box {</span>
+<span class="pl-mi1"><span class="pl-mi1">+</span>   width: 100rpx;</span>
+<span class="pl-mi1"><span class="pl-mi1">+</span>   height: 100rpx;</span>
+<span class="pl-mi1"><span class="pl-mi1">+</span>   overflow: hidden;</span>
+<span class="pl-mi1"><span class="pl-mi1">+</span> }</span>
+
+  .icon {
+    width: 100rpx;
+    height: 100rpx;
+    filter: drop-shadow(200rpx 0 0 #1f883d);
+    transform: translateX(-200rpx);
+<span class="pl-mi1"><span class="pl-mi1">+</span>   border-right: 1000px solid transparent;</span>
+  }</pre></div>
+<p dir="auto">这样的话，在 Chrome 下是符合预期了（黄色隐藏，绿色显示），然而 Safari 下阴影并没有显示出来。</p>
+<p dir="auto">看起来有点类似这个《<a href="https://github.com/toFrankie/blog/issues/178" data-hovercard-type="issue" data-hovercard-url="/toFrankie/blog/issues/178/hovercard">深究 Safari 下 border-radius &amp; overflow 不生效的问题</a>》，给 icon 添加 <code class="notranslate">transform: translateZ(0)</code> 或 <code class="notranslate">will-change: transform</code> 等解决，但 Chrome 又不能加，可用 CSS Media Query 区分（小程序亲测有用）。</p>
+<blockquote>
+<p dir="auto">如果使用 <code class="notranslate">wx.getSystemInfo().platform</code> 来区分设备，要注意开发工具、PC 端、Android 端与 Chrome 表现一致，不能加 <code class="notranslate">will-change: transform</code> 等处理，否则不显示。</p>
+</blockquote>
+<p dir="auto">比如：</p>
+<div class="highlight highlight-source-css" dir="auto"><pre class="notranslate"><span class="pl-k">@supports</span> (<span class="pl-c1">-webkit-hyphens</span><span class="pl-kos">:</span> none) {
+  <span class="pl-c">/* Safari for macOS or iOS browsers */</span>
+  .<span class="pl-c1">icon</span> {
+    <span class="pl-c1">will-change</span><span class="pl-kos">:</span> transform;
+  }
+}</pre></div>
+<p dir="auto">测试结果，Chrome、Safari、Firefox 和 iOS 浏览器都符合预期了。</p>
+<blockquote>
+<p dir="auto"><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> 注意，本打算给 <code class="notranslate">border-right</code> 给一个足够大的边框宽度，以兼容各种尺寸的图标，但发现过大时在 Safari 下不会呈现阴影，暂未发现有啥规律。但通常图标不会很大，如小程序端可以设置一屏大小 750rpx 的边框宽度。</p>
+</blockquote>
+<p dir="auto">小程序组件：</p>
+<div class="highlight highlight-text-html-basic" dir="auto"><pre class="notranslate"><span class="pl-kos">&lt;</span><span class="pl-ent">colorful-image</span> <span class="pl-c1">image-class</span>="<span class="pl-s">xxx</span>" <span class="pl-c1">color</span>="<span class="pl-s">xxx</span>" <span class="pl-c1">src</span>="<span class="pl-s">xxx</span>" <span class="pl-kos">/&gt;</span></pre></div>
+<ul dir="auto">
+<li>image-class 用于指定图片宽高等</li>
+<li>color 颜色</li>
+<li>src 图片链接（注意，相对路径是相对于 colorful-image 组件所在的目录）</li>
+</ul>
+<div class="highlight highlight-source-js" dir="auto"><pre class="notranslate"><span class="pl-v">Component</span><span class="pl-kos">(</span><span class="pl-kos">{</span>
+  <span class="pl-c1">externalClasses</span>: <span class="pl-kos">[</span><span class="pl-s">'image-class'</span><span class="pl-kos">]</span><span class="pl-kos">,</span>
+
+  <span class="pl-c1">properties</span>: <span class="pl-kos">{</span>
+    <span class="pl-c">// Required</span>
+    <span class="pl-c1">src</span>: <span class="pl-kos">{</span>
+      <span class="pl-c1">type</span>: <span class="pl-v">String</span><span class="pl-kos">,</span>
+      <span class="pl-c1">value</span>: <span class="pl-s">''</span><span class="pl-kos">,</span>
+    <span class="pl-kos">}</span><span class="pl-kos">,</span>
+
+    <span class="pl-c1">color</span>: <span class="pl-kos">{</span>
+      <span class="pl-c1">type</span>: <span class="pl-v">String</span><span class="pl-kos">,</span>
+      <span class="pl-c1">value</span>: <span class="pl-s">'transparent'</span><span class="pl-kos">,</span>
+    <span class="pl-kos">}</span><span class="pl-kos">,</span>
+  <span class="pl-kos">}</span><span class="pl-kos">,</span>
+<span class="pl-kos">}</span><span class="pl-kos">)</span></pre></div>
+<div class="highlight highlight-source-json" dir="auto"><pre class="notranslate">{
+  <span class="pl-ent">"component"</span>: <span class="pl-c1">true</span>,
+  <span class="pl-ent">"usingComponents"</span>: {}
+}</pre></div>
+<div class="highlight highlight-text-html-basic" dir="auto"><pre class="notranslate"><span class="pl-kos">&lt;</span><span class="pl-ent">view</span> <span class="pl-c1">class</span>="<span class="pl-s">image-class inner-image-box</span>"<span class="pl-kos">&gt;</span>
+  <span class="pl-kos">&lt;</span><span class="pl-ent">image</span> <span class="pl-c1">class</span>="<span class="pl-s">inner-image</span>" <span class="pl-c1">style</span>="<span class="pl-s">filter: drop-shadow(760rpx 0 0 {{ color }})</span>" <span class="pl-c1">src</span>="<span class="pl-s">{{ src }}</span>" <span class="pl-kos">/&gt;</span>
+<span class="pl-kos">&lt;/</span><span class="pl-ent">view</span><span class="pl-kos">&gt;</span></pre></div>
+<div class="highlight highlight-source-js" dir="auto"><pre class="notranslate"><span class="pl-kos">.</span><span class="pl-s1">inner</span><span class="pl-c1">-</span><span class="pl-s1">image</span><span class="pl-c1">-</span><span class="pl-s1">box</span><span class="pl-kos"></span> <span class="pl-kos">{</span>
+  overflow: <span class="pl-s1">hidden</span><span class="pl-kos">;</span>
+<span class="pl-kos">}</span>
+
+<span class="pl-kos">.</span><span class="pl-s1">inner</span><span class="pl-c1">-</span><span class="pl-s1">image</span><span class="pl-kos"></span> <span class="pl-kos">{</span>
+  <span class="pl-s1">box</span><span class="pl-c1">-</span><span class="pl-s1">sizing</span>: <span class="pl-s1">content</span><span class="pl-c1">-</span><span class="pl-s1">box</span><span class="pl-kos">;</span>
+  display: <span class="pl-s1">block</span><span class="pl-kos">;</span>
+  width: <span class="pl-c1">100</span><span class="pl-c1">%</span><span class="pl-s1"></span><span class="pl-kos">;</span>
+  height: <span class="pl-c1">100</span><span class="pl-c1">%</span><span class="pl-kos">;</span>
+  <span class="pl-s1">border</span><span class="pl-c1">-</span><span class="pl-s1">right</span>: <span class="pl-c1">100000</span><span class="pl-s1">px</span> <span class="pl-s1">solid</span> <span class="pl-s1">transparent</span><span class="pl-kos">;</span>
+  transform: <span class="pl-en">translateX</span><span class="pl-kos">(</span><span class="pl-c1">-</span><span class="pl-c1">760</span><span class="pl-s1">rpx</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-kos">}</span>
+
+@<span class="pl-en">supports</span> <span class="pl-kos">(</span><span class="pl-c1">-</span><span class="pl-s1">webkit</span><span class="pl-c1">-</span><span class="pl-s1">hyphens</span>: <span class="pl-s1">none</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+  <span class="pl-kos">.</span><span class="pl-s1">inner</span><span class="pl-c1">-</span><span class="pl-s1">image</span><span class="pl-kos"></span> <span class="pl-kos">{</span>
+    <span class="pl-s1">will</span><span class="pl-c1">-</span><span class="pl-s1">change</span>: <span class="pl-s1">transform</span><span class="pl-kos">;</span>
+  <span class="pl-kos">}</span>
+<span class="pl-kos">}</span></pre></div>
+<p dir="auto"><a href="https://developers.weixin.qq.com/s/BgQvqWmK7rVu" rel="nofollow">小程序代码片段</a></p>
+<p dir="auto">注意：Skyline 渲染模式暂不支持。</p>]]></content:encoded>
+        </item>
+    </channel>
+</rss>
