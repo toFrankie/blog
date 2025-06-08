@@ -22,7 +22,7 @@
 </code></pre>
 <p>你可以创建一个包含以下认证信息的 Issue（右键认证处可复制），用于证明你是此订阅源的所有者。</p>
 <blockquote>
-<p>This message is used to verify that this feed (feedId:153852973480969216) belongs to me (userId:150343881723676672). Join me in enjoying the next generation information browser <a href="https://follow.is">https://follow.is</a>.</p>
+<p>This message is used to verify that this feed (feedId:154574662305076224) belongs to me (userId:150343881723676672). Join me in enjoying the next generation information browser <a href="https://follow.is">https://follow.is</a>.</p>
 </blockquote>
 ]]></content:encoded>
         </item>
@@ -964,7 +964,7 @@ contact_links:
   function timerLoop() {
     setTimeout(timerLoop, 0)
   }
-  
+
   function promiseLoop() {
     Promise.resolve().then(promiseLoop)
   }
@@ -1095,7 +1095,7 @@ contact_links:
   queue = getNextQueue()
   task = queue.getFirstRunnableTask()
   execute(task)
-  
+
   if (hasRendringOpportunity()) repaint()
 }
 </code></pre>
@@ -1173,12 +1173,12 @@ contact_links:
   queue = getNextQueue()
   task = queue.getFirstRunnableTask()
   execute(task)
-  
+
   while (microtaskQueue.hasTask() {
     microtask = microtaskQueue.pop()
     excute(microtask)
   }
-  
+
   if (hasRendringOpportunity()) repaint()
 }
 </code></pre>
@@ -1207,18 +1207,18 @@ contact_links:
   queue = getNextQueue()
   task = queue.getFirstRunnableTask()
   execute(task)
-  
+
   while (microtaskQueue.hasTask() {
     microtask = microtaskQueue.pop()
     excute(microtask)
   }
-  
+
   if (hasRendringOpportunity()) {
     callbacks = animationFrameCallbacks.spliceAll()
     for (callback in callbacks) {
       execute(callback)
     }
-    
+
     repaint()
   }
 }
@@ -1271,16 +1271,16 @@ contact_links:
 <p>用伪代码表示是这样的：</p>
 <pre><code class="language-js">while (tasksAreWaiting()) {
   queue = getNextQueue()
-  
+
   while (queue.hasTask()) {
     task = queue.pop()
     execute(task)
-    
+
     while (nextTickQueue.hasTask()) {
       callback = nextTickQueue.pop()
       excute(callback)
     }
-    
+
     while (promiseQueue.hasTask() {
       promise = promiseQueue.pop()
       excute(promise)
@@ -1303,7 +1303,7 @@ contact_links:
 <pre><code class="language-js">while (true) {
   task = taskQueue.pop()
   execute(task)
-  
+
   while (microtaskQueue.hasTask() {
     microtask = microtaskQueue.pop()
     excute(microtask)
@@ -1334,7 +1334,7 @@ contact_links:
   function timerLoop() {
     setTimeout(timerLoop, 0)
   }
-  
+
   function promiseLoop() {
     Promise.resolve().then(promiseLoop)
   }
@@ -1392,7 +1392,7 @@ element.style.display = 'none'
     Promise.resolve().then(() =&gt; console.log('microtask 2'))
     console.log('listener 2')
   })
-  
+
   // btn.click()
 &lt;/script&gt;
 </code></pre>
@@ -2519,7 +2519,7 @@ function renderCounter(timeLeft) {
 <pre><code class="language-js">function countdown(seconds) {
   const startTime = Date.now()
   const endTime = startTime + seconds * 1000
-  
+
   const timer = setInterval(() =&gt; {
     const now = Date.now()
     const timeLeft = endTime - now
@@ -2532,7 +2532,7 @@ function renderCounter(timeLeft) {
 
     renderCounter(timeLeft)
   }, 1000)
-  
+
   renderCounter(endTime - startTime)
 }
 </code></pre>
@@ -2580,7 +2580,7 @@ function renderCounter(timeLeft) {
   }
 
   let timer = setInterval(paint, 1000)
-  
+
   handleVisibilityChange({
     hiddenFn: () =&gt; {
       clearInterval(timer)
@@ -2590,7 +2590,7 @@ function renderCounter(timeLeft) {
       timer = setInterval(paint, 1000)
     },
   })
-  
+
   renderCounter(endTime - startTime)
 }
 
@@ -2654,7 +2654,7 @@ function handleVisibilityChange({ hiddenFn = () =&gt; {}, visibleFn = () =&gt; {
 <pre><code class="language-js">function countdown(seconds) {
   const startTime = document.timeline ? document.timeline.currentTime : performance.now()
   const endTime = startTime + seconds * 1000
-  
+
   const paint = () =&gt; {
     const now = document.timeline ? document.timeline.currentTime : performance.now()
     const timeLeft = endTime - now
@@ -2737,7 +2737,7 @@ Page({
     // TIPS: 小程序需配置请求域名，获取服务器时间根据实际调整，比如发起 HEAD 请求获取 header.date 等方式。
     const now = await getServerTime()
     const secondsLeft = Math.floor((DEADLINE_TIME - now) / 1000)
-    
+
     this.countdown(secondsLeft)
   },
 
@@ -2866,16 +2866,16 @@ echo $baz    # 3
   USER: 'frankie',
   HOME: '/Users/frankie',
   // ...
-  
+
   // zsh 自定义环境变量
   NVM_DIR: '/Users/frankie/.nvm',
   // ...
-  
+
   // npm config 相关变量
   npm_config_sass_binary_site: 'https://npmmirror.com/mirrors/node-sass',
   npm_config_prefix: '/Users/frankie/.nvm/versions/node/v18.16.0',
   // ...
-  
+
   // npm package 相关变量
   npm_package_json: '/Users/frankie/Web/Git/html-demo/src/demo/node-env/package.json',
   npm_package_name: 'node-env',
@@ -3835,7 +3835,7 @@ const handler = {
     console.log(`Getting ${property}`)
     return Reflect.get(target, property, receiver)
   },
-  
+
   set(target, property, value, receiver) {
     console.log(`Setting ${property}`)
     return Reflect.set(target, property, value, receiver)
@@ -4896,7 +4896,7 @@ echo &quot;处理完成！&quot;
     - [Launch configurations](https://code.visualstudio.com/docs/editor/debugging#_launch-configurations)
     - [Integrate with External Tools via Tasks](https://code.visualstudio.com/docs/editor/tasks#vscode)
 
-3. 开发 
+3. 开发
     - 打包选型
     - 热更新
 
@@ -5286,10 +5286,10 @@ await octokit.graphql(`
 <h3>Gifsicle</h3>
 <pre><code class="language-shell"># 查看所有帧信息
 $ gifsicle --info source.gif
- 
+
 # 查看某帧信息
 $ gifsicle --info &quot;#0&quot; &quot;#3&quot; &lt; source.gif
- 
+
 # 查看详细颜色表
 $ gifsicle --cinfo source.gif
 </code></pre>
@@ -7646,13 +7646,13 @@ div {
     2. 若 `tab-size` 为 `0`，则不渲染 Tab，否则按值渲染 Tab（注意 `tab-size` 的默认值为 `8`）；
     3. 若每行行尾有可折叠的 Space，将其移除；
     4. 若每行行尾存在空白符、其他空格分隔符和保留的 Tab，再根据 `white-space` 决定是否悬挂（Hang）。
-    
+
 > 总的来说，先将空白符分为两类：一类是 Space 和 Tab，另一类是 Line Feed。
 >
 > 如果是可折叠的，Tab 最终会转换为 Space，然后 Line Feed 则根据 `white-space` 再判断是保留，还是转为 Space，最后多个 Space 被折叠成一个 Space。
 >
 > 如果是不可折叠的，Space 不会折叠，被当做不换行空格。Tab 根据 `tab-size` 进行渲染。Line Feed 也根据 `white-space` 再判断是否保留。
-                
+
 -->
 <h3>空白处理规则</h3>
 <p>分为三个阶段：</p>
@@ -8959,22 +8959,22 @@ $ npm dist-tag rm &lt;name&gt; &lt;tag&gt;
 <p>举个例子：</p>
 <pre><code class="language-shell"># 未指定时，默认为 latest
 $ npm publish
-npm notice 
+npm notice
 npm notice 📦  @summer/my-pack@0.0.1
-npm notice === Tarball Contents === 
-npm notice 27B  README.md   
+npm notice === Tarball Contents ===
+npm notice 27B  README.md
 npm notice 232B package.json
 npm notice 27B  src/index.js
-npm notice === Tarball Details === 
-npm notice name:          @summer/my-pack                         
-npm notice version:       0.0.1                                   
-npm notice filename:      summer-my-pack-0.0.1.tgz                
-npm notice package size:  342 B                                   
-npm notice unpacked size: 286 B                                   
+npm notice === Tarball Details ===
+npm notice name:          @summer/my-pack
+npm notice version:       0.0.1
+npm notice filename:      summer-my-pack-0.0.1.tgz
+npm notice package size:  342 B
+npm notice unpacked size: 286 B
 npm notice shasum:        84c45d5eb997b714cb1348624b71046ed6c987a8
 npm notice integrity:     sha512-blbi1Q3A8La3A[...]r6BVjGtYZ8rCw==
-npm notice total files:   3                                       
-npm notice 
+npm notice total files:   3
+npm notice
 npm notice Publishing to http://localhost:4873/ with tag latest and default access
 + @summer/my-pack@0.0.1
 
@@ -8983,22 +8983,22 @@ latest: 0.0.1
 
 # 发布一个名为 next 的 tag
 $ npm publish --tag next
-npm notice 
+npm notice
 npm notice 📦  @summer/my-pack@0.0.2
-npm notice === Tarball Contents === 
-npm notice 27B  README.md   
+npm notice === Tarball Contents ===
+npm notice 27B  README.md
 npm notice 232B package.json
 npm notice 27B  src/index.js
-npm notice === Tarball Details === 
-npm notice name:          @summer/my-pack                         
-npm notice version:       0.0.2                                   
-npm notice filename:      summer-my-pack-0.0.2.tgz                
-npm notice package size:  342 B                                   
-npm notice unpacked size: 286 B                                   
+npm notice === Tarball Details ===
+npm notice name:          @summer/my-pack
+npm notice version:       0.0.2
+npm notice filename:      summer-my-pack-0.0.2.tgz
+npm notice package size:  342 B
+npm notice unpacked size: 286 B
 npm notice shasum:        e9575fc34aacf2a08bb4f33a768dcf5ba4aab494
 npm notice integrity:     sha512-kcHYodhWGbAds[...]TU53bhFy46wUw==
-npm notice total files:   3                                       
-npm notice 
+npm notice total files:   3
+npm notice
 npm notice Publishing to http://localhost:4873/ with tag next and default access
 + @summer/my-pack@0.0.2
 
@@ -9064,7 +9064,7 @@ Error [ERR_REQUIRE_ESM]: require() of ES Module /Users/frankie/Web/Temp/demo/nod
 <h2>npm install &lt;name&gt;@&lt;version range&gt;</h2>
 <p>范围可通过使用 <code>&gt;</code>、<code>&lt;</code>、<code>=</code>、 <code>-</code> 等限定符组合。比如：</p>
 <pre><code class="language-shell"># 安装范围内的最新版本（17.0.1）
-$ npm install react@&quot;&gt;=16.0.0 &lt;17.0.2&quot; 
+$ npm install react@&quot;&gt;=16.0.0 &lt;17.0.2&quot;
 
 # 安装大版本为 16 至 17 的最新版本（17.0.2）
 $ npm install react@&quot;16 - 17&quot;
@@ -9105,7 +9105,7 @@ $ npm init -y
 $ npm i typescript -D
 $ npx tsc --init
 
-Created a new tsconfig.json with:                                                       
+Created a new tsconfig.json with:
   target: es2016
   module: commonjs
   strict: true
@@ -10913,7 +10913,7 @@ arr.includes(NaN) // true
 <p>想要移除这种默认聚焦样式，非常地简单，只要添加以下样式即可：</p>
 <pre><code class="language-css">input {
   outline: none;
-} 
+}
 </code></pre>
 <p>将 <code>outline</code> 设置为 <code>0</code> 或 <code>none</code> 会移除浏览器的默认聚焦样式。</p>
 <p><code>outline</code> 是 <code>outline-style</code>、<code>outline-width</code>、<code>outline-color</code> 的简写，用于绘制元素轮廓的样式。</p>
@@ -12045,7 +12045,7 @@ globalns.moduleB = {
 <p>这样的话，我们就不用担心，在外部直接修改  <code>namespace</code> 内部的成员或者方法了。</p>
 <pre><code class="language-js">// 读取
 namespace.prop // 123
-namespace.method() 
+namespace.method()
 
 // 写入
 namespace.prop = 456 // 无效
@@ -12282,7 +12282,7 @@ exports = function () { console.log('Hi~') }
    a. 从当前模块所在目录（即 `dirname(Y)`）开始，逐层查找是否 `node_modules/X` 是否存在，
       若找到就返回，否则继续往父级目录查找 `node_modules/X` ，依次类推，直到文件系统根目录。
    b. 从全局目录（指 `NODE_PATH` 环境变量相关的目录）继续查找。
-  
+
    若 `LOAD_NODE_MODULES` 过程查找到模块 X（可得到 X 对应的绝对路径，假定为 M），将按以下步骤查找查找：
       1) 若 Node.js 版本支持 `exports` 字段（Node.js 12+），
           1.1 尝试将 `M` 拆分为 name 和 subpath 形式（下称 name 为 `NAME`）
@@ -13583,11 +13583,11 @@ histories                // [1, 2, 3, 6]
 <p>参数 <code>state</code> 是可序列化对象，怎么理解？</p>
 <p>个人猜测是那些可作用域 <code>JSON.stringify()</code> 方法的原始值或引用值，具体没去深究。举个例子，下面这个将会抛出错误：</p>
 <pre><code class="language-js">history.pushState(
-  { fn: function () {} }, 
-  '', 
+  { fn: function () {} },
+  '',
   location.href + 'abc'
 )
-// DOMException: Failed to execute 'pushState' on 'History': 
+// DOMException: Failed to execute 'pushState' on 'History':
 // function() {} could not be cloned.
 </code></pre>
 <p>较为冷门的东西，参数 <code>url</code> 也支持 <a href="https://developer.mozilla.org/zh-CN/docs/Learn/Common_questions/What_is_a_URL#%E7%BB%9D%E5%AF%B9url%E5%92%8C%E7%9B%B8%E5%AF%B9url">绝对 URL 和相对 URL</a>。举些例子：</p>
@@ -14563,7 +14563,7 @@ console.log(foo) // true
       于是根据标识符 a 找到它在内存中的位置，并将真实值 1 存入到该空间下，
       以覆盖原先的 undefined 值。
       还有一些如当前执行上下文 this 指向也是在这过程确定的。
-  
+
       当代码都执行完之后，执行栈就会空闲下来，摸会鱼。等待后面有执行任务再进入工作状态。
 </code></pre>
 <p>为什么又重新提一遍这个过程，原因是：</p>
@@ -14682,7 +14682,7 @@ console.log(foo);
   // 2. arguments 对象具有数字索引属性
   arguments[0] // &quot;a&quot;
   arguments[1] // &quot;b&quot;
-  
+
   // 3. arguments 对象有 length 属性，反映实参个数。
   //    但与函数的 length 属性不同，foo.length 反映形参个数。可在 ES6 之后由于参数默认值、REST 参数等新特性，使 foo.length 变得不可靠
   arguments.length // 2
@@ -14700,7 +14700,7 @@ foo('a', 'b')
 function foo() {
   // 方法一：会阻止某些 JS 引擎的优化，如 V8
   // 请看：https://github.com/petkaantonov/bluebird/wiki/Optimization-killers#3-managing-arguments
-  var args = Array.prototype.slice.call(arguments) 
+  var args = Array.prototype.slice.call(arguments)
   // var args = [].slice.call(arguments)
 
   // 方法二（推荐，尽管丑了点）
@@ -14769,7 +14769,7 @@ foo()
 <p>但这样用不会报错，这就是前面提到的“视觉认知”错误。</p>
 <pre><code class="language-js">function foo() {
   const bar = () =&gt; {
-    console.log(arguments) 
+    console.log(arguments)
     // 由于箭头函数 bar 没有 arguments，
     // 这里引用的 arguments 对象其实是函数 foo 的实参对象。
   }
@@ -14946,7 +14946,7 @@ foo() // &quot;inner&quot;
 <p><strong>全局和 eval 上下文中的作用域链</strong></p>
 <p>全局上下文的作用域链仅包含全局对象。而 eval 上下文与当前的调用上下文（calling context）拥有同样的作用域链。</p>
 <pre><code>GlobalContext.Scope = [ window ]
- 
+
 EvalContext.Scope === CallingContext.Scope;
 </code></pre>
 <p><strong>代码执行时对作用域链的影响</strong></p>
@@ -15394,13 +15394,13 @@ eval 上下文：
   就是 eval('some code...')，尽可能不要用，会影响性能、欺骗词法作用域
 </code></pre>
 <p>每个执行上下文，可以看作是一个 JavaScript 对象，它有三个重要属性：</p>
-<pre><code>Variable Object: 
+<pre><code>Variable Object:
   即变量对象，简称 VO。我们声明的变量、函数就是放在 VO 中的。
 
-Scope Chain: 
+Scope Chain:
   即作用域链，简称 Scope。它包含了当前上下文 VO，以及各父级的 VO。查找变量就是根据这链条去查询的。
 
-This: 
+This:
   即 this 对象，这是一个很灵活的对象，跟函数调用相关。
 }
 </code></pre>
@@ -15422,7 +15422,7 @@ foo() // &quot;local&quot;
 </code></pre>
 <p>接着对 GlobalContext 进行初始化：</p>
 <pre><code class="language-js">GlobalContext = {
-  VO: window, 
+  VO: window,
   Scope: [ GlobalContext.VO ],
   this: GlobalContext.VO
 }
@@ -15634,7 +15634,7 @@ Captruing Phase -&gt; Target Phase -&gt; Bubbling Phase
     └───────────────────────────────────────────┴───────────────┴────────────────────────────────────────────┘
     (DOM_EVENT 表示标准事件流；IE_EVENT 表示 IE 事件流。)
     (CAPTURING_PHASE 表示捕获阶段；AT_TARGET 表示目标阶段；BUBBLING_PHASE 表示冒泡阶段。)
-    
+
 ```
 
 -->
@@ -15717,7 +15717,7 @@ div bubbling
 //    还有偶然发现，在 IE8 下竟然 Object.prototype.toString.call(null) === '[object Object]'，无语！
 //
 // 4. 综上，想要在事件监听函数中取到事件对象，只需通过：
-//    var ev = e || window.event 
+//    var ev = e || window.event
 //    以上这条语句，可以兼容所有浏览器，并正确获取到事件对象。
 //    至于 IE9 ~ 10 中 e 与 window.event 的细微差异，实际中无需关心，没有影响。
 //
@@ -15754,7 +15754,7 @@ div bubbling
   console.log(ev instanceof MouseEvent) // true
 }
 
-// ⚠️ 
+// ⚠️
 // 注意 IE8 不含 MouseEvent 等派生类，只有 Event 基类，
 // 因此 IE8 中第 4 行会抛出错误。
 </code></pre>
@@ -16037,7 +16037,7 @@ if (s &amp;&amp; s.parentNode) s.parentNode.insertBefore(el, s)
 target.addEventListener('watch', function () { /* ... */ }, false)
 
 // 2. 创建 watch 事件，若无需传入指定数据，可直接使用 new Event('watch')
-var watchEvent = new CustomEvent('watch', 
+var watchEvent = new CustomEvent('watch',
     detail: { /* ... */ }, // 可以是任意值，通常是与本事件相关的一些信息
     bubbles: false, // 是否冒泡
     cancelable: false // 是否取消默认行为
@@ -16894,7 +16894,7 @@ Execution Context = {
 
 * **Variable Object**（VO）：即变量对象。每个上下文都有一个关联的变量对象，而这个上下文中定义的所有变量和函数都存在于这个对象上。该对象无法通过代码访问得到。
 
-  
+
 
   与全局上下文不同的是，函数上下文的变量对象，包含变量（含形参）、函数、`arguments` 属性。注意，形参很容易被忽略。
 
@@ -17001,7 +17001,7 @@ https://www.jianshu.com/p/bdf4b035c4a1
 源文件
 
 ```text
-    
+
     ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
     │                                              href                                              │
     ├──────────┬──┬─────────────────────┬────────────────────────┬───────────────────────────┬───────┤
@@ -17218,7 +17218,7 @@ readFileThunk('data.json', {})((err, data) =&gt; {
 </code></pre>
 <pre><code class="language-js">var thunkify = require('thunkify')
 var fs = require('fs')
- 
+
 var read = thunkify(fs.readFile)
 read('data.json', {})((err, data) =&gt; {
   // do something...
@@ -17651,7 +17651,7 @@ gen.next() // { done: true, value: undefined }
 <pre><code class="language-js">async function foo() {
   return await 1
   // 相当于 return 1
-  // 
+  //
   // 对于 `await 1` 函数内部的执行器，其实做的事情是 Promise.resolve(1)，
   // 而 Promise.resolve() 的作用就是将某个值转化为 Promise 对象。
   // 关于 Promise.resolve() 可看文章：https://www.jianshu.com/p/1f2db76fd8d8
@@ -19815,7 +19815,7 @@ p2.then(
    假设代码执行到 `resolve(p1)` 时，若 p1 的状态已定型，即 fulfilled 或 rejected，
    会立即调用 `p2.then()` 方法。
    PS：这里“立即”是指，当前同步任务已执行完毕的前提下。第 2 点也是如此。
-  
+
 2. 若 p2 内是 `reject(p1)` 时，情况会有所不同：
 
    当代码执行到 `reject(p1)` 时，由于 p2 的状态会变更为 rejected，
@@ -19877,7 +19877,7 @@ promise.then(
 <p>通过 <code>throw</code> 等方式使其变成 <code>rejected</code> 状态，相当于：</p>
 <pre><code class="language-js">const promise = new Promise((resolve, reject) =&gt; {
   try {
-    throw 'Oops' 
+    throw 'Oops'
     // 一般地，是抛出一个 Error（或派生）实例对象，如 throw new Error('Oops')
   } catch (e) {
     reject(e)
@@ -20491,7 +20491,7 @@ const stu = new Student() // ReferenceError: Must call super constructor in deri
 
 // 至于为什么上一个示例，实例化时并不会报错，原因如下：
 // 当 constructor 缺省时，JS 引擎会默认添加一个 constructor 方法，相当于：
-// 
+//
 // class Person {}
 // class Student extends Person {
 //   constructor(...args) {
@@ -20618,7 +20618,7 @@ class Student extends Person {
     super.sayHi() // &quot;Hi, my name is Frankie.&quot;
     console.log(super.name) // undefined
     console.log(super.prop) // &quot;hhh&quot;
-  
+
     // 另外，要注意：
     super.tmp = 'temporary' // 相当于 this.tmp = 'temporary'
     console.log(super.tmp) // undefined
@@ -20981,7 +20981,7 @@ const p2 = Point() // Uncaught TypeError: Class constructor Point cannot be invo
 
   constructor(x, y) {
     // 通过如下 this.xxx 的形式，可以显式地为实例对象增删属性和方法
-    this.x = x // 
+    this.x = x //
     this.y = y
     this.show = () =&gt; {
       return `The point is (${this.x}, ${this.y}).`
@@ -21824,10 +21824,10 @@ $ scp -r /xxx/dist/* /data/www
 <p>换句话说就是，前者配置 <code>root</code> 的路径应该是 <code>/data/www/dist</code>，后者则为 <code>/data/www</code>。</p>
 <p>效果如下：</p>
 <pre><code class="language-shell">$ scp -r /Users/frankie/Desktop/Web/react-demo/dist/* root@100.2.3.4:/data/www/
-root@100.2.3.4's password: 
-bundle.2b1a17.js                              100% 1580   120.1KB/s   00:00    
-favicon.ico                                   100% 9662   724.9KB/s   00:00    
-index.html                                    100% 2045   149.9KB/s   00:00    
+root@100.2.3.4's password:
+bundle.2b1a17.js                              100% 1580   120.1KB/s   00:00
+favicon.ico                                   100% 9662   724.9KB/s   00:00
+index.html                                    100% 2045   149.9KB/s   00:00
 vendors.chunk.7fb171.js                       100%  625KB 409.8KB/s   00:01
 </code></pre>
 <pre><code>[root@ali-ecs www]# ls
@@ -21920,12 +21920,12 @@ export default function Demo(props) {
 </blockquote>
 <pre><code class="language-js">function debounce(func, wait) {
   let timerId
-  
+
   // 为确保 this 指向正确，此处不能用箭头函数
   return function (...args) {
     // 在 wait 时间内，若重新触发，清除 clearTiemout，以达到重新计时的效果
     if (timerId) clearTimeout(timerId)
-    
+
     timerId = setTimeout(() =&gt; {
       func.apply(this, args)
     }, wait)
@@ -21977,7 +21977,7 @@ inputElem2.current.addEventListener('keyup', debounce(request, 1000))
   return function (...args) {
     // 当前触发的时间（时间戳）
     const now = Number(new Date()) // +new Date()
-    
+
     // 单位时间内只会执行一次
     if (now &gt;= prev + wait) {
       // 符合条件执行 func 时，需要更新 prev 时间
@@ -22001,7 +22001,7 @@ inputElem2.current.addEventListener('keyup', debounce(request, 1000))
     // 我看到很多文章，将清除定时器的步骤放到 2️⃣ 里面
     // 我认为应该放在这里才对，原因看我下面举例的场景。
     if (timerId) clearTimeout(timerId)
-    
+
     if (now &gt;= prev + wait) {
       // 1️⃣
       // 符合条件执行 func 时，需要更新 prev 时间
@@ -22201,7 +22201,7 @@ $ open -a &quot;Microsoft Edge&quot; --args --disable-features=SameSiteByDefault
 > 下载地址是：`http://dl.google.com/chrome/install/[版本号后两位]/chrome_installer.exe`
 >
 > 假如要下载的版本号是 `15.0.874.102`，那么后两位就是 `874.102`，输入地址：`http://dl.google.com/chrome/install/874.102/chrome_installer.exe` 即可下载。
-> 
+>
 > 该方法仅限于 Win 版，至于 Mac 版没找到方法，无奈。
 
 -->
@@ -25099,7 +25099,7 @@ console.log(num) // 1
 
 // JS 运行的三个步骤：词法分析、预编译、解析执行。
 // 其中预编译，不仅仅发生在 script 代码块执行之前，还发生在函数执行之前。
-// 
+//
 // 函数预编译的过程大致是这样的：
 // 1. 首先查找形参和变量声明（此时并赋予值 undefined）
 // 2. 接着将实参赋值给形参
@@ -27090,7 +27090,7 @@ console.log(re.test('foo bar')) // false
 </table>
 <h2>Knuth-Durstenfeld Shuffle（The modern algorithm）</h2>
 <p>Richard Durstenfeld 于 1964 年推出了现代版本的 <a href="https://www.wikiwand.com/en/Fisher%E2%80%93Yates_shuffle#citenotecacm2">Fisher–Yates shuffle</a>，并由 Donald E. Knuth 在 <a href="https://www.wikiwand.com/en/The_Art_of_Computer_Programming">The Art of Computer Programming</a> 以 “Algorithm P (Shuffling)” 进行了推广。Durstenfeld 所描述的算法与 Fisher 和 Yates 所给出的算法有很小的差异，但意义重大。</p>
-<pre><code class="language-text">-- To shuffle an array a of n elements (indices 0..n-1):  
+<pre><code class="language-text">-- To shuffle an array a of n elements (indices 0..n-1):
 for i from n−1 downto 1 do  // 数组从 n-1 到 0 循环执行 n 次
   j ← random integer such that 0 ≤ j ≤ i  // 生成一个 0 到 n-1 之间的随机索引
   exchange a[j] and a[i] // 将交换之后剩余的序列中最后一个元素与随机选取的元素交换
@@ -27357,7 +27357,7 @@ console.log(name); // &quot;Frankie&quot;
 <h5>3. 增强的安全措施</h5>
 <p>（1）禁止 this 关键字指向全局对象</p>
 <pre><code class="language-js">function fn1() {
-  // 返回 false，因为 &quot;this&quot; 指向全局对象 
+  // 返回 false，因为 &quot;this&quot; 指向全局对象
   return !this;
 }
 
@@ -28041,7 +28041,7 @@ const replacer = (key, value) =&gt; {
 
   // 若符合某种条件不被序列化，return undefined 即可。
   // 比如 if (typeof value === 'string') return undefined
-  
+
   // 也可以通过该函数来看看序列化的执行顺序。
 
   // console.log('key: ', key)
@@ -28053,7 +28053,7 @@ const replacer = (key, value) =&gt; {
 const peopleStr = JSON.stringify(people, replacer)
 
 // '{&quot;name&quot;:&quot;Frankie&quot;,&quot;age&quot;:20,&quot;birthday&quot;:&quot;2021-01-17T10:24:39.333Z&quot;,&quot;home&quot;:null,&quot;skills&quot;:[&quot;&quot;,null,null,&quot;JavaScript&quot;,null,null,null],&quot;course&quot;:{&quot;name&quot;:&quot;English&quot;,&quot;score&quot;:90},&quot;prop1&quot;:null,&quot;prop2&quot;:null,&quot;prop3&quot;:true}'
-console.log(peopleStr) 
+console.log(peopleStr)
 
 console.log(JSON.stringify(function(){})) // undefined
 console.log(JSON.stringify(undefined)) // undefined
@@ -28878,7 +28878,7 @@ SyntaxError: Unexpected token )
 </blockquote>
 <p>比如下面例子，这不是加不加分号的问题，而是懂不懂 JavaScript 解析的问题。</p>
 <pre><code class="language-js">// 坚持添加分号的小明
-return 
+return
 123;
 
 // 坚持不添加分号的小红
@@ -28913,16 +28913,16 @@ return 123;
 </code></pre>
 <h3>以 <code>[</code> 开头的情况</h3>
 <pre><code class="language-js">a = function() {
- 
+
 }
 [1,2,3].forEach(function(item) {
- 
+
 })
 </code></pre>
 <p>JavaScript 解析器会按以下这样去解析，由于 <code>function() {}[1,2,3]</code> 返回值是 <code>undefined</code>，所以就会报错。</p>
 <pre><code class="language-js">a = function() {
 }[1,2,3].forEach(function(item) {
- 
+
 });
 </code></pre>
 <h3>以 <code>/</code> 开头的情况</h3>
@@ -29074,7 +29074,7 @@ console.log(this.b);    // undefined
 }
 </code></pre>
 <h3>三、使用第三方 JS 库</h3>
-<pre><code class="language-js">// Lodash 
+<pre><code class="language-js">// Lodash
 _.isEmpty(val)
 
 // Underscore
@@ -29265,7 +29265,7 @@ student.showName()      // My name is Frankie. (class Person)
 <li>使用 <code>super.method()</code> 调用父类方法</li>
 <li>使用 <code>super()</code> 调用父构造函数（仅在 <code>constructor</code> 函数中）</li>
 </ul>
-<pre><code class="language-js">student.showName()      
+<pre><code class="language-js">student.showName()
 // My name is Frankie. (class Person)
 // My name is Frankie. (class Student)
 </code></pre>
@@ -30299,7 +30299,7 @@ console.log(person.name);  // undefined
 </code></pre>
 <p>很显然，上述输出 <code>undefined</code>。下面简述查找过程：</p>
 <pre><code class="language-js">person                // 是一个对象，可以继续
-person['name']           // 不存在，继续查找 
+person['name']           // 不存在，继续查找
 person.__proto__            // 是一个对象，可以继续
 person.__proto__['name']        // 不存在，继续查找
 person.__proto__.__proto__          // 是一个对象，可以继续
@@ -30589,7 +30589,7 @@ console.log(bubbleSort(array)) // [0, 3, 4, 8, 8, 12, 21, 22, 56]
 </code></pre>
 <pre><code class="language-php">&lt;?php
     // 设置页面内容的 html 编码格式是 utf-8，内容是纯文本
-    header(&quot;Content-Type: text/plain;charset=utf-8&quot;);    
+    header(&quot;Content-Type: text/plain;charset=utf-8&quot;);
     echo '你好，世界';
 ?&gt;
 </code></pre>
@@ -31619,13 +31619,13 @@ a.link {
 <ul>
 <li>rem &amp; vw</li>
 </ul>
-<pre><code>html {  
+<pre><code>html {
     font-size: 4.375vw;
 }
 </code></pre>
 <p>这里假设设计稿 640px，则设置根元素 font-size 为 4.375vw，根据屏幕宽度自适应，在视窗宽度为 320px 的时候，正好是 14px (14 / 320 = 0.04375)。 达到页面默认字体大小 14px 的目的（其他大小也 ok）。好了，现在页面上所有以  <code>rem</code>  为单位的属性值都会随着屏幕的宽度变化而变化，达到自适应的目的。（<code>自适应不用 js 动态设置根元素大小</code>）</p>
-<pre><code>p {  
-    font-size: 1rem;   
+<pre><code>p {
+    font-size: 1rem;
     padding-top: 2rem: /* 设计稿上为 28px */
 }
 </code></pre>
@@ -32620,7 +32620,7 @@ const var1 = this.$store.state.message
 </ol>
 <pre><code class="language-js">import Vue from 'vue'
 import VueClipboard from 'vue-clipboard2'
- 
+
 Vue.use(VueClipboard)
 </code></pre>
 <p>3、使用</p>
@@ -33264,7 +33264,7 @@ console.log(this.$route.query.TripOrderId)
   .div1 {
     background: red;
   }
-  
+
   .div1 img {
     width: 100px;
     height: 100px;
@@ -33713,7 +33713,7 @@ thousandsReplace(10000) // &quot;10,000&quot;
 
 ## 一些观点
 
-* CSS pixel ratio (also referred to as device pixel ratio) 
+* CSS pixel ratio (also referred to as device pixel ratio)
 * A pixel is not a pixel（a pixel no longer equals a pixel.）
 * 逻辑像素定义为设备屏幕中的物理像素数除以 CSS 像素比率，逻辑像素是您在查看设备时看到的（更重要的是，您的浏览器看到的）。
 * In this post, we refer to the physical pixel on the screen as “device pixel” (not to be confused with CSS pixel which will be explained later on).
@@ -33982,12 +33982,12 @@ $ yarn build:weapp
 .avatar {
   width: 50px;
 }
- 
+
 /* 编译为小程序 */
 .avatar {
   width: 50rpx;
 }
- 
+
 /* 编译为 H5 */
 .avatar {
   width: 1.0667rem;
@@ -34031,12 +34031,12 @@ $ yarn build:weapp
 .avatar {
   width: 50px;
 }
- 
+
 /* 编译为小程序 */
 .avatar {
   width: 50rpx;
 }
- 
+
 /* 编译为 H5 */
 .avatar {
   width: 1.0667rem;
@@ -34298,12 +34298,12 @@ module.exports = {
 .avatar {
   width: 50px;
 }
- 
+
 /* 编译为小程序 */
 .avatar {
   width: 50rpx;
 }
- 
+
 /* 编译为 H5 */
 .avatar {
   width: 1.0667rem;
@@ -34390,12 +34390,12 @@ module.exports = {
 .avatar {
   width: 50px;
 }
- 
+
 /* 编译为小程序 */
 .avatar {
   width: 50rpx;
 }
- 
+
 /* 编译为 H5 */
 .avatar {
   width: 0.5rem;
@@ -34450,7 +34450,7 @@ switch (options.platform) {
     transUnits.push('rpx')
     break
   }
-  
+
   // ...
 }
 </code></pre>
@@ -34816,7 +34816,7 @@ element.style.removeProperty('--color')
 
 > * 视口（Viewport）：在 Web 浏览器中，通常与浏览器窗口相同，但不包括浏览器应用本身的 UI、地址栏、书签栏等，即指你正在浏览的文档的那一部分。
 > * 可视视口（Visual Viewport）：表示视口当前可见的部分。
-> * 布局视口 (layout viewport) 
+> * 布局视口 (layout viewport)
 > * 可视视口可能会比布局视口（layout viewport ）更小，因为当用户缩小浏览器缩放比例时，布局视口不变，而可视视口变小了。
 
 -->
@@ -37197,8 +37197,8 @@ div {
 <pre><code class="language-css">/* css 样式*/
 div {
   -moz-box-shadow:0 4px 4px rgba(0, 0, 0, 0.4);  /* 不需要设置透明度的，直接使用颜色值 */
-  -webkit-box-shadow:0 4px 4px rgba(0, 0, 0, 0.4); 
-  box-shadow:0 4px 4px rgba(0, 0, 0, 0.4); 
+  -webkit-box-shadow:0 4px 4px rgba(0, 0, 0, 0.4);
+  box-shadow:0 4px 4px rgba(0, 0, 0, 0.4);
 }
 </code></pre>
 <ol start="10">
@@ -38812,7 +38812,7 @@ $ yarn add --dev husky@4.3.8 lint-staged
 <li>接着，我们尝试去修改一个样式文件，并提交代码。</li>
 </ol>
 <pre><code class="language-shell">$ git commit -m 'test'
-                                                                                                          
+
 husky &gt; pre-commit (node v14.16.0)
 ✔ Preparing...
 ⚠ Running tasks...
@@ -40556,7 +40556,7 @@ class Router extends React.Component {
     this.state = {
       location: props.history.location
     }
-    
+
     // 关键点：
     // 当触发 popstate 事件、
     // 或主动调用 props.history.push()、props.history.replace() 方法时，
@@ -41023,7 +41023,7 @@ class Parent extends React.Component {
   constructor(props) {
     this.xxxRef = React.createRef()
   }
-  
+
   // 或者
   // xxxRef = React.createRef()
 }
@@ -41107,13 +41107,13 @@ function foo() {
 }
 
 // 当执行函数 foo() ，会创建函数执行上下文（可看作是一个对象，包含了 { AO, Scope, this } 三个属性）：
-// 
+//
 // * AO ：它会记住当前函数内声明的变量（含形参）、函数、 arguments （非箭头函数）等。
 // * Scope ：它是基于当前函数 foo 的 [[scope]] 属性 + 当前执行上下文的 AO 对象组成的，这个就是常说的作用域链。
 // * this ：它跟函数如何调用有关（但跟闭包没关系，不展开讲述）
-// 
+//
 // 有一点很重要，就是函数被定义时，其内部属性 [[scope]] 就会记录当前的 Scope 。比如当 bar() 被调用，要查找变量 a ，它先从 bar 执行上下文中的 Scope 查找，发现当前 AO 对象没有，于是往上一层 Scope 中查找并成功找到变量 a ，值为 local ，就停止查找了。
-// 
+//
 // 回到这个 Comp 例子，它本身只是一个函数而已。每当执行一次 Comp() 函数，会创建一个全新的执行上下文， AO 会记录变量 domRef （当然 num 、 setNum 它也会记录的），
 // ...
 // 由于词法作用域与函数如何调用没关系，所以你不用管 useEffect 、 useEffect 内部的函数、及其回调函数是如何调用的。你只要清楚内部各种函数没有定义一个名为 domRef 的变量即可。
@@ -41567,7 +41567,7 @@ var shouldUpdate = checkHasForceUpdateAfterProcessing() || checkShouldComponentU
   // 走到这步，说明 objA 和 objB 是两个不同的引用类型的值
   var keysA = Object.keys(objA);
   var keysB = Object.keys(objB);
-  
+
   // 比较两者的属性数量是否一致，若不一致，则可确定两者是不相等的
   if (keysA.length !== keysB.length) {
     return false;
@@ -44188,7 +44188,7 @@ Date:   Sun Feb 20 15:45:15 2022 +0800
 <p><strong><code>FETCH_HEAD</code> 指的是某个分支在远程仓库上最新的状态</strong>。每一个执行过 <code>git fetch</code> 操作的本地仓库都会存在一个 <code>FETCH_HEAD</code> 列表，这个列表保存在 <code>.git/FETCH_HEAD</code> 文件中。<code>FETCH_HEAD</code> 文件中的每一行对应着远程仓库的一个分支。当前本地分支指向的 <code>FETCH_HEAD</code> 就是该文件中的「第一行」对应的分支（这段表述源于<a href="https://ruby-china.org/topics/4768">此处</a>）。</p>
 </blockquote>
 <p>我们知道 <code>git fetch</code> 用以下几种用法：</p>
-<pre><code class="language-shell"># 1 
+<pre><code class="language-shell"># 1
 $ git fetch
 
 # 2
@@ -44197,7 +44197,7 @@ $ git fetch &lt;remote-name&gt;
 # 3
 $ git fetch &lt;remote-name&gt; &lt;remote-branch-name&gt;
 
-# 4 
+# 4
 $ git fetch &lt;remote-name&gt; &lt;remote-branch-name&gt;:&lt;local-branch-name&gt;
 </code></pre>
 <ul>
@@ -44974,8 +44974,8 @@ Reverts a previous commit</p>
 </blockquote>
 <h5>Body 部分</h5>
 <p>Body 部分是对本次 commit 的详细描述，可以分成多行。下面是一个范例：</p>
-<pre><code>More detailed explanatory text, if necessary.  Wrap it to 
-about 72 characters or so. 
+<pre><code>More detailed explanatory text, if necessary.  Wrap it to
+about 72 characters or so.
 
 Further paragraphs come after blank lines.
 
@@ -45122,7 +45122,7 @@ $ vi ~/.czrc
 <ol start="2">
 <li>关联远程仓库</li>
 </ol>
-<pre><code class="language-shell">$ git remote add origin &lt;远程仓库地址&gt;  
+<pre><code class="language-shell">$ git remote add origin &lt;远程仓库地址&gt;
 # 例如
 # git remote add origin  git@github.com:toFrankie/node-upload-demo.git
 </code></pre>
@@ -45150,11 +45150,11 @@ $ vi ~/.czrc
 <ol>
 <li>如何配置邮箱和用户名</li>
 </ol>
-<pre><code class="language-shell">$ git config --global user.name &quot;xxx&quot;       
+<pre><code class="language-shell">$ git config --global user.name &quot;xxx&quot;
 $ git config --global user.email &quot;xxx&quot;
 
 # 以上是设置全局用户，如果是单一项目则：
-$ git config user.name &quot;xxx&quot;       
+$ git config user.name &quot;xxx&quot;
 $ git config user.email &quot;xxx&quot;
 </code></pre>
 <ol start="2">
@@ -45246,11 +45246,11 @@ $ git config --global --list
 <ol>
 <li>配置邮箱和用户名</li>
 </ol>
-<pre><code class="language-shell">$ git config --global user.name &quot;xxx&quot;       
+<pre><code class="language-shell">$ git config --global user.name &quot;xxx&quot;
 $ git config --global user.email &quot;xxx&quot;
 
 # 以上是设置全局用户，如果是单一项目则：
-$ git config user.name &quot;xxx&quot;       
+$ git config user.name &quot;xxx&quot;
 $ git config user.email &quot;xxx&quot;
 </code></pre>
 <ol start="2">
@@ -45582,7 +45582,7 @@ warning &quot;zent &gt; react-beautiful-dnd &gt; react-redux@5.1.1&quot; has inc
 error /Users/frankie/Web/ifanr/ifanr-wxlayout-editor/node_modules/node-sass: Command failed.
 Exit code: 1
 Command: node scripts/build.js
-Arguments: 
+Arguments:
 Directory: /Users/frankie/Web/ifanr/ifanr-wxlayout-editor/node_modules/node-sass
 Output:
 Building: /usr/local/bin/node /Users/frankie/Web/ifanr/ifanr-wxlayout-editor/node_modules/node-gyp/bin/node-gyp.js rebuild --verbose --libsass_ext= --libsass_cflags= --libsass_ldflags= --libsass_library=
@@ -45641,7 +45641,7 @@ gyp verb `which` failed     at /Users/frankie/Web/ifanr/ifanr-wxlayout-editor/no
 gyp verb `which` failed     at FSReqCallback.oncomplete (node:fs:198:21) {
 gyp verb `which` failed   code: 'ENOENT'
 gyp verb `which` failed }
-gyp ERR! configure error 
+gyp ERR! configure error
 gyp ERR! stack Error: Can't find Python executable &quot;python&quot;, you can set the PYTHON env variable.
 gyp ERR! stack     at PythonFinder.failNoPython (/Users/frankie/Web/ifanr/ifanr-wxlayout-editor/node_modules/node-gyp/lib/configure.js:484:19)
 gyp ERR! stack     at PythonFinder.&lt;anonymous&gt; (/Users/frankie/Web/ifanr/ifanr-wxlayout-editor/node_modules/node-gyp/lib/configure.js:406:16)
@@ -45656,7 +45656,7 @@ gyp ERR! command &quot;/usr/local/bin/node&quot; &quot;/Users/frankie/Web/ifanr/
 gyp ERR! cwd /Users/frankie/Web/ifanr/ifanr-wxlayout-editor/node_modules/node-sass
 gyp ERR! node -v v16.15.0
 gyp ERR! node-gyp -v v3.8.0
-gyp ERR! not ok 
+gyp ERR! not ok
 
 ...
 </code></pre>
@@ -45721,33 +45721,33 @@ warning &quot;zent &gt; react-beautiful-dnd &gt; react-redux@5.1.1&quot; has inc
 warning Error running install script for optional dependency: &quot;/Users/frankie/Web/ifanr/ifanr-wxlayout-editor/node_modules/fsevents: Command failed.
 Exit code: 1
 Command: node install
-Arguments: 
+Arguments:
 Directory: /Users/frankie/Web/ifanr/ifanr-wxlayout-editor/node_modules/fsevents
 Output:
 node-pre-gyp info it worked if it ends with ok
 node-pre-gyp info using node-pre-gyp@0.12.0
 node-pre-gyp info using node@12.22.12 | darwin | x64
-node-pre-gyp WARN Using request for node-pre-gyp https download 
+node-pre-gyp WARN Using request for node-pre-gyp https download
 node-pre-gyp info check checked for \&quot;/Users/frankie/Web/ifanr/ifanr-wxlayout-editor/node_modules/fsevents/lib/binding/Release/node-v72-darwin-x64/fse.node\&quot; (not found)
 node-pre-gyp http GET https://fsevents-binaries.s3-us-west-2.amazonaws.com/v1.2.9/fse-v1.2.9-node-v72-darwin-x64.tar.gz
 node-pre-gyp http 403 https://fsevents-binaries.s3-us-west-2.amazonaws.com/v1.2.9/fse-v1.2.9-node-v72-darwin-x64.tar.gz
-node-pre-gyp WARN Tried to download(403): https://fsevents-binaries.s3-us-west-2.amazonaws.com/v1.2.9/fse-v1.2.9-node-v72-darwin-x64.tar.gz 
-node-pre-gyp WARN Pre-built binaries not found for fsevents@1.2.9 and node@12.22.12 (node-v72 ABI, unknown) (falling back to source compile with node-gyp) 
-node-pre-gyp http 403 status code downloading tarball https://fsevents-binaries.s3-us-west-2.amazonaws.com/v1.2.9/fse-v1.2.9-node-v72-darwin-x64.tar.gz 
+node-pre-gyp WARN Tried to download(403): https://fsevents-binaries.s3-us-west-2.amazonaws.com/v1.2.9/fse-v1.2.9-node-v72-darwin-x64.tar.gz
+node-pre-gyp WARN Pre-built binaries not found for fsevents@1.2.9 and node@12.22.12 (node-v72 ABI, unknown) (falling back to source compile with node-gyp)
+node-pre-gyp http 403 status code downloading tarball https://fsevents-binaries.s3-us-west-2.amazonaws.com/v1.2.9/fse-v1.2.9-node-v72-darwin-x64.tar.gz
 gyp info it worked if it ends with ok
 gyp info using node-gyp@3.8.0
 gyp info using node@12.22.12 | darwin | x64
-gyp info ok 
+gyp info ok
 gyp info it worked if it ends with ok
 gyp info using node-gyp@3.8.0
 gyp info using node@12.22.12 | darwin | x64
-gyp ERR! configure error 
+gyp ERR! configure error
 gyp ERR! stack Error: Command failed: /usr/bin/python3 -c import sys; print \&quot;%s.%s.%s\&quot; % sys.version_info[:3];
 gyp ERR! stack   File \&quot;&lt;string&gt;\&quot;, line 1
 gyp ERR! stack     import sys; print \&quot;%s.%s.%s\&quot; % sys.version_info[:3];
 gyp ERR! stack                       ^
 gyp ERR! stack SyntaxError: invalid syntax
-gyp ERR! stack 
+gyp ERR! stack
 gyp ERR! stack     at ChildProcess.exithandler (child_process.js:308:12)
 gyp ERR! stack     at ChildProcess.emit (events.js:314:20)
 gyp ERR! stack     at maybeClose (internal/child_process.js:1022:16)
@@ -45757,8 +45757,8 @@ gyp ERR! command \&quot;/Users/frankie/Library/Application Support/fnm/node-vers
 gyp ERR! cwd /Users/frankie/Web/ifanr/ifanr-wxlayout-editor/node_modules/fsevents
 gyp ERR! node -v v12.22.12
 gyp ERR! node-gyp -v v3.8.0
-gyp ERR! not ok 
-node-pre-gyp ERR! build error 
+gyp ERR! not ok
+node-pre-gyp ERR! build error
 node-pre-gyp ERR! stack Error: Failed to execute '/Users/frankie/Library/Application Support/fnm/node-versions/v12.22.12/installation/bin/node /Users/frankie/Web/ifanr/ifanr-wxlayout-editor/node_modules/node-gyp/bin/node-gyp.js configure --fallback-to-build --module=/Users/frankie/Web/ifanr/ifanr-wxlayout-editor/node_modules/fsevents/lib/binding/Release/node-v72-darwin-x64/fse.node --module_name=fse --module_path=/Users/frankie/Web/ifanr/ifanr-wxlayout-editor/node_modules/fsevents/lib/binding/Release/node-v72-darwin-x64 --napi_version=8 --node_abi_napi=napi --napi_build_version=0 --node_napi_label=node-v72 --python=/usr/bin/python3' (1)
 node-pre-gyp ERR! stack     at ChildProcess.&lt;anonymous&gt; (/Users/frankie/Web/ifanr/ifanr-wxlayout-editor/node_modules/fsevents/node_modules/node-pre-gyp/lib/util/compile.js:83:29)
 node-pre-gyp ERR! stack     at ChildProcess.emit (events.js:314:20)
@@ -45769,10 +45769,10 @@ node-pre-gyp ERR! command \&quot;/Users/frankie/Library/Application Support/fnm/
 node-pre-gyp ERR! cwd /Users/frankie/Web/ifanr/ifanr-wxlayout-editor/node_modules/fsevents
 node-pre-gyp ERR! node -v v12.22.12
 node-pre-gyp ERR! node-pre-gyp -v v0.12.0
-node-pre-gyp ERR! not ok 
+node-pre-gyp ERR! not ok
 </code></pre>
 <p>我们可以快速定位到：</p>
-<pre><code>gyp ERR! configure error 
+<pre><code>gyp ERR! configure error
 gyp ERR! stack Error: Command failed: /usr/bin/python3 -c import sys; print \&quot;%s.%s.%s\&quot; % sys.version_info[:3];
 gyp ERR! stack   File \&quot;&lt;string&gt;\&quot;, line 1
 gyp ERR! stack     import sys; print \&quot;%s.%s.%s\&quot; % sys.version_info[:3];
@@ -45796,7 +45796,7 @@ Version: webpack 4.41.2
 Time: 455ms
 Built at: 2023/02/07 18:21:57
                   Asset       Size  Chunks                                Chunk Names
-           ./index.html  812 bytes          [emitted]                     
+           ./index.html  812 bytes          [emitted]
 assets/main.baa097cd.js    923 KiB    main  [emitted] [immutable]  [big]  main
 Entrypoint main [big] = assets/main.baa097cd.js
 [0] multi (webpack)-dev-server/client?http://0.0.0.0:3001 (webpack)/hot/dev-server.js ./src/index.tsx 52 bytes {main} [built]
@@ -45903,7 +45903,7 @@ warning &quot;react-dev-utils &gt; fork-ts-checker-webpack-plugin@6.5.0&quot; ha
 error /Users/frankie/Web/ifanr/puydufou/pc/node_modules/node-sass: Command failed.
 Exit code: 1
 Command: node scripts/build.js
-Arguments: 
+Arguments:
 Directory: /Users/frankie/Web/ifanr/puydufou/pc/node_modules/node-sass
 Output:
 Building: /Users/frankie/.nvm/versions/node/v18.16.0/bin/node /Users/frankie/Web/ifanr/puydufou/pc/node_modules/node-gyp/bin/node-gyp.js rebuild --verbose --libsass_ext= --libsass_cflags= --libsass_ldflags= --libsass_library=
@@ -45990,7 +45990,7 @@ Traceback (most recent call last):
   File &quot;/Users/frankie/Web/ifanr/puydufou/pc/node_modules/node-gyp/gyp/pylib/gyp/input.py&quot;, line 19, in &lt;module&gt;
     from distutils.version import StrictVersion
 ModuleNotFoundError: No module named 'distutils'
-gyp ERR! configure error 
+gyp ERR! configure error
 gyp ERR! stack Error: `gyp` failed with exit code: 1
 gyp ERR! stack     at ChildProcess.onCpExit (/Users/frankie/Web/ifanr/puydufou/pc/node_modules/node-gyp/lib/configure.js:259:16)
 gyp ERR! stack     at ChildProcess.emit (node:events:513:28)
@@ -46063,22 +46063,22 @@ info If you think this is a bug, please open a bug report with the information p
 info Visit https://yarnpkg.com/en/docs/cli/install for documentation about this command.
 </code></pre>
 <p><code>yarn-error.log</code> 如下</p>
-<pre><code>Arguments: 
+<pre><code>Arguments:
   /Users/frankie/Library/Application Support/fnm/node-versions/v16.15.0/installation/bin/node /usr/local/bin/yarn
 
-PATH: 
+PATH:
   /Users/frankie/Library/Caches/fnm_multishells/57063_1669556334889/bin:/Users/frankie/.yarn/bin:/usr/local/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/frankie/Library/Caches/fnm_multishells/57063_1669556334889/bin:/Users/frankie/.yarn/bin:/usr/local/sbin:/opt/homebrew/bin:/opt/homebrew/bin
 
-Yarn version: 
+Yarn version:
   1.22.19
 
-Node version: 
+Node version:
   16.15.0
 
-Platform: 
+Platform:
   darwin arm64
 
-Trace: 
+Trace:
   Error: unable to verify the first certificate
       at TLSSocket.onConnectSecure (node:_tls_wrap:1532:34)
       at TLSSocket.emit (node:events:527:28)
@@ -46088,7 +46088,7 @@ Trace:
 npm manifest:
   ...
 
-yarn manifest: 
+yarn manifest:
   No manifest
 
 Lockfile:
@@ -46563,7 +46563,7 @@ $ which node
 
 $ npm i -g jest
 
-$ tree ~/.npm-packages -L 3 
+$ tree ~/.npm-packages -L 3
 /Users/frankie/.npm-packages
 ├── bin
 │   └── jest -&gt; ../lib/node_modules/jest/bin/jest.js
@@ -46859,28 +46859,28 @@ $ npm login
 <pre><code class="language-shell">$ npm login
 
 Username: xxx
-Password: 
+Password:
 Email: (this IS public) 1426203851@qq.com
 Logged in as xxx on http://localhost:4873/.
 </code></pre>
 <p>在根目录下，执行命令 <code>npm publish</code> 即可。或可在 <code>package.json</code> 脚本命令中定义。</p>
 <pre><code class="language-shell">$ npm publish
 
-npm notice 
+npm notice
 npm notice 📦  privative-npm@1.0.0
-npm notice === Tarball Contents === 
-npm notice 54B  index.js    
+npm notice === Tarball Contents ===
+npm notice 54B  index.js
 npm notice 212B package.json
-npm notice 36B  README.md   
-npm notice === Tarball Details === 
-npm notice name:          privative-npm                           
-npm notice version:       1.0.0                                   
-npm notice package size:  416 B                                   
-npm notice unpacked size: 302 B                                   
+npm notice 36B  README.md
+npm notice === Tarball Details ===
+npm notice name:          privative-npm
+npm notice version:       1.0.0
+npm notice package size:  416 B
+npm notice unpacked size: 302 B
 npm notice shasum:        887836aa4a154902faf31b13e60b8adcdd07b924
 npm notice integrity:     sha512-fyzitNqmif188[...]hFY+zmcIW6qTg==
-npm notice total files:   3                                       
-npm notice 
+npm notice total files:   3
+npm notice
 + privative-npm@1.0.0
 </code></pre>
 <p>看到已经上传成功了，刷新页面就能看到：</p>
@@ -46893,7 +46893,7 @@ npm notice
 npm ERR! code EPUBLISHCONFLICT
 npm ERR! publish fail Cannot publish over existing version.
 npm ERR! publish fail Update the 'version' field in package.json and try again.
-npm ERR! publish fail 
+npm ERR! publish fail
 npm ERR! publish fail To automatically increment version numbers, see:
 npm ERR! publish fail     npm help version
 
@@ -47670,7 +47670,7 @@ No receipt for 'com.apple.pkg.DeveloperToolsCLI' found at '/'.
 
 gyp: No Xcode or CLT version detected!
 
-gyp ERR! configure error 
+gyp ERR! configure error
 gyp ERR! stack Error: `gyp` failed with exit code: 1
 gyp ERR! stack     at ChildProcess.onCpExit (/usr/local/lib/node_modules/cnpm/node_modules/_node-gyp@3.8.0@node-gyp/lib/configure.js:345:16)
 gyp ERR! stack     at ChildProcess.emit (events.js:210:5)
@@ -47680,7 +47680,7 @@ gyp ERR! command &quot;/usr/local/bin/node&quot; &quot;/usr/local/lib/node_modul
 gyp ERR! cwd /Users/frankie/Desktop/Web前端/完整Demo/React项目/ReactDemo/node_modules/_fsevents@1.2.13@fsevents
 gyp ERR! node -v v12.13.1
 gyp ERR! node-gyp -v v3.8.0
-gyp ERR! not ok 
+gyp ERR! not ok
 </code></pre>
 <p>然后网上搜查了一番，应该是 XCode 的问题。解决方法有两个：</p>
 <p><strong>1. 删除已经安装的 CommandLineTools。</strong></p>
@@ -49057,7 +49057,7 @@ module.exports = {
         },
         use: [
           {
-            loader, 
+            loader,
             options
           }
         ],
@@ -49065,7 +49065,7 @@ module.exports = {
         query, // 此选项已废弃，请使用 Rule.use.options
         issuer,
         enforce,
-        oneOf, 
+        oneOf,
         parser,
         resourceQuery,
         rules,
@@ -50276,7 +50276,7 @@ export default hot(Root)
 // 温馨提示
 // 关于新 API 👉 hot 是位于 '/root' 下面的，但并不是所有的打包工具都支持该新 API。比如 parcel 就不支持。
 // 此时 react-hot-loader 就会抛出错误，并要求你使用旧的 API，方法如下：
-// 
+//
 // import { hot } from 'react-hot-loader'
 // export default hot(module)(App)
 </code></pre>
@@ -52021,7 +52021,7 @@ Accept update！
 </code></pre>
 <p>更新 webpack 配置文件</p>
 <pre><code class="language-js">// webpack.config.js
-const config = {  
+const config = {
   module: {
     rules: [
       {
@@ -52585,7 +52585,7 @@ let frankie: Person = {
 // Type '{ name: string; age: number; height: string; }' is not assignable to type 'Perso
 n'.
 // Property 'age' is incompatible with index signature.
-// Type 'number' is not assignable to type 'string'.  
+// Type 'number' is not assignable to type 'string'.
 </code></pre>
 <p>上述例子中，任意属性的值允许是 <code>string</code>，但是可选属性 <code>age</code> 以及任意属性 <code>height</code> 的值却是 <code>number</code>，<code>number</code> 不是 <code>string</code> 的子属性，所以报错了。</p>
 <hr>
@@ -53310,12 +53310,12 @@ export NVM_DIR=&quot;$HOME/.nvm&quot;
     &quot;source.fixAll.stylelint&quot;: &quot;explicit&quot;
   },
   &quot;editor.defaultFormatter&quot;: &quot;esbenp.prettier-vscode&quot;,
-  
+
   &quot;prettier.printWidth&quot;: 100,
   &quot;prettier.semi&quot;: false,
   &quot;prettier.arrowParens&quot;: &quot;avoid&quot;,
   &quot;prettier.singleQuote&quot;: true,
-  
+
   &quot;eslint.options&quot;: {
     &quot;extensions&quot;: [&quot;.js&quot;, &quot;.ts&quot;, &quot;jsx&quot;, &quot;.tsx&quot;],
     &quot;fix&quot;: true
@@ -53325,8 +53325,8 @@ export NVM_DIR=&quot;$HOME/.nvm&quot;
       &quot;mode&quot;: &quot;auto&quot;
     }
   ],
-  
-  
+
+
   &quot;csscomb.formatOnSave&quot;: true,
   &quot;csscomb.syntaxAssociations&quot;: {
     &quot;*.wxss&quot;: &quot;css&quot;,
@@ -53353,9 +53353,9 @@ export NVM_DIR=&quot;$HOME/.nvm&quot;
   &quot;importCost.smallPackageLightColor&quot;: &quot;#7cc36e4d&quot;,
   &quot;importCost.largePackageLightColor&quot;: &quot;#d44e404d&quot;,
   &quot;importCost.largePackageDarkColor&quot;: &quot;#d44e404d&quot;,
-  
+
   &quot;gutterpreview.urlDetectionPatterns&quot;: [&quot;/^http(s)*://mmbiz.qpic.cn/i&quot;],
-  
+
   &quot;todohighlight.isEnable&quot;: true,
   &quot;todohighlight.isCaseSensitive&quot;: true,
   &quot;todohighlight.keywords&quot;: [
@@ -53417,12 +53417,12 @@ export NVM_DIR=&quot;$HOME/.nvm&quot;
 <pre><code class="language-shell">The authenticity of host '130.227.10.82 (130.227.10.82)' can't be established.
 ED25519 key fingerprint is SHA256:Vybt22mVXuNuB5unE++yowF7lgA/9/2bLSiO3qmYWBY.
 This key is not known by any other names
-Are you sure you want to continue connecting (yes/no/[fingerprint])? 
+Are you sure you want to continue connecting (yes/no/[fingerprint])?
 </code></pre>
 <p>若要继续，键入 <code>yes</code> 即可。</p>
 <p>接着，按要求输入所登录 <code>user</code> 的密码（非明文形式的），就能成功登录上云服务器了。👇</p>
 <pre><code class="language-shell">root@130.227.10.82's password:
-	
+
 	Welcome to Huawei Cloud Service
 
 Last login: Sun Oct 30 11:50:46 2022 from 112.94.175.201
@@ -53466,7 +53466,7 @@ $ sudo dnf install epel-release
 <h4>3. 验证是否安装成功</h4>
 <p>执行命令 <code>google-chrome --version</code> 后，如正常打印出版本号表示安装成功了。</p>
 <pre><code class="language-shell">$ google-chrome --version
-Google Chrome 107.0.5304.87 
+Google Chrome 107.0.5304.87
 </code></pre>
 <h4>4. 解决 root 用户无法启动 Chrome 浏览器的问题</h4>
 <p>如果我们通过 <code>root</code> 用户登录了云服务器，可能会无法正常启动 Chrome 浏览器。可能会出现以下提示：👇</p>
@@ -53560,7 +53560,7 @@ str='Frankie's MacBook Pro'
 <h4>2.1 获取字符串长度</h4>
 <p>语法为 <code>${#变量名}</code>，且 <code>{}</code> 是必须的。</p>
 <pre><code class="language-shell">$ str='Frankie'
-$ echo ${#str} 
+$ echo ${#str}
 7
 </code></pre>
 <h4>2.2 截取子串</h4>
@@ -55114,7 +55114,7 @@ Shell
 </code></pre>
 <h4>四、子命令扩展</h4>
 <p><code>$(...)</code> 可以扩展成另一个命令的运行结果，该命令的所有输出都会作为返回值。还有另一种较老的语法，子命令放在反引号之中，也可以扩展成命令的运行结果。</p>
-<pre><code class="language-shell">$ echo $(date) 
+<pre><code class="language-shell">$ echo $(date)
 2022年 6月27日 星期一 00时31分14秒 CST
 
 $ echo `date`
@@ -55135,9 +55135,9 @@ $ echo `date`
 </ul>
 <p>小数运算，需借助 <code>bc</code> 命令，其中 <code>scale</code> 表示小数位，<code>ibase</code> 和 <code>obase</code> 进行其他进制数运算。比如：</p>
 <pre><code class="language-shell">$ var1=3
-$ var2=6  
-$ result=$(echo &quot;scale=2; $var1 / $var2&quot; | bc) 
-$ echo $result 
+$ var2=6
+$ result=$(echo &quot;scale=2; $var1 / $var2&quot; | bc)
+$ echo $result
 .50
 </code></pre>
 <h4>七、目录堆栈</h4>
@@ -55405,7 +55405,7 @@ alias myscript=&quot;myscript.sh&quot;
   PID TTY           TIME CMD
 13766 ttys000    0:00.25 /bin/zsh -l
 14879 ttys000    0:04.45 node /usr/local/Cellar/yarn/1.22.19/libexec/bin/yarn.j
-14880 ttys000    0:10.75 gulp start --project qualcomm-202206    
+14880 ttys000    0:10.75 gulp start --project qualcomm-202206
 14886 ttys000    0:00.06 open -W http://localhost:3000
 15495 ttys001    0:00.37 /bin/zsh -l
 16701 ttys002    0:00.63 -zsh
@@ -55619,7 +55619,7 @@ bash-3.2$ echo $myname
 frankie
 bash-3.2$ echo $myage
 
-bash-3.2$ 
+bash-3.2$
 </code></pre>
 <p>其他就不展开了，不然就跑偏了，有兴趣可看阮一峰老师的文章：<a href="https://wangdoc.com/bash/variable.html#%E5%88%9B%E5%BB%BA%E5%8F%98%E9%87%8F">Bash 变量</a>。</p>
 <h3>8.3 常见变量</h3>
@@ -56286,7 +56286,7 @@ $ mkdir Terminal
 ├── zshrc.sh            # 统一引入以下细分配置
 ├── zshrc-common.sh     # 各设备共同配置，比如 Oh-My-Zsh 的一些配置等
 ├── zshrc-imac.sh       # iMac 设备特有配置
-└── zshrc-mbp.sh        # MacBook Pro 设备特有配置 
+└── zshrc-mbp.sh        # MacBook Pro 设备特有配置
 </code></pre>
 <p>👆 以上按自个实际情况拆分。这里文件名不以 <code>.</code> 开头的原因是不想隐藏文件，毕竟它不存在于本地用户的主目录下，没必要隐藏了。另外，扩展名是可省略的，甚至可随意自定义。由于 <code>~/.zshrc</code> 本身就是一个 Shell 脚本，而 Shell 脚本扩展名是可选的。但按习惯，多将其定义为 <code>.sh</code>，加之主流编辑器对此扩展名一般都有语法高亮。</p>
 <h3>按设备引入对应配置</h3>
