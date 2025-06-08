@@ -8,13 +8,13 @@
 
 > 技术在飞，旧文难免跟不上，请小心考古～
 
-### 📚 我的文章
+### 📚 我的
 
 [全部](https://github.com/toFrankie/blog/issues) • [2025](https://github.com/toFrankie/blog/labels/2025) • [2024](https://github.com/toFrankie/blog/labels/2024) • [2023](https://github.com/toFrankie/blog/labels/2023) • [2022](https://github.com/toFrankie/blog/labels/2022) • [2021](https://github.com/toFrankie/blog/labels/2021) • [2020](https://github.com/toFrankie/blog/labels/2020) • [2019](https://github.com/toFrankie/blog/labels/2019) • [2018](https://github.com/toFrankie/blog/labels/2018) • [2017](https://github.com/toFrankie/blog/labels/2017)
 
 你也可以使用 [GitHub Blogger](https://github.com/toFrankie/github-blogger) 搭建你的博客。
 
-### 📖 精选链接
+### 📖 精选
 
 #### 📜 JavaScript 那些事
 
