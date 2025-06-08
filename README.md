@@ -2,6 +2,8 @@
 
 <h2 style="border-bottom: none">Hey, I'm Frankie 👋</h2>
 
+[![RSS](https://img.shields.io/badge/rss-subscribe-orange?logo=rss&style=flat)](https://raw.githubusercontent.com/toFrankie/blog/refs/heads/main/rss.xml)
+
 种一棵树，最好的时间是十年前。其次，是现在。
 
 > 技术在飞，旧文难免跟不上，请小心考古～
