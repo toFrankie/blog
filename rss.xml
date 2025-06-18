@@ -4,11 +4,109 @@
         <title>Frankie's Blog</title>
         <link>https://github.com/toFrankie/blog</link>
         <description>种一棵树，最好的时间是十年前。其次，是现在。</description>
-        <lastBuildDate>Sun, 08 Jun 2025 16:19:09 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 18 Jun 2025 06:10:21 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
         <copyright>All rights reserved 2025</copyright>
+        <item>
+            <title><![CDATA[CSS 中 display、opacity 、visibility 的区别]]></title>
+            <link>https://github.com/toFrankie/blog/issues/362</link>
+            <guid isPermaLink="false">https://github.com/toFrankie/blog/issues/362</guid>
+            <pubDate>Sat, 14 Jun 2025 06:12:51 GMT</pubDate>
+            <description><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/toFrankie/blog@main/images/2025/6/1750006164441.jpg" alt="配图源自 Freepik"></p>
+<p>用 CSS 使元素在视觉上不可见，我们通常会想到以下几种属性：</p>
+<ul]]></description>
+            <content:encoded><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/toFrankie/blog@main/images/2025/6/1750006164441.jpg" alt="配图源自 Freepik"></p>
+<p>用 CSS 使元素在视觉上不可见，我们通常会想到以下几种属性：</p>
+<ul>
+<li><code>display: none</code></li>
+<li><code>opacity: 0</code></li>
+<li><code>visibility: hidden</code></li>
+</ul>
+<p>尽管这些属性都能使元素不可见，但它们之间仍存在明显差异！</p>
+<h2>开始之前</h2>
+<h3>页面生成过程</h3>
+<ol>
+<li>解析 HTML 构建 DOM Tree。</li>
+<li>解析 CSS 构建 CSSOM Tree。</li>
+<li>将 DOM 和 CSSOM 合并生成渲染树（Render Tree）。</li>
+<li>Layout 阶段，根据渲染树计算每个节点的位置和尺寸。</li>
+<li>Painting 阶段，将各个节点绘制到屏幕上。</li>
+</ol>
+<h3>渲染树生成过程</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/toFrankie/blog@main/images/2025/6/1750002005031.png" alt=""></p>
+<ol>
+<li>从根节点开始，遍历每个可见节点。
+<ol>
+<li>某些不可见节点（如 head、script、link、meta 等标签），它们会被忽略。</li>
+<li>一些使用 CSS 属性隐藏（<code>display: none</code>）的节点，也会被忽略。</li>
+</ol>
+</li>
+<li>对于每个可见节点，找到其匹配的 CSSOM 规则并应用。</li>
+<li>最终形成带有内容及计算样式的可见节点。</li>
+</ol>
+<blockquote>
+<p>注意，应用了 <code>opacity: 0</code> 和 <code>visibility: hidden</code> 的节点，此过程中不会被忽略。</p>
+</blockquote>
+<h3>Layout 阶段</h3>
+<p>前面的过程得到了渲染树，它包含了屏幕上所有可见节点的内容和样式信息。</p>
+<p>进入 Layout 阶段后，浏览器会从渲染树的根开始遍历，输出一个包括了每个元素确切位置和大小的盒子模型（Box Model）。</p>
+<p>回流发生在此阶段。任何影响节点尺寸、位置的更改（如字号、display、文档结构等）都可能会触发。</p>
+<h3>Painting 阶段</h3>
+<p>该阶段将渲染树中的每个节点转换为屏幕上的实际像素。</p>
+<p>重绘发生在此阶段。外观样式更改（如果颜色、透明度等）会触发。</p>
+<h3>回流与重绘关系</h3>
+<p>根据两个阶段的先后关系，明显可知：</p>
+<ul>
+<li>有回流一定伴随着重绘。</li>
+<li>发生重绘不一定伴随着回流。</li>
+</ul>
+<h2>是否占据布局空间</h2>
+<ul>
+<li><code>display: none</code> 会使得元素从文档流中移除，不占据任何页面空间。</li>
+<li><code>opacity: 0</code> 和 <code>visibility: hidden</code> 仍会占据原有空间。</li>
+</ul>
+<h2>是否产生回流</h2>
+<ul>
+<li><code>display: none</code> 会产生回流。</li>
+<li><code>opacity: 0</code> 和 <code>visibility: hidden</code> 不会产生回流。</li>
+</ul>
+<p>前者由于不进入渲染树，会使得其他元素发生布局上的变化，因此会发生回流。而后两者仍占据着原有的位置，自然不会产生回流。</p>
+<h2>是否产生重绘</h2>
+<p><code>display: none</code>、<code>opacity: 0</code> 和 <code>visibility: hidden</code> 都会产生重绘。</p>
+<h2>外设访问性</h2>
+<blockquote>
+<p>如键盘、屏幕阅读器等外设。</p>
+</blockquote>
+<ul>
+<li><code>display: none</code> 不能被访问。</li>
+<li><code>opacity: 0</code> 和 <code>visibility: hidden</code> 可以被访问。</li>
+</ul>
+<p>未完待续...</p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[生日快乐]]></title>
+            <link>https://github.com/toFrankie/blog/issues/361</link>
+            <guid isPermaLink="false">https://github.com/toFrankie/blog/issues/361</guid>
+            <pubDate>Fri, 13 Jun 2025 15:58:30 GMT</pubDate>
+            <description><![CDATA[<p>听说，小媛同学今年有三个生日。</p>
+<p>今天是第一个，生日快乐呀~ 🎂</p>
+<p>另外，发现了一个款式非常非常好看的蛋糕（橙路蛋糕）👇</p>
+<blockquote>
+<p>【冰岛小屋】世人皆孤岛，凭爱意丰饶</p>
+</blockquote>
+<p><img src="https://githu]]></description>
+            <content:encoded><![CDATA[<p>听说，小媛同学今年有三个生日。</p>
+<p>今天是第一个，生日快乐呀~ 🎂</p>
+<p>另外，发现了一个款式非常非常好看的蛋糕（橙路蛋糕）👇</p>
+<blockquote>
+<p>【冰岛小屋】世人皆孤岛，凭爱意丰饶</p>
+</blockquote>
+<p><img src="https://github.com/user-attachments/assets/fbfea94f-9e63-4c89-9511-d633e4999832" alt=""></p>
+]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Folo Verification]]></title>
             <link>https://github.com/toFrankie/blog/issues/360</link>
@@ -5305,6 +5403,9 @@ $ gifsicle --cinfo source.gif
 <pre><code class="language-shell"># 逐帧导出
 $ convert source.gif target.png
 </code></pre>
+<blockquote>
+<p>WARNING: The convert command is deprecated in IMv7, use &quot;magick&quot; instead of &quot;convert&quot; or &quot;magick convert&quot;</p>
+</blockquote>
 <p>如果 GIF 已经过透明度处理（即第一帧信息完整保留，后续帧仅保留变化的部分，未变的空间均为透明），可通过 Gifsicle 还原，再使用 ImageMagick 处理。</p>
 <pre><code class="language-shell"># 还原
 $ gifsicle --unoptimize source.gif &gt; tmp.gif
@@ -5346,9 +5447,13 @@ $ convert tmp.gif target.png
 <p>使用 FFmpeg</p>
 <pre><code class="language-shell">$ ffmpeg -vf &quot;fps=10&quot; -loop 0 target.gif -i source.mp4
 </code></pre>
+<h2>HEIC 转 PNG</h2>
+<p>使用 ImageMagick</p>
+<pre><code class="language-shell">$ magick source.heic target.png
+</code></pre>
 <h2>图片旋转</h2>
 <p>使用 ImageMagick</p>
-<pre><code class="language-shell">convert source.png -rotate 90 target.png
+<pre><code class="language-shell">$ convert source.png -rotate 90 target.png
 </code></pre>
 <p>想起再继续补充...</p>
 ]]></content:encoded>
