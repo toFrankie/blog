@@ -1,12 +1,12 @@
 # 近期更新
 
+- [wx-open-launch-weapp 样式问题](https://github.com/toFrankie/blog/issues/154)
+- [关于 React 中使用 wx-open-launch-weapp 唤起微信小程序](https://github.com/toFrankie/blog/issues/153)
+- [使 Prettier 一键格式化 WXSS（结局篇）](https://github.com/toFrankie/blog/issues/125)
+- [使 Prettier 一键格式化 WXSS（下集）](https://github.com/toFrankie/blog/issues/124)
+- [使 Prettier 一键格式化 WXSS（上集）](https://github.com/toFrankie/blog/issues/123)
+- [解决 XtraFinder、TotalFinder 无法安装的问题](https://github.com/toFrankie/blog/issues/13)
 - [记五月：汕头 - 潮州两日](https://github.com/toFrankie/blog/issues/358)
 - [CSS 中 display、opacity 、visibility 的区别](https://github.com/toFrankie/blog/issues/362)
 - [图片操作记录](https://github.com/toFrankie/blog/issues/322)
 - [Folo Verification](https://github.com/toFrankie/blog/issues/360)
-- [生日快乐](https://github.com/toFrankie/blog/issues/361)
-- [老是记不住 isEmpty](https://github.com/toFrankie/blog/issues/346)
-- [语义化版本 SemVer](https://github.com/toFrankie/blog/issues/83)
-- [微信小程序开发记录](https://github.com/toFrankie/blog/issues/359)
-- [使用 VS Code + GitHub 搭建个人博客](https://github.com/toFrankie/blog/issues/327)
-- [Jira 使用记录](https://github.com/toFrankie/blog/issues/357)
