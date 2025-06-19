@@ -4,7 +4,7 @@
         <title>Frankie's Blog</title>
         <link>https://github.com/toFrankie/blog</link>
         <description>种一棵树，最好的时间是十年前。其次，是现在。</description>
-        <lastBuildDate>Thu, 19 Jun 2025 02:24:47 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 19 Jun 2025 16:35:22 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -36763,18 +36763,19 @@ module.exports = {
             <pubDate>Sat, 25 Feb 2023 14:25:12 GMT</pubDate>
             <description><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/5128488-e4bd58aef5e80535.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="配图源自 Freepik">]]></description>
             <content:encoded><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/5128488-e4bd58aef5e80535.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="配图源自 Freepik"></p>
-<blockquote>
-<p>一共两篇：</p>
+<h2>系列文章</h2>
 <ul>
-<li><a href="https://github.com/toFrankie/blog/issues/153">关于 React 中使用 wx-open-launch-weapp 唤起微信小程序</a>，里面有详细介绍，并给出完整的示例。)</li>
+<li><a href="https://github.com/toFrankie/blog/issues/153">关于 React 中使用 wx-open-launch-weapp 唤起微信小程序</a></li>
 <li><a href="https://github.com/toFrankie/blog/issues/154">wx-open-launch-weapp 样式问题</a></li>
 </ul>
-</blockquote>
-<p>此前写过一篇文章：<a href="https://github.com/toFrankie/blog/issues/153">关于 React 中使用 wx-open-launch-weapp 唤起微信小程序</a>。但针对该标签设置样式非常地蛋疼。</p>
-<p>这篇文章主要介绍，如何在 <code>&lt;wx-open-launch-weapp&gt;</code> 写样式的踩坑过程（以 React 为例）。</p>
+<h2>背景</h2>
+<p>上篇介绍了如何在 React 中引入 wx-open-launch-weapp。完了之后，该标签设置样式非常地蛋疼。</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/5128488-b49c98749eee768b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>由于在 <code>&lt;wx-open-launch-weapp&gt;</code> 添加样式会非常多的问题，可能各种不生效。</p>
-<p>因此，我会这样去设计：<code>container</code> 为点击唤起小程序的区域（相对定位），而 <code>content</code> 则是该区域的展示内容，<code>wx-open-launch-weapp</code> 则是占满唤起区域（绝对定位）。</p>
+<p>由于在 <code>&lt;wx-open-launch-weapp&gt;</code> 设置样式会有很多问题，甚至不起作用，因此我是这样设计的：</p>
+<ul>
+<li><code>container</code> 为点击唤起小程序的区域（相对定位）</li>
+<li><code>content</code> 则是该区域的展示内容，<code>wx-open-launch-weapp</code> 则是占满唤起区域（绝对定位）。</li>
+</ul>
 <pre><code class="language-jsx">&lt;div class=&quot;container&quot;&gt;
   &lt;div class=&quot;content&quot;&gt;页面内容&lt;/div&gt;
   &lt;wx-open-launch-weapp&gt;省略了一部分代码&lt;/wx-open-launch-weapp&gt;
@@ -36791,14 +36792,14 @@ module.exports = {
   height: 100%;
 }
 </code></pre>
-<p>为什么要这样设计？后面的方案会给出答案。</p>
 <blockquote>
-<p>以上为简化版，完整示例请看文章末尾。</p>
+<p>简化版，完整示例请看文末。</p>
 </blockquote>
-<h3>1. 方案一</h3>
-<p>当前这个需求，由于我的 <code>content</code> 只是一张图片，所以我的第一个想法是这样的。</p>
+<p>为什么要这样设计？后面的方案会给出答案。</p>
+<h2>方案一</h2>
+<p>当前需求，由于我的 <code>content</code> 部分是一张图片，因此我的第一个想法是这样的。</p>
 <blockquote>
-<p>为了方便对比效果，分别设置了背景色。其中紫色部分为 <code>&lt;wx-open-launch-weapp&gt;</code> 区域，粉红部分为 <code>&lt;script type=&quot;text/wxtag-template&quot;&gt;</code> 区域。</p>
+<p>为了方便对比，添加了背景色。其中紫色部分为 <code>&lt;wx-open-launch-weapp&gt;</code> 区域，粉红部分为 <code>&lt;script type=&quot;text/wxtag-template&quot;&gt;</code> 区域。</p>
 </blockquote>
 <pre><code class="language-jsx">&lt;div class=&quot;container&quot;&gt;
   &lt;wx-open-launch-weapp
@@ -36823,9 +36824,10 @@ module.exports = {
 </code></pre>
 <p>将 <code>&lt;wx-open-launch-weapp&gt;</code> 宽高设为 <code>100%</code>，我们先看下效果：</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/5128488-2eb53bd847bd4c91.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p><strong>这时候只出现了紫色部分，且紫色部分点击也没有任何效果，不能唤起小程序</strong>。然后，我想是不是 <code>&lt;script type=&quot;text/wxtag-template&quot;&gt;</code> 未设置宽高的问题，将其设置为 <code>100%</code> 之后，效果一样均无效。</p>
-<h3>2. 方案二</h3>
-<p>由于上一个方案流产之后，马上想到会不会是 <code>100%</code> 不生效，于是想着将宽高设置为具体值。如下：</p>
+<p><strong>此时只出现了紫色部分，且紫色部分点击也没有任何效果，不能唤起小程序</strong>。</p>
+<p>我想是不是 <code>&lt;script type=&quot;text/wxtag-template&quot;&gt;</code> 未设置宽高的问题，将其设置为 <code>100%</code> 之后，效果一样均无效。</p>
+<h2>方案二</h2>
+<p>方案一流产之后，想到会不会是 <code>100%</code> 不生效，于是想着将宽高设置为具体值。如下：</p>
 <pre><code class="language-html">&lt;div class=&quot;container&quot;&gt;
   &lt;wx-open-launch-weapp
     username=&quot;gh_xxxxxxxx&quot;
@@ -36839,20 +36841,19 @@ module.exports = {
 &lt;/div&gt;
 </code></pre>
 <p><img src="https://upload-images.jianshu.io/upload_images/5128488-9749d5406f203b6d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>效果如上，尽管 <code>&lt;wx-open-launch-weapp&gt;</code> 占满 <code>container</code> 的宽度。可高度。。。接着我尝试设为 <code>{{ width: '6.9rem', height: '100%'  }}</code>，效果完全一致，高度仍无法占满 <code>container</code> 的高度。</p>
+<p>尽管 <code>&lt;wx-open-launch-weapp&gt;</code> 占满 <code>container</code> 的宽度，但高度...</p>
+<p>接着尝试设为 <code>{{ width: '6.9rem', height: '100%'  }}</code>，效果完全一致，高度仍无法占满 <code>container</code> 的高度。</p>
 <blockquote>
-<p>PS：由于我拿到的是最为常见的 <strong>750px</strong> 的视觉设计稿，因此 <code>100px</code> 对应的是 <code>1rem</code>。在打包过程，会采用相应的 <code>loader</code> 去进行单位的转换。由于 <code>loader</code> 只能处理 <code>css</code>、<code>less</code>、<code>scss</code> 等文件，而无法处理内联的样式，所以我这里会写成 <code>rem</code> 为单位。</p>
+<p>PS：项目设置 <code>100px</code> 对应的是 <code>1rem</code>。</p>
 </blockquote>
 <p>我又想是不是 <code>rem</code> 单位问题，然后我又改为 <code>{{ width: '690px', height: '182px'  }}</code> 看看有什么不一样，但高度仍然如上图一样，可宽度倒是有变化。</p>
-<blockquote>
 <p>多次调整宽高及其单位后发现：<strong>宽度可控，可高度始终如一</strong>。</p>
-</blockquote>
 <p>无奈.jpg</p>
-<h3>3. 方案三</h3>
+<h2>方案三</h2>
 <p>到这里想吐了，我想着先解决 <code>&lt;wx-open-launch-weapp&gt;</code> 占满 <code>container</code> 的问题，暂时忽略 <code>&lt;script type=&quot;text/wxtag-template&quot;&gt;</code> 的问题。</p>
 <p>既然方案二尝试了各种可能性，无论怎么设置宽高仍不尽人意。于是采用<strong>绝对布局</strong>看看：</p>
 <blockquote>
-<p>由于此前设置了 <code>background</code> 来区分，于是将 <code>&lt;script type=&quot;text/wxtag-template&quot;&gt;</code> 区域宽度暂时设为 <code>90%</code>，方便对比结果。</p>
+<p>此前设置了背景色来区分，将 <code>&lt;script type=&quot;text/wxtag-template&quot;&gt;</code> 区域宽度暂时设为 <code>90%</code> 以便于对比。</p>
 </blockquote>
 <pre><code class="language-jsx">&lt;div class=&quot;container&quot;&gt;
   &lt;wx-open-launch-weapp
@@ -36868,12 +36869,12 @@ module.exports = {
 </code></pre>
 <pre><code class="language-css">.container {
   position: relative
-  /* 其他无变化 */
+  /* 其他不变 */
 }
 </code></pre>
 <p><img src="https://upload-images.jianshu.io/upload_images/5128488-d55e976b786471bc.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>好像看到希望了，<code>&lt;wx-open-launch-weapp&gt;</code> 已经占满 <code>container</code> 了。</p>
-<p>但是这时候 <code>&lt;script type=&quot;text/wxtag-template&quot;&gt;</code> 的区域仍然没有展示出来，那我是不也要设为绝对布局呢，试试看：</p>
+<p>好像看到希望了，<code>&lt;wx-open-launch-weapp&gt;</code> 已占满 <code>container</code> 了。</p>
+<p>但 <code>&lt;script type=&quot;text/wxtag-template&quot;&gt;</code> 的区域仍然没有展示出来，那我是不也要设为绝对布局呢，试试看：</p>
 <pre><code class="language-jsx">&lt;div class=&quot;container&quot;&gt;
   &lt;wx-open-launch-weapp
     username=&quot;gh_xxxxxxxx&quot;
@@ -36888,13 +36889,11 @@ module.exports = {
 </code></pre>
 <p>效果如下：</p>
 <blockquote>
-<p>PS：注意这里宽度其实是没问题的，写成 <code>100%</code> 就能横向占满。</p>
+<p>PS：注意这里宽度是没问题的，写成 <code>100%</code> 就能横向占满。</p>
 </blockquote>
 <p><img src="https://upload-images.jianshu.io/upload_images/5128488-0e687035d880bed1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>好像快成功了，高度还是不对。其中紫色部分属于 <code>&lt;wx-open-launch-weapp&gt;</code>，而粉红部分属于 <code>&lt;script type=&quot;text/wxtag-template&quot;&gt;</code>。所以点击粉红区域可以正常唤起小程序了。</p>
-<blockquote>
 <p>细心的同学可能发现了，缺的那部分高度跟未设置布局时的高度是一样的，为什么会这样，我也没找到原因。有知道的同学可以告诉我哦，谢谢。</p>
-</blockquote>
 <blockquote>
 <p>若将 <code>&lt;script type=&quot;text/wxtag-template&quot;&gt;</code> 设为 <code>relative</code> 布局，我试了，发现是不行的。</p>
 </blockquote>
@@ -36902,12 +36901,13 @@ module.exports = {
 <p><img src="https://upload-images.jianshu.io/upload_images/5128488-7aef5ae7be7d48ee.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>为了兼容性，于是我谨慎地将 <code>top</code>、<code>left</code> 均设为 <code>0</code>。</p>
 <p>到这里，感觉可以收尾了。</p>
-<h3>4. 最终解决方案</h3>
-<p>回到文章开头的设计：</p>
-<blockquote>
-<p><code>container</code> 为点击唤起小程序的区域（相对定位），而 <code>content</code> 则是该区域的展示内容，<code>wx-open-launch-weapp</code> 则是占满唤起区域（绝对定位）。</p>
-</blockquote>
-<p>考虑到上面就一个宽高的问题，就那么难搞了。所以我想把页面元素与唤起小程序的区域分开来，是不是省心很多。</p>
+<h2>最终版</h2>
+<p>上文是这样设计的：</p>
+<ul>
+<li><code>container</code> 为点击唤起小程序的区域（相对定位）</li>
+<li><code>content</code> 则是该区域的展示内容，<code>wx-open-launch-weapp</code> 则是占满唤起区域（绝对定位）。</li>
+</ul>
+<p>但由于前面宽高问题，就那么难搞了，我想把页面元素与唤起小程序的区域分开来，是不是省心很多。</p>
 <p>完整示例：</p>
 <pre><code class="language-jsx">import React, { useState } from 'react'
 import style from './index.scss'
@@ -36948,7 +36948,7 @@ export default function Demo() {
   background-size: 100% 100%;
 }
 </code></pre>
-<p>这个过程差点吐血，可喜的是可以愉快地唤起小程序了。</p>
+<p>吐了三斤血，庆幸的是可以愉快地唤起小程序了。</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/5128488-73bfc193a217e68d.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>The end.</p>
 ]]></content:encoded>
@@ -36960,36 +36960,39 @@ export default function Demo() {
             <pubDate>Sat, 25 Feb 2023 14:18:58 GMT</pubDate>
             <description><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/5128488-0ff32ff14994a6e0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="配图源自 Freepik">]]></description>
             <content:encoded><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/5128488-0ff32ff14994a6e0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="配图源自 Freepik"></p>
-<p>记录一下踩坑的过程。</p>
-<blockquote>
-<p>一共两篇：</p>
+<h2>系列文章</h2>
 <ul>
-<li><a href="https://github.com/toFrankie/blog/issues/153">关于 React 中使用 wx-open-launch-weapp 唤起微信小程序</a>，里面有详细介绍，并给出完整的示例。)</li>
+<li><a href="https://github.com/toFrankie/blog/issues/153">关于 React 中使用 wx-open-launch-weapp 唤起微信小程序</a></li>
 <li><a href="https://github.com/toFrankie/blog/issues/154">wx-open-launch-weapp 样式问题</a></li>
 </ul>
-</blockquote>
-<p>最近在做一个中秋国庆活动项目，然后有一个需求是：<strong>在 H5 页面中唤起微信小程序</strong>。</p>
-<p>在前段时间，微信 JSSDK 开放了该接口 <code>&lt;wx-open-launch-weapp&gt;</code> ，当然了仅限于微信浏览器内唤起小程序。👉  <a href="https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/Wechat_Open_Tag.html">官方文档在这里</a>。</p>
-<h3>一、此功能的开放对象：</h3>
-<p>重要：一定要满足，不然就渲染不出来，就是加了代码，在真机也显示不出来的。</p>
-<ul>
-<li><strong>已认证的服务号</strong>，服务号绑定“JS接口安全域名”下的网页可使用此标签跳转任意合法合规的小程序。</li>
-<li><strong>已认证的非个人主体的小程序</strong>，使用小程序云开发的<a href="https://developers.weixin.qq.com/miniprogram/dev/wxcloud/guide/staticstorage/introduction.html">静态网站托管</a>绑定的域名下的网页，可以使用此标签跳转任意合法合规的小程序。</li>
-</ul>
+<h2>背景</h2>
+<p>最近在做中秋国庆活动，其中一个需求是在 H5 页面中唤起微信小程序。</p>
+<p>前不久，微信 JSSDK 开放了该接口 <code>wx-open-launch-weapp</code> ，仅支持微信浏览器内唤起小程序。<a href="https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/Wechat_Open_Tag.html#2">官方文档</a></p>
+<p>记录一下踩坑的过程。</p>
+<h2>重要前提</h2>
 <blockquote>
-<p>我遇到的坑就在这里，我一直以为生产环境与测试环境都是用了同一个公众号。后面问了后端的同事才知道，原来测试环境是用了一个私人公众号，不满足上述条件，所以在测试环境捣弄了半天也没弄出来！ 😔</p>
+<p>[!WARNING]
+必须满足以下条件，否则渲染不出来。</p>
 </blockquote>
-<h3>二、版本要求</h3>
-<p>微信 JS-SDK 版本：1.6.0 及以上。
-微信版本要求为：7.0.12 及以上。
-系统版本要求为：iOS 10.3 及以上、Android 5.0 及以上。</p>
-<p>切记：要真机上才有效果，微信开发工具也是看不到的哦！</p>
-<h3>三、wx.config</h3>
-<p>注意标签，别弄错了！</p>
 <ul>
-<li><code>&lt;wx-open-launch-app&gt;</code> 打开 APP 标签</li>
-<li><code>&lt;wx-open-launch-weapp&gt;</code> 打开微信小程序标签</li>
+<li>
+<p><strong>已认证的服务号</strong>：服务号绑定“JS接口安全域名”下的网页可使用此标签跳转任意合法合规的小程序。</p>
+</li>
+<li>
+<p><strong>已认证的非个人主体的小程序</strong>：使用小程序云开发的<a href="https://developers.weixin.qq.com/miniprogram/dev/wxcloud/guide/staticstorage/introduction.html">静态网站托管</a>绑定的域名下的网页，可以使用此标签跳转任意合法合规的小程序。</p>
+</li>
 </ul>
+<p>这里踩坑了。我一直以为生产环境和测试环境都是同一个公众号（服务号）。后来问了后端才知道，测试环境是一个私人公众号（订阅号），所以在测试环境捣鼓了半天也没弄出来！ 😔</p>
+<h2>版本要求</h2>
+<blockquote>
+<p>要真机上才有效果，微信开发工具是看不到的！</p>
+</blockquote>
+<ul>
+<li>微信 JS-SDK 版本：1.6.0 及以上</li>
+<li>微信版本：7.0.12 及以上</li>
+<li>系统版本：iOS 10.3 及以上、Android 5.0 及以上</li>
+</ul>
+<h2>wx.config</h2>
 <pre><code class="language-js">wx.config({
   debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印
   appId: '', // 必填，公众号的唯一标识
@@ -37000,20 +37003,37 @@ export default function Demo() {
   openTagList: [ 'wx-open-launch-weapp' ] // 可选，需要使用的开放标签列表
 })
 </code></pre>
-<p>*这里我看过<a href="https://developers.weixin.qq.com/community/develop/article/doc/00002a05760be03915caee70e51413">某个帖子</a>说，即使不用 <code>jsApiList: []</code> 也要配置一项，<code>wx.config()</code> 才能生效。因为我项目本身就有使用它，所以我没有去验证。可通过 <code>debug: true</code> 来验证 <code>wx.config()</code> 是否成功。</p>
 <blockquote>
-<p>前提是这个配置成功了，后续的功能才能实现。</p>
+<p>我看过<a href="https://developers.weixin.qq.com/community/develop/article/doc/00002a05760be03915caee70e51413">某帖</a>说，即使没用到 <code>jsApiList</code>，也要显式配置 <code>jsApiList: []</code>，这样 <code>wx.config()</code> 才能生效。但我项目本身就有使用它，所以我没有去验证。</p>
 </blockquote>
-<h3>四、<wx-open-launch-weapp></h3>
-<p>属性注意一下：</p>
+<p>可通过指定 <code>debug: true</code> 来验证 <code>wx.config()</code> 是否成功。</p>
+<p>只有配置成功了，后续的功能才能实现。</p>
+<h2>wx-open-launch-weapp</h2>
+<p>提一嘴，别弄错标签了，长得有点像！</p>
 <ul>
-<li><strong>username</strong>（必填）：所需跳转的<strong>小程序原始 id</strong>，即小程序对应的以 <code>gh_</code> 开头的 id。（非小程序 APPID）</li>
-<li><strong>path</strong>（非必填）：所需跳转的小程序内页面路径及参数。（ 对于<code>path</code>属性，所声明的页面路径必须添加<code>.html</code>后缀，如<code>pages/index/index.html</code>。</li>
+<li><code>&lt;wx-open-launch-app&gt;</code> 打开 APP 标签</li>
+<li><code>&lt;wx-open-launch-weapp&gt;</code> 打开微信小程序标签</li>
 </ul>
-<p>以下是使用 React 的写法，其他的框架或库我没特意去写过，可以参考 👉  <a href="https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/Wechat_Open_Tag.html">官方文档</a>。但看官方文档要带一双慧眼，开放初期官方示例似乎语法有错误，现在似乎修复了，反正认真检查一下就好了。</p>
-<p>React 中不支持直接写 <code>&lt;template /&gt;</code> 标签，需要使用 <code>&lt;script type=&quot;text/wxtag-template&quot; /&gt;</code> 替换。或者考虑使用 <a href="https://zh-hans.reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml">dangerouslySetInnerHTML</a>。</p>
+<blockquote>
+<p>[!NOTE]
+官方文档有更新，支持更多属性，详见<a href="https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/Wechat_Open_Tag.html#%E8%B7%B3%E8%BD%AC%E5%B0%8F%E7%A8%8B%E5%BA%8F%EF%BC%9Awx-open-launch-weapp">这里</a>。</p>
+</blockquote>
+<p>属性：</p>
+<ul>
+<li>
+<p><strong>username</strong>（必填）：所需跳转的<strong>小程序原始 id</strong>。是以 <code>gh_</code> 开头的原始 id，非以 <code>wx</code> 开头的小程序 APPID。</p>
+</li>
+<li>
+<p><strong>path</strong>（非必填）：所需跳转的小程序内页面路径及参数。页面路径必须添加<code>.html</code>后缀，比如<code>pages/index/index.html</code>。</p>
+</li>
+</ul>
+<p>以下是使用 React 的写法，其他的框架或库我没特意去写过，可以参考 <a href="https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/Wechat_Open_Tag.html">官方文档</a>。</p>
+<blockquote>
+<p>但看微信文档要带一双慧眼，初期官方示例似乎有语法错误，现在似乎修复了。</p>
+</blockquote>
+<p>React 中不支持直接写 <code>&lt;template /&gt;</code> 标签，需要使用 <code>&lt;script type=&quot;text/wxtag-template&quot; /&gt;</code> 替换。或考虑使用 <a href="https://react.dev/reference/react-dom/components/common#dangerously-setting-the-inner-html">dangerouslySetInnerHTML</a>。</p>
 <pre><code class="language-jsx">&lt;div style={{ position: 'relative', width: '6.3rem', height: '2.46rem' }}&gt;
-  &lt;div&gt;这里写你唤起小程序的页面元素&lt;/div&gt;
+  &lt;div&gt;唤起小程序的页面元素，如按钮等&lt;/div&gt;
   &lt;wx-open-launch-weapp
     id=&quot;launch-btn&quot;
     username=&quot;gh_****&quot;
@@ -37026,7 +37046,25 @@ export default function Demo() {
   &lt;/wx-open-launch-weapp&gt;
 &lt;/div&gt;
 </code></pre>
-<h3>五、References</h3>
+<p>若使用 TS 遇到</p>
+<pre><code>Property 'wx-open-launch-weapp' does not exist on type 'JSX.IntrinsicElements'.
+</code></pre>
+<p>可添加类型声明：</p>
+<pre><code class="language-ts">declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      'wx-open-launch-weapp': React.DetailedHTMLProps&lt;
+        React.HTMLAttributes&lt;HTMLElement&gt;,
+        HTMLElement
+      &gt; &amp; {
+        username: string
+        path?: string
+      }
+    }
+  }
+}
+</code></pre>
+<h2>References</h2>
 <ul>
 <li><a href="https://developers.weixin.qq.com/community/develop/doc/00048ee3af87a0bd09aaee4c35b800?jumpto=comment&amp;commentid=00004e8f228440dd0caae0a29568">react 里面 h5 wx-open-launch-weapp 跳转小程序按钮样式无法设置？</a></li>
 <li><a href="https://juejin.im/post/6868526637458128903">公众号跳转 H5</a></li>
@@ -39659,9 +39697,15 @@ alert('foo');
             <link>https://github.com/toFrankie/blog/issues/125</link>
             <guid isPermaLink="false">https://github.com/toFrankie/blog/issues/125</guid>
             <pubDate>Sat, 25 Feb 2023 13:15:55 GMT</pubDate>
-            <description><![CDATA[<h2>写在前面</h2>
-<p>最近，在处理部门前端项目由 SVN 迁移 Git 的事情。由于历史代码在此之前并没有引入类似 <a href="http://eslint.cn/">ESLint</a>、<a href="https://prettier.io/">Prettier</a> 的代码检查或者格式约束等工]]></description>
-            <content:encoded><![CDATA[<h2>写在前面</h2>
+            <description><![CDATA[<blockquote>
+<p>⚠️ Deprecated</p>
+</blockquote>
+<h2>写在前面</h2>
+<p>最近，在处理部门前端项目由 SVN 迁移 Git 的事情。由于历史代码在此之前并没有引入类似 <a href="http://eslint.cn/">ESLint</a>、<a href="]]></description>
+            <content:encoded><![CDATA[<blockquote>
+<p>⚠️ Deprecated</p>
+</blockquote>
+<h2>写在前面</h2>
 <p>最近，在处理部门前端项目由 SVN 迁移 Git 的事情。由于历史代码在此之前并没有引入类似 <a href="http://eslint.cn/">ESLint</a>、<a href="https://prettier.io/">Prettier</a> 的代码检查或者格式约束等工具。</p>
 <p>目前部门仅剩我一人维护这十几个小程序、H5 前端项目。现在只要接触以前没有经手的项目，就头疼不想改，很无奈，谁让我是一个打工人呢！</p>
 <p>本文将会结合 ESLint、Prettier、husky、lint-stage 展开介绍，旨在在代码格式化、代码检查上减少时间浪费。</p>
@@ -39758,9 +39802,15 @@ alert('foo');
             <link>https://github.com/toFrankie/blog/issues/124</link>
             <guid isPermaLink="false">https://github.com/toFrankie/blog/issues/124</guid>
             <pubDate>Sat, 25 Feb 2023 13:15:21 GMT</pubDate>
-            <description><![CDATA[<h2>写在前面</h2>
-<p>最近，在处理部门前端项目由 SVN 迁移 Git 的事情。由于历史代码在此之前并没有引入类似 <a href="http://eslint.cn/">ESLint</a>、<a href="https://prettier.io/">Prettier</a> 的代码检查或者格式约束等工]]></description>
-            <content:encoded><![CDATA[<h2>写在前面</h2>
+            <description><![CDATA[<blockquote>
+<p>⚠️ Deprecated</p>
+</blockquote>
+<h2>写在前面</h2>
+<p>最近，在处理部门前端项目由 SVN 迁移 Git 的事情。由于历史代码在此之前并没有引入类似 <a href="http://eslint.cn/">ESLint</a>、<a href="]]></description>
+            <content:encoded><![CDATA[<blockquote>
+<p>⚠️ Deprecated</p>
+</blockquote>
+<h2>写在前面</h2>
 <p>最近，在处理部门前端项目由 SVN 迁移 Git 的事情。由于历史代码在此之前并没有引入类似 <a href="http://eslint.cn/">ESLint</a>、<a href="https://prettier.io/">Prettier</a> 的代码检查或者格式约束等工具。</p>
 <p>目前部门仅剩我一人维护这十几个小程序、H5 前端项目。现在只要接触以前没有经手的项目，就头疼不想改，很无奈，谁让我是一个打工人呢！</p>
 <p>本文将会结合 ESLint、Prettier、husky、lint-stage 展开介绍，旨在在代码格式化、代码检查上减少时间浪费。</p>
@@ -39907,9 +39957,15 @@ module.exports = {
             <link>https://github.com/toFrankie/blog/issues/123</link>
             <guid isPermaLink="false">https://github.com/toFrankie/blog/issues/123</guid>
             <pubDate>Sat, 25 Feb 2023 13:14:56 GMT</pubDate>
-            <description><![CDATA[<h2>写在前面</h2>
-<p>最近，在处理部门前端项目由 SVN 迁移 Git 的事情。由于历史代码在此之前并没有引入类似 <a href="http://eslint.cn/">ESLint</a>、<a href="https://prettier.io/">Prettier</a> 的代码检查或者格式约束等工]]></description>
-            <content:encoded><![CDATA[<h2>写在前面</h2>
+            <description><![CDATA[<blockquote>
+<p>⚠️ Deprecated</p>
+</blockquote>
+<h2>写在前面</h2>
+<p>最近，在处理部门前端项目由 SVN 迁移 Git 的事情。由于历史代码在此之前并没有引入类似 <a href="http://eslint.cn/">ESLint</a>、<a href="]]></description>
+            <content:encoded><![CDATA[<blockquote>
+<p>⚠️ Deprecated</p>
+</blockquote>
+<h2>写在前面</h2>
 <p>最近，在处理部门前端项目由 SVN 迁移 Git 的事情。由于历史代码在此之前并没有引入类似 <a href="http://eslint.cn/">ESLint</a>、<a href="https://prettier.io/">Prettier</a> 的代码检查或者格式约束等工具。</p>
 <p>目前部门仅剩我一人维护这十几个小程序、H5 前端项目。现在只要接触以前没有经手的项目，就头疼不想改，很无奈，谁让我是一个打工人呢！</p>
 <p>本文将会结合 ESLint、Prettier、husky、lint-stage 展开介绍，旨在在代码格式化、代码检查上减少时间浪费。</p>
