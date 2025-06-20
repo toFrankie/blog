@@ -4,7 +4,7 @@
         <title>Frankie's Blog</title>
         <link>https://github.com/toFrankie/blog</link>
         <description>种一棵树，最好的时间是十年前。其次，是现在。</description>
-        <lastBuildDate>Thu, 19 Jun 2025 16:35:22 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 20 Jun 2025 16:34:59 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -5400,6 +5400,8 @@ $ gifsicle --cinfo source.gif
 <blockquote>
 <p>其中 <code>filename</code> 支持网络图片。</p>
 </blockquote>
+<h3>逐帧信息读取</h3>
+<p><a href="https://github.com/toFrankie/gif">https://github.com/toFrankie/gif</a></p>
 <h2>GIF 转换为 PNG</h2>
 <p>使用 ImageMagick</p>
 <pre><code class="language-shell"># 逐帧导出
