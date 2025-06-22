@@ -4,11 +4,21 @@
         <title>Frankie's Blog</title>
         <link>https://github.com/toFrankie/blog</link>
         <description>种一棵树，最好的时间是十年前。其次，是现在。</description>
-        <lastBuildDate>Sat, 21 Jun 2025 16:32:55 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 22 Jun 2025 16:32:55 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
         <copyright>All rights reserved 2025</copyright>
+        <item>
+            <title><![CDATA[毕业快乐 🎓]]></title>
+            <link>https://github.com/toFrankie/blog/issues/363</link>
+            <guid isPermaLink="false">https://github.com/toFrankie/blog/issues/363</guid>
+            <pubDate>Sun, 22 Jun 2025 15:54:53 GMT</pubDate>
+            <description><![CDATA[<p>未完待续...</p>
+]]></description>
+            <content:encoded><![CDATA[<p>未完待续...</p>
+]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[CSS 中 display、opacity 、visibility 的区别]]></title>
             <link>https://github.com/toFrankie/blog/issues/362</link>
