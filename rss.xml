@@ -4,7 +4,7 @@
         <title>Frankie's Blog</title>
         <link>https://github.com/toFrankie/blog</link>
         <description>种一棵树，最好的时间是十年前。其次，是现在。</description>
-        <lastBuildDate>Sun, 22 Jun 2025 16:32:55 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 23 Jun 2025 16:36:53 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -5478,14 +5478,16 @@ $ convert tmp.gif target.png
             <guid isPermaLink="false">https://github.com/toFrankie/blog/issues/321</guid>
             <pubDate>Wed, 01 Nov 2023 09:31:53 GMT</pubDate>
             <description><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/toFrankie/blog@main/images/2023/11/1699607726108.jpg" alt="配图源自 Freepik"></p>
-<h2>背景</h2>
-<p>公众号图片上传后，图片会有不同程度的压缩，本文讨论的]]></description>
+<blockquote>
+<p>[!NOTE]
+由于微信手握“生杀大权”，一旦规则]]></description>
             <content:encoded><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/toFrankie/blog@main/images/2023/11/1699607726108.jpg" alt="配图源自 Freepik"></p>
+<blockquote>
+<p>[!NOTE]
+由于微信手握“生杀大权”，一旦规则有变，本文内容也可能随之失效，仅供参考。</p>
+</blockquote>
 <h2>背景</h2>
 <p>公众号图片上传后，图片会有不同程度的压缩，本文讨论的就是通过一定的技巧来减少损耗，内容收集自网络或实践总结所得。</p>
-<blockquote>
-<p>生死大权掌握在微信手上，一旦压缩算法与上传限制有调整，本文内容可能随时不适用，仅供参考。</p>
-</blockquote>
 <h2>格式</h2>
 <ul>
 <li>PNG：一种有损压缩的图片格式，优点是体积小，可压缩空间大（质量损耗大）。但质量不如 PNG，且不支持透明背景。</li>
@@ -5517,6 +5519,7 @@ $ convert tmp.gif target.png
 <li>宽度大于 640px，被压缩为 640px</li>
 </ul>
 </li>
+<li>图片像素总数（宽 × 高）不超过 600w</li>
 </ul>
 </details>
 <h3>Q&amp;A</h3>
