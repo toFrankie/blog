@@ -4,7 +4,7 @@
         <title>Frankie's Blog</title>
         <link>https://github.com/toFrankie/blog</link>
         <description>种一棵树，最好的时间是十年前。其次，是现在。</description>
-        <lastBuildDate>Tue, 24 Jun 2025 16:36:33 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 25 Jun 2025 16:37:24 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -56511,45 +56511,45 @@ Address:	172.24.0.2#53
 -->
 <p><img src="https://upload-images.jianshu.io/upload_images/5128488-1166a1634ff00f8b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="配图源自 Freepik"></p>
 <h2>前言</h2>
-<p>由于个人对 iTerm2 等第三方终端工具不太感冒，因此一直在用系统内置终端。相比那些花里胡哨的东西，系统自带的 Terminal 可谓是简陋啊。</p>
-<p>今天，终于有空折腾一下它了，默认长这样 👇</p>
+<p>对 iTerm2 等第三方终端工具不大感冒，一直在用系统内置终端。</p>
+<p>但系统终端确实简陋，终于有空折腾一下它了。</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/5128488-59d7cf9e6c859a81.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<h2>为什么要使用 zsh？</h2>
+<h2>为什么选择 zsh？</h2>
 <p>在 Unix-like 操作系统中供选择的 Shell 解析器种类有很多，最常见的是 bash 和 zsh。</p>
-<p>相较之下，zsh 主要有以下优点：</p>
+<p>从 macOS 10.15 起，系统使用 zsh 作为默认 Shell，更多请看「<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fsupport.apple.com%2Fzh-cn%2FHT208050">在 Mac 上将 zsh 用作默认 Shell</a>」。</p>
+<p>相较之下，zsh 优势：</p>
 <ul>
-<li>完全兼容 bash，因此 <code>!# /bin/bash</code> 这类脚本也是完美支持的。</li>
-<li>更强大的 Tab 补全。</li>
-<li>更智能的目录切换。</li>
-<li>命令选项补全。</li>
-<li>文件、目录大小写自动更正（最最最直观的感受，太方便了）。</li>
+<li>完全兼容 bash</li>
+<li>更强大的 Tab 补全</li>
+<li>更智能的目录切换</li>
+<li>命令选项补全</li>
+<li>文件、目录大小写自动更正</li>
 <li>丰富的主题、插件（Oh My Zsh）</li>
-<li>可查看命令输入历史记录。</li>
+<li>可查看命令输入历史记录</li>
 </ul>
-<p>总的来说，Tab 大法好，有事没事 Tab 一下，可以帮你省掉很多命令的输入。</p>
-<blockquote>
-<p>自 macOS 10.15 起，系统使用 zsh 作为默认 Shell。如果你还在用 bash，可参考「<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fsupport.apple.com%2Fzh-cn%2FHT208050">在 Mac 上将 zsh 用作默认 Shell</a>」一文进行迁移。</p>
-</blockquote>
+<p>简单来说，Tab 大法好。</p>
 <h2>Oh My Zsh</h2>
-<p>zsh 的功能很多，但是配置较为繁琐，详细配置请看 <a href="https://wiki.archlinux.org/title/Zsh">Archlinux Zsh</a>。</p>
-<p>但是，Robby Russell 开发的 <a href="https://github.com/ohmyzsh/ohmyzsh/">Oh My Zsh</a> 项目极大地改变了配置繁琐的现象，而且带来了强大的插件和主题功能。</p>
+<p>zsh 功能强大，但配置繁琐，详见 <a href="https://wiki.archlinux.org/title/Zsh">Archlinux Zsh</a>。</p>
+<p>社区上的 <a href="https://github.com/ohmyzsh/ohmyzsh/">Oh My Zsh</a> 项目极大地改变了配置繁琐的现象，并且带来了强大的插件和主题功能。</p>
 <h3>安装</h3>
 <pre><code class="language-shell">$ sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;
 </code></pre>
-<p>安装完成后，它被存放于 <code>~/.oh-my-zsh</code> 目录，在里面我们可以找到它提供的任何插件、主题等。</p>
-<blockquote>
-<p>需要注意的是，此前的 <code>~/.zshrc</code> 配置文件会被重命名为 <code>~/.zshrc.pre-oh-my-zsh</code>。若有需要，可将此前的配置重新添加到 <code>~/.zshrc</code> 里面。</p>
-</blockquote>
-<h3>启用插件</h3>
-<p>Oh My Zsh 提供的插件很多很多很多，详见 <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins">Plugins Wiki</a>。如需启用某插件，只需在 <code>~/.zshrc</code> 引入即可。多个插件之间使用「空白符」隔开，但不能用逗号 <code>,</code> 隔开，否则会被中断。</p>
-<p>举个例子，以下将会按顺序启用 nvm、git、ruby 插件。</p>
+<p>安装后存于 <code>~/.oh-my-zsh</code> 目录，可以找到它提供的任何插件、主题等。</p>
+<p>此前的 <code>.zshrc</code> 配置文件会被重命名为 <code>.zshrc.pre-oh-my-zsh</code>。</p>
+<h3>插件</h3>
+<p>Oh My Zsh 提供了非常丰富的插件，详见 <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins">Plugins Wiki</a>。</p>
+<p>如需添加插件，在 <code>~/.zshrc</code> 引入即可。比如，按顺序启用 nvm、git、ruby 插件：</p>
 <pre><code class="language-shell">plugins=(nvm git ruby)
 </code></pre>
-<h3>切换主题</h3>
-<p>Oh My Zsh 提供了超过 150 种主题，默认主题是 <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes#robbyrussell">robbyrussell</a>，详见 <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">Themes Wiki</a>。同样地，如需配置主题，则添加到 <code>~/.zshrc</code> 里面。</p>
+<blockquote>
+<p>插件之间用空格隔开，但不能用逗号，否则会被中断。</p>
+</blockquote>
+<h3>主题</h3>
+<p>Oh My Zsh 提供了超过 150 种主题，默认主题是 <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes#robbyrussell">robbyrussell</a>，更多请看<a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">这里</a>。</p>
+<p>同样地，如需配置主题，则添加到 <code>~/.zshrc</code> 里面。</p>
 <pre><code class="language-shell">ZSH_THEME=&quot;robbyrussell&quot;
 </code></pre>
-<p>它还提供了一些花里胡哨的配置，比如随机主题。</p>
+<p>它还提供了一些花里胡哨的功能。</p>
 <pre><code class="language-shell"># 每打开一个新的 Shell 窗口，随机选择内置的主题。
 ZSH_THEME=&quot;random&quot;
 
@@ -56562,64 +56562,57 @@ ZSH_THEME_RANDOM_CANDIDATES=(
 # 甚至可以排除掉不喜欢的主题，这样就不会在随机主题中出现。
 ZSH_THEME_RANDOM_IGNORED=(pygmalion tjkirch_mod)
 </code></pre>
-<h2>Terminal Theme</h2>
-<p>系统内置的终端工具默认主题「Basic」是白底黑字的。虽然也内置了几种主题供选择，但架不住它丑啊。</p>
-<p>修改命令提示符</p>
+<h2>系统终端主题</h2>
+<p>系统内置的终端工具默认主题「Basic」是白底黑字的。虽然内置了多种主题，但都挺丑的。</p>
+<p>先调整下，修改命令提示符：</p>
 <pre><code class="language-shell">PROMPT=&quot;%(?:%{$fg_bold[green]%}→ ●:%{$fg_bold[red]%}→ ●)%{$fg_bold[white]%}●&quot;
 PROMPT+=&quot; %{$fg_bold[yellow]%}%c %{$reset_color%}$ &quot;
 RPROMPT=&quot;[%{$fg[white]%}%*%{$reset_color%}]&quot;
 </code></pre>
-<p>如果系统是浅色模式，此时 vim 背景色仍然是白底，可以在 <code>~/.vimrc</code> 中添加以下配置，这样主题就都统一了。</p>
+<p>系统处于浅色模式时，vim 模式的默认背景色是白底，可以在 <code>~/.vimrc</code> 中添加配置使背景色统一。</p>
 <pre><code class="language-shell">set background=dark &quot;设置背景色
 </code></pre>
-<p>最终效果 👇</p>
-<p><img src="https://cdn.jsdelivr.net/gh/toFrankie/blog@main/images/2024/5/1715667003269.png" alt=""></p>
-<p>详见：<a href="https://github.com/toFrankie/terminal-dark-theme.git">terminal-dark-theme</a> ⭐️</p>
-<h2>配置同步</h2>
-<p>由于我这边有 MacBook Pro 和 iMac 两个设备，那么设备间同步就显得很重要了，可以省去修改其一设备配置，需要拷贝到另一设备以同步更新的麻烦。</p>
-<p>首先，我们的 zsh 配置都是用户级别的，也就是存放在 <code>~</code> 目录下：</p>
-<pre><code class="language-shell">~/.zshrc
-</code></pre>
-<h3>如何做配置同步共享呢？</h3>
-<p>思路非常简单：</p>
-<blockquote>
+<p>配置文件放在 <a href="https://github.com/toFrankie/terminal-dark-theme.git">terminal-dark-theme</a> ⭐️
+<img src="https://cdn.jsdelivr.net/gh/toFrankie/blog@main/images/2024/5/1715667003269.png" alt=""></p>
+<h2>设备共享</h2>
+<p>我有多台 Mac 设备，要做一些同步共享处理，省去多设备修改的麻烦。</p>
+<h3>思路</h3>
+<p>一般来说，zsh 配置都是用户级别的，存放于 <code>~/.zshrc</code>。</p>
+<p>可以这样：</p>
 <ol>
 <li>将配置文件存放于 iCloud 云盘，可多设备同步。</li>
 <li>在本地配置中引入 iCloud 云盘同步的配置文件。</li>
 </ol>
-</blockquote>
-<p>首先，我们在 iCloud 云盘创建一个目录，比如 <code>Terminal</code>。</p>
+<p>在 iCloud 云盘下创建 <code>Terminal</code> 目录：</p>
 <pre><code class="language-shell">$ cd ~/Library/Mobile\ Documents/com~apple~CloudDocs
 $ mkdir Terminal
 </code></pre>
-<p>然后，将 <code>~/.zshrc</code> 拷贝至 <code>Terminal</code> 目录，并重命名为 <code>zshrc.sh</code>。</p>
+<p>接着，将 <code>.zshrc</code> 拷贝至云盘目录下：</p>
 <pre><code class="language-shell">$ cp ~/.zshrc ~/Library/Mobile\ Documents/com~apple~CloudDocs/Terminal/zshrc.sh
 </code></pre>
-<p>以上创建目录、拷贝、重命名等操作可直接在 Finder 中完成。</p>
-<p>接着，修改本地的 <code>~/.zshrc</code>，可以移除掉里面原先的配置，然后写入一行配置即可：<code>source $HOME/Library/Mobile\ Documents/com~apple~CloudDocs/Terminal/zshrc.sh</code>，可直接使用以下命令完成：</p>
-<pre><code class="language-shell">$ echo 'source $HOME/Library/Mobile\ Documents/com~apple~CloudDocs/Terminal/zshrc.sh' &gt; ~/.zshrc
-</code></pre>
-<p>所以 <code>~/.zshrc</code> 配置文件就变成了：</p>
+<p>然后，修改文件 <code>~/.zshrc</code> 为：</p>
 <pre><code class="language-shell">source $HOME/Library/Mobile\ Documents/com~apple~CloudDocs/Terminal/zshrc.sh
 </code></pre>
+<blockquote>
 <p><code>source</code> 命令用于执行一个脚本，通常用于重新加载一个配置文件。</p>
-<p>最后，刷新下 <code>~/.zshrc</code> 配置文件。</p>
-<pre><code class="language-shell">$ source ~/.zshrc
-</code></pre>
-<p>在其他设备下，只要修改一次本地配置文件，并刷新配置即可。</p>
+</blockquote>
+<p>最后，执行 <code>source ~/.zshrc</code> 刷新配置。</p>
 <h3>配置拆分</h3>
-<p>前面做配置同步的初衷是解决多设备的场景，另一方面是可以做备份，下次换机器可省去配置的麻烦。</p>
-<p>既然是多设备，那极有可能各设备的环境是不一样的，也就是配置会有所不同。基于此场景，直接采用上述方式显然是不妥的。假设设备 A 安装了 nvm，然后在 iCloud 云盘  <code>Terminal/zshrc.sh</code> 里添加了对应的配置，而设备 B 是没有安装 nvm 的，但由于 B 共享了配置，在 B 设备中执行 <code>souce ~/.zshrc</code> 就会导致出错。</p>
-<p>因此，我们要对 <code>Terminal/zshrc.sh</code> 配置进行拆分：</p>
+<p>既然是多设备，各设备环境很大可能是不一样的，配置自然不同。</p>
+<p>此场景下，多设备复用同一个 zsh 配置文件，显然不妥。</p>
+<p>因此，要对 <code>Terminal/zshrc.sh</code> 配置进行拆分：</p>
 <pre><code class="language-shell">~/Library/Mobile Documents/com~apple~CloudDocs/Terminal/
 ├── zshrc.sh            # 统一引入以下细分配置
-├── zshrc-common.sh     # 各设备共同配置，比如 Oh-My-Zsh 的一些配置等
+├── zshrc-common.sh     # 各设备共同配置，比如 Oh-My-Zsh 等
 ├── zshrc-imac.sh       # iMac 设备特有配置
 └── zshrc-mbp.sh        # MacBook Pro 设备特有配置 
 </code></pre>
-<p>👆 以上按自个实际情况拆分。这里文件名不以 <code>.</code> 开头的原因是不想隐藏文件，毕竟它不存在于本地用户的主目录下，没必要隐藏了。另外，扩展名是可省略的，甚至可随意自定义。由于 <code>~/.zshrc</code> 本身就是一个 Shell 脚本，而 Shell 脚本扩展名是可选的。但按习惯，多将其定义为 <code>.sh</code>，加之主流编辑器对此扩展名一般都有语法高亮。</p>
-<h3>按设备引入对应配置</h3>
-<p>首先，我们现在 <code>Terminal/zshrc.sh</code> 引入 <code>zshrc-common.sh</code> 共同的配置文件。</p>
+<blockquote>
+<p>按需调整。</p>
+</blockquote>
+<p>此处文件名不以 <code>.</code> 开头，原因是不想隐藏文件，毕竟存放在 iCloud 云盘目录下，没必要隐藏了。Shell 脚本扩展名是可省略的，甚至可自定义。使用 <code>.sh</code> 扩展名也方便编辑器语法高亮。</p>
+<h3>按设备读取</h3>
+<p>先在 <code>zshrc.sh</code> 引入 <code>zshrc-common.sh</code> 共同配置：</p>
 <pre><code class="language-shell"># zshrc.sh
 
 # 加载共同配置
@@ -56629,7 +56622,7 @@ source $HOME/Library/Mobile\ Documents/com~apple~CloudDocs/Terminal/zshrc-common
 # 而且应放在共同配置后面加载，原则上它们的优先级应该较高的。
 # ...
 </code></pre>
-<p>接着，要解决按设备引入各自特有的配置文件。用以下几种方法来区分设备：</p>
+<p>可通过以下方式区分设备：</p>
 <pre><code class="language-shell">$ hostname
 Frankies-iMac.local
 
@@ -56641,8 +56634,14 @@ Frankie's iMac
 </code></pre>
 <p>对应如下：</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/5128488-41b6c5449fb94d1a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>其中 <code>LocalHostName</code> 是 <code>ComputerName</code> 格式化之后的名称，比如空格会替换为连字符 <code>-</code>，一些特殊符号也会被忽略。<code>hostname</code> 则是在 <code>LocalHostName</code> 加上 <code>.local</code> 的名称。但由于 hostname 读取顺序的问题（<a href="https://shockerli.net/post/macos-hostname-scutil/">详见</a>），它可能会受到所连接网络的影响，因此它可能不是固定值。</p>
-<p>基于以上考虑，这里使用 <code>scutil --get ComputerName</code> 命令，它的返回值取决于你输入的电脑名称。但注意 <code>ComputerName</code> 为 macOS 独有。</p>
+<ul>
+<li>LocalHostName 是 ComputerName 格式化之后的名称，比如空格会替换为连字符 <code>-</code>，一些特殊符号也会被忽略。</li>
+<li>hostname 则是在 LocalHostName 加上 <code>.local</code> 的名称。由于 hostname 读取顺序（<a href="https://shockerli.net/post/macos-hostname-scutil/">详见</a>），它可能会受到所连接网络的影响，因此它可能不是固定值。</li>
+</ul>
+<p>这里使用 <code>scutil --get ComputerName</code> 命令，它的返回值取决于你输入的电脑名称。</p>
+<blockquote>
+<p>注意 <code>ComputerName</code> 为 macOS 独有。</p>
+</blockquote>
 <p>接着，编写一个 Shell 函数，按设备电脑名称加载对应配置。</p>
 <pre><code class="language-shell"># 根据设备电脑名称，读取对应配置
 function load_device_zsh_configuration() {
@@ -56663,8 +56662,12 @@ function load_device_zsh_configuration() {
 load_device_zsh_configuration
 unset -f load_device_zsh_configuration
 </code></pre>
-<p>👆 以上几个地方按需调整。一是 <code>icloud_config_dir</code> 后面的目录，也就是 iCloud 云盘中存放配置文件的目录。二是类似  <code>$computer_name =~ 'MacBook'</code> 这行，意思是当 <code>ComputerName</code> 中包含 <code>MacBook</code> 字符串时，执行 <code>if</code> 语句，将加载 <code>zshrc-mbp.sh</code> 配置。</p>
-<p>因此，<code>zshrc.sh</code> 的配置如下：</p>
+<p>有几处请按需调整：</p>
+<ol>
+<li><code>icloud_config_dir</code> 后面的目录，也就是 iCloud 云盘中存放配置文件的目录。</li>
+<li>类似  <code>$computer_name =~ 'MacBook'</code> 这行，意思是当 <code>ComputerName</code> 中包含 <code>MacBook</code> 字符串时，执行 <code>if</code> 语句，将加载 <code>zshrc-mbp.sh</code> 配置。</li>
+</ol>
+<p>最后 <code>zshrc.sh</code> 的配置如下：</p>
 <pre><code class="language-shell"># Load zsh common configuration
 source $HOME/Library/Mobile\ Documents/com~apple~CloudDocs/Terminal/zshrc-common.sh
 
@@ -56688,12 +56691,13 @@ load_device_zsh_configuration
 unset -f load_device_zsh_configuration
 </code></pre>
 <h3>一次失败的尝试与思考</h3>
-<p>最初，我有一种利用链接文件特性的思路：</p>
+<p>最初，利用链接文件特性的思路：</p>
 <blockquote>
 <p>将 <code>Terminal/zshrc.sh</code> 与 <code>~/.zshrc</code> 建立硬链接关系，此时两者就是真正意义上的同一文件（inode 号码相同），修改其中一方，另一方会同步修改。而且删除任意一方，对另一方不会产生影响。</p>
 </blockquote>
-<p>但是，由于 iCloud 云盘中的文件会进行同步操作。据我观察，当文件同步完成之后，尽管文件名不会发生改变，但 inode 号码会发生变化的。这样的话，会导致前面建立的硬链接关系破裂，即 <code>Terminal/zshrc.sh</code> 与 <code>~/.zshrc</code> 的 inode 不再相同，修改任意一方，另一方都不会同步修改。因此，基于硬链接的思路是不行的。</p>
-<p>然后，我又萌生了另一种思路：利用软链接文件。软链接文件的文件内容存放的是文件路径，前面 iCloud 同步不会影响文件名，因此看起来似乎是可行的：</p>
+<p>我们知道，iCloud 云盘文件变更会自动同步。</p>
+<p>据观察，当文件同步完成之后，虽然文件名没有发生改变，但文件的 inode 会发生变化。这样会导致前面建立的硬链接关系破裂。也就是说，<code>Terminal/zshrc.sh</code> 与 <code>~/.zshrc</code> 的 inode 不再相同，修改任意一方，另一方都不会同步修改。所以这个思路是不行的。</p>
+<p>后来，我又萌生了另一种思路：利用软链接文件。软链接文件的文件内容存放的是文件路径，前面 iCloud 同步不会影响文件名，起来似乎是可行的：</p>
 <pre><code class="language-shell"># 创建 Terminal/zshrc.sh 的软链接至 ~/.zshrc.icloud
 $ ln -s ~/Library/Mobile\ Documents/com~apple~CloudDocs/Terminal/zshrc.sh ~/.zshrc.icloud
 
@@ -56703,19 +56707,19 @@ $ echo 'source ~/.zshrc.icloud' &gt; ~/.zshrc
 # 刷新配置
 $ souce ~/.zshrc
 </code></pre>
-<p>👆 以上在 <code>~/.zshrc</code> 加载 <code>~/.zshrc.icloud</code> 的时候，由于后者是 <code>Terminal/zshrc.sh</code> 的软链接，命令执行时会找到 <code>Terminal/zshrc.sh</code> 的内容进行加载。</p>
+<p>以上在 <code>~/.zshrc</code> 加载 <code>~/.zshrc.icloud</code> 的时候，由于后者是 <code>Terminal/zshrc.sh</code> 的软链接，命令执行时会找到 <code>Terminal/zshrc.sh</code> 的内容进行加载。</p>
 <p>这种方案看着是可行的，但属实有点多次一举了。何不直接在 <code>~/.zshrc</code> 加载 <code>Terminal/zshrc.sh</code> 呢？</p>
 <blockquote>
-<p>若对硬链接与软链接文件特效不太了解的话，可看 <a href="https://github.com/toFrankie/blog/issues/36">Linux 链接文件详解</a>。</p>
+<p><a href="https://github.com/toFrankie/blog/issues/36">Linux 链接文件详解</a></p>
 </blockquote>
 <h3>其他</h3>
-<p>完成以上多设备同步、配置共享之后，后续配置调整，应根据实际情况对以下文件作出修改，而不是直接修改 <code>~/.zshrc</code> 本地配置。</p>
+<p>后续配置调整，应根据实际情况对以下文件作出修改，而不是直接修改 <code>~/.zshrc</code> 本地配置。</p>
 <pre><code class="language-shell">~/Library/Mobile Documents/com~apple~CloudDocs/Terminal/
 ├── zshrc-common.sh
 ├── zshrc-imac.sh
 └── zshrc-mbp.sh
 </code></pre>
-<p>由于 iCloud 云盘的 <code>Terminal</code> 目录不好记，还长，加之容易忽略 <code>Mobile\ Documents</code> 空格的问题。因此，我们可以在 <code>zshrc-common.sh</code> 设置一些变量或别名以快速定位到配置文件。以下仅供参考：</p>
+<p>为了方便，设置了一些变量别名（仅供参考）：</p>
 <pre><code class="language-shell"># zshrc-common.sh
 
 # 刷新本地配置
@@ -56729,20 +56733,7 @@ alias openz-mbp=&quot;open $HOME/Library/Mobile\ Documents/com~apple~CloudDocs/T
 # 设置变量，可直接通过 `cd $ICLOUD_TERMINAL_DIR` 命令打开目录
 export ICLOUD_TERMINAL_DIR=&quot;$HOME/Library/Mobile Documents/com~apple~CloudDocs/Terminal&quot;
 </code></pre>
-<p>这样的话，比如要往 <code>zshrc-imac.sh</code> 中添加配置，可以这样：</p>
-<pre><code class="language-shell"># 打开 zshrc-imac.sh 配置文件
-$ openz-imac
-
-# 往 zshrc-imac.sh 配置文件中添加一行配置：export CUR_DEVICE=&quot;Frankie's iMac&quot;
-
-$ 刷新配置
-# soucez
-
-# 测试一下
-$ echo $CUR_DEVICE
-Frankie's iMac
-</code></pre>
-<p>甚至，可以给每个配置文件设置一个变量 <code>Configuration_File_Name</code>，然后利用类似 <code>echo 'some configuration' &gt;&gt; $Configuration_File_Name</code> 形式往配置文件中追加配置。请自行发挥。</p>
+<p>也可以给每个设备的配置文件设置变量 <code>Configuration_File_Name</code>，然后利用类似 <code>echo 'some configuration' &gt;&gt; $Configuration_File_Name</code> 形式往配置文件中追加配置。</p>
 <p>The end.</p>
 ]]></content:encoded>
         </item>
