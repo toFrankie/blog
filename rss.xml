@@ -4,7 +4,7 @@
         <title>Frankie's Blog</title>
         <link>https://github.com/toFrankie/blog</link>
         <description>种一棵树，最好的时间是十年前。其次，是现在。</description>
-        <lastBuildDate>Wed, 25 Jun 2025 16:37:24 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 26 Jun 2025 16:36:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -58031,13 +58031,12 @@ $ brew info                     # 显示安装的软件数量、文件数量以�
             <link>https://github.com/toFrankie/blog/issues/5</link>
             <guid isPermaLink="false">https://github.com/toFrankie/blog/issues/5</guid>
             <pubDate>Sun, 29 May 2022 09:30:21 GMT</pubDate>
-            <description><![CDATA[<p>开始之前，先了解一些基本背景...</p>
+            <description><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/toFrankie/blog@main/images/2025/6/1750901956299.jpeg" alt="配图源自 Freepik"></p>
+<p>开始之前，先了解一些基本背景...</p>
 <h2>一、前言</h2>
-<p>我们知道，在 ECMAScript 标准中，当前数据类型分为两类（共 8 种）：</p>
-<blockquote>
-<ul>
-<li><strong>原始类型</strong>（Primitives）： 包含 Undefined、Nul]]></description>
-            <content:encoded><![CDATA[<p>开始之前，先了解一些基本背景...</p>
+<p]]></description>
+            <content:encoded><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/toFrankie/blog@main/images/2025/6/1750901956299.jpeg" alt="配图源自 Freepik"></p>
+<p>开始之前，先了解一些基本背景...</p>
 <h2>一、前言</h2>
 <p>我们知道，在 ECMAScript 标准中，当前数据类型分为两类（共 8 种）：</p>
 <blockquote>
@@ -58154,11 +58153,10 @@ instance.__proto__
             <link>https://github.com/toFrankie/blog/issues/4</link>
             <guid isPermaLink="false">https://github.com/toFrankie/blog/issues/4</guid>
             <pubDate>Sat, 26 Mar 2022 14:53:02 GMT</pubDate>
-            <description><![CDATA[<p><code>Object.create(proto, propertiesObject)</code> 方法会创建一个带着指定原型对象和属性的「新对象」。</p>
-<p>实现起来很简单，主要注意参数的边界值即可：</p>
-<ul>
-<li><strong><code>proto</code></strong> -]]></description>
-            <content:encoded><![CDATA[<p><code>Object.create(proto, propertiesObject)</code> 方法会创建一个带着指定原型对象和属性的「新对象」。</p>
+            <description><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/toFrankie/blog@main/images/2025/6/1750902038140.jpeg" alt="配图源自 Freepik"></p>
+<p><code>Object.create(proto, propertiesO]]></description>
+            <content:encoded><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/toFrankie/blog@main/images/2025/6/1750902038140.jpeg" alt="配图源自 Freepik"></p>
+<p><code>Object.create(proto, propertiesObject)</code> 方法会创建一个带着指定原型对象和属性的「新对象」。</p>
 <p>实现起来很简单，主要注意参数的边界值即可：</p>
 <ul>
 <li><strong><code>proto</code></strong> - 仅接受原始值 <code>null</code> 或任意引用值，否则抛出 <code>TypeError</code>。</li>
@@ -58198,11 +58196,10 @@ Object.create({}, null) // TypeError
             <link>https://github.com/toFrankie/blog/issues/3</link>
             <guid isPermaLink="false">https://github.com/toFrankie/blog/issues/3</guid>
             <pubDate>Fri, 29 Oct 2021 18:26:29 GMT</pubDate>
-            <description><![CDATA[<p>这三个货，都是用来绑定 <code>this</code> 的。区别如下：</p>
-<ul>
-<li><code>call()</code>、<code>apply()</code> 都返回函数执行结果，区别在于参数不一样，前者接收参数列表，后者接收一个数组参数（也可以是类数组）。</li>
-<li><code>]]></description>
-            <content:encoded><![CDATA[<p>这三个货，都是用来绑定 <code>this</code> 的。区别如下：</p>
+            <description><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/toFrankie/blog@main/images/2025/6/1750902110567.jpeg" alt="配图源自 Freepik"></p>
+<p>这三个货，都是用来绑定 <code>this</code> 的。区别如下：<]]></description>
+            <content:encoded><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/toFrankie/blog@main/images/2025/6/1750902110567.jpeg" alt="配图源自 Freepik"></p>
+<p>这三个货，都是用来绑定 <code>this</code> 的。区别如下：</p>
 <ul>
 <li><code>call()</code>、<code>apply()</code> 都返回函数执行结果，区别在于参数不一样，前者接收参数列表，后者接收一个数组参数（也可以是类数组）。</li>
 <li><code>bind()</code> 返回一个新函数，但注意对使用 <code>new</code> 关键字调用时，绑定无效。其使用方法与 <code>call()</code> 一致，接受一个参数列表。</li>
@@ -59297,13 +59294,11 @@ Reflect.ownKeys(input).forEach(key =&gt; {
             <link>https://github.com/toFrankie/blog/issues/1</link>
             <guid isPermaLink="false">https://github.com/toFrankie/blog/issues/1</guid>
             <pubDate>Thu, 28 Oct 2021 15:42:21 GMT</pubDate>
-            <description><![CDATA[<h2>原理</h2>
-<p>先了解下 <code>new</code> 关键字都做了些什么工作：</p>
-<blockquote>
-<ol>
-<li>隐式创建一个实例对象 <code>this</code>（空对象）；</li>
-<li>将实例对象原型（<code>__proto__</code>）指向构造函数的原型]]></description>
-            <content:encoded><![CDATA[<h2>原理</h2>
+            <description><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/toFrankie/blog@main/images/2025/6/1750902165449.jpg" alt="配图源自 Freepik"></p>
+<h2>原理</h2>
+<p>先了解下 <code>new</code> 关键字都做]]></description>
+            <content:encoded><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/toFrankie/blog@main/images/2025/6/1750902165449.jpg" alt="配图源自 Freepik"></p>
+<h2>原理</h2>
 <p>先了解下 <code>new</code> 关键字都做了些什么工作：</p>
 <blockquote>
 <ol>
