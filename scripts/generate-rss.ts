@@ -26,6 +26,11 @@ async function generateRSS(issues: Issue[]) {
     link: 'https://github.com/toFrankie',
   }
 
+  const latestUpdatedAt = issues.reduce((latest, issue) => {
+    const issueDate = new Date(issue.updated_at)
+    return issueDate > latest ? issueDate : latest
+  }, new Date('1970-01-01T00:00:00.000Z'))
+
   const feed = new Feed({
     title: "Frankie's Blog",
     description: '种一棵树，最好的时间是十年前。其次，是现在。',
@@ -34,6 +39,7 @@ async function generateRSS(issues: Issue[]) {
     language: 'zh-CN',
     copyright: 'All rights reserved 2025',
     author,
+    updated: latestUpdatedAt,
   })
 
   for (const issue of issues) {

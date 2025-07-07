@@ -50,11 +50,11 @@ export const getGithubBranch = () => process.env.GITHUB_BRANCH || 'main'
 export async function fetchAllIssue(state: IssueState = 'all') {
   const issues: Issues = []
   let page = 1
-  let hasNextPage = true
+  let hasNextPage = false
 
   const octokit = new Octokit({ auth: getGithubToken() })
 
-  while (hasNextPage) {
+  do {
     const { data } = await octokit.issues.listForRepo({
       owner: getGithubUser(),
       repo: getGithubRepo(),
@@ -66,7 +66,7 @@ export async function fetchAllIssue(state: IssueState = 'all') {
     issues.push(...data)
     hasNextPage = data.length === 100
     page += 1
-  }
+  } while (hasNextPage)
 
   return issues
 }
