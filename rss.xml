@@ -4,7 +4,7 @@
         <title>Frankie's Blog</title>
         <link>https://github.com/toFrankie/blog</link>
         <description>种一棵树，最好的时间是十年前。其次，是现在。</description>
-        <lastBuildDate>Mon, 07 Jul 2025 16:28:09 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 10 Jul 2025 16:36:25 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -15,26 +15,38 @@
             <guid isPermaLink="false">https://github.com/toFrankie/blog/issues/364</guid>
             <pubDate>Mon, 07 Jul 2025 13:29:52 GMT</pubDate>
             <description><![CDATA[<h2>前言</h2>
-<p>是的，我已经从 Alfred 转向 Raycast 了，它的免费功能已经足够好用了。虽然但是，没有完全丢掉 Alfred，还在用它的剪贴板历史功能。</p>
-<p>此前看到一个帖子，大意是：Alfred 用户一定要试试 Raycast。当时我不以为意，现在回头想确实大意了。用了七八年的 A]]></description>
+<p>是的，我已经将 <a href="https://www.alfredapp.com/">Alfred</a> 换为 <a href="https://www.raycast.com/">Raycast</a> 了，后者的免费功能足够好用。</p>
+<p>但也没有完全丢掉 Alfred，还]]></description>
             <content:encoded><![CDATA[<h2>前言</h2>
-<p>是的，我已经从 Alfred 转向 Raycast 了，它的免费功能已经足够好用了。虽然但是，没有完全丢掉 Alfred，还在用它的剪贴板历史功能。</p>
-<p>此前看到一个帖子，大意是：Alfred 用户一定要试试 Raycast。当时我不以为意，现在回头想确实大意了。用了七八年的 Alfred 几乎没怎么“变过”，给人不思进取的感觉。特别是近几年 AI 的发展，它好像还没反应过来一样。</p>
-<p>另外，Raycast Extension 的开发体验要比 Alfred 好多了。前者有一个官方维护的 Extension Store 来分发，且活跃度很高，目前扩展数量 <a href="https://github.com/raycast/extensions/blob/cffac925444c27172ccf9538a15bad35a97a0adf/.github/CODEOWNERS">2200+</a>。</p>
-<h2>相关链接</h2>
+<p>是的，我已经将 <a href="https://www.alfredapp.com/">Alfred</a> 换为 <a href="https://www.raycast.com/">Raycast</a> 了，后者的免费功能足够好用。</p>
+<p>但也没有完全丢掉 Alfred，还在用它的剪贴板历史功能。</p>
+<p>此前看到一个帖子说：Alfred 用户一定要试试 Raycast。当时我不以为意。</p>
+<p>用了七、八年的 Alfred 几乎没怎么“变过”，有种不思进取的感觉。特别是近几年 AI 的发展，它好像还没反应过来一样。</p>
+<h2>对比</h2>
+<p>在使用 Alfred 时，用得最多的功能是：</p>
 <ul>
-<li><a href="https://www.raycast.com/store">Raycast Store</a></li>
-<li><a href="https://developers.raycast.com/">Raycast 官方开发文档</a></li>
+<li>Web Search - 快速跳转，通常用于搜索文档等。</li>
+<li>Clipboard History - 剪贴板历史，没什么好说的，用过都说好用。</li>
+<li>Workflow - 工作流，比如翻译、打开项目等，写过一两个插件，开发体验不好，能做的有限。</li>
 </ul>
+<p>这些在 Raycast 都有替代方案，甚至更好。除此之外，Raycast 的界面更现代一些，跟最新的 macOS 风格更加契合。并且可以完全通过键盘完成一系列操作。</p>
+<p>最重要的是，Raycast Extension 的开发体验比 Alfred 好太多了。官方有提供很多了 API，统一的 UI 风格，有统一的分发 <a href="https://www.raycast.com/store">Store</a>，不用网上到处搜索。<a href="https://github.com/raycast/extensions/pulse">活跃度</a>很高，目前扩展数量 <a href="https://github.com/raycast/extensions/blob/cffac925444c27172ccf9538a15bad35a97a0adf/.github/CODEOWNERS">2200+</a>。</p>
+<p>比较麻烦的是，在 Raycast 发布扩展，需要经过官方审核，通过后才会上传到 Store，审核周期较慢。好处是能在一定程度上把控整体的风格，避免各扩展之间外观上参差不齐，能从官方角度提一些更好的交互建议。</p>
 <h2>开始之前</h2>
+<blockquote>
+<p><a href="https://developers.raycast.com/">Raycast Extension 开发文档</a></p>
+</blockquote>
 <h3>技术栈</h3>
 <p>Node.js + TypeScript + React</p>
-<p>虽然使用 React 构建，但通常只能使用官方提供的一些 API 或内置组件，不能过多地自定义，但也是好处所在，所有扩展可以很好地保持统一的 UI 风格。加上提交到 Store 必须通过官方团队审核，各扩展之间外观上起码不会参差不齐。</p>
+<p>虽然使用 React 构建，但通常只能使用官方提供的一些 API 或内置组件，不能过多地自定义（可能是因为 React to macOS Native 的缘故吧），好处是 UI 风格较为统一。</p>
 <h3>安装扩展</h3>
 <ul>
 <li>键入 Store 搜索安装</li>
 <li>键入 Import Extension 在本地导入</li>
 </ul>
+<blockquote>
+<p>键入 Manage Extensions 可以管理本地扩展。</p>
+</blockquote>
 <h3>卸载扩展</h3>
 <ul>
 <li>键入关键词，选中要卸载的扩展，在 Actions 面板选择 Uninstall Extension 操作即可，快捷键「⌃ + X」。</li>
@@ -55,6 +67,19 @@ $ npm install
 $ npm run dev
 </code></pre>
 <h3>调试扩展</h3>
+<p>当我们执行 <code>npm run dev</code>（即 <code>ray develop</code>）时，它会自动安装扩展，并以开发模式启动 Raycast 应用。</p>
+<p>为了方便调试，勾选 Preferences - Advanced - Developer Tools 下的几个选项：</p>
+<ul>
+<li>Auto-reload on Save</li>
+<li>Open Raycast in development mode</li>
+<li>Keep window always visible during development</li>
+</ul>
+<p>字面意思。一是开发过程中文件修改可以自动重载，二是使 Raycast 始终显示，以避免切换到其他应用是 Raycast 窗口关闭。这对开发体验尤为重要。</p>
+<p>在开发模式下，使用 <code>console.log()</code> 可以在终端上显示打印信息。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/toFrankie/blog@main/images/2025/7/1752164474489.png" alt=""></p>
+<p>如果你没有正确使用 API 或组件，或快捷键有冲突，此处也会有 Warning 显示。</p>
+<h3>发布扩展</h3>
+<p>后面再说。</p>
 <p>未完待续...</p>
 ]]></content:encoded>
         </item>
