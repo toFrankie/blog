@@ -4,11 +4,54 @@
         <title>Frankie's Blog</title>
         <link>https://github.com/toFrankie/blog</link>
         <description>种一棵树，最好的时间是十年前。其次，是现在。</description>
-        <lastBuildDate>Thu, 10 Jul 2025 16:36:25 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 11 Jul 2025 10:18:30 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
         <copyright>All rights reserved 2025</copyright>
+        <item>
+            <title><![CDATA[微信公众号是如何加载、处理图片的？]]></title>
+            <link>https://github.com/toFrankie/blog/issues/365</link>
+            <guid isPermaLink="false">https://github.com/toFrankie/blog/issues/365</guid>
+            <pubDate>Fri, 11 Jul 2025 09:55:19 GMT</pubDate>
+            <description><![CDATA[<p>作个记录。</p>
+<h2>开始时</h2>
+<ol>
+<li>查找所有包含背景的元素 <code>dom.querySelectorAll('[style*=&quot;background-image&quot;]')</code>。</li>
+<li>将背景图替换为本地占位图 bgPlaceholder（1]]></description>
+            <content:encoded><![CDATA[<p>作个记录。</p>
+<h2>开始时</h2>
+<ol>
+<li>查找所有包含背景的元素 <code>dom.querySelectorAll('[style*=&quot;background-image&quot;]')</code>。</li>
+<li>将背景图替换为本地占位图 bgPlaceholder（1 像素的 base64 图片）。</li>
+<li>将原来的背景图添加到 data-lazy-bgimg 属性上。</li>
+</ol>
+<pre><code class="language-js">if (!window.__second_open__ &amp;&amp; !isCareMode &amp;&amp; !isCartoonCopyright) {
+  containers.forEach(function (dom) {
+    var containsBackground = dom.querySelectorAll('[style*=&quot;background-image&quot;]')
+    _toConsumableArray(containsBackground).forEach(function (node) {
+      if (
+        node &amp;&amp;
+        node.style &amp;&amp;
+        typeof node.getAttribute === 'function' &amp;&amp;
+        !node.getAttribute('data-lazy-bgimg') &amp;&amp;
+        !window.__lazyload_detected
+      ) {
+        var bgImg = node.style.backgroundImage
+        var bgImgUrl = bgImg &amp;&amp; bgImg.match(/url\(['&quot;]?(.*?)['&quot;]?\)/)
+        if (bgImgUrl &amp;&amp; bgImgUrl[1]) {
+          node.style.backgroundImage = bgImg.replace(/url\(['&quot;]?.*?['&quot;]?\)/, bgPlaceholder)
+          node.setAttribute('data-lazy-bgimg', bgImgUrl[1])
+          node.classList.add('wx_imgbc_placeholder')
+        }
+      }
+    })
+  })
+}
+</code></pre>
+<p>未完待续...</p>
+]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[如何开发一个 Raycast 扩展？]]></title>
             <link>https://github.com/toFrankie/blog/issues/364</link>
