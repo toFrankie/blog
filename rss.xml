@@ -4,7 +4,7 @@
         <title>Frankie's Blog</title>
         <link>https://github.com/toFrankie/blog</link>
         <description>种一棵树，最好的时间是十年前。其次，是现在。</description>
-        <lastBuildDate>Fri, 11 Jul 2025 10:18:30 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 13 Jul 2025 14:54:52 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -57,10 +57,11 @@
             <link>https://github.com/toFrankie/blog/issues/364</link>
             <guid isPermaLink="false">https://github.com/toFrankie/blog/issues/364</guid>
             <pubDate>Mon, 07 Jul 2025 13:29:52 GMT</pubDate>
-            <description><![CDATA[<h2>前言</h2>
-<p>是的，我已经将 <a href="https://www.alfredapp.com/">Alfred</a> 换为 <a href="https://www.raycast.com/">Raycast</a> 了，后者的免费功能足够好用。</p>
-<p>但也没有完全丢掉 Alfred，还]]></description>
-            <content:encoded><![CDATA[<h2>前言</h2>
+            <description><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/toFrankie/blog@main/images/2025/7/1752379227556.jpg" alt="配图源自 Freepik"></p>
+<h2>前言</h2>
+<p>是的，我已经将 <a href="https://ww]]></description>
+            <content:encoded><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/toFrankie/blog@main/images/2025/7/1752379227556.jpg" alt="配图源自 Freepik"></p>
+<h2>前言</h2>
 <p>是的，我已经将 <a href="https://www.alfredapp.com/">Alfred</a> 换为 <a href="https://www.raycast.com/">Raycast</a> 了，后者的免费功能足够好用。</p>
 <p>但也没有完全丢掉 Alfred，还在用它的剪贴板历史功能。</p>
 <p>此前看到一个帖子说：Alfred 用户一定要试试 Raycast。当时我不以为意。</p>
@@ -76,9 +77,6 @@
 <p>最重要的是，Raycast Extension 的开发体验比 Alfred 好太多了。官方有提供很多了 API，统一的 UI 风格，有统一的分发 <a href="https://www.raycast.com/store">Store</a>，不用网上到处搜索。<a href="https://github.com/raycast/extensions/pulse">活跃度</a>很高，目前扩展数量 <a href="https://github.com/raycast/extensions/blob/cffac925444c27172ccf9538a15bad35a97a0adf/.github/CODEOWNERS">2200+</a>。</p>
 <p>比较麻烦的是，在 Raycast 发布扩展，需要经过官方审核，通过后才会上传到 Store，审核周期较慢。好处是能在一定程度上把控整体的风格，避免各扩展之间外观上参差不齐，能从官方角度提一些更好的交互建议。</p>
 <h2>开始之前</h2>
-<blockquote>
-<p><a href="https://developers.raycast.com/">Raycast Extension 开发文档</a></p>
-</blockquote>
 <h3>技术栈</h3>
 <p>Node.js + TypeScript + React</p>
 <p>虽然使用 React 构建，但通常只能使用官方提供的一些 API 或内置组件，不能过多地自定义（可能是因为 React to macOS Native 的缘故吧），好处是 UI 风格较为统一。</p>
@@ -111,18 +109,139 @@ $ npm run dev
 </code></pre>
 <h3>调试扩展</h3>
 <p>当我们执行 <code>npm run dev</code>（即 <code>ray develop</code>）时，它会自动安装扩展，并以开发模式启动 Raycast 应用。</p>
-<p>为了方便调试，勾选 Preferences - Advanced - Developer Tools 下的几个选项：</p>
+<p>为了方便调试，在 Preferences - Advanced - Developer Tools 下勾选几个选项：</p>
 <ul>
 <li>Auto-reload on Save</li>
 <li>Open Raycast in development mode</li>
 <li>Keep window always visible during development</li>
 </ul>
-<p>字面意思。一是开发过程中文件修改可以自动重载，二是使 Raycast 始终显示，以避免切换到其他应用是 Raycast 窗口关闭。这对开发体验尤为重要。</p>
+<p>这对开发体验尤为重要。一是开发过程中文件修改可以自动重载，二是使 Raycast 始终显示，以避免切换其他应用时窗口关闭。</p>
 <p>在开发模式下，使用 <code>console.log()</code> 可以在终端上显示打印信息。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/toFrankie/blog@main/images/2025/7/1752164474489.png" alt=""></p>
-<p>如果你没有正确使用 API 或组件，或快捷键有冲突，此处也会有 Warning 显示。</p>
+<p>如果没有正确使用 API、组件或快捷键冲突，此处也会有 Warning 显示。</p>
 <h3>发布扩展</h3>
-<p>后面再说。</p>
+<p>如果想要将你的扩展发布到 Store 上，是需要官方审核的。</p>
+<p>为避免审核不通过，你的扩展应满足 <a href="https://developers.raycast.com/basics/prepare-an-extension-for-store">Prepare an Extension for Store</a> 要求。</p>
+<p>二选一：</p>
+<ul>
+<li>Fork 官方<a href="https://github.com/raycast/extensions">仓库</a>，将你的扩展放在仓库 <code>extensions</code> 目录下，提交 PR。</li>
+<li>创建独立仓库，然后通过 ray publish 提交。</li>
+</ul>
+<p>提交 PR 时，建议附上视频，或许可以更快地审核。我之前写了一个微信开发工具的<a href="https://github.com/toFrankie/raycast-wechat-devtool">扩展</a>，由于他们没有小程序项目，流程上它们跑不通，可能会要求附上视频辅助审核，例如<a href="https://github.com/raycast/extensions/pull/20222#pullrequestreview-3003917464">这个</a>。</p>
+<blockquote>
+<p>If you add a new extension or command, include a screencast (or screenshot for straightforward changes). A good screencast will make the review much faster - especially if your extension requires registration in other services.</p>
+</blockquote>
+<p>提交 PR 之后，机器人 greptile-apps 可能会提一些 Review 意见，按需调整即可。</p>
+<p>想要吐槽的是，审核很慢，看 commit 记录一天只处理几个。</p>
+<h2>开始</h2>
+<blockquote>
+<p><a href="https://developers.raycast.com/">Raycast Extension 开发文档</a></p>
+</blockquote>
+<p>扩展路径：<code>/Users/frankie/Library/Application Support/com.raycast.macos/extensions</code></p>
+<h3>命名规范</h3>
+<p>遵循 Apple Style Guide，详见<a href="https://developers.raycast.com/basics/prepare-an-extension-for-store#extensions-and-commands-naming">这里</a>。</p>
+<p>示例：</p>
+<ul>
+<li>扩展标题：尽量使用名词，而不是动词，比如 WeChat DevTool。</li>
+<li>扩展描述：一句话准确、简洁地描述扩展程序的功能。</li>
+<li>命令标题：动名词组合，尽可能具体地描述命令的作用，比如 Open Project。</li>
+<li>命令副标题：为标题提供上下文信息。如果副标题几乎与命令标题重复，那么你可能不需要它。不指定时，该位置会显示扩展标题。
+<ul>
+<li>示例：命令标题 Search Package，命令副标题 NPM，</li>
+<li>示例：命令标题 Search NPM Package，无命名副标题。</li>
+<li>以上示例，对于使用者来说，都是非常清晰明确的。</li>
+</ul>
+</li>
+<li>命令描述：一句话准确、简洁地描述命令的功能。</li>
+</ul>
+<h3>基础信息</h3>
+<p>基本上都在 <code>package.json</code> 声明，列举一些基本字段:</p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;wechat-devtool&quot;, // 包名
+  &quot;title&quot;: &quot;WeChat DevTool&quot;, // 扩展标题
+  &quot;description&quot;: &quot;Quickly open WeChat Mini Program projects via official CLI.&quot;, // 扩展描述
+  &quot;icon&quot;: &quot;icon.png&quot;, // 扩展图标 PNG 512 × 512
+  &quot;author&quot;: &quot;tofrankie&quot;, // Raycast 账户用户名
+  &quot;contributors&quot;: [&quot;someone&quot;], // 贡献者 Raycast 用户名
+  &quot;license&quot;: &quot;MIT&quot;, // 协议
+  &quot;categories&quot;: [&quot;Developer Tools&quot;], // 扩展分类
+  &quot;commands&quot;: [ // 命令列表
+    {
+      &quot;name&quot;: &quot;open-project&quot;, // 命令名称，跟入口文件同名
+      &quot;title&quot;: &quot;Open Project&quot;, // 命令标题
+      &quot;description&quot;: &quot;Open Mini Program projects via WeChat DevTool.&quot;, // 命令描述
+      &quot;mode&quot;: &quot;view&quot; // 命令模式
+    },
+    {
+      &quot;name&quot;: &quot;configure&quot;,
+      &quot;title&quot;: &quot;Configure Projects&quot;,
+      &quot;description&quot;: &quot;Configure Mini Program projects.&quot;,
+      &quot;mode&quot;: &quot;view&quot;
+    }
+  ],
+  &quot;preferences&quot;: [ // 扩展偏好设置
+    {
+      &quot;name&quot;: &quot;wechatDevToolPath&quot;, // 名称
+      &quot;type&quot;: &quot;textfield&quot;, // 类型
+      &quot;title&quot;: &quot;WeChat DevTool Path&quot;, // 标题
+      &quot;description&quot;: &quot;The path to the WeChat DevTool executable.&quot;, // 描述
+      &quot;required&quot;: false // 是否必需
+    }
+  ],
+  &quot;keywords&quot;: [ // 关键词，可供 Store 搜索使用
+    &quot;Developer Tools&quot;,
+    &quot;WeChat&quot;,
+    &quot;WeChat DevTool&quot;,
+    &quot;WeChat Mini Program&quot;
+  ],
+  // ...
+}
+</code></pre>
+<p>对应目录结构：</p>
+<pre><code class="language-txt">.
+├── assets                      # 静态资源目录
+│   └── icon.png
+├── CHANGELOG.md                # 变更日志
+├── metadata                    # 扩展截图
+│   ├── wechat-devtool-1.png
+│   └── wechat-devtool-2.png
+├── package.json                # 扩展信息等
+├── README.md                   # About This Extension 会显示这个
+├── src
+│   ├── configure.tsx           # 入口文件（跟 commands name 同名）
+│   └── open-project.tsx        # 入口文件
+└── tsconfig.json
+</code></pre>
+<p>更多请看 <a href="https://developers.raycast.com/information/manifest#extension-properties">Extension Properties</a> 或 <a href="https://www.raycast.com/schemas/extension.json">Extension Schemas</a>。</p>
+<p>一些注意点：</p>
+<ul>
+<li><strong>name</strong>：不能与 Store 已有扩展重复，可以在<a href="https://github.com/raycast/extensions/blob/main/.github/extensionName2Folder.json">这里</a>查看。将用于发布后的扩展链接，比如： <code>https://www.raycast.com/tofrankie/wechat-devtool</code>。</li>
+<li><strong>icon</strong>：图标放在 <code>/assets</code> 目录。其他需要跟扩展一同打包的静态资源都要放在此目录下。</li>
+<li><strong>author</strong>：是 Raycast 用户名，不是 GitHub 用户名。</li>
+<li><strong>license</strong>：若要发布到 Store，只能是 MIT 协议。</li>
+<li><strong>categories</strong>：至少选择一个，可选分类看<a href="https://developers.raycast.com/basics/prepare-an-extension-for-store#all-categories">这里</a>。</li>
+<li><strong>commands</strong>：
+<ul>
+<li><strong>name</strong>：跟入口文件同名，入口文件需放于 <code>/src</code> 目录。</li>
+<li><strong>mode</strong>：可选值 <code>view</code>、<code>no-view</code>、<code>menu-bar</code>。比如，打开链接等不需要界面的命令操作，可以选择 <code>no-view</code>。</li>
+</ul>
+</li>
+<li><strong>preferences</strong>：偏好设置时可以同步的。
+<ul>
+<li><strong>required</strong>：当设为 <code>true</code> 时，用户设置后才能使用其他命令。</li>
+</ul>
+</li>
+</ul>
+<h3>入口文件</h3>
+<p>当命令设置了 view 模式，那么可以用官方提供的组件来构建界面。</p>
+<ul>
+<li>List 列表类型</li>
+<li>Grid 网格类型</li>
+<li>Detail 显示 Markdown 内容</li>
+<li>Form 表单类型</li>
+</ul>
+<p>更多请看 <a href="https://developers.raycast.com/api-reference/user-interface">User Interface</a>。</p>
+<p>虽然是用 React 编写的界面，但不能自由使用类似 <code>div</code> 或第三方组件库来构建复杂界面。</p>
 <p>未完待续...</p>
 ]]></content:encoded>
         </item>
