@@ -4,7 +4,7 @@
         <title>Frankie's Blog</title>
         <link>https://github.com/toFrankie/blog</link>
         <description>种一棵树，最好的时间是十年前。其次，是现在。</description>
-        <lastBuildDate>Fri, 18 Jul 2025 15:45:28 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 18 Jul 2025 17:36:57 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -96,6 +96,9 @@
 <blockquote>
 <p>在 Raycast 中卸载本地扩展（即非通过 Store 安装的扩展）时，本地扩展文件不会被删除。</p>
 </blockquote>
+<blockquote>
+<p>扩展路径 <code>~/Library/Application Support/com.raycast.macos/extensions</code>。</p>
+</blockquote>
 <h3>创建扩展</h3>
 <p>键入 Create Extension 回车输入必要信息，便创建好了。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/toFrankie/blog@main/images/2025/7/1751903805052.png" alt=""></p>
@@ -133,11 +136,10 @@ $ npm run dev
 </blockquote>
 <p>提交 PR 之后，机器人 greptile-apps 可能会提一些 Review 意见，按需调整即可。</p>
 <p>想要吐槽的是，审核很慢，看 commit 记录一天只处理几个。</p>
-<h2>开始</h2>
+<h2>开发</h2>
 <blockquote>
-<p><a href="https://developers.raycast.com/">Raycast Extension 开发文档</a></p>
+<p><a href="https://developers.raycast.com/">Raycast Extension 官方开发文档</a></p>
 </blockquote>
-<p>扩展路径：<code>/Users/frankie/Library/Application Support/com.raycast.macos/extensions</code></p>
 <h3>命名规范</h3>
 <p>遵循 Apple Style Guide，详见<a href="https://developers.raycast.com/basics/prepare-an-extension-for-store#extensions-and-commands-naming">这里</a>。</p>
 <p>示例：</p>
@@ -154,7 +156,7 @@ $ npm run dev
 </li>
 <li>命令描述：一句话准确、简洁地描述命令的功能。</li>
 </ul>
-<h3>基础信息</h3>
+<h3>扩展信息</h3>
 <p>基本上都在 <code>package.json</code> 声明，列举一些基本字段:</p>
 <pre><code class="language-json">{
   &quot;name&quot;: &quot;wechat-devtool&quot;, // 包名
@@ -167,13 +169,13 @@ $ npm run dev
   &quot;categories&quot;: [&quot;Developer Tools&quot;], // 扩展分类
   &quot;commands&quot;: [ // 命令列表
     {
-      &quot;name&quot;: &quot;open-project&quot;, // 命令名称，跟入口文件同名
-      &quot;title&quot;: &quot;Open Project&quot;, // 命令标题
-      &quot;description&quot;: &quot;Open Mini Program projects via WeChat DevTool.&quot;, // 命令描述
-      &quot;mode&quot;: &quot;view&quot; // 命令模式
+      &quot;name&quot;: &quot;open-project&quot;, // 名称，跟入口文件同名
+      &quot;title&quot;: &quot;Open Project&quot;, // 标题
+      &quot;description&quot;: &quot;Open Mini Program projects via WeChat DevTool.&quot;, // 描述
+      &quot;mode&quot;: &quot;view&quot; // 模式
     },
     {
-      &quot;name&quot;: &quot;configure&quot;,
+      &quot;name&quot;: &quot;configure-projects&quot;,
       &quot;title&quot;: &quot;Configure Projects&quot;,
       &quot;description&quot;: &quot;Configure Mini Program projects.&quot;,
       &quot;mode&quot;: &quot;view&quot;
@@ -181,7 +183,7 @@ $ npm run dev
   ],
   &quot;preferences&quot;: [ // 扩展偏好设置
     {
-      &quot;name&quot;: &quot;wechatDevToolPath&quot;, // 名称
+      &quot;name&quot;: &quot;wechat-devtool-path&quot;, // 名称
       &quot;type&quot;: &quot;textfield&quot;, // 类型
       &quot;title&quot;: &quot;WeChat DevTool Path&quot;, // 标题
       &quot;description&quot;: &quot;The path to the WeChat DevTool executable.&quot;, // 描述
@@ -197,7 +199,7 @@ $ npm run dev
   // ...
 }
 </code></pre>
-<p>对应目录结构：</p>
+<p>目录结构：</p>
 <pre><code class="language-txt">.
 ├── assets                      # 静态资源目录
 │   └── icon.png
@@ -208,21 +210,19 @@ $ npm run dev
 ├── package.json                # 扩展信息等
 ├── README.md                   # About This Extension 会显示这个
 ├── src
-│   ├── configure.tsx           # 入口文件（跟 commands name 同名）
+│   ├── configure-projects.tsx  # 入口文件（跟 commands name 同名）
 │   └── open-project.tsx        # 入口文件
 └── tsconfig.json
 </code></pre>
-<p>更多请看 <a href="https://developers.raycast.com/information/manifest#extension-properties">Extension Properties</a> 或 <a href="https://www.raycast.com/schemas/extension.json">Extension Schemas</a>。</p>
 <p>一些注意点：</p>
 <ul>
-<li><strong>name</strong>：不能与 Store 已有扩展重复，可以在<a href="https://github.com/raycast/extensions/blob/main/.github/extensionName2Folder.json">这里</a>查看。将用于发布后的扩展链接，比如： <code>https://www.raycast.com/tofrankie/wechat-devtool</code>。</li>
+<li><strong>name</strong>：不能与 Store 已有扩展重复，可以在<a href="https://github.com/raycast/extensions/blob/main/.github/extensionName2Folder.json">这里</a>搜索一下。将用于发布后的扩展链接，比如： <code>https://www.raycast.com/tofrankie/wechat-devtool</code>。</li>
 <li><strong>icon</strong>：图标放在 <code>/assets</code> 目录。其他需要跟扩展一同打包的静态资源都要放在此目录下。</li>
 <li><strong>author</strong>：是 Raycast 用户名，不是 GitHub 用户名。</li>
 <li><strong>license</strong>：若要发布到 Store，只能是 MIT 协议。</li>
 <li><strong>categories</strong>：至少选择一个，可选分类看<a href="https://developers.raycast.com/basics/prepare-an-extension-for-store#all-categories">这里</a>。</li>
 <li><strong>commands</strong>：
 <ul>
-<li><strong>name</strong>：跟入口文件同名，入口文件需放于 <code>/src</code> 目录。</li>
 <li><strong>mode</strong>：可选值 <code>view</code>、<code>no-view</code>、<code>menu-bar</code>。比如，打开链接等不需要界面的命令操作，可以选择 <code>no-view</code>。</li>
 </ul>
 </li>
@@ -232,16 +232,45 @@ $ npm run dev
 </ul>
 </li>
 </ul>
-<h3>入口文件</h3>
-<p>当命令设置了 view 模式，那么可以用官方提供的组件来构建界面。</p>
+<p>更多请看 <a href="https://developers.raycast.com/information/manifest#extension-properties">Extension Properties</a> 或 <a href="https://www.raycast.com/schemas/extension.json">Extension Schemas</a>。</p>
+<h3>命令入口文件</h3>
+<p>入口文件放在 <code>/src</code> 目录下，文件名要与 <code>commands[].name</code> 保持一致。</p>
+<p>命令为 view 模式，可以用官方提供的组件来构建界面，详见 <a href="https://developers.raycast.com/api-reference/user-interface">User Interface</a>。</p>
 <ul>
 <li>List 列表类型</li>
 <li>Grid 网格类型</li>
-<li>Detail 显示 Markdown 内容</li>
+<li>Detail 渲染 Markdown 内容</li>
 <li>Form 表单类型</li>
 </ul>
-<p>更多请看 <a href="https://developers.raycast.com/api-reference/user-interface">User Interface</a>。</p>
 <p>虽然是用 React 编写的界面，但不能自由使用类似 <code>div</code> 或第三方组件库来构建复杂界面。</p>
+<h3>Action Panel</h3>
+<p>当我们使用 List、Detail、Form 等构建命令界面时，通常需要声明 Action Panel 来提供更多选项。</p>
+<pre><code class="language-jsx">&lt;List.Item
+  // others...
+  actions={
+    &lt;ActionPanel&gt;
+      &lt;Action
+        title={actionTitle}
+        icon={Icon.Terminal}
+        onAction={() =&gt; {
+          // do something...
+        }}
+      /&gt;
+      &lt;Action.Push
+        title=&quot;Go to Configuration&quot;
+        icon={Icon.Gear}
+        target={&lt;ConfigureProjects /&gt;}
+      /&gt;
+      &lt;Action.CopyToClipboard
+        title=&quot;Copy Project Path&quot;
+        content={project.path}
+        shortcut={{ modifiers: [&quot;cmd&quot;, &quot;shift&quot;], key: &quot;,&quot; }}
+      /&gt;
+    &lt;/ActionPanel&gt;
+  }
+/&gt;
+</code></pre>
+<p>可以自定义操作、也可以使用 Action.Push、Action.CopyToClipboard、Action.OpenInBrowser 等一系列内置指令轻扫完成操作。</p>
 <p>未完待续...</p>
 ]]></content:encoded>
         </item>
