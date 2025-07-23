@@ -4,7 +4,7 @@
         <title>Frankie's Blog</title>
         <link>https://github.com/toFrankie/blog</link>
         <description>种一棵树，最好的时间是十年前。其次，是现在。</description>
-        <lastBuildDate>Fri, 18 Jul 2025 17:36:57 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 23 Jul 2025 07:15:26 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -765,6 +765,12 @@ OR
 <li>realtime</li>
 <li>real-time</li>
 <li>real time</li>
+</ul>
+<h2>更新/升级</h2>
+<p>参赛选手有：</p>
+<ul>
+<li>update</li>
+<li>upgrade</li>
 </ul>
 ]]></content:encoded>
         </item>
@@ -43294,7 +43300,7 @@ console.log(num)    // ['o', 'l', 'l', 'e', 'h']
             <description><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/toFrankie/blog@main/images/2023/12/1702748536703.jpg" alt="配图源自 Freepik"></p>
 <p><a href="https://www.mercurial-scm.org]]></description>
             <content:encoded><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/toFrankie/blog@main/images/2023/12/1702748536703.jpg" alt="配图源自 Freepik"></p>
-<p><a href="https://www.mercurial-scm.org/">Mercurial</a> 跟 Git 一样，也是一个分布式版本控制系统，它使用「汞」的元素符号「Hg」的小写形式  <code>hg</code> 作为命令。</p>
+<p><a href="https://www.mercurial-scm.org/">Mercurial</a> 跟 Git 一样，也是一个分布式版本控制系统，它使用汞的化学元素符号「Hg」的小写形式  <code>hg</code> 作为命令。</p>
 <h2>安装</h2>
 <p>使用 Homebrew 进行安装，其他方式请看<a href="https://www.mercurial-scm.org/downloads">这里</a>。</p>
 <pre><code class="language-shell">$ brew install mercurial
@@ -43492,6 +43498,24 @@ opts.vsd = --wait --diff
 <p>上左表示要合并进来的分支。上中表示两个分支的共同祖先节点。右侧表示当前分支。下方表示合并结果。</p>
 <p>操作完成后，保存文件。关闭 Merging Tab 就表示 Merge Completed。如果有多个冲突文件，关闭这个会自动打开下一个。</p>
 <p>当然，还有很多第三方工具，就不展开介绍了，选择一个合适自己的就行。</p>
+<h2>复制提交</h2>
+<p>场景：有 A、B 两个分支，在 A 分支提交了一个 commit，要将该 commit 修改的内容“复制”到 B 分支。</p>
+<blockquote>
+<p>假设当前处于 A 分支，commit 的修订版本 rev 是 123。</p>
+</blockquote>
+<p>方式有两种：</p>
+<p>一是使用 <code>hg graft</code> 命令，它会在 B 分支创建一个新的 commit，内容和 commit message 跟原提交相同，但 commit hash 不同。</p>
+<pre><code class="language-shell">$ hg checkout feature-b
+
+$ hg graft -r 123
+</code></pre>
+<p>二是使用 <code>hg diff</code> 和 <code>hg import</code> 命令，这样可以手动调整、检查再提交。</p>
+<pre><code class="language-shell">$ hg diff -c 123 &gt; patch.diff
+
+$ hg checkout feature-b
+
+$ hg import --no-commit patch.diff
+</code></pre>
 <h2>References</h2>
 <ul>
 <li><a href="https://www.mercurial-scm.org/">Mercurial SCM</a></li>
@@ -43503,6 +43527,7 @@ opts.vsd = --wait --diff
 <li><a href="https://www.mercurial-scm.org/doc/hgrc.5.html">Configuration files for Mercurial</a></li>
 <li><a href="https://www.oxymoronical.com/blog/2022/09/using-vs-code-for-merges-in-mercurial">Using VS Code for merges in Mercurial</a></li>
 <li><a href="https://wiki.mercurial-scm.org/GitConcepts#Command_equivalence_table">Command equivalence table (Git to Hg)</a></li>
+<li><a href="https://zh-hginit.readthedocs.io/en/latest/">HgInit</a></li>
 </ul>
 ]]></content:encoded>
         </item>
