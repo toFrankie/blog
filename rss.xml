@@ -4,7 +4,7 @@
         <title>Frankie's Blog</title>
         <link>https://github.com/toFrankie/blog</link>
         <description>种一棵树，最好的时间是十年前。其次，是现在。</description>
-        <lastBuildDate>Wed, 23 Jul 2025 07:15:26 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 24 Jul 2025 01:45:48 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -47628,21 +47628,21 @@ middlewares:
             <pubDate>Sat, 25 Feb 2023 12:20:16 GMT</pubDate>
             <description><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/5128488-4bf31641acfac032.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="配图源自 Freepik">]]></description>
             <content:encoded><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/5128488-4bf31641acfac032.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="配图源自 Freepik"></p>
+<blockquote>
+<p>[!WARNING]
+原淘宝 npm 域名即将停止解析，请切换至新域名 <code>npmmirror.com</code>。<code>http://npm.taobao.org</code>和 <code>http://registry.npm.taobao.org</code> 将在 2022 年 6 月 30 日正式下线和停止 DNS 解析。</p>
+</blockquote>
 <h2>前言</h2>
 <p>npm 默认镜像源是 <code>https://registry.npmjs.org/</code>，在国内访问可能会比较慢。</p>
 <p>后来，淘宝做了一个镜像网站（<a href="https://www.npmmirror.com/">npmmirror</a>）以便国内开发者使用。</p>
 <blockquote>
-<p>原淘宝 npm 域名即将停止解析，请切换至新域名 <code>npmmirror.com</code>。<code>http://npm.taobao.org</code>和 <code>http://registry.npm.taobao.org</code> 将在 2022 年 6 月 30 日正式下线和停止 DNS 解析。</p>
-</blockquote>
-<blockquote>
 <p><a href="https://www.zhihu.com/question/59164204/answer/2251376189">淘宝为什么要提供 npm 镜像？</a></p>
 </blockquote>
-<h2>配置</h2>
-<p>使用 <a href="https://docs.npmjs.com/cli/v11/commands/npm-config"><code>npm config</code></a> 命令，可以这样设置镜像源：</p>
+<p>使用 <a href="https://docs.npmjs.com/cli/v11/commands/npm-config"><code>npm config</code></a> 命令可以设置镜像源：</p>
 <pre><code class="language-shell">$ npm config set registry https://registry.npmmirror.com/
 </code></pre>
-<p>但有点长，特别是源地址，不好记。下面介绍一个便于切换和管理镜像源的工具。</p>
-<h2>nrm 使用</h2>
+<p>但有点长，特别是源地址，不好记。</p>
+<h2>nrm</h2>
 <p><a href="https://github.com/Pana/nrm">nrm</a>（NPM registry manager）是 npm 的镜像源管理工具之一。</p>
 <h3>全局安装</h3>
 <pre><code class="language-shell">$ npm i nrm -g
@@ -47669,20 +47669,22 @@ middlewares:
 <pre><code class="language-shell">$ nrm use &lt;registry&gt;
 </code></pre>
 <blockquote>
-<p>注意切换源之后，我们安装依赖仍使用 <code>npm i &lt;package&gt;</code> 的方式来进行安装。</p>
+<p>其中 <code>&lt;registry&gt;</code> 就是 <code>nrm ls</code> 所列出来的名称。</p>
 </blockquote>
 <blockquote>
-<p>其中 <code>&lt;registry&gt;</code> 就是上面命令所列出来的名称。</p>
+<p>切换源之后，仍使用 <code>npm i &lt;package&gt;</code> 的方式进行安装。</p>
 </blockquote>
 <h3>添加源</h3>
 <p>适用于企业内部定制的私有源，<code>&lt;registry&gt;</code> 表示源名称，<code>&lt;url&gt;</code> 表示源地址。</p>
 <pre><code class="language-shell">$ nrm add &lt;registry&gt; &lt;url&gt;
 </code></pre>
-<p>比如，使用 <a href="https://github.com/toFrankie/blog/issues/90">Verdaccio</a> 在本地搭了一个私有分发平台，然后通过 <code>nrm add local http://localhost:4873/</code> 来指定源。</p>
+<blockquote>
+<p>举个例子，在本地使用 <a href="https://github.com/toFrankie/blog/issues/90">Verdaccio</a> 搭建一个私有分发平台，可用 <code>nrm add local http://localhost:4873/</code> 来指定源。</p>
+</blockquote>
 <h3>删除源</h3>
 <pre><code class="language-shell">$ nrm del &lt;registry&gt;
 </code></pre>
-<h3>测试源的响应时间</h3>
+<h3>测试源</h3>
 <pre><code class="language-shell">$ nrm test &lt;registry&gt;
 </code></pre>
 <h2>References</h2>
