@@ -4,7 +4,7 @@
         <title>Frankie's Blog</title>
         <link>https://github.com/toFrankie/blog</link>
         <description>种一棵树，最好的时间是十年前。其次，是现在。</description>
-        <lastBuildDate>Thu, 24 Jul 2025 01:45:48 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 27 Jul 2025 07:28:25 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -1250,7 +1250,7 @@ function genSvgBase64(svgSourceStr) {
 ]]></content:encoded>
         </item>
         <item>
-            <title><![CDATA[使用 GitHub 作为博客之后，可以利用 GitHub Actions 做哪些事情？]]></title>
+            <title><![CDATA[GitHub Blogger + GitHub Action]]></title>
             <link>https://github.com/toFrankie/blog/issues/349</link>
             <guid isPermaLink="false">https://github.com/toFrankie/blog/issues/349</guid>
             <pubDate>Mon, 12 Aug 2024 15:47:51 GMT</pubDate>
@@ -1259,57 +1259,49 @@ function genSvgBase64(svgSourceStr) {
 <p>去年二月，我将简书所有文章搬到 GitHub 上，终于]]></description>
             <content:encoded><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/toFrankie/blog@main/images/2024/8/1723874278827.jpg" alt="配图源自 Freepik"></p>
 <h2>前言</h2>
-<p>去年二月，我将简书所有文章搬到 GitHub 上，终于不用被审核了，爽！</p>
-<p>现在，issues 页就是文章列表，README 就是主页。</p>
-<p>📢 你也可以使用 <a href="https://github.com/toFrankie/github-blogger">Github Blogger</a> 构建你的博客，只需一个仓库就可以开始了。</p>
-<p>接下来，我会介绍一些利用自动化流程来更新 README 等操作。</p>
+<p>去年二月，我将简书所有文章搬到 GitHub 上，终于不用被审核了！</p>
 <ul>
-<li><a href="https://docs.github.com/zh/actions">GitHub Actions</a>：用于设置定时任务、按条件触发以执行某些脚本。</li>
-<li><a href="https://github.com/octokit">Octokit</a>：GitHub API 的官方工具包，支持多种语言。本文以 Node.js 为例。</li>
+<li>README 为主页</li>
+<li>Issues 为文章列表</li>
 </ul>
-<p>如果第一次写的，简单了解：</p>
+<p>📢 这是我的<a href="https://github.com/toFrankie/blog">博客</a>，你也可以试试用 <a href="https://github.com/toFrankie/github-blogger">Github Blogger</a> 写一个属于自己的。</p>
+<h2>入门速看</h2>
 <ul>
-<li><a href="https://docs.github.com/zh/actions/writing-workflows/quickstart">Workflow 快速入门</a></li>
+<li><a href="https://docs.github.com/zh/actions/writing-workflows/quickstart">GitHub Action 快速入门</a></li>
 <li><a href="https://docs.github.com/zh/rest/guides/scripting-with-the-rest-api-and-javascript?apiVersion=2022-11-28">使用 REST API 和 JavaScript 编写脚本</a></li>
 </ul>
+<h2>备份</h2>
+<p>数据在手才最让人安心的。</p>
+<p>如果你是用 <a href="https://github.com/toFrankie/github-blogger">Github Blogger</a> 来管理文章（Issue），文章、配图会自动存档到 <code>archives</code>、<code>images</code> 目录。</p>
+<p>如果你未使用 GitHub Blogger 或在此之前有一些历史 Issue，可以在本地使用脚本调用 <a href="https://docs.github.com/zh/rest/issues/issues?apiVersion=2022-11-28#list-repository-issues">GitHub API</a> 拉取所有 issue，然后重新推到远程仓库。</p>
 <blockquote>
-<p>不懂也问题不大，直接问 ChatGPT 就好。</p>
+<p>可参考 <a href="https://github.com/toFrankie/blog/blob/main/scripts/fetch-all-issues.ts">fetch-all-issues.ts</a></p>
+</blockquote>
+<p>此前试过用 <a href="https://github.com/Yikun/hub-mirror-action">hub-mirror-action</a> 进行同步到 Gitee，但遇到些<a href="https://github.com/Yikun/hub-mirror-action/issues/188">问题</a>没解决。后来发现官方就有提供，参考《<a href="https://gitee.com/help/articles/4336#article-header3">Gitee 仓库镜像管理</a>》。</p>
+<h2>访问统计</h2>
+<p>在仓库 Insights - Traffic 处可以看到近两周的数据。由于 GitHub 只提供近 14 天的数据，可以创建定时任务 Workflow 将数据保存到仓库，用于统计总量。</p>
+<blockquote>
+<p>可参考 <a href="https://github.com/toFrankie/blog/blob/main/scripts/update-traffic-data.ts">update-traffic-data.ts</a></p>
+</blockquote>
+<p>如果想将访问量展示到 README，可以用这个数据生成一个 SVG 图片，并引用该图片即可。</p>
+<blockquote>
+<p>可参考 <a href="https://github.com/toFrankie/blog/blob/main/scripts/update-traffic-views.ts">update-traffic-views.ts</a></p>
 </blockquote>
 <blockquote>
-<p>本文主要提供思路，具体实现可参考我的博客，<a href="https://github.com/toFrankie/blog">戳我</a>。</p>
+<p>我还看过另一个方案 <a href="https://github.com/88250/hits">Hints</a>，当在 README 引入其图片后，每访问 README 一次（也就是 Get 一次图片），访问量 +1。缺点也明显，只有访问 README 才会被统计，访问 issue 等流量无法统计，也无法去重。</p>
 </blockquote>
-<h2>文章备份</h2>
-<p>数据在手才最安全的。</p>
+<h2>RSS</h2>
+<p>使用 GitHub Issue 作为博客，可以使用以下两种方案来创建 RSS：</p>
 <ul>
-<li>将 issue 内容存到仓库
-<ul>
-<li>使用 <a href="https://docs.github.com/zh/rest/issues/issues?apiVersion=2022-11-28#list-repository-issues">List repository issues</a> 获取所有 open issue。</li>
+<li><a href="https://docs.rsshub.app/routes/programming#repo-issues">RSSHub</a></li>
+<li>使用 GitHub Action 生成 RSS</li>
 </ul>
-</li>
-<li>将 GitHub 仓库备份到 Gitee（如果你实在担心 GitHub 有一天被封的话）
-<ul>
-<li>参考《<a href="https://gitee.com/help/articles/4336#article-header3">Gitee 仓库镜像管理</a>》，只要添加 GitHub → Gitee 方向的镜像就好。</li>
-<li>之前想用 <a href="https://github.com/Yikun/hub-mirror-action">hub-mirror-action</a> 来同步，但遇到些<a href="https://github.com/Yikun/hub-mirror-action/issues/188">问题</a>没解决。</li>
-</ul>
-</li>
-</ul>
-<p>也可以自定义 GitHub Workflow，在 issue 被创建、被编辑，或定时任务，将 Issue 内容保存到仓库内。</p>
 <blockquote>
-<p>如果你用 <a href="https://github.com/toFrankie/github-blogger">Github Blogger</a> 来管理文章，可以省略第一个，因为每一次内容变更它都会提交到仓库，存放于 archives 目录。</p>
+<p>如果使用 Folo 订阅，都可以参考这篇<a href="https://github.com/toFrankie/blog/issues/360">文章</a>认领你的 RSS。</p>
 </blockquote>
-<h2>仓库访问数据</h2>
-<p>在仓库 Insights - Traffic 处可以看到近两周的一些数据。</p>
-<blockquote>
-<p>具有仓库推送权限的任何人都可以查看其流量，包括完整克隆（不是提取）、过去 14 天的访问者、推荐站点以及流量图中的热门内容。</p>
-</blockquote>
-<p>由于只能看到最近 14 天的数据，如果要统计总访问量，可以创建一个定时任务的 Workflow 将数据保存到仓库内。</p>
-<p>如果要将访问量展示在 README 里，可以将上述数据统计的数据，生成一个 SVG 图片，然后 <a href="http://README.md">README.md</a> 中引用该图片文件即可。</p>
-<blockquote>
-<p>可参考<a href="https://github.com/toFrankie/blog/tree/main/scripts">这里</a>。</p>
-</blockquote>
-<blockquote>
-<p>我还看到另一个方案 <a href="https://github.com/88250/hits">Hints</a>，当你在 <a href="http://README.md">README.md</a> 引入他的图片之后，每访问 README 一次，也就是 Get 一次图片，那么访问量 +1，原理应该跟埋点差不多。缺点也明显，只有访问 README 才会被统计，访问 issue 等流量无法统计。</p>
-</blockquote>
+<p>如果是第二种方式，可参考 <a href="https://github.com/toFrankie/blog/blob/main/scripts/generate-rss.ts">generate-rss.ts</a>，并在 README 中引入 Badge，比如：</p>
+<pre><code class="language-md">[![RSS](https://img.shields.io/badge/rss-subscribe-orange?logo=rss&amp;style=flat)](https://raw.githubusercontent.com/toFrankie/blog/refs/heads/main/rss.xml)
+</code></pre>
 <h2>文章统计</h2>
 <p>可以做些什么呢？</p>
 <p>比如：</p>
@@ -1324,19 +1316,18 @@ function genSvgBase64(svgSourceStr) {
 <p>近期热门文章，其实跟上一章节 Traffic 是相关的，它可以获取近两周排名前 10 的内容，但不单指 issue 内容，还有其他的。只能根据返回的 path 过滤得到对应的 issue。</p>
 <p>近期创建/更新的文章，可以设置一个 Workflow，每当 issue 被创建或编辑时触发，然后也是通过 <a href="https://docs.github.com/zh/rest/issues/issues?apiVersion=2022-11-28#list-repository-issues">List repository issues</a> 接口获取近 10 篇，加个排序 sort = updated 即可。可参考<a href="https://github.com/toFrankie/blog/blob/44c4a3e77a8bad26ecfd4b655fa7fe5ea1f997f8/scripts/common.ts#L74">我的</a>。</p>
 <h2>配置 issue 模板</h2>
-<p>这类博客型仓库，每个 issue 就是一篇文章，通常不希望他人来创建新的 issue，我们可以为仓库配置一个 issue 模板来限制。</p>
-<p>创建一个 <code>.github/ISSUE_TEMPLATE/config.yml</code> 文件，比如这样：</p>
+<p>对于博客型仓库，每个 Issue 表示一篇文章。</p>
+<p>通常不希望他人创建 Issue，可以对此作出一些限制，创建 <code>.github/ISSUE_TEMPLATE/config.yml</code> 文件，比如：</p>
 <pre><code class="language-yml">blank_issues_enabled: true
 contact_links:
   - name: ❗️ 请勿新开 Issue
     url: https://github.com/toFrankie/blog/discussions/342
     about: 阅读文章时，如有任何想法、建议，欢迎底下评论（或在 Discussions 发起讨论），而不是新开 Issue。
 </code></pre>
-<p>在别人 New Issue 的时候，会这样：</p>
+<p>当他人 New Issue 时，会提示：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/toFrankie/blog@main/images/2024/8/1723868949932.png" alt=""></p>
-<p>我这样配置，他人还是可以创建 blank issue 的，但我想足够了。如果想要彻底关掉 <code>blank_issues_enabled</code> 设为 <code>false</code>。</p>
 <blockquote>
-<p>更多请看<a href="https://docs.github.com/zh/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository#configuring-the-template-chooser">配置模板选择器</a>。</p>
+<p>如果想要彻底关掉，可将 <code>blank_issues_enabled</code> 设为 <code>false</code>，更多请看<a href="https://docs.github.com/zh/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository#configuring-the-template-chooser">配置模板选择器</a>。</p>
 </blockquote>
 ]]></content:encoded>
         </item>
@@ -56396,8 +56387,10 @@ bash-3.2$
             <link>https://github.com/toFrankie/blog/issues/31</link>
             <guid isPermaLink="false">https://github.com/toFrankie/blog/issues/31</guid>
             <pubDate>Sat, 25 Feb 2023 11:02:06 GMT</pubDate>
-            <description><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/5128488-d838891b238a468e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="配图源自 Freepik">]]></description>
-            <content:encoded><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/5128488-d838891b238a468e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="配图源自 Freepik"></p>
+            <description><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/toFrankie/blog@main/images/2025/7/1753601186964.jpg" alt="配图源自 Freepik"></p>
+<h2>开始之前</h2>
+<p>安装 Command Line Tools，很多命]]></description>
+            <content:encoded><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/toFrankie/blog@main/images/2025/7/1753601186964.jpg" alt="配图源自 Freepik"></p>
 <h2>开始之前</h2>
 <p>安装 Command Line Tools，很多命令行工具都依赖它。</p>
 <pre><code class="language-shell">$ xcode-select --install
@@ -56412,7 +56405,7 @@ fred                                                                   alure
 alfred                                                                 alfred@4
 </code></pre>
 <h2>系统偏好设置</h2>
-<p>▼ 个人主观感受的一些设置。</p>
+<p>▼ 个人主观感受的一些设置，仅供参考。</p>
 <h3>触控板</h3>
 <ul>
 <li>开启「轻点来点按」：轻触实现鼠标单击效果。</li>
@@ -56496,7 +56489,8 @@ $ defaults write com.apple.Finder AppleShowAllFiles NO; killall Finder;
 </code></pre>
 <h3>第三方增强</h3>
 <ul>
-<li><a href="https://www.alfredapp.com/">Alfred</a>，或许是比内置 Spotlight 更好的选择，生态上也有很多便捷、好用的 Workflows。</li>
+<li><a href="https://www.raycast.com/">Raycast</a>，一个比 Alfred 更好用的启动器。</li>
+<li><s><a href="https://www.alfredapp.com/">Alfred</a>，或许是比内置 Spotlight 更好的选择，生态上也有很多便捷、好用的 Workflows。</s>（现更推荐 Raycast）</li>
 <li><a href="https://www.trankynam.com/xtrafinder/">XtraFinder</a>，Finder 增强插件，可惜颜值没跟上最新的 Finder。</li>
 <li><a href="https://totalfinder.binaryage.com/">TotalFinder</a>，Finder 增强插件，可实现类似 Chrome 的多标签。</li>
 <li><a href="https://pilotmoon.com/scrollreverser/">Scroll Reverser</a>，还在为 macOS 触控板、鼠标的“自然”方向抓狂？试试这个吧。</li>
