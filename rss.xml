@@ -4,7 +4,7 @@
         <title>Frankie's Blog</title>
         <link>https://github.com/toFrankie/blog</link>
         <description>种一棵树，最好的时间是十年前。其次，是现在。</description>
-        <lastBuildDate>Sun, 27 Jul 2025 07:28:25 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 29 Jul 2025 16:13:41 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -270,7 +270,110 @@ $ npm run dev
   }
 /&gt;
 </code></pre>
-<p>可以自定义操作、也可以使用 Action.Push、Action.CopyToClipboard、Action.OpenInBrowser 等一系列内置指令轻扫完成操作。</p>
+<p>Raycast 提供了 <code>Action.Open</code>、 <code>Action.Push</code>、<code>Action.CopyToClipboard</code>、<code>Action.OpenInBrowser</code> 等一系列内置命令以轻松完成常用操作，更多请看<a href="https://developers.raycast.com/api-reference/user-interface/actions">这里</a>。</p>
+<h3>快捷键</h3>
+<p>在 Action Panel 中，将第一、第二个操作作为 Primary Action 和 Secondary Action，它们会自动分配快捷键。</p>
+<ul>
+<li>在 List、Grid、Detail 页面分别 Enter、⌘ + Enter</li>
+<li>在 Form 页面分别是 ⌘ + Enter、⌘ + ⇧ + Enter</li>
+</ul>
+<p>设定 Action 快捷键时，可以参考 Raycast 官方推荐的常用快捷键，以便使用各插件有一致的用户体验，更多请看<a href="https://developers.raycast.com/api-reference/keyboard">这里</a>。</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>macOS</th>
+<th>Windows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Copy</td>
+<td>⌘ + ⇧ + C</td>
+<td><code>ctrl</code> + <code>shift</code> + C</td>
+</tr>
+<tr>
+<td>CopyDeeplink</td>
+<td>⌘ + ⇧ + C</td>
+<td><code>ctrl</code> + <code>shift</code> + C</td>
+</tr>
+<tr>
+<td>CopyName</td>
+<td>⌘ + ⇧ + .</td>
+<td><code>ctrl</code> + <code>alt</code> + C</td>
+</tr>
+<tr>
+<td>CopyPath</td>
+<td>⌘ + ⇧ + ,</td>
+<td><code>alt</code> + <code>shift</code> + C</td>
+</tr>
+<tr>
+<td>Save</td>
+<td>⌘ + S</td>
+<td><code>ctrl</code> + S</td>
+</tr>
+<tr>
+<td>Duplicate</td>
+<td>⌘ + D</td>
+<td><code>ctrl</code> + <code>shift</code> + S</td>
+</tr>
+<tr>
+<td>Edit</td>
+<td>⌘ + E</td>
+<td><code>ctrl</code> + E</td>
+</tr>
+<tr>
+<td>MoveDown</td>
+<td>⌘ + ⇧ + ↓</td>
+<td><code>ctrl</code> + <code>shift</code> + ↓</td>
+</tr>
+<tr>
+<td>MoveUp</td>
+<td>⌘ + ⇧ + ↑</td>
+<td><code>ctrl</code> + <code>shift</code> + ↑</td>
+</tr>
+<tr>
+<td>New</td>
+<td>⌘ + N</td>
+<td><code>ctrl</code> + N</td>
+</tr>
+<tr>
+<td>Open</td>
+<td>⌘ + O</td>
+<td><code>ctrl</code> + O</td>
+</tr>
+<tr>
+<td>OpenWith</td>
+<td>⌘ + ⇧ + O</td>
+<td><code>ctrl</code> + <code>shift</code> + O</td>
+</tr>
+<tr>
+<td>Pin</td>
+<td>⌘ + ⇧ + P</td>
+<td><code>ctrl</code> + .</td>
+</tr>
+<tr>
+<td>Refresh</td>
+<td>⌘ + R</td>
+<td><code>ctrl</code> + R</td>
+</tr>
+<tr>
+<td>Remove</td>
+<td>⌃ + X</td>
+<td><code>ctrl</code> + D</td>
+</tr>
+<tr>
+<td>RemoveAll</td>
+<td>⌃ + ⇧ + X</td>
+<td><code>ctrl</code> + <code>shift</code> + D</td>
+</tr>
+<tr>
+<td>ToggleQuickLook</td>
+<td>⌘ + Y</td>
+<td><code>ctrl</code> + Y</td>
+</tr>
+</tbody>
+</table>
 <p>未完待续...</p>
 ]]></content:encoded>
         </item>
