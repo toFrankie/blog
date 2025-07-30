@@ -4,7 +4,7 @@
         <title>Frankie's Blog</title>
         <link>https://github.com/toFrankie/blog</link>
         <description>种一棵树，最好的时间是十年前。其次，是现在。</description>
-        <lastBuildDate>Tue, 29 Jul 2025 16:13:41 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 29 Jul 2025 17:02:26 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -162,7 +162,7 @@ $ npm run dev
   &quot;name&quot;: &quot;wechat-devtool&quot;, // 包名
   &quot;title&quot;: &quot;WeChat DevTool&quot;, // 扩展标题
   &quot;description&quot;: &quot;Quickly open WeChat Mini Program projects via official CLI.&quot;, // 扩展描述
-  &quot;icon&quot;: &quot;icon.png&quot;, // 扩展图标 PNG 512 × 512
+  &quot;icon&quot;: &quot;icon.png&quot;, // 扩展图标 512 × 512 的 PNG 图片
   &quot;author&quot;: &quot;tofrankie&quot;, // Raycast 账户用户名
   &quot;contributors&quot;: [&quot;someone&quot;], // 贡献者 Raycast 用户名
   &quot;license&quot;: &quot;MIT&quot;, // 协议
@@ -374,6 +374,34 @@ $ npm run dev
 </tr>
 </tbody>
 </table>
+<h3>图标、图像</h3>
+<p>开发扩展免不了使用图片，Raycast 已经内置了很多图标可直接使用，详见<a href="https://developers.raycast.com/api-reference/user-interface/icons-and-images#icon">这里</a>。</p>
+<p>还可以指定远程图片、本地文件等。</p>
+<pre><code class="language-ts">type ImageLike = URL | Asset | Icon | FileIcon | Image
+
+type ImageSource = URL | Asset | Icon | { light: URL | Asset; dark: URL | Asset }
+</code></pre>
+<ul>
+<li><strong>URL</strong>：如 HTTP 链接</li>
+<li><strong>Asset</strong>：<code>assets</code> 目录的图片文件</li>
+<li><strong>Icon</strong>：Raycast 内置的图标</li>
+<li><strong>FileIcon</strong>：本地文件路径</li>
+<li><strong>Image</strong>：类型如 ImageSource，还可以指定浅色、深色主题的图片，命名形式 <code>icon.png</code> 和 <code>icon@dark.png</code>。</li>
+</ul>
+<p>图片着色：</p>
+<pre><code class="language-jsx">import { Color, Icon, List } from &quot;@raycast/api&quot;
+
+const tintedIcon = { source: Icon.RaycastLogoPos, tintColor: Color.Blue }
+
+export default function Example() {
+  return (
+    &lt;List&gt;
+      &lt;List.Item title=&quot;Blue&quot; icon={tintedIcon} /&gt;
+    &lt;/List&gt;
+  )
+}
+</code></pre>
+<p>本地 svg 图片同样也是可以着色的。</p>
 <p>未完待续...</p>
 ]]></content:encoded>
         </item>
