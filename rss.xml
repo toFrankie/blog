@@ -4,7 +4,7 @@
         <title>Frankie's Blog</title>
         <link>https://github.com/toFrankie/blog</link>
         <description>种一棵树，最好的时间是十年前。其次，是现在。</description>
-        <lastBuildDate>Tue, 29 Jul 2025 17:02:26 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 31 Jul 2025 16:06:25 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -250,7 +250,7 @@ $ npm run dev
   actions={
     &lt;ActionPanel&gt;
       &lt;Action
-        title={actionTitle}
+        title=&quot;Open Project&quot;
         icon={Icon.Terminal}
         onAction={() =&gt; {
           // do something...
@@ -271,7 +271,7 @@ $ npm run dev
 /&gt;
 </code></pre>
 <p>Raycast 提供了 <code>Action.Open</code>、 <code>Action.Push</code>、<code>Action.CopyToClipboard</code>、<code>Action.OpenInBrowser</code> 等一系列内置命令以轻松完成常用操作，更多请看<a href="https://developers.raycast.com/api-reference/user-interface/actions">这里</a>。</p>
-<h3>快捷键</h3>
+<h3>Action 快捷键</h3>
 <p>在 Action Panel 中，将第一、第二个操作作为 Primary Action 和 Secondary Action，它们会自动分配快捷键。</p>
 <ul>
 <li>在 List、Grid、Detail 页面分别 Enter、⌘ + Enter</li>
@@ -402,6 +402,15 @@ export default function Example() {
 }
 </code></pre>
 <p>本地 svg 图片同样也是可以着色的。</p>
+<h3>导航</h3>
+<ul>
+<li>在 Action Panel 可以用 <code>Action.Push</code> 跳转目标页</li>
+<li>在页面可以使用 <code>const { push, pop } = useNavigation()</code> 跳转下一页或返回上一页</li>
+<li>使用 <code>popToRoot()</code> 可以返回 Raycast 根界面</li>
+<li>使用 <code>closeMainWindow()</code> 可以主动关闭 Raycast 窗口</li>
+</ul>
+<h3>搜索</h3>
+<p>以 List 页面为例。</p>
 <p>未完待续...</p>
 ]]></content:encoded>
         </item>
@@ -5393,7 +5402,7 @@ echo &quot;处理完成！&quot;
 <li>准备好你的 <a href="https://docs.github.com/zh/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens">GitHub Personal Access Token</a>（调用 GitHub API 需要用到）</li>
 <li>使用 Command + Shift + P 或 Ctrl + Shift + P 快捷键唤起命令面板：
 <ol>
-<li>键入 Config GitHub Blogger 完成初始配置（仓库可以选择已有的公开仓库）</li>
+<li>键入 Configure GitHub Blogger 完成初始配置（仓库可以选择已有的公开仓库）</li>
 <li>键入 Open GitHub Blogger 打开编辑界面，就可以开始了。</li>
 </ol>
 </li>
