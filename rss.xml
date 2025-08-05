@@ -4,7 +4,7 @@
         <title>Frankie's Blog</title>
         <link>https://github.com/toFrankie/blog</link>
         <description>种一棵树，最好的时间是十年前。其次，是现在。</description>
-        <lastBuildDate>Thu, 31 Jul 2025 16:06:25 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 05 Aug 2025 14:07:47 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -57563,7 +57563,7 @@ cd: no such file or directory: /Users/frankie/Library/Mobile Documents/comappleC
 ]]></content:encoded>
         </item>
         <item>
-            <title><![CDATA[Charles 抓包以及解决抓取 HTTPS 请求 unknown 的问题]]></title>
+            <title><![CDATA[解决 Charles 抓取 HTTPS 请求 unknown 的问题]]></title>
             <link>https://github.com/toFrankie/blog/issues/17</link>
             <guid isPermaLink="false">https://github.com/toFrankie/blog/issues/17</guid>
             <pubDate>Sat, 25 Feb 2023 10:46:20 GMT</pubDate>
@@ -57608,8 +57608,11 @@ License Key: 48891cf209c6d32bf4
 <p><img src="https://upload-images.jianshu.io/upload_images/5128488-1a6fe70a3be5e365.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>输入过程中，服务器一栏 <code>.</code> 之间可能会自动插入空格，手动删除一下。</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/5128488-33d517d6dca453c6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>接着打开系统 <strong>Safari 浏览器</strong>（其他浏览器可能无法唤起安装证书的弹窗），输入地址 <code>chls.pro/ssl</code> 打开页面，会自动唤起安装描述文件的弹窗，选择<strong>允许</strong>。
-<img src="https://upload-images.jianshu.io/upload_images/5128488-400165f07f7bc407.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>接着打开系统 <strong>Safari 浏览器</strong>（其他浏览器可能无法唤起安装证书的弹窗），输入地址 <code>http://chls.pro/ssl</code> 打开页面，会自动唤起安装描述文件的弹窗，选择<strong>允许</strong>。</p>
+<blockquote>
+<p>如果 <code>http://chls.pro/ssl</code> 加载很久都打不开，尝试 <code>http://charlesproxy.com/getssl</code>。</p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/5128488-400165f07f7bc407.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>紧接着，前往：<strong>设置 → 通用 → 描述文件 → 选择对应描述文件 → 安装</strong>。</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/5128488-8b09818aaf5bf63c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <blockquote>
