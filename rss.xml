@@ -4,7 +4,7 @@
         <title>Frankie's Blog</title>
         <link>https://github.com/toFrankie/blog</link>
         <description>种一棵树，最好的时间是十年前。其次，是现在。</description>
-        <lastBuildDate>Tue, 05 Aug 2025 14:07:47 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 06 Aug 2025 03:50:47 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -911,6 +911,11 @@ OR
 <ul>
 <li>update</li>
 <li>upgrade</li>
+</ul>
+<h2>清空</h2>
+<ul>
+<li>clean</li>
+<li>clear</li>
 </ul>
 ]]></content:encoded>
         </item>
