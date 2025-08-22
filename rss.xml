@@ -4,7 +4,7 @@
         <title>Frankie's Blog</title>
         <link>https://github.com/toFrankie/blog</link>
         <description>种一棵树，最好的时间是十年前。其次，是现在。</description>
-        <lastBuildDate>Wed, 06 Aug 2025 03:50:47 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 22 Aug 2025 10:16:56 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -1070,6 +1070,36 @@ OR
 <ul>
 <li><a href="https://www.html5plus.org/doc/zh_cn/runtime.html#plus.runtime.isApplicationExist">HTML5+ API Reference</a></li>
 <li><a href="https://uniapp.dcloud.net.cn/tutorial/app-ios-schemewhitelist.html">设置应用访问白名单列表</a></li>
+</ul>
+<h2>App 热更新</h2>
+<p>我们要知道，应用平台对 App 提供热更新服务其实是持排斥态度的，送审期间最好不要弹出热更新弹窗。</p>
+<p>前端部分：</p>
+<ol>
+<li>通过 <code>plus.runtime.getProperty()</code> 获取当前 wgt 包的版本名称和版本号</li>
+<li>请求服务端检查是有更新的 wgt 包</li>
+<li>通过 <code>uni.downloadFile()</code> 下载 wgt 包</li>
+<li>通过 <code>plus.runtime.install()</code> 安装 wgt 包</li>
+<li>通过 <code>plus.runtime.restart()</code> 重启</li>
+</ol>
+<blockquote>
+<p>完整流程参考<a href="https://ask.dcloud.net.cn/article/35667">示例</a></p>
+</blockquote>
+<p>打包部分：</p>
+<ol>
+<li>打包新版 wgt 时要更新 <code>versionName</code> 和 <code>versionCode</code>，且 <code>versionCode</code> 要比上一次大，否则安装完新包后退出，冷启动应用可能会重新加载旧包。
+<ul>
+<li>versionName 应用版本名称，如 1.2.3</li>
+<li>versionCode 应用版本号，必须是整数，取值范围 1~2147483647，升级时必须高于上一次设置的值。</li>
+</ul>
+</li>
+</ol>
+<p>相关链接：</p>
+<ul>
+<li><a href="https://ask.dcloud.net.cn/article/35667">uni-app 资源在线升级/热更新</a></li>
+<li><a href="https://doc.dcloud.net.cn/uni-app-x/collocation/manifest.html#%E9%85%8D%E7%BD%AE%E9%A1%B9%E5%88%97%E8%A1%A8">manifest.json 配置项</a></li>
+<li><a href="https://www.html5plus.org/doc/zh_cn/runtime.html#plus.runtime.getProperty">plus.runtime.getProperty</a></li>
+<li><a href="https://www.html5plus.org/doc/zh_cn/runtime.html#plus.runtime.install">plus.runtime.install</a></li>
+<li><a href="https://www.html5plus.org/doc/zh_cn/runtime.html#plus.runtime.restart">plus.runtime.restart</a></li>
 </ul>
 <h2>各端差异</h2>
 <blockquote>
