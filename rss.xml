@@ -4,7 +4,7 @@
         <title>Frankie's Blog</title>
         <link>https://github.com/toFrankie/blog</link>
         <description>种一棵树，最好的时间是十年前。其次，是现在。</description>
-        <lastBuildDate>Fri, 22 Aug 2025 10:16:56 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 25 Aug 2025 10:30:29 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -79,7 +79,7 @@
 <h2>开始之前</h2>
 <h3>技术栈</h3>
 <p>Node.js + TypeScript + React</p>
-<p>虽然使用 React 构建，但通常只能使用官方提供的一些 API 或内置组件，不能过多地自定义（可能是因为 React to macOS Native 的缘故吧），好处是 UI 风格较为统一。</p>
+<p>虽然使用 React 构建，但只能使用官方提供的一些 API 或内置组件，不能过多地自定义（可能是 React to macOS Native 的缘故吧），好处是 UI 风格较为统一。</p>
 <h3>安装扩展</h3>
 <ul>
 <li>键入 Store 搜索安装</li>
@@ -90,7 +90,7 @@
 </blockquote>
 <h3>卸载扩展</h3>
 <ul>
-<li>键入关键词，选中要卸载的扩展，在 Actions 面板选择 Uninstall Extension 操作即可，快捷键「⌃ + X」。</li>
+<li>键入关键词，选中要卸载的扩展，在 Action Panel 选择 Uninstall Extension 操作即可，快捷键「⌃ + X」。</li>
 <li>键入 Manage Extension 可管理本地扩展。</li>
 </ul>
 <blockquote>
@@ -156,6 +156,11 @@ $ npm run dev
 </li>
 <li>命令描述：一句话准确、简洁地描述命令的功能。</li>
 </ul>
+<h3>本地化</h3>
+<p>很遗憾，目前 Raycast 扩展仅支持美式英文，不支持本地化语言，更多请看<a href="https://developers.raycast.com/basics/prepare-an-extension-for-store#localization-language">这里</a>。</p>
+<blockquote>
+<p>不上传到 Store 可忽略。</p>
+</blockquote>
 <h3>扩展信息</h3>
 <p>基本上都在 <code>package.json</code> 声明，列举一些基本字段:</p>
 <pre><code class="language-json">{
@@ -239,7 +244,7 @@ $ npm run dev
 <ul>
 <li>List 列表类型</li>
 <li>Grid 网格类型</li>
-<li>Detail 渲染 Markdown 内容</li>
+<li>Detail 渲染 Markdown 内容、展示图片</li>
 <li>Form 表单类型</li>
 </ul>
 <p>虽然是用 React 编写的界面，但不能自由使用类似 <code>div</code> 或第三方组件库来构建复杂界面。</p>
@@ -266,11 +271,20 @@ $ npm run dev
         content={project.path}
         shortcut={{ modifiers: [&quot;cmd&quot;, &quot;shift&quot;], key: &quot;,&quot; }}
       /&gt;
+      &lt;Action
+        title=&quot;Delete Project&quot;
+        icon={Icon.Trash}
+        style={Action.Style.Destructive}
+        onAction={() =&gt; {
+          // do something...
+        }}
+      /&gt;
     &lt;/ActionPanel&gt;
   }
 /&gt;
 </code></pre>
 <p>Raycast 提供了 <code>Action.Open</code>、 <code>Action.Push</code>、<code>Action.CopyToClipboard</code>、<code>Action.OpenInBrowser</code> 等一系列内置命令以轻松完成常用操作，更多请看<a href="https://developers.raycast.com/api-reference/user-interface/actions">这里</a>。</p>
+<p>对于危险操作，可以声明为 <a href="https://developers.raycast.com/api-reference/user-interface/actions#action.style">Action.Style.Destructive</a> 以高亮显示，可以配合 <a href="https://developers.raycast.com/api-reference/feedback/alert">confirmAlert</a> 二次确认。</p>
 <h3>Action 快捷键</h3>
 <p>在 Action Panel 中，将第一、第二个操作作为 Primary Action 和 Secondary Action，它们会自动分配快捷键。</p>
 <ul>
@@ -374,7 +388,7 @@ $ npm run dev
 </tr>
 </tbody>
 </table>
-<h3>图标、图像</h3>
+<h3>图标、图片</h3>
 <p>开发扩展免不了使用图片，Raycast 已经内置了很多图标可直接使用，详见<a href="https://developers.raycast.com/api-reference/user-interface/icons-and-images#icon">这里</a>。</p>
 <p>还可以指定远程图片、本地文件等。</p>
 <pre><code class="language-ts">type ImageLike = URL | Asset | Icon | FileIcon | Image
@@ -385,11 +399,11 @@ type ImageSource = URL | Asset | Icon | { light: URL | Asset; dark: URL | Asset 
 <li><strong>URL</strong>：如 HTTP 链接</li>
 <li><strong>Asset</strong>：<code>assets</code> 目录的图片文件</li>
 <li><strong>Icon</strong>：Raycast 内置的图标</li>
-<li><strong>FileIcon</strong>：本地文件路径</li>
+<li><strong>FileIcon</strong>：该文件/目录在 Finder 所显示的图标</li>
 <li><strong>Image</strong>：类型如 ImageSource，还可以指定浅色、深色主题的图片，命名形式 <code>icon.png</code> 和 <code>icon@dark.png</code>。</li>
 </ul>
 <p>图片着色：</p>
-<pre><code class="language-jsx">import { Color, Icon, List } from &quot;@raycast/api&quot;
+<pre><code class="language-tsx">import { Color, Icon, List } from &quot;@raycast/api&quot;
 
 const tintedIcon = { source: Icon.RaycastLogoPos, tintColor: Color.Blue }
 
@@ -410,7 +424,98 @@ export default function Example() {
 <li>使用 <code>closeMainWindow()</code> 可以主动关闭 Raycast 窗口</li>
 </ul>
 <h3>搜索</h3>
-<p>以 List 页面为例。</p>
+<p>使用 List 构建的页面带有一个搜索栏用于筛选，来源是 List.Item 的 <code>title</code> 和 <code>keywords</code> 字段。</p>
+<p>我发现，它没有根页面输入框那么智能，对筛选中文或拼音不太灵光的样子。</p>
+<p>这种情况下，有两种解决方法：</p>
+<ul>
+<li>自定义搜索规则：searchText + onSearchTextChange</li>
+<li>丰富 keywords 内容</li>
+</ul>
+<blockquote>
+<p><a href="https://developers.raycast.com/api-reference/user-interface/list#props">List Props</a></p>
+</blockquote>
+<p>已后者为例，可以将项目名称、项目路径、项目名称拼音（若有中文）添加到 keywords 字段，参考 <a href="https://github.com/toFrankie/raycast-wechat-devtool/blob/2be07dadbc747826def1a1c5373bb0040d4d004b/src/utils/pinyin.ts">pinyin.ts</a>。</p>
+<h3>图片展示</h3>
+<p>若要展示一张图片，似乎只有 Detail + Markdown 的方式了。</p>
+<pre><code class="language-tsx">export default function ImageView({ url }: { url: string }) {
+  // 可通过 example.png?raycast-width=250&amp;raycast-height=250 指定宽高
+  const markdown = `![](${url})`;
+  return &lt;Detail markdown={markdown} /&gt;;
+}
+</code></pre>
+<h3>表单</h3>
+<p>没什么好说的，文档很详尽了，请看<a href="https://developers.raycast.com/api-reference/user-interface/form">这里</a>。</p>
+<h3>Toast、Loading、Alert</h3>
+<p>提供的 API 有：</p>
+<ul>
+<li><a href="https://developers.raycast.com/api-reference/feedback/toast"><strong>showToast</strong></a> 有 Success、Failure、Animated 三种，后者为 Loading 圈圈。如果 Raycast 窗口关闭了，会回退到 showHUD</li>
+<li><a href="https://developers.raycast.com/utilities/functions/showfailuretoast"><strong>showFailureToast</strong></a> 显示错误信息优先选择这个</li>
+<li><a href="https://developers.raycast.com/api-reference/feedback/hud#showhud"><strong>showHUD</strong></a> Raycast 窗口时在屏幕下方显示一条信息</li>
+<li><a href="https://developers.raycast.com/api-reference/feedback/alert"><strong>confirmAlert</strong></a> 用于危险操作的二次确认弹窗</li>
+</ul>
+<h3>环境信息</h3>
+<p>可以在 <a href="https://developers.raycast.com/api-reference/environment">environment</a> 获取：</p>
+<pre><code class="language-js">import { useNavigation, showToast, Toast, showHUD, environment } from &quot;@raycast/api&quot;;
+
+environment.raycastVersion // 1.102.5
+environment.ownerOrAuthorName // tofrankie
+environment.extensionName // wechat-devtool
+environment.commandName // open-project
+environment.commandMode // view
+environment.assetsPath // /Users/frankie/.config/raycast/extensions/wechat-devtool/assets
+environment.supportPath // /Users/frankie/Library/Application Support/com.raycast.macos/extensions/wechat-devtool
+environment.isDevelopment // true
+environment.appearance // light
+environment.textSize // medium
+environment.launchType // userInitiated
+</code></pre>
+<h3>扩展相关文件</h3>
+<ul>
+<li>assetsPath 扩展安装到 Raycast 的产物路径</li>
+<li>supportPath 扩展相关文件，比如扩展记录一个配置文件，可以放在该目录下</li>
+</ul>
+<p>需要注意的是，Raycast 不会同步 <code>supportPath</code> 目录的文件。</p>
+<p>之前我想着把一些配置写入 supportPath 的文件，使其在 Raycast 中进行同步。但这是不行的，对扩展来说，只同步 <a href="https://developers.raycast.com/api-reference/preferences">preferences</a> 的配置，而 preferences 又没办法动态更新。</p>
+<h3>Change Log</h3>
+<p>开发完成后，需要在 <a href="http://CHANGELOG.md">CHANGELOG.md</a> 补充一条变更记录。</p>
+<p>遵循 <a href="https://keepachangelog.com/en/1.0.0/">Keep a Changelog</a> 写法，要求如下：</p>
+<ul>
+<li>格式必须是 <code>## [xxx] - {PR_MERGE_DATE}</code></li>
+<li><code>[]</code> 内的为本次变更的标题</li>
+<li><code>{PR_MERGE_DATE}</code> 为合并日期。因为从提交 PR 到审核通过可能要好几天，被合并时会自动替换</li>
+</ul>
+<blockquote>
+<p>更多请看<a href="https://developers.raycast.com/basics/prepare-an-extension-for-store#version-history">这里</a></p>
+</blockquote>
+<pre><code class="language-text"># WeChat DevTool Changelog
+
+## [New Version] - {PR_MERGE_DATE}
+
+- Add something
+- Improve something
+- Fix something
+
+## [First Release] - 2025-07-11
+
+- **Open Project** - Open configured mini program project via WeChat DevTool CLI.
+- **Graphical Configuration** - Complete graphical interface for dynamic project management.
+</code></pre>
+<h3>截图</h3>
+<p>存放在 <code>metadata</code> 目录下，可通过 1 ~ 6 张截图。</p>
+<p>Raycast 内置提供了截屏功能，在 Raycast Settings - Advanced - Window Capture 中设置快捷键（如 ⌥ + ⇧ + ⌘ + M）。</p>
+<p>在 npm run dev 模式下启动扩展，按下快捷键，便可调出截屏窗口，并勾选上「Save to Metadata」，就会自动存入 <code>metadata</code> 目录，更多请看<a href="https://developers.raycast.com/basics/prepare-an-extension-for-store#screenshots">这里</a>。</p>
+<blockquote>
+<p>Raycast 提供了一些高清壁纸，请看<a href="https://www.raycast.com/wallpapers">这里</a>。</p>
+</blockquote>
+<h2>贡献</h2>
+<p>如果想对已发布的扩展作出贡献：</p>
+<ol>
+<li>fork <a href="https://github.com/raycast/extensions">raycast/extensions</a></li>
+<li>功能调整...</li>
+<li>将你的 Raycast 用户名添加到 package.json 的 <code>contributors</code> 字段</li>
+<li>提交 PR，等待审核发布</li>
+</ol>
+<p>由于审核较慢，如果同时多个扩展做出贡献，可以创建不同的分支去处理，如 ext/extension-a、ext/extension-b。</p>
 <p>未完待续...</p>
 ]]></content:encoded>
         </item>
