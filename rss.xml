@@ -4,7 +4,7 @@
         <title>Frankie's Blog</title>
         <link>https://github.com/toFrankie/blog</link>
         <description>种一棵树，最好的时间是十年前。其次，是现在。</description>
-        <lastBuildDate>Mon, 25 Aug 2025 10:30:29 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 26 Aug 2025 02:47:43 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -476,6 +476,54 @@ environment.launchType // userInitiated
 </ul>
 <p>需要注意的是，Raycast 不会同步 <code>supportPath</code> 目录的文件。</p>
 <p>之前我想着把一些配置写入 supportPath 的文件，使其在 Raycast 中进行同步。但这是不行的，对扩展来说，只同步 <a href="https://developers.raycast.com/api-reference/preferences">preferences</a> 的配置，而 preferences 又没办法动态更新。</p>
+<h3>Shell 环境</h3>
+<p>有时我们要在 Raycast 扩展中执行一些 Shell 命令。</p>
+<p>下面是默认情况下的一些变量值。</p>
+<pre><code class="language-shell">$ echo $SHELL
+/bin/zsh
+</code></pre>
+<pre><code class="language-shell">$ echo $PATH
+/usr/gnu/bin:/usr/local/bin:/bin:/usr/bin:.
+</code></pre>
+<pre><code class="language-shell">$ printenv
+SUPPORT_PATH=/Users/frankie/Library/Application Support/com.raycast.macos/extensions/wechat-devtool
+TMPDIR=/var/folders/z4/nxcp1z415jgff4rwrrf8v3y00000gn/T
+ASSETS_PATH=/Users/frankie/.config/raycast/extensions/wechat-devtool/assets
+LC_ALL=en_CN-u-hc-h23-u-ca-gregory-u-nu-latn
+__CF_USER_TEXT_ENCODING=0x1F5:0x19:0x34
+EXTENSION_NAME=wechat-devtool
+RAYCAST_VERSION=1.102.5
+PWD=/
+FAVICON_PROVIDER=legacy
+NODE_PATH=/Applications/Raycast.app/Contents/Resources/RaycastNodeExtensions_RaycastNodeExtensions.bundle/Contents/Resources/api/node_modules
+NODE_ENV=development
+SHLVL=1
+HOME=/Users/frankie
+COMMAND_NAME=open-project
+RAYCAST_BUNDLE_ID=com.raycast.macos
+_=/usr/bin/printenv
+</code></pre>
+<p>通常我们会在 <code>~/.zshrc</code> 中配置 <code>export PATH=&quot;/opt/homebrew/bin:/opt/homebrew/sbin:$PATH&quot;</code> 以使用 Homebrew 安装的命令，但 Raycast 扩展执行 Shell 不会加载 <code>~/.zshrc</code> 因此无法直接使用里面的命令。</p>
+<p>可以这样处理（仅供参考）：</p>
+<pre><code class="language-ts">import { exec } from &quot;child_process&quot;;
+import { promisify } from &quot;util&quot;;
+
+const execAsync = promisify(exec);
+
+function execCommand(command: string, cwd?: sting) {
+  const env = getEnv();
+  await execAsync(command, { cwd, env });
+  // do something...
+}
+
+function getEnv() {
+  return { ...process.env, PATH: joinHomebrewPath() };
+}
+
+function joinHomebrewPath() {
+  return [process.env.PATH, &quot;/opt/homebrew/bin&quot;, &quot;/opt/homebrew/sbin&quot;].filter(Boolean).join(&quot;:&quot;);
+}
+</code></pre>
 <h3>Change Log</h3>
 <p>开发完成后，需要在 <a href="http://CHANGELOG.md">CHANGELOG.md</a> 补充一条变更记录。</p>
 <p>遵循 <a href="https://keepachangelog.com/en/1.0.0/">Keep a Changelog</a> 写法，要求如下：</p>
@@ -501,9 +549,9 @@ environment.launchType // userInitiated
 - **Graphical Configuration** - Complete graphical interface for dynamic project management.
 </code></pre>
 <h3>截图</h3>
-<p>存放在 <code>metadata</code> 目录下，可通过 1 ~ 6 张截图。</p>
+<p>存放在 <code>metadata</code> 目录下，可提供 1 ~ 6 张截图。</p>
 <p>Raycast 内置提供了截屏功能，在 Raycast Settings - Advanced - Window Capture 中设置快捷键（如 ⌥ + ⇧ + ⌘ + M）。</p>
-<p>在 npm run dev 模式下启动扩展，按下快捷键，便可调出截屏窗口，并勾选上「Save to Metadata」，就会自动存入 <code>metadata</code> 目录，更多请看<a href="https://developers.raycast.com/basics/prepare-an-extension-for-store#screenshots">这里</a>。</p>
+<p>在 <code>npm run dev</code> 模式下启动扩展，按下快捷键，便可调出截屏窗口，并勾选上「Save to Metadata」，就会自动保存到扩展的 <code>metadata</code> 目录，更多请看<a href="https://developers.raycast.com/basics/prepare-an-extension-for-store#screenshots">这里</a>。</p>
 <blockquote>
 <p>Raycast 提供了一些高清壁纸，请看<a href="https://www.raycast.com/wallpapers">这里</a>。</p>
 </blockquote>
@@ -43693,9 +43741,17 @@ $ hg update
 </code></pre>
 <h2>查看提交记录</h2>
 <pre><code class="language-shell">$ hg log
-$ hg log -G # or hg log --graph
+
+# 分支图形化 --graph
+$ hg log -G
+
+# 指定文件
+$ hg log /path/to/file
+
+$ 含 patch 差异 --patch
+$ hg log -p 
 </code></pre>
-<p>更多请看<a href="https://swcarpentry.github.io/hg-novice/12-merges/">这里</a>。</p>
+<p>更多 <code>hg log -h</code> 或请看<a href="https://swcarpentry.github.io/hg-novice/12-merges/">这里</a>。</p>
 <h2>取消文件跟踪</h2>
 <p>通常来说，我们会将不需要提交到远程仓库的文件或目录添加到 <code>.hgignore</code> 文件中。对于已跟踪的文件（tracked file），若要取消某个文件或目录的跟踪，只更新 <code>.hgigonre</code> 是不行的，还要用到 <code>hg remove</code> 或 <code>hg forget</code> 命令。</p>
 <pre><code class="language-shell"># 取消跟踪，并删除本地文件
