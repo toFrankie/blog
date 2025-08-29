@@ -4,11 +4,124 @@
         <title>Frankie's Blog</title>
         <link>https://github.com/toFrankie/blog</link>
         <description>种一棵树，最好的时间是十年前。其次，是现在。</description>
-        <lastBuildDate>Tue, 26 Aug 2025 02:47:43 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 29 Aug 2025 10:28:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
         <copyright>All rights reserved 2025</copyright>
+        <item>
+            <title><![CDATA[联合类型与交叉类型的反直觉]]></title>
+            <link>https://github.com/toFrankie/blog/issues/366</link>
+            <guid isPermaLink="false">https://github.com/toFrankie/blog/issues/366</guid>
+            <pubDate>Fri, 29 Aug 2025 04:01:27 GMT</pubDate>
+            <description><![CDATA[<h2>前言</h2>
+<ul>
+<li>联合类型：要么 A，要么 B（只要满足任意一个分支）</li>
+<li>交叉类型：必须同时满足 A 和 B（必须满足所有分支）</li>
+</ul>
+<pre><code class="language-ts">type Union = A | B
+
+type Intersec]]></description>
+            <content:encoded><![CDATA[<h2>前言</h2>
+<ul>
+<li>联合类型：要么 A，要么 B（只要满足任意一个分支）</li>
+<li>交叉类型：必须同时满足 A 和 B（必须满足所有分支）</li>
+</ul>
+<pre><code class="language-ts">type Union = A | B
+
+type Intersection = A &amp; B
+</code></pre>
+<p>看起来，联合类型像数学上的“并集”，交叉类型像“交集”。</p>
+<h2>符合直觉</h2>
+<p>▼ 要么是字符串，要么是数字，这是符合直觉的。</p>
+<pre><code class="language-ts">type DataUnion = string | number
+
+let data: DataUnion
+
+data = 'abc' // ✅
+data = 123 // ✅
+</code></pre>
+<p>▼ 由于不可能存在同时满足是字符串，也是数字的值，因此 <code>DataIntersection</code> 类型是 <code>never</code>。这也是符合直觉的。</p>
+<pre><code class="language-ts">type DataIntersection = string &amp; number
+
+let data: DataIntersection
+
+data = 'abc' // ❌ Type '&quot;abc&quot;' is not assignable to type 'never'.
+data = 123 // ❌ Type '123' is not assignable to type 'never'.
+</code></pre>
+<p>▼ 以下为对象类型，Shape 应该保持一致，是符合直觉的。</p>
+<pre><code class="language-ts">type Point = { x: number }
+
+let p: Point
+
+p = { x: 1 } // ✅
+p = { y: 2 } // ❌ Object literal may only specify known properties, and 'y' does not exist in type 'Point'.
+p = { x: 1, y: 2 } // ❌ Object literal may only specify known properties, and 'y' does not exist in type 'Point'.
+</code></pre>
+<p>▼ 以下为对象的交叉类型，要符合「必须同时满足 A 和 B」结论，其结果必须是一个包含 <code>x</code> 和 <code>y</code> 属性新对象类型，是符合直觉的。</p>
+<pre><code class="language-ts">type PointIntersection = { x: number } &amp; { y: number }
+
+let p: PointIntersection
+
+p = { x: 1 } // ❌ Property 'y' is missing in type '{ x: number; }' but required in type '{ y: number; }'.
+p = { y: 2 } // ❌ Property 'x' is missing in type '{ y: number; }' but required in type '{ x: number; }'.
+p = { x: 1, y: 2 } // ✅
+p = { x: 1, y: 2, z: 3 } // ❌ Object literal may only specify known properties, and 'z' does not exist in type 'PointIntersection'.
+</code></pre>
+<p>▼ 以下示例访问属性 <code>point.x</code>、<code>point.y</code> 报错是符合直觉的，一个没有 <code>x</code>、一个没有 <code>y</code>。TypeScript 会要求所有成员类型里都保证存在的属性，才允许安全访问。该方法的修正方式是做类型收窄。</p>
+<pre><code class="language-ts">type PointUnion = { x: number } | { y: number }
+
+function showPoint(point: PointUnion) {
+  const x = point.x ?? 0 // ❌ Property 'x' does not exist on type '{ y: number; }'.
+  const y = point.y ?? 0 // ❌ Property 'y' does not exist on type '{ x: number; }'.
+  return `(${x}, ${y})`
+}
+</code></pre>
+<h2>反直觉</h2>
+<p>▼ 以下示例，按理 <code>p = obj</code> 报错才是符合直觉的。</p>
+<pre><code class="language-ts">type Point = { x: number }
+
+let p: Point
+
+let obj = { x: 1, y: 2 }
+
+p = { x: 1, y: 2 } // ❌ Object literal may only specify known properties, and 'y' does not exist in type 'Point'.
+p = obj // ✅
+</code></pre>
+<p>原因如下：</p>
+<ol>
+<li>如果赋值语句等号右边是一个字面量，会触发对象的严格字面量检查（strict object literal checking）。因此多了未定义的属性 <code>y</code> 会报错。</li>
+<li>如果赋值语句等号右边是一个变量，则不会触发对象的严格字面量检查，所以多了属性没报错（但不能少）。尽管赋值的 <code>obj</code> 是包含 <code>y</code> 属性的，但通过 <code>p.y</code> 访问属性仍然会报错，因为 <code>p</code> 的类型 <code>Point</code> 并不包含 <code>y</code> 属性。</li>
+</ol>
+<blockquote>
+<p>对于 <code>p = obj</code> 这类不触发严格字面量检查，是有实际意义的。比如接口的返回数据有 N 多字段，但业务上实际用到可能只有其中一部分，这种情况下只需声明用到的字段即可。</p>
+</blockquote>
+<p>▼ 以下示例，为什么 <code>p = { x: 1, y: 2 }</code> 又不报错？</p>
+<pre><code class="language-ts">type PointUnion = { x: number } | { y: number }
+
+let p: PointUnion
+
+p = { x: 1 } // ✅
+p = { y: 2 } // ✅
+p = { x: 1, y: 2 } // ✅ 明明是字面量，又不报错了？？？
+</code></pre>
+<p>原因是触发对象的严格字面量检查，有两个要求：</p>
+<ol>
+<li>赋值语句等号右边是一个字面量</li>
+<li>被赋值对象的类型是单一的对象类型（非联合、非索引签名）</li>
+</ol>
+<p>▼ 再看示例，原因跟前面一样，就是看起来有点奇怪。</p>
+<pre><code>type PointUnion = { x: number } | { y: number }
+type PointIntersection = { x: number } &amp; { y: number }
+
+let point1: PointUnion
+let point2: PointIntersection
+
+point1 = { x: 1, y: 2 } // ✅
+point2 = { x: 1, y: 2 } // ✅
+</code></pre>
+]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[微信公众号是如何加载、处理图片的？]]></title>
             <link>https://github.com/toFrankie/blog/issues/365</link>
