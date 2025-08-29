@@ -1,5 +1,6 @@
 # 近期更新
 
+- [联合类型与交叉类型的反直觉](https://github.com/toFrankie/blog/issues/366)
 - [Mercurial 使用详解](https://github.com/toFrankie/blog/issues/109)
 - [如何开发一个 Raycast 扩展？](https://github.com/toFrankie/blog/issues/364)
 - [uni-app 开发记录](https://github.com/toFrankie/blog/issues/353)
@@ -9,4 +10,3 @@
 - [macOS 配置指南](https://github.com/toFrankie/blog/issues/31)
 - [GitHub Blogger + GitHub Action](https://github.com/toFrankie/blog/issues/349)
 - [nrm 使用详解](https://github.com/toFrankie/blog/issues/89)
-- [Taro 单位转换优化](https://github.com/toFrankie/blog/issues/172)
