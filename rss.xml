@@ -4,7 +4,7 @@
         <title>Frankie's Blog</title>
         <link>https://github.com/toFrankie/blog</link>
         <description>种一棵树，最好的时间是十年前。其次，是现在。</description>
-        <lastBuildDate>Fri, 29 Aug 2025 10:28:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 01 Sep 2025 06:07:09 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -764,6 +764,95 @@ function joinHomebrewPath() {
 <li><code>display: none</code> 不能被访问。</li>
 <li><code>opacity: 0</code> 和 <code>visibility: hidden</code> 可以被访问。</li>
 </ul>
+<h2>CSS 继承性</h2>
+<ul>
+<li><strong>display</strong> - 非继承属性，初始值 <code>inline</code> 或 <code>block</code>，取决于元素。</li>
+<li><strong>opacity</strong> - 非继承属性，初始值为 <code>1</code>。</li>
+<li><strong>visibility</strong> - 是继承属性，初始值为 <code>visible</code>。</li>
+</ul>
+<h2>子元素是否可见（指视觉上）</h2>
+<p>在父元素上分别设置：</p>
+<ul>
+<li><code>display: none</code></li>
+<li><code>opacity: 0</code></li>
+<li><code>visibility: hidden</code></li>
+</ul>
+<p>根据其继承性、初始值，则子元素分别为：</p>
+<ul>
+<li><code>display: block</code>（以 div 为例）</li>
+<li><code>opacity: 1</code></li>
+<li><code>visibility: hidden</code></li>
+</ul>
+<p>结果是三者的子元素均不可见。</p>
+<p>由于 visibility 会继承父元素的值，如果将子元素主动设为 <code>visibility: visible</code> 结果有何不同呢？</p>
+<blockquote>
+<p>结果是 <code>visibility: visible</code> 的子元素可见。</p>
+</blockquote>
+<p>结论：</p>
+<ul>
+<li>若父元素为 <code>display: none</code>，子元素及后代不可见。</li>
+<li>若父元素为 <code>opacity: 0</code>，子元素及后代不可见。</li>
+<li>若父元素为 <code>visibility: hidden</code>、子元素为 <code>visibility: hidden</code>，子元素不可见。</li>
+<li>若父元素为 <code>visibility: hidden</code>、子元素为 <code>visibility: visible</code>，子元素可见。</li>
+</ul>
+<h2>是否响应事件</h2>
+<p>分为：</p>
+<ul>
+<li>元素本身（父元素）是否响应事件？</li>
+<li>子元素是否响应事件？</li>
+</ul>
+<p>在父元素上分别设置：</p>
+<ul>
+<li><code>display: none</code></li>
+<li><code>opacity: 0</code></li>
+<li><code>visibility: hidden</code></li>
+</ul>
+<h3>元素本身</h3>
+<ul>
+<li>若父元素为 <code>display: none</code>，父元素不响应事件。</li>
+<li>若父元素为 <code>opacity: 0</code>，父元素响应事件。</li>
+<li>若父元素为 <code>visibility: hidden</code>，父元素不响应事件。</li>
+</ul>
+<blockquote>
+<p><a href="https://codepen.io/tofrankie/pen/bNVmyby">CodePen 示例</a></p>
+</blockquote>
+<h3>子元素</h3>
+<p>根据其继承性、初始值，则子元素分别为：</p>
+<ul>
+<li><code>display: block</code>（以 div 为例）</li>
+<li><code>opacity: 1</code></li>
+<li><code>visibility: hidden</code></li>
+</ul>
+<p>此时只有 opacity: 1 的子元素会响应事件，另外两个不响应事件。</p>
+<blockquote>
+<p><a href="https://codepen.io/tofrankie/pen/qEOJGOV">CodePen 示例</a></p>
+</blockquote>
+<p>接着将子元素分别设置：</p>
+<ul>
+<li><code>display: none</code></li>
+<li><code>opacity: 0</code></li>
+<li><code>visibility: visible</code></li>
+</ul>
+<p>结果是 <code>opacity: 0</code> 和 <code>visibility: visible</code> 可响应事件，另外一个不响应事件。</p>
+<ul>
+<li><code>display: none</code> 不会响应子元素的事件。</li>
+<li><code>opacity: 0</code> 会响应子元素的事件。</li>
+<li><code>visibility: hidden</code> 不会响应子元素的事件。</li>
+</ul>
+<h3>结论</h3>
+<ul>
+<li>若元素为 <code>display: none</code>，则本身及其后代元素的事件均不响应。</li>
+<li>若元素为 <code>opacity: 0</code>，无论本身及其后代元素是否可见，均可响应事件。</li>
+<li>若元素为 <code>visibility: hidden</code>，则元素本身事件不响应。</li>
+<li>若元素为 <code>visibility: hidden</code>，子元素为 <code>visibility: visible</code>，则子元素事件可响应。</li>
+</ul>
+<p>现在结合可见性、事件响应：</p>
+<ul>
+<li>对于 <code>display: none</code> 的元素来说，它（包括后代元素）在构建 Render Tree 的阶段已经被忽略掉，因此它实际上并没有出现在 DOM 中，自然不可见，且不响应事件。</li>
+<li>对于 <code>opacity: 0</code> 的元素来说，它只是视觉上的不可见，但元素是真实存在的，因此可响应事件。</li>
+<li>对于 <code>visibility</code> 的元素来说，元素可见方能响应事件。比较特别的是，子元素可以摆脱父元素影响。可以设置为父元素不可见（<code>visibility: hidden</code>）同时子元素可见（<code>visibility: visible</code>）。对于公众号图文这种纯 CSS 交互的项目，借助该特性可以做出很多交互。</li>
+</ul>
+<h2>是否可用过渡动画</h2>
 <p>未完待续...</p>
 ]]></content:encoded>
         </item>
@@ -1161,28 +1250,38 @@ OR
             <pubDate>Tue, 18 Feb 2025 09:43:35 GMT</pubDate>
             <description><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/toFrankie/blog@main/images/2025/2/1740291122815.jpg" alt="配图源自 Freepik"></p>
 <h2>实时</h2>
-<p>参赛选手有：</p>
+<p>参赛选手：</p>
 <ul>
-<li>realtim]]></description>
+<li>realtime]]></description>
             <content:encoded><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/toFrankie/blog@main/images/2025/2/1740291122815.jpg" alt="配图源自 Freepik"></p>
 <h2>实时</h2>
-<p>参赛选手有：</p>
+<p>参赛选手：</p>
 <ul>
 <li>realtime</li>
 <li>real-time</li>
 <li>real time</li>
 </ul>
 <h2>更新/升级</h2>
-<p>参赛选手有：</p>
+<p>参赛选手：</p>
 <ul>
 <li>update</li>
 <li>upgrade</li>
 </ul>
 <h2>清空</h2>
+<p>参赛选手：</p>
 <ul>
 <li>clean</li>
 <li>clear</li>
 </ul>
+<h1>性别</h1>
+<p>参赛选手：</p>
+<ul>
+<li><strong>gender</strong> - 指社会建构的、由女孩、女人、男孩、男人以及性别多元化人群的角色、行为、表达和身份。它影响着人们如何看待自己和他人，如何行动和互动，以及社会中权力和资源的分配。性别认同并非局限于二元对立（女孩/女人，男孩/男人），也并非一成不变；它是一个连续体，会随着时间而变化。个人和群体对性别的理解、体验和表达方式存在着相当大的多样性，这体现在他们所承担的角色、对他们的期望、与他人的关系以及性别在社会中制度化的复杂方式上。</li>
+<li><strong>sex</strong> - 指人类和动物的一组生物学属性。它主要与生理特征相关，包括染色体、基因表达、激素水平和功能以及生殖/性解剖结构。性别通常分为女性和男性，但构成性别的生物学属性及其表达方式存在差异。</li>
+</ul>
+<blockquote>
+<p><a href="https://cihr-irsc.gc.ca/e/48642.html">What is gender? What is sex?</a></p>
+</blockquote>
 ]]></content:encoded>
         </item>
         <item>
@@ -2684,16 +2783,14 @@ $ rm -rf ~/Library/Application\ Support/CloudDocs
             <link>https://github.com/toFrankie/blog/issues/341</link>
             <guid isPermaLink="false">https://github.com/toFrankie/blog/issues/341</guid>
             <pubDate>Thu, 20 Jun 2024 15:15:11 GMT</pubDate>
-            <description><![CDATA[<p>指法练习：<a href="https://www.typingclub.com/">TypingClud</a></p>
+            <description><![CDATA[<p>指法练习：<a href="https://www.typingclub.com/">TypingClud</a>
+Vim 游戏：<a href="https://vim-adventures.com/">VIM Adventures</a></p>
 <h2>基础</h2>
 <h3>三种模式</h3>
 <ul>
-<li>普通模式：执行命令</li>
-<li>插入模式：编辑文本</li>
-<li>视图模式：高亮文本等</li>
-</ul>
 ]]></description>
-            <content:encoded><![CDATA[<p>指法练习：<a href="https://www.typingclub.com/">TypingClud</a></p>
+            <content:encoded><![CDATA[<p>指法练习：<a href="https://www.typingclub.com/">TypingClud</a>
+Vim 游戏：<a href="https://vim-adventures.com/">VIM Adventures</a></p>
 <h2>基础</h2>
 <h3>三种模式</h3>
 <ul>
@@ -2718,6 +2815,7 @@ l    # 右
 <li><a href="https://github.com/iggredible/Learn-Vim">Learn-Vim</a>（<a href="https://gitlab.com/wsdjeg/Learn-Vim_zh_cn">中文版</a>）</li>
 <li><a href="https://github.com/takac/vim-hardtime">vim-hardtime</a></li>
 <li><a href="http://vimcasts.org/blog/2013/02/habit-breaking-habit-making/">Habit breaking, habit making</a></li>
+<li><a href="https://youtu.be/wlR5gYd6um0">Mastering the Vim Language</a></li>
 </ul>
 ]]></content:encoded>
         </item>
