@@ -1,5 +1,7 @@
 # 近期更新
 
+- [TypeScript 类型关系图](https://github.com/toFrankie/blog/issues/368)
+- [TypeScript 中 Object、object、{} 之间的区别](https://github.com/toFrankie/blog/issues/369)
 - [东风 5C 打击范围覆盖全球](https://github.com/toFrankie/blog/issues/367)
 - [CSS 中 display、opacity 、visibility 的区别](https://github.com/toFrankie/blog/issues/362)
 - [那些纠结过的英文词汇](https://github.com/toFrankie/blog/issues/355)
@@ -8,5 +10,3 @@
 - [Mercurial 使用详解](https://github.com/toFrankie/blog/issues/109)
 - [如何开发一个 Raycast 扩展？](https://github.com/toFrankie/blog/issues/364)
 - [uni-app 开发记录](https://github.com/toFrankie/blog/issues/353)
-- [解决 Charles 抓取 HTTPS 请求 unknown 的问题](https://github.com/toFrankie/blog/issues/17)
-- [使用 VS Code + GitHub 搭建个人博客](https://github.com/toFrankie/blog/issues/327)
