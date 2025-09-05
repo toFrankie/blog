@@ -4,7 +4,7 @@
         <title>Frankie's Blog</title>
         <link>https://github.com/toFrankie/blog</link>
         <description>种一棵树，最好的时间是十年前。其次，是现在。</description>
-        <lastBuildDate>Thu, 04 Sep 2025 14:26:25 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 05 Sep 2025 01:38:38 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -657,11 +657,18 @@ point2 = { x: 1, y: 2 } // ✅
             <guid isPermaLink="false">https://github.com/toFrankie/blog/issues/365</guid>
             <pubDate>Fri, 11 Jul 2025 09:55:19 GMT</pubDate>
             <description><![CDATA[<p>作个记录。</p>
-<h2>开始时</h2>
-<ol>
-<li>查找所有包含背景的元素 <code>dom.querySelectorAll('[style*=&quot;background-image&quot;]')</code>。</li>
-<li>将背景图替换为本地占位图 bgPlaceholder（1]]></description>
+<p>下载网页</p>
+<pre><code class="language-shell">$ wget -r -np -k -L -p https://mp.weixin.qq.com/s/Ks8LG7bjmmCpfKp-jkANrg
+</code></pre>
+<blockquote>
+<]]></description>
             <content:encoded><![CDATA[<p>作个记录。</p>
+<p>下载网页</p>
+<pre><code class="language-shell">$ wget -r -np -k -L -p https://mp.weixin.qq.com/s/Ks8LG7bjmmCpfKp-jkANrg
+</code></pre>
+<blockquote>
+<p>似乎不太行的样子</p>
+</blockquote>
 <h2>开始时</h2>
 <ol>
 <li>查找所有包含背景的元素 <code>dom.querySelectorAll('[style*=&quot;background-image&quot;]')</code>。</li>
