@@ -4,7 +4,7 @@
         <title>Frankie's Blog</title>
         <link>https://github.com/toFrankie/blog</link>
         <description>种一棵树，最好的时间是十年前。其次，是现在。</description>
-        <lastBuildDate>Fri, 05 Sep 2025 01:38:38 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 07 Sep 2025 03:35:17 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -1170,7 +1170,7 @@ function getEnv() {
 }
 
 function joinHomebrewPath() {
-  return [process.env.PATH, &quot;/opt/homebrew/bin&quot;, &quot;/opt/homebrew/sbin&quot;].filter(Boolean).join(&quot;:&quot;);
+  return [process.env.PATH, &quot;/usr/local/bin&quot;, &quot;/opt/homebrew/bin&quot;, &quot;/opt/homebrew/sbin&quot;].filter(Boolean).join(&quot;:&quot;);
 }
 </code></pre>
 <h3>Change Log</h3>
@@ -6534,12 +6534,12 @@ echo &quot;处理完成！&quot;
 <p>我的博客：<a href="https://github.com/toFrankie/blog">种一棵树，最好的时间是十年前。其次，是现在。</a></p>
 </blockquote>
 <ul>
-<li>使用 <a href="https://marketplace.visualstudio.com/items?itemName=Frankie.github-blogger">GitHub Blogger</a> 作为编辑器，可以快速编辑、发布（VS Code WebView Extension）。</li>
-<li>使用 <a href="https://www.jsdelivr.com/?docs=gh">GitHub + jsDelivr</a> 作为图床，且支持 CDN 加速。</li>
-<li>使用 <a href="https://github.com/toFrankie/blog">GitHub Repository</a> 进行文章存档，每次编辑都会被记录。</li>
-<li>使用 <a href="https://github.com/toFrankie/blog/issues">GitHub Issues</a> 作为博文列表。</li>
-<li>使用 <a href="https://github.com/toFrankie/blog/labels">GitHub Labels</a> 对博文进行标签、分类。</li>
-<li>使用 <a href="https://www.alfredapp.com/help/features/web-search/">Alfred Web Search</a> 快速搜索文章，比如按标题搜索 <code>https://github.com/toFrankie/blog/issues?q=in%3Atitle+{query}+</code>，以后可能考虑集成插件里。</li>
+<li>使用 <a href="https://marketplace.visualstudio.com/items?itemName=Frankie.github-blogger">GitHub Blogger</a> 作为编辑器，可以快速编辑、发布（VS Code WebView Extension）</li>
+<li>使用 <a href="https://www.jsdelivr.com/?docs=gh">GitHub + jsDelivr</a> 作为图床，支持 CDN 加速</li>
+<li>使用 <a href="https://github.com/toFrankie/blog">GitHub Repository</a> 进行文章存档，每次编辑都会被记录</li>
+<li>使用 <a href="https://github.com/toFrankie/blog/issues">GitHub Issues</a> 作为博文列表</li>
+<li>使用 <a href="https://github.com/toFrankie/blog/labels">GitHub Labels</a> 对博文进行标签、分类</li>
+<li>使用 <a href="https://www.raycast.com/core-features/quicklinks">Raycast Quicklinks</a> 快速搜索文章，比如按标题搜索 <code>https://github.com/toFrankie/blog/issues?q=in%3Atitle+{Query}+</code></li>
 </ul>
 <h2>GitHub Blogger</h2>
 <blockquote>
@@ -6547,9 +6547,10 @@ echo &quot;处理完成！&quot;
 </blockquote>
 <p>此前离开简书，考虑过到掘金上续写，但现在掘金的整体质量不如以前，而且充斥着各种标题党，贩卖焦虑的味太浓了。后来遇到了 <a href="https://github.com/Aaronphy/Blogger">Aaronphy/Blogger</a> 可以静静地写了。</p>
 <p>用了一段时间，发现有些地方不太顺手、有一些 Bug，作者也很久没更新了。然后就二次开发了，修了一些 Bug，加了一些新功能，于是 <a href="https://github.com/toFrankie/github-blogger">GitHub Blogger</a> 诞生了。</p>
-<p>原作者的设计思路如下图，源自《<a href="https://zhuanlan.zhihu.com/p/358347337">在 VSCODE 中写博客吧</a>》。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/toFrankie/blog@main/images/2024/2/1706953309265.png" alt=""></p>
-<p>在原有基础上调整了一些地方：</p>
+<blockquote>
+<p>原作者的设计思路可看《<a href="https://zhuanlan.zhihu.com/p/358347337">在 VSCODE 中写博客吧</a>》</p>
+</blockquote>
+<p>我在原有基础上作了一些调整：</p>
 <ul>
 <li>调整 UI 主题</li>
 <li>调整 Markdown 主题表现，保持与 GitHub 一致</li>
@@ -6575,7 +6576,7 @@ echo &quot;处理完成！&quot;
 <ol>
 <li>你需要注册一个 GitHub 账号（已有忽略）</li>
 <li>你需要安装 VS Code、Cursor 等编辑器（理论上基于 VSCodium 的编辑器都支持）</li>
-<li>在编辑器上安装 <a href="https://marketplace.visualstudio.com/items?itemName=Frankie.github-blogger">GitHub Blogger</a> 扩展，亦可在扩展处搜索 <code>Frankie.github-blogger</code></li>
+<li>在编辑器上安装 <a href="https://marketplace.visualstudio.com/items?itemName=Frankie.github-blogger">GitHub Blogger</a> 扩展，也可在编辑器内搜索 <code>Frankie.github-blogger</code> 扩展</li>
 <li>准备好你的 <a href="https://docs.github.com/zh/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens">GitHub Personal Access Token</a>（调用 GitHub API 需要用到）</li>
 <li>使用 Command + Shift + P 或 Ctrl + Shift + P 快捷键唤起命令面板：
 <ol>
