@@ -4,11 +4,63 @@
         <title>Frankie's Blog</title>
         <link>https://github.com/toFrankie/blog</link>
         <description>种一棵树，最好的时间是十年前。其次，是现在。</description>
-        <lastBuildDate>Sun, 07 Sep 2025 03:35:17 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 07 Sep 2025 17:36:11 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
         <copyright>All rights reserved 2025</copyright>
+        <item>
+            <title><![CDATA[为什么函数返回布尔类型不会触发类型收窄？]]></title>
+            <link>https://github.com/toFrankie/blog/issues/370</link>
+            <guid isPermaLink="false">https://github.com/toFrankie/blog/issues/370</guid>
+            <pubDate>Sun, 07 Sep 2025 17:36:11 GMT</pubDate>
+            <description><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/toFrankie/blog@main/images/2025/9/1757266400814.jpg" alt="配图源自 Freepik"></p>
+<p>假设有一个判断字符串的函数：</p>
+<pre><code class="la]]></description>
+            <content:encoded><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/toFrankie/blog@main/images/2025/9/1757266400814.jpg" alt="配图源自 Freepik"></p>
+<p>假设有一个判断字符串的函数：</p>
+<pre><code class="language-ts">function isStr(value: unknown) {
+  return typeof value === 'string'
+}
+</code></pre>
+<p>TS 会自动推断返回类型为 <code>boolean</code>。</p>
+<pre><code class="language-ts">let value: number | string = Math.random() &gt; 0.5 ? 'hello' : 1
+
+if (isStr(value)) {
+  // ❌ Property 'length' does not exist on type 'string | number'.
+  value.length
+}
+</code></pre>
+<p>但使用时会有问题，可见 TS 并没有做类型收窄。</p>
+<p>解决方法也简单，使用类型谓词（Type Predicates）即可：</p>
+<pre><code class="language-ts">function isStr(value: unknown): value is string {
+  return typeof value === 'string'
+}
+</code></pre>
+<blockquote>
+<p>[!NOTE]
+注意，自 <a href="https://devblogs.microsoft.com/typescript/announcing-typescript-5-5/#inferred-type-predicates">TypeScript 5.5</a> 起支持推断类型谓词，无需显示指定。</p>
+</blockquote>
+<p>类型谓词用于描述函数的返回值类型。这里 <code>value is string</code> 并不是返回类型，而是告诉 TS 如果函数返回 <code>true</code>，那么参数 <code>value</code> 一定是 <code>string</code> 类型。换句话说，当函数返回 <code>true</code> 时，告诉 TS 编译器参数 <code>value</code> 的类型应该被收窄为 <code>string</code>。</p>
+<p>为什么函数返回布尔类型不会触发类型收窄？</p>
+<p>因为 TS 的类型系统是静态的，编译时它不会去分析函数的实现，只是根据签名（返回类型）来决定能不能做收窄。只告诉 TS 返回真假，不会带来额外的类型信息，所以不会收窄。</p>
+<blockquote>
+<p>类型收窄必须依赖签名（类型谓词）信息，而不是依赖函数实现。</p>
+</blockquote>
+<p>附上类型收窄的方式：</p>
+<ul>
+<li><code>typeof</code></li>
+<li><code>instanceof</code></li>
+<li><code>in</code> 操作符</li>
+<li>判别联合（字面量字段）</li>
+<li>真值收窄（<code>if</code> 语句）</li>
+<li>等式收窄（<code>===</code>、<code>!==</code> 等）</li>
+<li>类型谓词</li>
+<li>控制流分析（如赋值收窄等）</li>
+<li>Exhaustive check + never</li>
+</ul>
+]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[TypeScript 中 Object、object、{} 之间的区别]]></title>
             <link>https://github.com/toFrankie/blog/issues/369</link>
