@@ -4,11 +4,44 @@
         <title>Frankie's Blog</title>
         <link>https://github.com/toFrankie/blog</link>
         <description>种一棵树，最好的时间是十年前。其次，是现在。</description>
-        <lastBuildDate>Sun, 07 Sep 2025 17:36:11 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 09 Sep 2025 10:28:15 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
         <copyright>All rights reserved 2025</copyright>
+        <item>
+            <title><![CDATA[浅谈 TypeScript 泛型]]></title>
+            <link>https://github.com/toFrankie/blog/issues/371</link>
+            <guid isPermaLink="false">https://github.com/toFrankie/blog/issues/371</guid>
+            <pubDate>Tue, 09 Sep 2025 10:28:15 GMT</pubDate>
+            <description><![CDATA[<h2>为什么要用泛型？</h2>
+<p>现在有一个非常简单的 id 函数，它接收任意类型的参数，并原样返回。</p>
+<pre><code class="language-js">function id(arg) {
+  return arg
+}
+</code></pre>
+<p>用 TS 的话如何描述参数与返回值的]]></description>
+            <content:encoded><![CDATA[<h2>为什么要用泛型？</h2>
+<p>现在有一个非常简单的 id 函数，它接收任意类型的参数，并原样返回。</p>
+<pre><code class="language-js">function id(arg) {
+  return arg
+}
+</code></pre>
+<p>用 TS 的话如何描述参数与返回值的关系呢？</p>
+<p>先说笨方法，使用函数重载，把所有类型都穷举一遍：</p>
+<pre><code class="language-ts">function id(arg: number): number
+function id(arg: string): string
+function id(arg: boolean): boolean
+// ...
+</code></pre>
+<p>但根本列举不完，除了基本类型，还有无数种复合类型。也就是说，没写完就下班了...</p>
+<p>我们可以观察到，参数 <code>arg</code> 的类型实际上只有在函数调用时才能确认其类型。</p>
+<p>如果 TS 能这么写就好了（伪代码）：</p>
+<pre><code class="language-ts">function id(arg: Arg): Arg
+</code></pre>
+<p>但 TS 里没有 <code>Arg</code> 这种类型啊...</p>
+]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[为什么函数返回布尔类型不会触发类型收窄？]]></title>
             <link>https://github.com/toFrankie/blog/issues/370</link>
