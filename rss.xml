@@ -4,7 +4,7 @@
         <title>Frankie's Blog</title>
         <link>https://github.com/toFrankie/blog</link>
         <description>种一棵树，最好的时间是十年前。其次，是现在。</description>
-        <lastBuildDate>Tue, 09 Sep 2025 10:28:15 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 10 Sep 2025 14:44:03 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -14,32 +14,62 @@
             <link>https://github.com/toFrankie/blog/issues/371</link>
             <guid isPermaLink="false">https://github.com/toFrankie/blog/issues/371</guid>
             <pubDate>Tue, 09 Sep 2025 10:28:15 GMT</pubDate>
-            <description><![CDATA[<h2>为什么要用泛型？</h2>
-<p>现在有一个非常简单的 id 函数，它接收任意类型的参数，并原样返回。</p>
+            <description><![CDATA[<h2>从一个简单的例子开始</h2>
+<p>假设你正在开发一个工具库，要实现 id 函数，它接收任意类型的参数并原样返回。</p>
+<p>在 JS 中，这很简单：</p>
+<pre><code class="language-js">function id(arg) {
+  return arg
+}
+</code><]]></description>
+            <content:encoded><![CDATA[<h2>从一个简单的例子开始</h2>
+<p>假设你正在开发一个工具库，要实现 id 函数，它接收任意类型的参数并原样返回。</p>
+<p>在 JS 中，这很简单：</p>
 <pre><code class="language-js">function id(arg) {
   return arg
 }
 </code></pre>
-<p>用 TS 的话如何描述参数与返回值的]]></description>
-            <content:encoded><![CDATA[<h2>为什么要用泛型？</h2>
-<p>现在有一个非常简单的 id 函数，它接收任意类型的参数，并原样返回。</p>
-<pre><code class="language-js">function id(arg) {
-  return arg
-}
-</code></pre>
-<p>用 TS 的话如何描述参数与返回值的关系呢？</p>
-<p>先说笨方法，使用函数重载，把所有类型都穷举一遍：</p>
+<p>在 TS 中，这个例子不应该使用 <code>any</code> 大法，否则会丢失类型检查。那么如何描述参数与返回值的类型关系呢？</p>
+<p>最笨的做法是使用函数重载，把可能的类型都列出来：</p>
 <pre><code class="language-ts">function id(arg: number): number
 function id(arg: string): string
 function id(arg: boolean): boolean
 // ...
 </code></pre>
-<p>但根本列举不完，除了基本类型，还有无数种复合类型。也就是说，没写完就下班了...</p>
-<p>我们可以观察到，参数 <code>arg</code> 的类型实际上只有在函数调用时才能确认其类型。</p>
-<p>如果 TS 能这么写就好了（伪代码）：</p>
-<pre><code class="language-ts">function id(arg: Arg): Arg
+<blockquote>
+<p>这样写下去，没写完就下班了...</p>
+</blockquote>
+<p>类型有无数种（包括复合类型、联合类型等），根本穷举不完。如果希望这个函数足够灵活，这不是一种合理的做法。</p>
+<p>我们观察一下，参数 <code>arg</code> 的类型实际上只有在函数调用时才能确认。这是不是有点像 JS 函数本身？类型就是形参，实际入参也是在函数调用时才能知道具体值。</p>
+<p>如果 TS 的类型支持函数编程就好了，比如：</p>
+<pre><code class="language-ts">// 伪代码
+function Id(Arg) {
+  return Arg
+}
 </code></pre>
-<p>但 TS 里没有 <code>Arg</code> 这种类型啊...</p>
+<blockquote>
+<p>本文将其称作「类型函数」，其中 <code>Id</code> 是类型函数的函数名，<code>Arg</code> 为函数类型的形参。而 JS 函数 <code>id</code> 称为函数本身。</p>
+</blockquote>
+<p>把类型函数化，也就是说 <code>Arg</code> 类型取决于入参的类型。当输入为 <code>string</code> 类型，输出也是 <code>string</code> 类型，这正是我们需要的。</p>
+<p>但这样写有个问题，跟 JS 的函数语法有冲突，实际会被当作一个名为 <code>Id</code> 的 JS 函数。所以 TS 需要使用特有的语法来表达，它用的是 <code>&lt;&gt;</code> 来代替 <code>()</code> 以避免语法冲突，这样编译器就懂得区分类型函数还是函数本身了。比如：</p>
+<pre><code class="language-js">// 伪代码
+function Id&lt;Arg&gt; {
+  return Arg
+}
+</code></pre>
+<blockquote>
+<p>历史小故事：由于 TS 比 React 早出生，谁知道后面会有 JSX 横空出世并流行起来，刚开始 TS 跟 JSX 的 <code>&lt;&gt;</code> 是有冲突的，直到 <a href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-1-6.html">TS 1.6</a> 才开始支持 JSX 语法。</p>
+</blockquote>
+<p>最后 TS 是这么干的，它把类型函数和函数本身融合在一起，语法如下：</p>
+<pre><code class="language-ts">function id&lt;Arg&gt;(arg: Arg): Arg {
+  return arg
+}
+</code></pre>
+<p>这样去理解这种语法：</p>
+<ol>
+<li>它是由函数本身和类型函数两部分组成。</li>
+<li>类型函数的形参在 <code>&lt;&gt;</code> 内定义，其作用范围（即函数体）是函数本身的形参类型和返回值类型。</li>
+<li>既然是形参，那意味着可以将 <code>Arg</code> 命名为其他名称，如 <code>T</code>（Type），这样再看是不是很眼熟了。只是大家习惯用 <code>T</code> 以及其后面的字母来命名泛型函数的形参，如 <code>U</code>、<code>V</code> 等，算是一种约定俗成的写法吧。</li>
+</ol>
 ]]></content:encoded>
         </item>
         <item>
@@ -6611,7 +6641,7 @@ echo &quot;处理完成！&quot;
 <li>可以专注于内容输出</li>
 <li>...</li>
 </ul>
-<p>在国内的话，可能是掘金、语雀、博客园会好一些，用户群体基本都是程序员，可以带来更多讨论。知乎 Markdown 支持度太差了。简书内容审核很严格且傻逼，我在<a href="https://www.jianshu.com/u/f4dac74bd955">简书</a>写了几年，后来由于审核机制太傻逼，改个文字动不动封禁，忍无可忍就溜了。</p>
+<p>在国内的话，可能是掘金、语雀、博客园会好一些，用户群体基本都是程序员，可以带来更多讨论。知乎 Markdown 支持度太差了。简书内容审核不友好，在<a href="https://www.jianshu.com/u/f4dac74bd955">简书</a>写了几年，后来由于其审核机制太机器人了，改个文字动不动封禁的程度，实在忍无可忍，就溜了。</p>
 <p>自行建站要考虑 SEO、图床、域名备案、运维费用等。选择国内平台，无法避免的是内容审核，改个字都得审核一下。🙄</p>
 <p><strong>总之，各有利弊，选择一个合适自己的就行。</strong></p>
 <h2>我的选择</h2>
@@ -18879,7 +18909,7 @@ https://www.jianshu.com/p/bdf4b035c4a1
   return value
 }
 </code></pre>
-<p>已收录在 <a href="https://github.com/toFrankie/javascript-utils">toFrankie/javascript-utils</a>，里面还有其他一些实用的方法哦！</p>
+<p>已收录在 <a href="https://github.com/toFrankie/utils">toFrankie/utils</a>，里面还有一些实用的方法哦！</p>
 <h2>更新（2023.02.26）</h2>
 <p>都 2023 年了，可以考虑使用 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/URLSearchParams">URLSearchParams</a> 了。</p>
 <pre><code class="language-js">// https://example.com/?name=Jonathan&amp;age=18
@@ -31250,7 +31280,7 @@ export const checkIDNumber = code =&gt; {
 //   91: '国外'
 // }
 </code></pre>
-<p>此方法已收录至：<a href="https://github.com/toFrankie/javascript-utils">toFrankie/javascript-utils</a>，还有其他一些比较实用的方法，比如<strong>中文转拼音</strong>等，请看<a href="https://github.com/toFrankie/javascript-utils">这里</a>。</p>
+<p>已收录在 <a href="https://github.com/toFrankie/utils">toFrankie/utils</a>，还有一些比较实用的方法，比如中文转拼音等。</p>
 <p>The end.</p>
 ]]></content:encoded>
         </item>
@@ -34444,12 +34474,14 @@ this.$copyText(message)
 <li><a href="https://github.com/hotoo/pinyin">pinyin</a></li>
 </ul>
 <h2>需求</h2>
-<p>此前项目中有一个<strong>中文转拼音</strong>的需求，于是整理了一下实现方法。</p>
+<p>此前项目中有一个中文转拼音的需求，于是整理了一下实现方法。</p>
 <blockquote>
 <p>在转换过程中，这里我保留了数字和字母，其他特殊字符或者空格将会被去掉。如 <code>测试</code> 会被转换成 <code>CeShi</code>。（可自行修改 <code>convert2Pinyin()</code> 方法实现其他需求）</p>
 </blockquote>
 <h2>实现</h2>
-<p>话不多说（<a href="https://github.com/toFrankie/javascript-utils/blob/master/examples/convert2Pinyin.html">Github Demo</a>）</p>
+<blockquote>
+<p>示例 <a href="https://github.com/toFrankie/utils/blob/master/examples/convert2Pinyin.html">Demo</a></p>
+</blockquote>
 <pre><code class="language-html">&lt;!-- html --&gt;
 &lt;input id=&quot;input&quot; value=&quot;测试&quot; /&gt;
 &lt;input id=&quot;output&quot; disabled /&gt;
@@ -34545,7 +34577,7 @@ window.onload = () =&gt; {
 
 </code></pre>
 <h2>难点</h2>
-<p>其实在中文转拼音的过程中，比较麻烦的在于 <code>多音字</code> 和 <code>生僻字</code> 的实现，我想到的解决思路是：</p>
+<p>其实在中文转拼音的过程中，比较麻烦的在于「多音字」和「生僻字」的实现，我想到的解决思路是：</p>
 <ol>
 <li>
 <p><strong>生僻字</strong>：是由于 <code>PinYin</code> 里面列举的缺失一些中文字符，可通过 <code>str.charCodeAt(0).toString(16)</code> 的方式补充，具体方法不再赘述，上面有说明。</p>
@@ -34562,8 +34594,8 @@ const PinYin = {
 }
 </code></pre>
 <p>然后修改上述 <code>convert2Pinyin()</code> 和 <code>searchPinYin()</code> 方法，把符合规则的字符返回一个数组，然后用<strong>排列组合</strong>的方式列出所有可能。</p>
-<h2>GitHub</h2>
-<p>该<a href="https://github.com/toFrankie/javascript-utils">仓库</a>除了<strong>拼音转中文</strong>之外，还有其他实用方法，<a href="https://github.com/toFrankie/javascript-utils">麻烦移步查看</a>。如有更好的实现方法，欢迎留言，谢谢！</p>
+<h2>最后</h2>
+<p>除了拼音转中文之外，该仓库还有其他实用方法，请移步<a href="https://github.com/toFrankie/utils">这里</a>。</p>
 ]]></content:encoded>
         </item>
         <item>
