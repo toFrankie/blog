@@ -4,7 +4,7 @@
         <title>Frankie's Blog</title>
         <link>https://github.com/toFrankie/blog</link>
         <description>种一棵树，最好的时间是十年前。其次，是现在。</description>
-        <lastBuildDate>Wed, 10 Sep 2025 14:44:03 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 13 Sep 2025 15:20:03 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -15,61 +15,70 @@
             <guid isPermaLink="false">https://github.com/toFrankie/blog/issues/371</guid>
             <pubDate>Tue, 09 Sep 2025 10:28:15 GMT</pubDate>
             <description><![CDATA[<h2>从一个简单的例子开始</h2>
-<p>假设你正在开发一个工具库，要实现 id 函数，它接收任意类型的参数并原样返回。</p>
-<p>在 JS 中，这很简单：</p>
-<pre><code class="language-js">function id(arg) {
-  return arg
-}
-</code><]]></description>
-            <content:encoded><![CDATA[<h2>从一个简单的例子开始</h2>
-<p>假设你正在开发一个工具库，要实现 id 函数，它接收任意类型的参数并原样返回。</p>
-<p>在 JS 中，这很简单：</p>
+<p>假设现在需要给 <code>id</code> 函数标注类型，它接收任意类型的参数并原样返回。</p>
 <pre><code class="language-js">function id(arg) {
   return arg
 }
 </code></pre>
-<p>在 TS 中，这个例子不应该使用 <code>any</code> 大法，否则会丢失类型检查。那么如何描述参数与返回值的类型关系呢？</p>
-<p>最笨的做法是使用函数重载，把可能的类型都列出来：</p>
+<p>如何描]]></description>
+            <content:encoded><![CDATA[<h2>从一个简单的例子开始</h2>
+<p>假设现在需要给 <code>id</code> 函数标注类型，它接收任意类型的参数并原样返回。</p>
+<pre><code class="language-js">function id(arg) {
+  return arg
+}
+</code></pre>
+<p>如何描述参数与返回值的类型关系呢？</p>
+<p>较笨的做法是使用函数重载把可能的类型都列出来，但这样写下去，没写完就下班了...</p>
 <pre><code class="language-ts">function id(arg: number): number
 function id(arg: string): string
 function id(arg: boolean): boolean
 // ...
 </code></pre>
-<blockquote>
-<p>这样写下去，没写完就下班了...</p>
-</blockquote>
-<p>类型有无数种（包括复合类型、联合类型等），根本穷举不完。如果希望这个函数足够灵活，这不是一种合理的做法。</p>
-<p>我们观察一下，参数 <code>arg</code> 的类型实际上只有在函数调用时才能确认。这是不是有点像 JS 函数本身？类型就是形参，实际入参也是在函数调用时才能知道具体值。</p>
-<p>如果 TS 的类型支持函数编程就好了，比如：</p>
-<pre><code class="language-ts">// 伪代码
-function Id(Arg) {
+<p>类型可以有无数种（包括复合类型、联合类型等），根本穷举不完。</p>
+<p>如果希望类型足够灵活，这也不是一种合理的做法。</p>
+<p>我们知道，参数 <code>arg</code> 的具体值只有在函数调用时才能确认，参数类型也是同样的。</p>
+<p>TS 的类型也是支持函数编程的，伪代码如下：</p>
+<pre><code class="language-ts">function Id(Arg) {
   return Arg
 }
 </code></pre>
-<blockquote>
-<p>本文将其称作「类型函数」，其中 <code>Id</code> 是类型函数的函数名，<code>Arg</code> 为函数类型的形参。而 JS 函数 <code>id</code> 称为函数本身。</p>
-</blockquote>
-<p>把类型函数化，也就是说 <code>Arg</code> 类型取决于入参的类型。当输入为 <code>string</code> 类型，输出也是 <code>string</code> 类型，这正是我们需要的。</p>
-<p>但这样写有个问题，跟 JS 的函数语法有冲突，实际会被当作一个名为 <code>Id</code> 的 JS 函数。所以 TS 需要使用特有的语法来表达，它用的是 <code>&lt;&gt;</code> 来代替 <code>()</code> 以避免语法冲突，这样编译器就懂得区分类型函数还是函数本身了。比如：</p>
+<p>把类型函数化，也就是说 <code>Arg</code> 类型取决于函数调用时入参的类型。比如，当输入为 <code>string</code> 类型，输出也是 <code>string</code> 类型。</p>
+<p>但这样写跟 JS 的函数语法有冲突，实际会被当作一个名为 <code>Id</code> 的 JS 函数。</p>
+<p>TS 需要使用特有的语法来表达类型函数，用的是 <code>&lt;&gt;</code>，类似于 JS 函数的 <code>()</code>，在其内部声明类型的形参、函数的形参，伪代码如下：</p>
 <pre><code class="language-js">// 伪代码
 function Id&lt;Arg&gt; {
   return Arg
 }
 </code></pre>
 <blockquote>
-<p>历史小故事：由于 TS 比 React 早出生，谁知道后面会有 JSX 横空出世并流行起来，刚开始 TS 跟 JSX 的 <code>&lt;&gt;</code> 是有冲突的，直到 <a href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-1-6.html">TS 1.6</a> 才开始支持 JSX 语法。</p>
+<p>历史故事：由于 TS 比 React 早出生，刚开始 TS 跟 JSX 的 <code>&lt;&gt;</code> 语法是有冲突的，直到 <a href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-1-6.html">TS 1.6</a> 才开始支持 JSX。</p>
 </blockquote>
-<p>最后 TS 是这么干的，它把类型函数和函数本身融合在一起，语法如下：</p>
+<p>前面都是伪代码，最后 TS 是这么干的，它把类型函数和函数本身融合在一起，语法如下：</p>
+<blockquote>
+<p>⚠️ 注意，「类型函数」只是本文为了让读者更好地理解泛型而使用的一种表述，并非官方定术语。</p>
+</blockquote>
 <pre><code class="language-ts">function id&lt;Arg&gt;(arg: Arg): Arg {
   return arg
 }
 </code></pre>
-<p>这样去理解这种语法：</p>
+<p>我们可以这样去解读：</p>
 <ol>
 <li>它是由函数本身和类型函数两部分组成。</li>
+<li>函数本身和类型函数都可以定义形参，分别在 <code>()</code>、<code>&lt;&gt;</code> 内定义。</li>
 <li>类型函数的形参在 <code>&lt;&gt;</code> 内定义，其作用范围（即函数体）是函数本身的形参类型和返回值类型。</li>
-<li>既然是形参，那意味着可以将 <code>Arg</code> 命名为其他名称，如 <code>T</code>（Type），这样再看是不是很眼熟了。只是大家习惯用 <code>T</code> 以及其后面的字母来命名泛型函数的形参，如 <code>U</code>、<code>V</code> 等，算是一种约定俗成的写法吧。</li>
+<li>因为形参本身也算是一种变量，所以形参的 <code>Arg</code> 可以命名为其他合法的变量名。习惯上，<code>T</code>（Type）及其后面的字母 <code>U</code>、<code>V</code> 用得较多，类似于循环遍历常用的 i、j、k 差不多，算是一种约定俗成的写法吧。</li>
 </ol>
+<p>改成使用更广泛的 <code>T</code>，是不是很眼熟：</p>
+<pre><code class="language-ts">function id&lt;T&gt;(arg: T): T {
+  return arg
+}
+</code></pre>
+<p>得益于 TS 强大的自动类型推断，不显式指定返回值类型也是 OK 的，它可以自动识别返回类型就是 <code>T</code>。</p>
+<pre><code class="language-ts">function id&lt;T&gt;(arg: T) {
+  return arg
+}
+</code></pre>
+<p>没错，这就是泛型。</p>
 ]]></content:encoded>
         </item>
         <item>
