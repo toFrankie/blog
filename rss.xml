@@ -4,7 +4,7 @@
         <title>Frankie's Blog</title>
         <link>https://github.com/toFrankie/blog</link>
         <description>种一棵树，最好的时间是十年前。其次，是现在。</description>
-        <lastBuildDate>Sat, 13 Sep 2025 15:20:03 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 14 Sep 2025 09:32:29 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -14,14 +14,9 @@
             <link>https://github.com/toFrankie/blog/issues/371</link>
             <guid isPermaLink="false">https://github.com/toFrankie/blog/issues/371</guid>
             <pubDate>Tue, 09 Sep 2025 10:28:15 GMT</pubDate>
-            <description><![CDATA[<h2>从一个简单的例子开始</h2>
-<p>假设现在需要给 <code>id</code> 函数标注类型，它接收任意类型的参数并原样返回。</p>
-<pre><code class="language-js">function id(arg) {
-  return arg
-}
-</code></pre>
-<p>如何描]]></description>
-            <content:encoded><![CDATA[<h2>从一个简单的例子开始</h2>
+            <description><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/toFrankie/blog@main/images/2025/9/1757842318229.jpg" alt="配图源自 Freepik"></p>
+<p>假设现在需要给 <code>id</code> 函数标注类型，它接收任意类型的]]></description>
+            <content:encoded><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/toFrankie/blog@main/images/2025/9/1757842318229.jpg" alt="配图源自 Freepik"></p>
 <p>假设现在需要给 <code>id</code> 函数标注类型，它接收任意类型的参数并原样返回。</p>
 <pre><code class="language-js">function id(arg) {
   return arg
@@ -68,17 +63,55 @@ function Id&lt;Arg&gt; {
 <li>类型函数的形参在 <code>&lt;&gt;</code> 内定义，其作用范围（即函数体）是函数本身的形参类型和返回值类型。</li>
 <li>因为形参本身也算是一种变量，所以形参的 <code>Arg</code> 可以命名为其他合法的变量名。习惯上，<code>T</code>（Type）及其后面的字母 <code>U</code>、<code>V</code> 用得较多，类似于循环遍历常用的 i、j、k 差不多，算是一种约定俗成的写法吧。</li>
 </ol>
-<p>改成使用更广泛的 <code>T</code>，是不是很眼熟：</p>
+<p>使用更广泛的 <code>T</code> 替换 <code>Arg</code>，是不是很眼熟：</p>
 <pre><code class="language-ts">function id&lt;T&gt;(arg: T): T {
   return arg
 }
 </code></pre>
-<p>得益于 TS 强大的自动类型推断，不显式指定返回值类型也是 OK 的，它可以自动识别返回类型就是 <code>T</code>。</p>
+<p>得益于 TS 强大的自动类型推断，这个例子中不显式指定返回值类型也是 OK 的，它可以自动识别返回类型就是 <code>T</code>。</p>
 <pre><code class="language-ts">function id&lt;T&gt;(arg: T) {
   return arg
 }
 </code></pre>
-<p>没错，这就是泛型。</p>
+<p>函数调用，这样传递类型参数：</p>
+<pre><code class="language-ts">id&lt;string&gt;('abc')
+id&lt;number&gt;(1)
+</code></pre>
+<p>同样地，利用 TS 的类型推断，可以省略调用时 <code>&lt;&gt;</code> 类型：</p>
+<pre><code class="language-ts">id('abc')
+id(1)
+</code></pre>
+<p>以上就是泛型在函数中的应用。</p>
+<h2>基础语法</h2>
+<p>前面我们将泛型“函数化”，实际上它也是支持定义多个类型参数、以及类型参数默认值的。</p>
+<p>多个泛型参数：</p>
+<pre><code class="language-ts">function fn&lt;T, U&gt;(x: T, y: U) {
+  // do something...
+}
+</code></pre>
+<p>泛型参数默认值：</p>
+<pre><code class="language-ts">function fn&lt;T, U = string&gt;(x: T, y: U) {
+  // do something...
+}
+</code></pre>
+<blockquote>
+<p>有默认值意味着它是可选参数，它必须放在必选参数之后声明，因此 <code>&lt;T = string, U&gt;</code> 是错误写法。</p>
+</blockquote>
+<p>泛型参数约束：</p>
+<pre><code class="language-ts">function getLength&lt;T extends {length: number}&gt;(arg: T) {
+  return arg.length
+}
+
+getLength('abc')
+getLength([])
+</code></pre>
+<p>未完待续...</p>
+<h2>体操演练场</h2>
+<ul>
+<li><a href="https://github.com/type-challenges/type-challenges">type-challenges</a></li>
+<li><a href="https://typehero.dev/">TypeHero</a></li>
+<li><a href="https://www.adventofts.com/">Advent of TypeScript</a></li>
+</ul>
 ]]></content:encoded>
         </item>
         <item>
