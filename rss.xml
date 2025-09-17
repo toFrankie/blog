@@ -4,7 +4,7 @@
         <title>Frankie's Blog</title>
         <link>https://github.com/toFrankie/blog</link>
         <description>种一棵树，最好的时间是十年前。其次，是现在。</description>
-        <lastBuildDate>Sun, 14 Sep 2025 09:32:29 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 17 Sep 2025 01:28:34 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -896,7 +896,7 @@ point2 = { x: 1, y: 2 } // ✅
 </blockquote>
 <h3>卸载扩展</h3>
 <ul>
-<li>键入关键词，选中要卸载的扩展，在 Action Panel 选择 Uninstall Extension 操作即可，快捷键「⌃ + X」。</li>
+<li>键入关键词，选中要卸载的扩展，在 Action Panel 选择 Uninstall Extension。</li>
 <li>键入 Manage Extension 可管理本地扩展。</li>
 </ul>
 <blockquote>
@@ -934,7 +934,7 @@ $ npm run dev
 <p>二选一：</p>
 <ul>
 <li>Fork 官方<a href="https://github.com/raycast/extensions">仓库</a>，将你的扩展放在仓库 <code>extensions</code> 目录下，提交 PR。</li>
-<li>创建独立仓库，然后通过 ray publish 提交。</li>
+<li>创建独立仓库，然后通过 <code>ray publish</code> 提交。</li>
 </ul>
 <p>提交 PR 时，建议附上视频，或许可以更快地审核。我之前写了一个微信开发工具的<a href="https://github.com/toFrankie/raycast-wechat-devtool">扩展</a>，由于他们没有小程序项目，流程上它们跑不通，可能会要求附上视频辅助审核，例如<a href="https://github.com/raycast/extensions/pull/20222#pullrequestreview-3003917464">这个</a>。</p>
 <blockquote>
@@ -1074,7 +1074,7 @@ $ npm run dev
       /&gt;
       &lt;Action.CopyToClipboard
         title=&quot;Copy Project Path&quot;
-        content={project.path}
+        content=&quot;project path&quot;
         shortcut={{ modifiers: [&quot;cmd&quot;, &quot;shift&quot;], key: &quot;,&quot; }}
       /&gt;
       &lt;Action
@@ -1092,7 +1092,7 @@ $ npm run dev
 <p>Raycast 提供了 <code>Action.Open</code>、 <code>Action.Push</code>、<code>Action.CopyToClipboard</code>、<code>Action.OpenInBrowser</code> 等一系列内置命令以轻松完成常用操作，更多请看<a href="https://developers.raycast.com/api-reference/user-interface/actions">这里</a>。</p>
 <p>对于危险操作，可以声明为 <a href="https://developers.raycast.com/api-reference/user-interface/actions#action.style">Action.Style.Destructive</a> 以高亮显示，可以配合 <a href="https://developers.raycast.com/api-reference/feedback/alert">confirmAlert</a> 二次确认。</p>
 <h3>Action 快捷键</h3>
-<p>在 Action Panel 中，将第一、第二个操作作为 Primary Action 和 Secondary Action，它们会自动分配快捷键。</p>
+<p>在 Action Panel 中，将第一、第二个操作称作 Primary Action 和 Secondary Action，它们会自动分配快捷键。</p>
 <ul>
 <li>在 List、Grid、Detail 页面分别 Enter、⌘ + Enter</li>
 <li>在 Form 页面分别是 ⌘ + Enter、⌘ + ⇧ + Enter</li>
@@ -1254,10 +1254,10 @@ export default function Example() {
 <h3>Toast、Loading、Alert</h3>
 <p>提供的 API 有：</p>
 <ul>
-<li><a href="https://developers.raycast.com/api-reference/feedback/toast"><strong>showToast</strong></a> 有 Success、Failure、Animated 三种，后者为 Loading 圈圈。如果 Raycast 窗口关闭了，会回退到 showHUD</li>
-<li><a href="https://developers.raycast.com/utilities/functions/showfailuretoast"><strong>showFailureToast</strong></a> 显示错误信息优先选择这个</li>
-<li><a href="https://developers.raycast.com/api-reference/feedback/hud#showhud"><strong>showHUD</strong></a> Raycast 窗口时在屏幕下方显示一条信息</li>
-<li><a href="https://developers.raycast.com/api-reference/feedback/alert"><strong>confirmAlert</strong></a> 用于危险操作的二次确认弹窗</li>
+<li><a href="https://developers.raycast.com/api-reference/feedback/toast"><strong>showToast</strong></a>：有 Success、Failure、Animated 三种，后者为 Loading 圈圈。如果 Raycast 窗口关闭了，会回退到 showHUD</li>
+<li><a href="https://developers.raycast.com/utilities/functions/showfailuretoast"><strong>showFailureToast</strong></a>：显示错误信息优先选择这个</li>
+<li><a href="https://developers.raycast.com/api-reference/feedback/hud#showhud"><strong>showHUD</strong></a>：Raycast 窗口关闭时在屏幕下方显示一条信息</li>
+<li><a href="https://developers.raycast.com/api-reference/feedback/alert"><strong>confirmAlert</strong></a>：用于危险操作的二次确认弹窗</li>
 </ul>
 <h3>环境信息</h3>
 <p>可以在 <a href="https://developers.raycast.com/api-reference/environment">environment</a> 获取：</p>
@@ -1370,7 +1370,6 @@ function joinHomebrewPath() {
 <li>提交 PR，等待审核发布</li>
 </ol>
 <p>由于审核较慢，如果同时多个扩展做出贡献，可以创建不同的分支去处理，如 ext/extension-a、ext/extension-b。</p>
-<p>未完待续...</p>
 ]]></content:encoded>
         </item>
         <item>
