@@ -4,7 +4,7 @@
         <title>Frankie's Blog</title>
         <link>https://github.com/toFrankie/blog</link>
         <description>种一棵树，最好的时间是十年前。其次，是现在。</description>
-        <lastBuildDate>Wed, 17 Sep 2025 01:28:34 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 18 Sep 2025 10:32:25 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -46405,6 +46405,9 @@ git config user.email &lt;your-email&gt;
 <blockquote>
 <p>Related Link: <a href="https://git-scm.com/docs/git-config/2.43.0#Documentation/git-config.txt-coreignoreCase">git config core.ignoreCase</a></p>
 </blockquote>
+<p>自 2020 年 10 月起，在 GitHub 平台新创建的仓库，其默认分支名称正式调整为  <code>main</code>（<a href="https://github.com/github/renaming">详见</a>）。可通过命令调整默认分支：</p>
+<pre><code class="language-shell">$ git config --global init.defaultBranch main
+</code></pre>
 <h2>初始化</h2>
 <pre><code class="language-shell"># 初始化
 $ git init
@@ -46423,17 +46426,10 @@ $ git remote add origin &lt;repo-address&gt;
 $ vim .git/config
 </code></pre>
 <h2>克隆</h2>
-<pre><code class="language-shell">$ git clone &lt;repo-address&gt;
-
-# 使用 dir-name 作为克隆仓库的目录名称
-$ git clone &lt;repo-address&gt; &lt;dir-name&gt;
+<pre><code class="language-shell"># dir-name 可选，默认为仓库名称
+$ git clone &lt;repo-address&gt; [dir-name]
 </code></pre>
 <p>以上方式仅会克隆仓库的「默认分支」，通过 <code>git branch --list</code> 能看到本地只有一个分支。</p>
-<blockquote>
-<p>自 2020 年 10 月起，在 GitHub 平台新创建的仓库，其默认分支名称正式调整为  <code>main</code>（<a href="https://github.com/github/renaming">详见</a>）。可通过命令调整默认分支：</p>
-</blockquote>
-<pre><code class="language-shell">$ git config --global init.defaultBranch main
-</code></pre>
 <p>如果再通过新建分支再拉取指定分支，甚至可能还需要解决冲突，太繁琐了。</p>
 <p>那么，如何快速有效的直接克隆远程指定分支？</p>
 <pre><code class="language-shell">$ git clone -b &lt;branch-name&gt; &lt;repo-address&gt;
