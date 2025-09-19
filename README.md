@@ -2,7 +2,7 @@
 
 <h2 style="border-bottom: none">Hey, I'm Frankie 👋</h2>
 
-[![RSS](https://img.shields.io/badge/rss-subscribe-orange?logo=rss&style=flat)](https://raw.githubusercontent.com/toFrankie/blog/refs/heads/main/rss.xml)
+[![RSS](https://img.shields.io/badge/rss-subscribe-orange?logo=rss&style=flat)](https://raw.githubusercontent.com/tofrankie/blog/refs/heads/main/rss.xml)
 
 种一棵树，最好的时间是十年前。其次，是现在。
 
@@ -10,9 +10,9 @@
 
 ### 📚 我的
 
-[全部](https://github.com/toFrankie/blog/issues) • [2025](https://github.com/toFrankie/blog/labels/2025) • [2024](https://github.com/toFrankie/blog/labels/2024) • [2023](https://github.com/toFrankie/blog/labels/2023) • [2022](https://github.com/toFrankie/blog/labels/2022) • [2021](https://github.com/toFrankie/blog/labels/2021) • [2020](https://github.com/toFrankie/blog/labels/2020) • [2019](https://github.com/toFrankie/blog/labels/2019) • [2018](https://github.com/toFrankie/blog/labels/2018) • [2017](https://github.com/toFrankie/blog/labels/2017)
+[全部](https://github.com/tofrankie/blog/issues) • [2025](https://github.com/tofrankie/blog/labels/2025) • [2024](https://github.com/tofrankie/blog/labels/2024) • [2023](https://github.com/tofrankie/blog/labels/2023) • [2022](https://github.com/tofrankie/blog/labels/2022) • [2021](https://github.com/tofrankie/blog/labels/2021) • [2020](https://github.com/tofrankie/blog/labels/2020) • [2019](https://github.com/tofrankie/blog/labels/2019) • [2018](https://github.com/tofrankie/blog/labels/2018) • [2017](https://github.com/tofrankie/blog/labels/2017)
 
-你也可以使用 [GitHub Blogger](https://github.com/toFrankie/github-blogger) 搭建你的博客。
+你也可以使用 [GitHub Blogger](https://github.com/tofrankie/github-blogger) 搭建你的博客。
 
 ### 📖 精选
 
