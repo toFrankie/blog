@@ -23,7 +23,7 @@ jobs:
       - name: Update Traffic Data
         env:
           GITHUB_TOKEN: ${{ secrets.WORKFLOW_GITHUB_TOKEN }}
-          GITHUB_USER: toFrankie
+          GITHUB_USER: tofrankie
           GITHUB_REPO: blog
         run: bun run scripts/update-traffic-data.ts
 

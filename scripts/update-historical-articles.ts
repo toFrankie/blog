@@ -32,10 +32,10 @@ async function getMarkdownFiles(dir: string, ignoreDir: string) {
 // 解析 Markdown 文件，处理图片链接
 async function processMarkdownFile(filePath: string) {
   let fileContent = await fs.readFile(filePath, 'utf8')
-  // 需匹配：background-image: url(https://cdn.jsdelivr.net/gh/toFrankie/blog/images/1682475354583.png);
+  // 需匹配：background-image: url(https://cdn.jsdelivr.net/gh/tofrankie/blog/images/1682475354583.png);
 
-  // /\!\[.*?\]\((https:\/\/cdn\.jsdelivr\.net\/gh\/toFrankie\/blog\/images\/(\d+\.\w+))\)/g
-  // /\((https:\/\/cdn\.jsdelivr\.net\/gh\/toFrankie\/blog\/images\/(\d+\.\w+))\)/g
+  // /\!\[.*?\]\((https:\/\/cdn\.jsdelivr\.net\/gh\/tofrankie\/blog\/images\/(\d+\.\w+))\)/g
+  // /\((https:\/\/cdn\.jsdelivr\.net\/gh\/tofrankie\/blog\/images\/(\d+\.\w+))\)/g
 
   const imageRegex = new RegExp(
     `(https://cdn.jsdelivr.net/gh/${GITHUB_USER}/${GITHUB_REPO}/images/(\\d+\\.\\w+))`,

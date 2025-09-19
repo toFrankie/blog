@@ -15,14 +15,14 @@
 
 #### 手写系列
 
-- [手写 new](https://github.com/toFrankie/Blog/issues/1)
-- [手写深拷贝](https://github.com/toFrankie/Blog/issues/2)
-- [手写 call、apply、bind](https://github.com/toFrankie/Blog/issues/3)
-- [手写 Object.create](https://github.com/toFrankie/Blog/issues/4)
-- [手写 instanceof](https://github.com/toFrankie/Blog/issues/5)
+- [手写 new](https://github.com/tofrankie/blog/issues/1)
+- [手写深拷贝](https://github.com/tofrankie/blog/issues/2)
+- [手写 call、apply、bind](https://github.com/tofrankie/blog/issues/3)
+- [手写 Object.create](https://github.com/tofrankie/blog/issues/4)
+- [手写 instanceof](https://github.com/tofrankie/blog/issues/5)
 
 #### 工具系列
 
-- [macos-use](https://github.com/toFrankie/macos-use)
-- [github-blogger](https://github.com/toFrankie/github-blogger)
-- [terminal-dark-theme](https://github.com/toFrankie/terminal-dark-theme)
+- [macos-use](https://github.com/tofrankie/macos-use)
+- [github-blogger](https://github.com/tofrankie/github-blogger)
+- [terminal-dark-theme](https://github.com/tofrankie/terminal-dark-theme)

@@ -1,5 +1,5 @@
 blank_issues_enabled: true
 contact_links:
   - name: ❗️ 请勿新开 Issue
-    url: https://github.com/toFrankie/blog/discussions/342
+    url: https://github.com/tofrankie/blog/discussions/342
     about: 阅读文章时，如有任何想法、建议，欢迎底下评论（或在 Discussions 发起讨论），而不是新开 Issue。

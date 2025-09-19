@@ -41,7 +41,7 @@ export interface AllTraffic {
 
 export const getGithubRepo = () => process.env.GITHUB_REPO || 'blog'
 
-export const getGithubUser = () => process.env.GITHUB_USER || 'toFrankie'
+export const getGithubUser = () => process.env.GITHUB_USER || 'tofrankie'
 
 export const getGithubToken = () => process.env.GITHUB_TOKEN || ''
 
@@ -114,7 +114,7 @@ export async function getMarkdownContent(issue: Issue) {
   const res = await octokit.request('POST /markdown', {
     text: issue.body || '',
     mode: 'gfm',
-    context: 'toFrankie/blog',
+    context: 'tofrankie/blog',
   })
 
   return res.data

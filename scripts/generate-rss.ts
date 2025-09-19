@@ -23,7 +23,7 @@ async function generateRSS(issues: Issue[]) {
   const author = {
     name: 'Frankie',
     email: '1426203851@qq.com',
-    link: 'https://github.com/toFrankie',
+    link: 'https://github.com/tofrankie',
   }
 
   const latestUpdatedAt = issues.reduce((latest, issue) => {
@@ -34,8 +34,8 @@ async function generateRSS(issues: Issue[]) {
   const feed = new Feed({
     title: "Frankie's Blog",
     description: '种一棵树，最好的时间是十年前。其次，是现在。',
-    id: 'https://github.com/toFrankie/blog',
-    link: 'https://github.com/toFrankie/blog',
+    id: 'https://github.com/tofrankie/blog',
+    link: 'https://github.com/tofrankie/blog',
     language: 'zh-CN',
     copyright: 'All rights reserved 2025',
     author,

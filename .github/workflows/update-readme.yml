@@ -37,7 +37,7 @@ jobs:
         if: env.file_changed == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.WORKFLOW_GITHUB_TOKEN }}
-          GITHUB_USER: toFrankie
+          GITHUB_USER: tofrankie
           GITHUB_REPO: blog
         run: |
           git config user.name 'github-actions[bot]'
